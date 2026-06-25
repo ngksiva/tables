@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Как выбрать инструмент оценки защищённости — Академия Батранкова</title>
+<meta name="description" content="Таблица выбора инструмента оценки защищённости по уровню зрелости ИБ. Для CISO и руководства.">
+<meta name="author" content="Denis Batrankov, CISSP">
+<style>
+:root {
+  --font: 'Segoe UI', system-ui, Arial, sans-serif;
+  --blue:  #185FA5;
+  --bg:        #0f172a;
+  --bg2:       #1e293b;
+  --bg3:       #263044;
+  --surface:   #1e293b;
+  --border:    #334155;
+  --text:      #e2e8f0;
+  --text2:     #94a3b8;
+  --text3:     #64748b;
+  --head-bg:   #0D1B2A;
+  --label-bg:  #1a2640;
+  --c1-bg: #1e1d1c; --c1-head: #3d3c39;
+  --c2-bg: #181716; --c2-head: #2e2d2b;
+  --c3-bg: #121110; --c3-head: #1f1e1d;
+  --c4-bg: #1a1108; --c4-head: #6b3e08;
+  --c5-bg: #150b06; --c5-head: #7a2e15;
+  --cb-bg: #060e1c; --cb-head: #0f3d70;
+  --yes-fg: #4ade80; --no-fg: #f87171; --warn-fg: #fbbf24;
+  --c4-fg: #fbbf24; --c5-fg: #fb923c; --cb-fg: #60a5fa;
+}
+[data-theme="light"] {
+  --bg:       #f5f5f3; --bg2: #ffffff; --bg3: #eef2f7;
+  --surface:  #ffffff; --border: #d3d1c7;
+  --text:     #1a1a18; --text2: #5f5e5a; --text3: #888780;
+  --head-bg:  #0D1B2A; --label-bg: #f1efe8;
+  --c1-bg: #f8f8f6; --c1-head: #5F5E5A;
+  --c2-bg: #f5f4f2; --c2-head: #444441;
+  --c3-bg: #f2f1ee; --c3-head: #2C2C2A;
+  --c4-bg: #fff8ed; --c4-head: #854F0B;
+  --c5-bg: #fff4f0; --c5-head: #993C1D;
+  --cb-bg: #eef5fc; --cb-head: #185FA5;
+  --yes-fg: #085041; --no-fg: #a32d2d; --warn-fg: #854F0B;
+  --c4-fg: #854F0B; --c5-fg: #993C1D; --cb-fg: #185FA5;
+}
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.55; transition: background .25s, color .25s; }
+a { color: #60a5fa; text-decoration: none; }
+a:hover { text-decoration: underline; }
+[data-theme="light"] a { color: var(--blue); }
+
+.site-header { background: var(--head-bg); border-bottom: 3px solid var(--blue); padding: 1.5rem 1.75rem 1.25rem; }
+.header-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: .75rem; margin-bottom: 1rem; }
+.brand { font-size: .75rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: #9fe1cb; text-decoration: none; }
+.brand:hover { opacity: .85; text-decoration: none; }
+.header-actions { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; }
+.social-links { display: flex; gap: .6rem; flex-wrap: wrap; }
+.social-btn { display: inline-flex; align-items: center; gap: .3rem; border-radius: 6px; padding: .25rem .65rem; font-size: .75rem; text-decoration: none; transition: background .2s; border: 1px solid transparent; }
+.social-btn.tg  { background: #0e2a3d; border-color: #0e76a8; color: #38bdf8; }
+.social-btn.tg:hover { background: #0e3d56; text-decoration: none; }
+.social-btn.yt  { background: #2d0e0e; border-color: #7f1d1d; color: #f87171; }
+.social-btn.yt:hover { background: #3d1212; text-decoration: none; }
+[data-theme="light"] .social-btn.tg { background: #e0f2fe; border-color: #7dd3fc; color: #0284c7; }
+[data-theme="light"] .social-btn.yt { background: #fee2e2; border-color: #fca5a5; color: #dc2626; }
+.btn-theme { background: #1e3a5f; border: 1px solid #2d5a8e; color: #93c5fd; border-radius: 6px; padding: .35rem .75rem; font-size: .78rem; cursor: pointer; display: flex; align-items: center; gap: .35rem; transition: background .2s; white-space: nowrap; }
+.btn-theme:hover { background: #2d5a8e; }
+[data-theme="light"] .btn-theme { background: #e8f0fb; border-color: #b5d0f0; color: var(--blue); }
+[data-theme="light"] .btn-theme:hover { background: #d0e4f7; }
+.site-header h1 { font-size: clamp(1.1rem, 2.5vw, 1.6rem); font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: .35rem; }
+.header-meta-row { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; align-items: center; font-size: .8rem; color: #94a3b8; margin-top: .5rem; }
+.meta-badge { background: #263044; color: #93c5fd; border-radius: 4px; padding: .15rem .55rem; font-size: .72rem; font-weight: 600; }
+[data-theme="light"] .meta-badge { background: #dbeafe; color: var(--blue); }
+
+.intro { border-left: 4px solid var(--blue); background: var(--bg3); padding: .9rem 1.25rem; margin: 1.25rem 1.5rem 0; border-radius: 0 6px 6px 0; font-size: .875rem; color: var(--text2); }
+.intro strong { color: var(--text); }
+
+.section-title { font-size: 1rem; font-weight: 700; color: var(--text); margin: 1.75rem 1.5rem .6rem; padding-bottom: .35rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: .5rem; }
+.section-title::before { content: ''; display: inline-block; width: 3px; height: 1em; background: var(--blue); border-radius: 2px; }
+
+.tbl-wrap { overflow-x: auto; margin: 0 1.5rem; border-radius: 8px; border: 1px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+[data-theme="light"] .tbl-wrap { box-shadow: 0 1px 4px rgba(0,0,0,.1); }
+
+table { border-collapse: collapse; width: 100%; min-width: 900px; font-size: .78rem; }
+.row-lvl th, .row-tools th { padding: .5rem .65rem; text-align: center; font-weight: 700; color: #fff; border: 1px solid rgba(255,255,255,.12); line-height: 1.3; }
+.row-lvl th { font-size: .66rem; letter-spacing: .05em; text-transform: uppercase; }
+.row-tools th { font-size: .8rem; }
+.ch-lbl { background: #0D1B2A; }
+.ch-1 { background: var(--c1-head); }
+.ch-2 { background: var(--c2-head); }
+.ch-3 { background: var(--c3-head); }
+.ch-4 { background: var(--c4-head); }
+.ch-5 { background: var(--c5-head); }
+.ch-b { background: var(--cb-head); }
+
+tr.dr td { padding: .5rem .65rem; border: 1px solid var(--border); vertical-align: top; line-height: 1.45; transition: background .2s; }
+.td-lbl { font-weight: 700; font-size: .8rem; text-align: left !important; background: var(--label-bg) !important; color: var(--text) !important; border: 1px solid var(--border) !important; white-space: nowrap; vertical-align: middle !important; }
+.td-sub { font-size: .68rem; color: var(--text3); font-weight: 400; display: block; margin-top: 2px; }
+
+tr.dr td.c1 { background: var(--c1-bg); color: var(--text2); }
+tr.dr td.c2 { background: var(--c2-bg); color: var(--text2); }
+tr.dr td.c3 { background: var(--c3-bg); color: var(--text2); }
+tr.dr td.c4 { background: var(--c4-bg); color: var(--c4-fg); }
+tr.dr td.c5 { background: var(--c5-bg); color: var(--c5-fg); }
+tr.dr td.cb { background: var(--cb-bg); color: var(--cb-fg); font-weight: 600; }
+
+.tag { display: inline-block; border-radius: 4px; padding: .1rem .45rem; font-size: .72rem; font-weight: 600; margin: 1px; }
+.tag-yes  { background: rgba(74,222,128,.15); color: var(--yes-fg); }
+.tag-no   { background: rgba(248,113,113,.12); color: var(--no-fg); }
+.tag-warn { background: rgba(251,191,36,.12);  color: var(--warn-fg); }
+[data-theme="light"] .tag-yes  { background: #e1f5ee; }
+[data-theme="light"] .tag-no   { background: #fcebeb; }
+[data-theme="light"] .tag-warn { background: #faeeda; }
+
+.stop { color: var(--no-fg); }
+.go   { color: var(--yes-fg); }
+
+/* FAQ */
+.faq { margin: 0 1.5rem; display: flex; flex-direction: column; gap: .6rem; }
+.faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.faq-q { width: 100%; background: none; border: none; padding: .9rem 1.1rem; text-align: left; font-family: var(--font); font-size: .85rem; font-weight: 700; color: var(--text); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.faq-q:hover { background: var(--bg3); }
+.faq-ico { font-size: 1rem; transition: transform .25s; flex-shrink: 0; }
+.faq-item.open .faq-ico { transform: rotate(45deg); }
+.faq-a { display: none; padding: 0 1.1rem .9rem; font-size: .82rem; color: var(--text2); line-height: 1.65; border-top: 1px solid var(--border); }
+.faq-a p { margin-top: .65rem; }
+.faq-a p:first-child { margin-top: .55rem; }
+.faq-a strong { color: var(--text); }
+.faq-item.open .faq-a { display: block; }
+
+/* SELF-DIAGNOSIS */
+.questions { margin: 0 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: .75rem; }
+.q-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: .9rem 1rem; }
+.q-card h3 { font-size: .8rem; font-weight: 700; color: var(--text); margin-bottom: .5rem; display: flex; align-items: center; gap: .4rem; }
+.q-card ul { list-style: none; padding: 0; font-size: .78rem; color: var(--text2); line-height: 1.7; }
+.q-card ul li::before { content: '→ '; color: var(--text3); }
+.q-level { display: inline-block; font-size: .66rem; font-weight: 700; padding: .1rem .4rem; border-radius: 4px; margin-left: auto; }
+
+.callout { margin: 0 1.5rem; padding: .9rem 1.2rem; border-radius: 0 6px 6px 0; font-size: .86rem; line-height: 1.6; color: var(--text2); }
+.callout strong { color: var(--text); }
+.cl-blue  { background: var(--cb-bg); border-left: 4px solid var(--blue); }
+.cl-teal  { background: rgba(15,110,86,.1); border-left: 4px solid #0F6E56; }
+[data-theme="light"] .cl-teal { background: #e6f5f1; }
+
+.footnote { margin: .4rem 1.5rem 0; font-size: .73rem; color: var(--text3); }
+
+.site-footer { margin-top: 2rem; padding: 1rem 1.75rem; background: #0D1B2A; color: #64748b; font-size: .75rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem; border-top: 1px solid #1e3a5f; }
+.site-footer a { color: #9fe1cb; }
+
+.mt1 { margin-top: 1rem; }
+.pb  { padding-bottom: 1.5rem; }
+
+@media (max-width: 640px) {
+  .site-header { padding: 1rem 1rem .9rem; }
+  .intro, .section-title, .callout, .footnote, .questions, .faq, .tbl-wrap { margin-left: .75rem; margin-right: .75rem; }
+  .site-footer { padding: .75rem 1rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-top">
+    <a class="brand" href="https://batrankov.ru" target="_blank">🛡 Академия Батранкова</a>
+    <div class="header-actions">
+      <div class="social-links">
+        <a class="social-btn tg" href="https://t.me/safebdv" target="_blank" rel="noopener">✈️ @safebdv</a>
+        <a class="social-btn yt" href="https://www.youtube.com/@BDVSecurity" target="_blank" rel="noopener">▶ YouTube</a>
+      </div>
+      <button class="btn-theme" onclick="toggleTheme()" id="theme-btn">🌙 Тёмная тема</button>
+    </div>
+  </div>
+  <h1>Как выбрать инструмент оценки защищённости</h1>
+  <div class="header-meta-row">
+    <span class="meta-badge">V3</span>
+    <span>Актуально: 24.06.2025</span>
+    <span style="color:#64748b">Denis Batrankov, CISSP</span>
+  </div>
+</header>
+
+<div class="intro">
+  Таблица для CISO и руководства. Найдите свой уровень зрелости по столбцу — и читайте что подходит, сколько стоит и что вы получите на выходе. <strong>НС = недопустимое событие</strong> — конкретный бизнес-сценарий катастрофы: остановка завода, кража средств, утечка данных.
+</div>
+
+<div class="section-title">Таблица выбора инструмента по уровню зрелости</div>
+<div class="tbl-wrap">
+<table>
+  <thead>
+    <tr class="row-lvl">
+      <th class="ch-lbl" style="min-width:155px"></th>
+      <th class="ch-1">Уровень 1</th>
+      <th class="ch-2">Уровень 2</th>
+      <th class="ch-3">Уровень 3</th>
+      <th class="ch-4">Уровень 4</th>
+      <th class="ch-5">Уровень 5</th>
+      <th class="ch-b">Уровень 5+<br>DORA</th>
+    </tr>
+    <tr class="row-tools">
+      <th class="ch-lbl">Инструмент</th>
+      <th class="ch-1">Аудит / сканер</th>
+      <th class="ch-2">Пентест</th>
+      <th class="ch-3">BAS</th>
+      <th class="ch-4">Bug Bounty</th>
+      <th class="ch-5">Кибериспытания</th>
+      <th class="ch-b">TLPT / DORA</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr class="dr">
+      <td class="td-lbl">Портрет компании<span class="td-sub">Кто вы сейчас</span></td>
+      <td class="c1">Нет инвентаризации. Патчи нерегулярны. Политик безопасности нет.</td>
+      <td class="c2">Базовая гигиена есть. Периметр закрыт. Мониторинга событий нет.</td>
+      <td class="c3">Есть SOC или MDR. Инфраструктура растёт. Пентесты не успевают за изменениями.</td>
+      <td class="c4">Зрелая инфраструктура. Есть AppSec. Пентесты перестали удивлять.</td>
+      <td class="c5">Топ-30 РФ. Эшелонированная оборона. Внутренний Red Team.</td>
+      <td class="cb">Системно значимая финансовая организация — ЕС или ориентир для ЦБ РФ.</td>
+    </tr>
+
+    <tr class="dr">
+      <td class="td-lbl">Что проверяет<span class="td-sub">Вопрос к защите</span></td>
+      <td class="c1">Что вообще есть и где очевидные дыры?</td>
+      <td class="c2">Можно ли взломать периметр и что там внутри?</td>
+      <td class="c3">Замечает ли SOC известные техники атак?</td>
+      <td class="c4">Есть ли уязвимости в коде, API и бизнес-логике?</td>
+      <td class="c5">Можно ли реализовать конкретное НС через цепочку уязвимостей?</td>
+      <td class="cb">Выдержит ли бизнес скрытную атаку профессионального противника месяцами?</td>
+    </tr>
+
+    <tr class="dr">
+      <td class="td-lbl">Метод / инструмент атаки<span class="td-sub">Формат</span></td>
+      <td class="c1">Автоматизированный анализ</td>
+      <td class="c2">1 команда, 2–5 человек</td>
+      <td class="c3">Автоматика по базе MITRE ATT&amp;CK</td>
+      <td class="c4">Сообщество исследователей, scope ограничен</td>
+      <td class="c5">Сообщество исследователей, соревновательно, вся инфраструктура</td>
+      <td class="cb">1 сертифицированная команда, имитирует конкретную APT-группировку</td>
+    </tr>
+
+    <tr class="dr">
+      <td class="td-lbl">Threat Intelligence</td>
+      <td class="c1"><span class="tag tag-no">Нет</span></td>
+      <td class="c2"><span class="tag tag-warn">Частично</span></td>
+      <td class="c3"><span class="tag tag-yes">Да</span> — база TTP</td>
+      <td class="c4"><span class="tag tag-no">Нет</span></td>
+      <td class="c5"><span class="tag tag-warn">Частично</span></td>
+      <td class="cb"><span class="tag tag-yes">Обязательно</span> — профиль APT</td>
+    </tr>
+
+    <tr class="dr">
+      <td class="td-lbl">Purple Team<span class="td-sub">Разбор атаки</span></td>
+      <td class="c1"><span class="tag tag-no">Нет</span></td>
+      <td class="c2"><span class="tag tag-no">Нет</span></td>
+      <td class="c3"><span class="tag tag-no">Нет</span></td>
+      <td class="c4"><span class="tag tag-no">Нет</span></td>
+      <td class="c5"><span class="tag tag-no">Нет</span></td>
+      <td class="cb"><span class="tag tag-yes">Обязательно</span></td>
+    </tr>
+
+    <tr class="dr">
+      <td class="td-lbl">Контроль регулятора</td>
+      <td class="c1"><span class="tag tag-no">Нет</span></td>
+      <td class="c2"><span class="tag tag-no">Нет</span></td>
+      <td class="c3"><span class="tag tag-no">Нет</span></td>
+      <td class="c4"><span class="tag tag-no">Нет</span></td>
+      <td class="c5"><span class="tag tag-no">Нет</span></td>
+      <td class="cb"><span class="tag tag-yes">Контролирует</span></td>
+    </tr>
+
+    <tr class="dr">
+      <td class="td-lbl">Среда тестирования</td>
+      <td class="c1">Продакшн / конфиги</td>
+      <td class="c2">Продакшн</td>
+      <td class="c3">Продакшн</td>
+      <td class="c4">Продакшн (scope)</td>
+      <td class="c5">Стенд или продакшн *</td>
+      <td class="cb">Продакшн (живой)</td>
+    </tr>
+
+    <tr class="dr">
+      <td class="td-lbl">Длительность</td>
+      <td class="c1">1–5 дней</td>
+      <td class="c2">1–2 недели</td>
+      <td class="c3">Непрерывно (утилита)</td>
+      <td class="c4">Непрерывно (люди)</td>
+      <td class="c5">3 месяца</td>
+      <td class="cb">3–4 мес. атака + 12 мес. подготовка</td>
+    </tr>
+
+    <tr class="dr">
+      <td class="td-lbl">Ориентир по бюджету<span class="td-sub">Российский рынок 2025</span></td>
+      <td class="c1">от 100 тыс. ₽</td>
+      <td class="c2">от 300 тыс. ₽</td>
+      <td class="c3">от 1 млн ₽/год</td>
+      <td class="c4">средняя выплата за баг — 65 тыс. ₽;<br>максимум — до 5 млн ₽</td>
+      <td class="c5">от 3 до 50 млн ₽ за НС</td>
+      <td class="cb">от 10 млн ₽ + регуляторные издержки</td>
+    </tr>
+
+    <tr class="dr">
+      <td class="td-lbl">Что получает CISO<span class="td-sub">Результат</span></td>
+      <td class="c1">Список уязвимостей с приоритетами. Карта активов.</td>
+      <td class="c2">Векторы атак. Задачи для IT-команды.</td>
+      <td class="c3">Карта покрытия детектов. Настройка правил SOC.</td>
+      <td class="c4">Поток находок по коду и API. Планомерное вычищение.</td>
+      <td class="c5">Диагностика слепых зон. Стресс-тест SOC. Понимание реальной устойчивости.</td>
+      <td class="cb">Регуляторный отчёт. Purple Teaming. Доказательство устойчивости для ЕЦБ и ориентир для будущих требований ЦБ РФ.</td>
+    </tr>
+
+    <tr class="dr">
+      <td class="td-lbl">Что получает руководство<span class="td-sub">Язык для совета директоров</span></td>
+      <td class="c1">«Знаем что есть и где критичные дыры»</td>
+      <td class="c2">«Периметр проверен, найдены конкретные проблемы»</td>
+      <td class="c3">«Атаки на нас замечаем вовремя»</td>
+      <td class="c4">«Код и API постоянно проверяет независимое сообщество»</td>
+      <td class="c5">«Проверили: реализовать НС — сложно. Вот где пробелы.»</td>
+      <td class="cb">«Регулятор подтвердил операционную устойчивость»</td>
+    </tr>
+
+    <tr class="dr">
+      <td class="td-lbl">Когда НЕ стоит<span class="td-sub">Ошибки выбора</span></td>
+      <td class="c1">Аудит нужен всегда. Единственное исключение — нет ни одного человека кто будет работать с результатами</td>
+      <td class="c2"><span class="stop">✗</span> Если ещё нет инвентаризации активов</td>
+      <td class="c3"><span class="stop">✗</span> Если нет SOC — некому смотреть на результаты</td>
+      <td class="c4"><span class="stop">✗</span> Если нет процесса обработки находок и SLA на исправление</td>
+      <td class="c5"><span class="stop">✗</span> Если пентесты ещё находят очевидное. Дорогой способ узнать про дефолтные пароли.</td>
+      <td class="cb"><span class="stop">✗</span> Если нет White Team и бюджета на устранение после</td>
+    </tr>
+
+    <tr class="dr">
+      <td class="td-lbl">Следующий шаг<span class="td-sub">Куда расти</span></td>
+      <td class="c1"><span class="go">→</span> Пентест + внедрение NGFW</td>
+      <td class="c2"><span class="go">→</span> BAS + SOC или MDR</td>
+      <td class="c3"><span class="go">→</span> Bug Bounty — когда выстроен процесс обработки находок и есть SLA</td>
+      <td class="c4"><span class="go">→</span> Кибериспытания + внутренний Red Team</td>
+      <td class="c5"><span class="go">→</span> TLPT при наличии регуляторного требования</td>
+      <td class="cb"><span class="go">→</span> Регулярные циклы раз в 3 года + Purple Teaming</td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
+
+<div class="footnote">
+  * Standoff: часть компаний тестирует на стенде-дублере, часть — на живой инфраструктуре. Методику в РФ стандартизирует <a href="https://cyberfy.ru/" target="_blank">АО «Кибериспытание» (Cyberfy)</a>. Площадки: <a href="https://bugbounty.standoff365.com" target="_blank">Standoff 365</a>, <a href="https://bi.zone/products/bug-bounty/" target="_blank">BI.ZONE Bug Bounty</a>. Данные по выплатам: Standoff Bug Bounty 2025.
+</div>
+
+<!-- SELF-DIAGNOSIS -->
+<div class="section-title mt1">Самодиагностика: на каком уровне вы сейчас?</div>
+<div class="questions">
+  <div class="q-card">
+    <h3><span style="color:#94a3b8">⬤</span> Уровень 1 — Аудит<span class="q-level" style="background:#1e1d1c;color:#94a3b8">Старт</span></h3>
+    <ul>
+      <li>Нет актуальной инвентаризации активов</li>
+      <li>Патчи применяются нерегулярно</li>
+      <li>Нет парольной политики и MFA</li>
+      <li>Не знаете что открыто снаружи</li>
+    </ul>
+  </div>
+  <div class="q-card">
+    <h3><span style="color:#94a3b8">⬤</span> Уровень 2 — Пентест<span class="q-level" style="background:#181716;color:#94a3b8">Базовый</span></h3>
+    <ul>
+      <li>Есть NGFW и базовая сегментация</li>
+      <li>MFA внедрена для критичных систем</li>
+      <li>Патч-менеджмент работает регулярно</li>
+      <li>Нет мониторинга событий безопасности</li>
+    </ul>
+  </div>
+  <div class="q-card">
+    <h3><span style="color:#60a5fa">⬤</span> Уровень 3 — BAS<span class="q-level" style="background:#060e1c;color:#60a5fa">Средний</span></h3>
+    <ul>
+      <li>Есть SOC или подключён MDR</li>
+      <li>Пентесты проводятся раз в полгода</li>
+      <li>Новые сервисы появляются каждую неделю</li>
+      <li>Хотите знать что SOC замечает, а что нет</li>
+    </ul>
+  </div>
+  <div class="q-card">
+    <h3><span style="color:#fbbf24">⬤</span> Уровень 4 — Bug Bounty<span class="q-level" style="background:#1a1108;color:#fbbf24">Зрелый</span></h3>
+    <ul>
+      <li>Пентест перестал находить новое</li>
+      <li>Есть владельцы систем и SLA на исправление</li>
+      <li>Готовы платить за каждую находку</li>
+      <li>Есть AppSec-команда или DevSecOps</li>
+    </ul>
+  </div>
+  <div class="q-card">
+    <h3><span style="color:#fb923c">⬤</span> Уровень 5 — Кибериспытания<span class="q-level" style="background:#150b06;color:#fb923c">Высокий</span></h3>
+    <ul>
+      <li>Bug Bounty работает годами</li>
+      <li>Есть внутренний Red Team</li>
+      <li>SOC умеет реагировать, а не только смотреть</li>
+      <li>Хотите проверить конкретные НС</li>
+    </ul>
+  </div>
+  <div class="q-card">
+    <h3><span style="color:#60a5fa">⬤</span> Уровень 5+ — TLPT<span class="q-level" style="background:#060e1c;color:#60a5fa">DORA</span></h3>
+    <ul>
+      <li>Системно значимая организация</li>
+      <li>Требование регулятора (ЕЦБ или ЦБ РФ)</li>
+      <li>Есть выделенная White Team</li>
+      <li>Есть бюджет на устранение после испытаний</li>
+    </ul>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="section-title mt1">Вопросы которые задают CISO</div>
+<div class="faq">
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Как понять что я перешёл на следующий уровень? Где критерий?
+      <span class="faq-ico">+</span>
+    </button>
+    <div class="faq-a">
+      <p>Критерий не ощущение, а факт. <strong>С 1 на 2:</strong> проведена инвентаризация всех активов, закрыты все порты кроме необходимых, внедрена MFA на критичных системах, патчи применяются по расписанию. <strong>С 2 на 3:</strong> последние два пентеста не нашли ничего критического, есть работающий SOC или MDR с SLA. <strong>С 3 на 4:</strong> BAS показывает покрытие детектов выше 70% по топ-20 техникам MITRE ATT&CK, есть процесс обработки уязвимостей с SLA. <strong>С 4 на 5:</strong> Bug Bounty работает более года, исследователи с трудом находят что-то выше Medium, есть внутренний Red Team.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Сколько реально стоит Bug Bounty в России? Конкретные цифры.
+      <span class="faq-ico">+</span>
+    </button>
+    <div class="faq-a">
+      <p>По данным Standoff Bug Bounty за 2025 год: <strong>средняя выплата за принятый отчёт — 65 тыс. рублей</strong> (рост 12% к 2024 году). Максимальная выплата за одну уязвимость — 4,97 млн рублей. 43 исследователя за год заработали более 1 млн рублей. На BI.ZONE Bug Bounty общие выплаты за 2024 год составили 64 млн рублей.</p>
+      <p>Для корпоративных и SaaS-платформ средняя выплата превышает 115 тыс. рублей, каждая десятая выплата — более 283 тыс. рублей. Минимальный порог входа — от 30 тыс. рублей за уязвимость среднего уровня.</p>
+      <p>Площадки: <a href="https://bugbounty.standoff365.com" target="_blank">Standoff Bug Bounty</a>, <a href="https://bi.zone/products/bug-bounty/" target="_blank">BI.ZONE Bug Bounty</a>.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Где в России запустить кибериспытания? Только Standoff?
+      <span class="faq-ico">+</span>
+    </button>
+    <div class="faq-a">
+      <p>Две основные площадки: <a href="https://bugbounty.standoff365.com" target="_blank">Standoff 365</a> (Positive Technologies) и <a href="https://bi.zone/products/bug-bounty/" target="_blank">BI.ZONE Bug Bounty</a>. Методику кибериспытаний стандартизирует <a href="https://cyberfy.ru/" target="_blank">АО «Кибериспытание» (Cyberfy)</a> — они аккредитовали обе площадки.</p>
+      <p>Пример: <a href="https://cyber.tbank.ru/" target="_blank">Т-Банк</a> объявил кибериспытания с призовым фондом 50 млн рублей и выплатой до 12 млн за одно НС на живой инфраструктуре.</p>
+      <p><strong>Важно:</strong> часть компаний на Standoff — это переупакованный Bug Bounty с фокусом на НС, а не полноценные кибериспытания топ-уровня. Смотрите на масштаб бизнеса и реальный призовой фонд программы.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Что такое Purple Teaming и зачем он обязателен в TLPT?
+      <span class="faq-ico">+</span>
+    </button>
+    <div class="faq-a">
+      <p>Purple Teaming — это совместный разбор атаки Red Team и Blue Team после завершения испытаний. Red Team показывает каждый шаг: как зашли, где закрепились, как двигались. Blue Team разбирает: что заметили, что пропустили и почему.</p>
+      <p>Это не отдельное мероприятие, а финальная фаза TLPT. По регламенту DORA — обязательная. По TIBER-EU — рекомендованная. Без Purple Teaming испытание превращается в дорогой отчёт, из которого непонятно что именно улучшать в детектах и процессах реагирования.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Можно ли совмещать инструменты? Например BAS и Bug Bounty одновременно?
+      <span class="faq-ico">+</span>
+    </button>
+    <div class="faq-a">
+      <p>Да, и это правильно. BAS и Bug Bounty решают разные задачи и не мешают друг другу. BAS — это автоматика для Blue Team, работает непрерывно и проверяет детекты. Bug Bounty — это люди, которые ищут логические уязвимости и баги в бизнес-логике, которые автоматика не найдёт.</p>
+      <p>Типичная зрелая комбинация на уровне 4: <strong>пентест раз в полгода + BAS непрерывно + Bug Bounty параллельно</strong>. На уровне 5 добавляется внутренний Red Team и кибериспытания раз в год.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Есть ли провайдеры TLPT в России? Или это только европейская история?
+      <span class="faq-ico">+</span>
+    </button>
+    <div class="faq-a">
+      <p>Формально TLPT по DORA и TIBER-EU — требование для европейских финансовых организаций, в России обязательного регуляторного аналога пока нет. Но технически услугу оказывают: Positive Technologies, BI.ZONE, F6 (бывший Group-IB) — все имеют команды для advanced Red Team с элементами Threat Intelligence.</p>
+      <p>ЦБ РФ смотрит на DORA как на ориентир. Вероятно, в ближайшие 3–5 лет появится российский аналог требования для системно значимых банков. CISO крупных финансовых организаций уже сейчас проводят испытания в духе TLPT добровольно — в первую очередь те, у кого есть европейские дочерние структуры.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Что будет с компанией если не заплатить исследователю или занизить выплату?
+      <span class="faq-ico">+</span>
+    </button>
+    <div class="faq-a">
+      <p>Последствия наступают быстро и на нескольких уровнях одновременно.</p>
+      <p><strong>Репутация в сообществе.</strong> Сообщество багхантеров в России небольшое и хорошо связанное. Информация о недобросовестном вендоре расходится за дни. Один исследователь который не получил деньги — это минимум несколько десятков коллег которые больше не придут на вашу программу. Лучшие специалисты, которые находят критические уязвимости, уйдут на программы где платят честно. Останутся только начинающие, которые присылают дубли и низкокачественные отчёты.</p>
+      <p><strong>Публичность.</strong> Исследователи документируют отказы публично — на Хабре, в Telegram-каналах, на профильных форумах. Известен случай когда после публикации статьи об игнорировании уязвимостей вендором исследователю удалили аккаунты на платформе — что только усилило публичный резонанс. Такие истории индексируются и живут годами.</p>
+      <p><strong>Качество безопасности.</strong> Если исследователь нашёл уязвимость и не получил вознаграждение, у него нет стимула хранить информацию. Он может продать её на закрытых рынках или передать тем, кто заплатит. Вендор который не платит белым хакерам фактически финансирует чёрный рынок своих же уязвимостей.</p>
+      <p><strong>Что делать вместо этого.</strong> Установите чёткий SLA: подтверждение отчёта в течение 3 рабочих дней, обновление статуса раз в неделю. Не практикуйте выплату «после устранения уязвимости» без фиксированного срока — это воспринимается как уклонение. Если уязвимость по вашей оценке стоит меньше ожиданий исследователя — объясняйте критерии оценки публично и прозрачно. Хорошая репутация вендора стоит дороже сэкономленных выплат.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="callout cl-blue mt1">
+  <strong>Главное правило:</strong> инструмент должен соответствовать уровню зрелости, а не бюджету или желанию красиво отчитаться. Запустить кибериспытания без выстроенной базы — значит дорого купить подтверждение того, что вас можно взломать. Это покажет и бесплатный сканер.
+</div>
+
+<div class="callout cl-teal mt1 pb">
+  <strong>Кибериспытания и Bug Bounty — не одно и то же.</strong> Bug Bounty ищет точечные баги в отдельных активах и платит за каждую находку. Кибериспытания проверяют можно ли пройти весь путь от периметра до недопустимого события и платят только за доказанный путь к катастрофе. Это разные вопросы к защите — и разные уровни готовности к ответу.
+</div>
+
+<footer class="site-footer">
+  <span>Denis Batrankov, CISSP &nbsp;·&nbsp; <a href="https://batrankov.ru" target="_blank">batrankov.ru</a> &nbsp;·&nbsp; <a href="https://t.me/safebdv" target="_blank">@safebdv</a> &nbsp;·&nbsp; <a href="https://www.youtube.com/@BDVSecurity" target="_blank">YouTube</a></span>
+  <span>Академия Батранкова · V3 · 2025</span>
+</footer>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const btn = document.getElementById('theme-btn');
+  if (html.dataset.theme === 'dark') {
+    html.dataset.theme = 'light';
+    btn.textContent = '☀️ Светлая тема';
+  } else {
+    html.dataset.theme = 'dark';
+    btn.textContent = '🌙 Тёмная тема';
+  }
+}
+document.getElementById('theme-btn').textContent =
+  document.documentElement.dataset.theme === 'dark' ? '🌙 Тёмная тема' : '☀️ Светлая тема';
+
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  item.classList.toggle('open');
+}
+</script>
+</body>
+</html>

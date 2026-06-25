@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Справочники по кибербезопасности — Академия Батранкова</title>
+<meta name="description" content="Коллекция справочных таблиц и руководств по кибербезопасности для CISO и руководства. Denis Batrankov, CISSP.">
+<meta name="author" content="Denis Batrankov, CISSP">
+<meta property="og:title" content="Справочники по кибербезопасности — Академия Батранкова">
+<meta property="og:description" content="Коллекция справочных таблиц для CISO: инструменты оценки защищённости, управление рисками, сравнения методологий.">
+<meta property="og:type" content="website">
+<style>
+:root {
+  --font: 'Segoe UI', system-ui, Arial, sans-serif;
+  --blue:  #185FA5;
+  --teal:  #0F6E56;
+  --bg:       #0f172a;
+  --bg2:      #1e293b;
+  --bg3:      #263044;
+  --surface:  #1e293b;
+  --border:   #334155;
+  --text:     #e2e8f0;
+  --text2:    #94a3b8;
+  --text3:    #64748b;
+  --head-bg:  #0D1B2A;
+}
+[data-theme="light"] {
+  --bg:      #f5f5f3;
+  --bg2:     #ffffff;
+  --bg3:     #eef2f7;
+  --surface: #ffffff;
+  --border:  #d3d1c7;
+  --text:    #1a1a18;
+  --text2:   #5f5e5a;
+  --text3:   #888780;
+  --head-bg: #0D1B2A;
+}
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.55; transition: background .25s, color .25s; min-height: 100vh; }
+a { color: #60a5fa; text-decoration: none; }
+a:hover { text-decoration: underline; }
+[data-theme="light"] a { color: var(--blue); }
+
+/* HEADER */
+.site-header { background: var(--head-bg); border-bottom: 3px solid var(--blue); padding: 1.75rem 2rem 1.5rem; }
+.header-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: .75rem; margin-bottom: 1.25rem; }
+.brand { font-size: .75rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: #9fe1cb; text-decoration: none; display: flex; align-items: center; gap: .4rem; }
+.brand:hover { opacity: .85; text-decoration: none; }
+.header-actions { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; }
+.social-links { display: flex; gap: .6rem; flex-wrap: wrap; }
+.social-btn { display: inline-flex; align-items: center; gap: .3rem; border-radius: 6px; padding: .3rem .7rem; font-size: .78rem; text-decoration: none; transition: background .2s; border: 1px solid transparent; }
+.social-btn.tg  { background: #0e2a3d; border-color: #0e76a8; color: #38bdf8; }
+.social-btn.tg:hover { background: #0e3d56; text-decoration: none; }
+.social-btn.yt  { background: #2d0e0e; border-color: #7f1d1d; color: #f87171; }
+.social-btn.yt:hover { background: #3d1212; text-decoration: none; }
+[data-theme="light"] .social-btn.tg { background: #e0f2fe; border-color: #7dd3fc; color: #0284c7; }
+[data-theme="light"] .social-btn.yt { background: #fee2e2; border-color: #fca5a5; color: #dc2626; }
+.btn-theme { background: #1e3a5f; border: 1px solid #2d5a8e; color: #93c5fd; border-radius: 6px; padding: .35rem .75rem; font-size: .78rem; cursor: pointer; display: flex; align-items: center; gap: .35rem; transition: background .2s; white-space: nowrap; }
+.btn-theme:hover { background: #2d5a8e; }
+[data-theme="light"] .btn-theme { background: #e8f0fb; border-color: #b5d0f0; color: var(--blue); }
+[data-theme="light"] .btn-theme:hover { background: #d0e4f7; }
+
+.hero-title { font-size: clamp(1.4rem, 3vw, 2.2rem); font-weight: 800; color: #fff; line-height: 1.15; margin-bottom: .5rem; }
+.hero-sub { font-size: .95rem; color: #94a3b8; max-width: 560px; line-height: 1.6; }
+.hero-sub strong { color: #9fe1cb; }
+
+.stats-row { display: flex; flex-wrap: wrap; gap: .6rem 1.5rem; margin-top: 1rem; font-size: .8rem; color: #64748b; }
+.stats-row span { display: flex; align-items: center; gap: .3rem; }
+.dot { width: 6px; height: 6px; border-radius: 50%; background: #9fe1cb; display: inline-block; }
+
+/* SEARCH */
+.search-wrap { margin: 1.5rem 2rem 0; }
+.search-box { display: flex; align-items: center; gap: .5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: .55rem 1rem; max-width: 480px; transition: border-color .2s; }
+.search-box:focus-within { border-color: var(--blue); }
+.search-icon { color: var(--text3); font-size: 1rem; flex-shrink: 0; }
+.search-box input { background: none; border: none; outline: none; font-family: var(--font); font-size: .88rem; color: var(--text); width: 100%; }
+.search-box input::placeholder { color: var(--text3); }
+
+/* FILTER TABS */
+.filter-tabs { display: flex; flex-wrap: wrap; gap: .4rem; margin: 1rem 2rem 0; }
+.tab-btn { background: var(--bg3); border: 1px solid var(--border); color: var(--text2); border-radius: 20px; padding: .3rem .85rem; font-size: .78rem; cursor: pointer; transition: all .2s; white-space: nowrap; font-family: var(--font); }
+.tab-btn:hover { border-color: var(--blue); color: var(--text); }
+.tab-btn.active { background: var(--blue); border-color: var(--blue); color: #fff; font-weight: 600; }
+
+/* SECTION */
+.section-header { display: flex; align-items: center; gap: .6rem; margin: 2rem 2rem .75rem; }
+.section-header h2 { font-size: .95rem; font-weight: 700; color: var(--text); }
+.section-line { flex: 1; height: 1px; background: var(--border); }
+.section-count { font-size: .75rem; color: var(--text3); background: var(--bg3); padding: .15rem .5rem; border-radius: 10px; }
+
+/* CARDS GRID */
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; margin: 0 2rem; }
+
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem 1.25rem 1rem; display: flex; flex-direction: column; gap: .6rem; transition: border-color .2s, box-shadow .2s; position: relative; overflow: hidden; }
+.card:hover { border-color: var(--blue); box-shadow: 0 4px 16px rgba(24,95,165,.15); }
+.card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--card-accent, var(--blue)); }
+
+.card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: .5rem; }
+.card-icon { font-size: 1.5rem; flex-shrink: 0; }
+.card-badges { display: flex; flex-wrap: wrap; gap: .3rem; }
+.badge { display: inline-block; font-size: .68rem; font-weight: 600; padding: .15rem .5rem; border-radius: 4px; }
+.badge-new  { background: rgba(74,222,128,.15); color: #4ade80; }
+.badge-upd  { background: rgba(251,191,36,.12);  color: #fbbf24; }
+.badge-soon { background: rgba(148,163,184,.1);   color: #94a3b8; }
+[data-theme="light"] .badge-new  { background: #e1f5ee; color: #0F6E56; }
+[data-theme="light"] .badge-upd  { background: #faeeda; color: #854F0B; }
+[data-theme="light"] .badge-soon { background: #f1efe8; color: #888780; }
+
+.card h3 { font-size: .95rem; font-weight: 700; color: var(--text); line-height: 1.3; }
+.card p { font-size: .82rem; color: var(--text2); line-height: 1.55; flex: 1; }
+
+.card-meta { display: flex; flex-wrap: wrap; gap: .3rem .75rem; font-size: .73rem; color: var(--text3); }
+.card-meta span { display: flex; align-items: center; gap: .25rem; }
+
+.card-tags { display: flex; flex-wrap: wrap; gap: .3rem; }
+.ctag { background: var(--bg3); color: var(--text3); border-radius: 4px; padding: .1rem .45rem; font-size: .7rem; }
+[data-theme="light"] .ctag { background: #f1efe8; }
+
+.card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: .25rem; gap: .5rem; }
+.btn-open { display: inline-flex; align-items: center; gap: .35rem; background: var(--blue); color: #fff; border-radius: 6px; padding: .4rem .9rem; font-size: .8rem; font-weight: 600; text-decoration: none; transition: background .2s; white-space: nowrap; }
+.btn-open:hover { background: #1a6fc0; text-decoration: none; }
+.btn-open.disabled { background: var(--bg3); color: var(--text3); cursor: default; pointer-events: none; }
+.btn-gh { display: inline-flex; align-items: center; gap: .3rem; color: var(--text3); font-size: .75rem; border: 1px solid var(--border); border-radius: 6px; padding: .35rem .7rem; transition: all .2s; text-decoration: none; }
+.btn-gh:hover { border-color: var(--text2); color: var(--text); text-decoration: none; }
+
+/* COMING SOON card */
+.card.soon { opacity: .65; }
+.card.soon:hover { border-color: var(--border); box-shadow: none; }
+
+/* ABOUT STRIP */
+.about-strip { margin: 2rem 2rem 0; background: var(--bg3); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem 1.5rem; display: flex; gap: 1.5rem; align-items: flex-start; flex-wrap: wrap; }
+.about-avatar { font-size: 3rem; flex-shrink: 0; }
+.about-text h3 { font-size: .95rem; font-weight: 700; color: var(--text); margin-bottom: .3rem; }
+.about-text p { font-size: .83rem; color: var(--text2); line-height: 1.6; }
+.about-links { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .6rem; }
+.about-link { display: inline-flex; align-items: center; gap: .25rem; font-size: .76rem; color: var(--text2); border: 1px solid var(--border); border-radius: 6px; padding: .25rem .6rem; text-decoration: none; transition: all .2s; }
+.about-link:hover { border-color: var(--blue); color: var(--text); text-decoration: none; }
+
+/* FOOTER */
+.site-footer { margin-top: 2.5rem; padding: 1rem 2rem; background: #0D1B2A; color: #64748b; font-size: .75rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem; border-top: 1px solid #1e3a5f; }
+.site-footer a { color: #9fe1cb; }
+
+.hidden { display: none !important; }
+
+@media (max-width: 640px) {
+  .site-header { padding: 1.25rem 1rem 1rem; }
+  .search-wrap, .filter-tabs, .cards, .section-header, .about-strip { margin-left: .75rem; margin-right: .75rem; }
+  .cards { grid-template-columns: 1fr; }
+  .site-footer { padding: .75rem 1rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-top">
+    <a class="brand" href="https://batrankov.ru" target="_blank">🛡 Академия Батранкова</a>
+    <div class="header-actions">
+      <div class="social-links">
+        <a class="social-btn tg" href="https://t.me/safebdv" target="_blank" rel="noopener">✈️ @safebdv</a>
+        <a class="social-btn yt" href="https://www.youtube.com/@BDVSecurity" target="_blank" rel="noopener">▶ YouTube</a>
+      </div>
+      <button class="btn-theme" onclick="toggleTheme()" id="theme-btn">🌙 Тёмная тема</button>
+    </div>
+  </div>
+
+  <div class="hero-title">Справочники по кибербезопасности</div>
+  <div class="hero-sub">Таблицы и руководства для <strong>CISO и руководства</strong> — без маркетинга, только инженерная честность. Каждый документ проверен на практике и обновляется.</div>
+
+  <div class="stats-row">
+    <span><span class="dot"></span> <span id="total-count">2</span> справочника</span>
+    <span><span class="dot"></span> Denis Batrankov, CISSP</span>
+    <span><span class="dot"></span> Обновлено: июнь 2025</span>
+  </div>
+</header>
+
+<!-- SEARCH -->
+<div class="search-wrap">
+  <div class="search-box">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="search-input" placeholder="Найти справочник..." oninput="filterCards()">
+  </div>
+</div>
+
+<!-- FILTER TABS -->
+<div class="filter-tabs">
+  <button class="tab-btn active" onclick="setFilter('all', this)">Все</button>
+  <button class="tab-btn" onclick="setFilter('assessment', this)">Оценка защищённости</button>
+  <button class="tab-btn" onclick="setFilter('hrm', this)">Управление рисками</button>
+  <button class="tab-btn" onclick="setFilter('tools', this)">Инструменты</button>
+  <button class="tab-btn" onclick="setFilter('regulation', this)">Регулирование</button>
+</div>
+
+<!-- PUBLISHED -->
+<div class="section-header">
+  <h2>Опубликовано</h2>
+  <div class="section-line"></div>
+  <div class="section-count" id="pub-count">2</div>
+</div>
+
+<div class="cards" id="cards-container">
+
+  <!-- CARD 1 -->
+  <div class="card" style="--card-accent:#185FA5" data-tags="assessment tools" data-title="инструменты оценки защищённости сравнение">
+    <div class="card-header">
+      <span class="card-icon">🔬</span>
+      <div class="card-badges">
+        <span class="badge badge-new">Новый</span>
+      </div>
+    </div>
+    <h3>Инструменты оценки защищённости</h3>
+    <p>Сравнительная таблица: аудит, пентест, BAS, Bug Bounty, кибериспытания, TLPT. Чем отличаются, кому подходят, сколько стоят и что даёт каждый инструмент CISO и руководству.</p>
+    <div class="card-tags">
+      <span class="ctag">Аудит</span>
+      <span class="ctag">Пентест</span>
+      <span class="ctag">Bug Bounty</span>
+      <span class="ctag">Кибериспытания</span>
+      <span class="ctag">TLPT</span>
+    </div>
+    <div class="card-meta">
+      <span>📅 24.06.2025</span>
+      <span>🏷 V4</span>
+      <span>👤 CISO / Руководство</span>
+    </div>
+    <div class="card-footer">
+      <a class="btn-open" href="cyber_testing_tools.html">Открыть →</a>
+      <a class="btn-gh" href="https://github.com/ngksiva/security-tables" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+
+  <!-- CARD 2 -->
+  <div class="card" style="--card-accent:#0F6E56" data-tags="assessment tools regulation" data-title="как выбрать инструмент оценки зрелость уровень">
+    <div class="card-header">
+      <span class="card-icon">🎯</span>
+      <div class="card-badges">
+        <span class="badge badge-new">Новый</span>
+      </div>
+    </div>
+    <h3>Как выбрать инструмент: таблица по уровням зрелости</h3>
+    <p>Руководство для CISO и руководства: найдите свой уровень зрелости и узнайте что подходит именно вам. FAQ с ответами на реальные вопросы: бюджеты, площадки, критерии перехода между уровнями.</p>
+    <div class="card-tags">
+      <span class="ctag">Зрелость ИБ</span>
+      <span class="ctag">CMMI</span>
+      <span class="ctag">FAQ</span>
+      <span class="ctag">DORA</span>
+    </div>
+    <div class="card-meta">
+      <span>📅 24.06.2025</span>
+      <span>🏷 V3</span>
+      <span>👤 CISO / Руководство</span>
+    </div>
+    <div class="card-footer">
+      <a class="btn-open" href="cyber_maturity_guide.html">Открыть →</a>
+      <a class="btn-gh" href="https://github.com/ngksiva/security-tables" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- COMING SOON -->
+<div class="section-header" style="margin-top:1.75rem">
+  <h2>Готовится</h2>
+  <div class="section-line"></div>
+  <div class="section-count">4</div>
+</div>
+
+<div class="cards">
+
+  <div class="card soon" style="--card-accent:#334155" data-tags="hrm" data-title="управление человеческими рисками hrm">
+    <div class="card-header">
+      <span class="card-icon">🧠</span>
+      <div class="card-badges"><span class="badge badge-soon">Скоро</span></div>
+    </div>
+    <h3>Human Risk Management: платформы и подходы</h3>
+    <p>Сравнение HRM-платформ: KnowBe4, SoSafe, Hoxhunt, usecure. Чем HRM отличается от SAT и почему Forrester закрыл категорию Security Awareness Training.</p>
+    <div class="card-tags">
+      <span class="ctag">HRM</span>
+      <span class="ctag">Поведенческая наука</span>
+      <span class="ctag">Фишинг</span>
+    </div>
+    <div class="card-meta"><span>👤 CISO / HR</span></div>
+    <div class="card-footer">
+      <span class="btn-open disabled">Скоро →</span>
+    </div>
+  </div>
+
+  <div class="card soon" style="--card-accent:#334155" data-tags="tools" data-title="mitre attck покрытие детекты">
+    <div class="card-header">
+      <span class="card-icon">🗺</span>
+      <div class="card-badges"><span class="badge badge-soon">Скоро</span></div>
+    </div>
+    <h3>MITRE ATT&CK: как измерить покрытие</h3>
+    <p>Два измерения защиты — детекты и архитектурные контролы. Как правильно считать покрытие техник и почему процент без взвешивания бесполезен.</p>
+    <div class="card-tags">
+      <span class="ctag">MITRE ATT&CK</span>
+      <span class="ctag">SOC</span>
+      <span class="ctag">Threat Intelligence</span>
+    </div>
+    <div class="card-meta"><span>👤 CISO / SOC</span></div>
+    <div class="card-footer">
+      <span class="btn-open disabled">Скоро →</span>
+    </div>
+  </div>
+
+  <div class="card soon" style="--card-accent:#334155" data-tags="regulation" data-title="dora tiber-eu tlpt регулирование">
+    <div class="card-header">
+      <span class="card-icon">🏛</span>
+      <div class="card-badges"><span class="badge badge-soon">Скоро</span></div>
+    </div>
+    <h3>DORA и TIBER-EU: регуляторный минимум</h3>
+    <p>Что требует DORA от финансовых организаций, как устроен TLPT по TIBER-EU, чем это отличается от российских кибериспытаний и что ждёт рынок РФ.</p>
+    <div class="card-tags">
+      <span class="ctag">DORA</span>
+      <span class="ctag">TIBER-EU</span>
+      <span class="ctag">Финансы</span>
+    </div>
+    <div class="card-meta"><span>👤 CISO / Комплаенс</span></div>
+    <div class="card-footer">
+      <span class="btn-open disabled">Скоро →</span>
+    </div>
+  </div>
+
+  <div class="card soon" style="--card-accent:#334155" data-tags="tools assessment" data-title="ngfw siem edr сравнение средства защиты">
+    <div class="card-header">
+      <span class="card-icon">🛡</span>
+      <div class="card-badges"><span class="badge badge-soon">Скоро</span></div>
+    </div>
+    <h3>Средства защиты: NGFW, SIEM, EDR, SOAR</h3>
+    <p>Что делает каждый класс решений, когда его внедрять, как они связаны между собой и какой стек подходит каждому уровню зрелости.</p>
+    <div class="card-tags">
+      <span class="ctag">NGFW</span>
+      <span class="ctag">SIEM</span>
+      <span class="ctag">EDR</span>
+      <span class="ctag">SOAR</span>
+    </div>
+    <div class="card-meta"><span>👤 CISO / IT-директор</span></div>
+    <div class="card-footer">
+      <span class="btn-open disabled">Скоро →</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ABOUT -->
+<div class="about-strip">
+  <div class="about-avatar">👨‍💼</div>
+  <div class="about-text">
+    <h3>Denis Batrankov, CISSP</h3>
+    <p>34 года в кибербезопасности. Работал в Palo Alto Networks, IBM, HP, Positive Technologies. Независимый эксперт и основатель Академии Батранкова. Эти справочники — без маркетинга и вендорских интересов.</p>
+    <div class="about-links">
+      <a class="about-link" href="https://t.me/safebdv" target="_blank">✈️ Telegram @safebdv</a>
+      <a class="about-link" href="https://www.youtube.com/@BDVSecurity" target="_blank">▶ YouTube</a>
+      <a class="about-link" href="https://batrankov.ru" target="_blank">🌐 batrankov.ru</a>
+      <a class="about-link" href="https://github.com/ngksiva" target="_blank">⚙ GitHub</a>
+      <a class="about-link" href="https://edu.batrankov.ru" target="_blank">🎓 Обучение</a>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <span>Denis Batrankov, CISSP &nbsp;·&nbsp; <a href="https://batrankov.ru" target="_blank">batrankov.ru</a> &nbsp;·&nbsp; <a href="https://t.me/safebdv" target="_blank">@safebdv</a> &nbsp;·&nbsp; <a href="https://github.com/ngksiva/security-tables" target="_blank">GitHub</a></span>
+  <span>Академия Батранкова · 2025 · <a href="https://edu.batrankov.ru" target="_blank">edu.batrankov.ru</a></span>
+</footer>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const btn = document.getElementById('theme-btn');
+  if (html.dataset.theme === 'dark') {
+    html.dataset.theme = 'light';
+    btn.textContent = '☀️ Светлая тема';
+  } else {
+    html.dataset.theme = 'dark';
+    btn.textContent = '🌙 Тёмная тема';
+  }
+}
+document.getElementById('theme-btn').textContent =
+  document.documentElement.dataset.theme === 'dark' ? '🌙 Тёмная тема' : '☀️ Светлая тема';
+
+let activeFilter = 'all';
+
+function setFilter(filter, btn) {
+  activeFilter = filter;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  filterCards();
+}
+
+function filterCards() {
+  const q = document.getElementById('search-input').value.toLowerCase().trim();
+  const cards = document.querySelectorAll('#cards-container .card');
+  let visible = 0;
+  cards.forEach(card => {
+    const tags = card.dataset.tags || '';
+    const title = card.dataset.title || '';
+    const text = card.innerText.toLowerCase();
+    const matchFilter = activeFilter === 'all' || tags.includes(activeFilter);
+    const matchSearch = !q || title.includes(q) || text.includes(q);
+    if (matchFilter && matchSearch) {
+      card.classList.remove('hidden');
+      visible++;
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+  document.getElementById('pub-count').textContent = visible;
+}
+</script>
+</body>
+</html>
