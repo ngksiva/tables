@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Облачные ИИ-продукты 2026 — сравнительная таблица | Академия Батранкова</title>
-<meta content="Большая сравнительная таблица облачных ИИ-сервисов 2026: текст, графика, видео, музыка, речь, транскрипция, AI-программирование и дизайн. Доступ из РФ, цены, риск бана и способы верификации. От Академии Батранкова." name="description"/>
+<meta content="Большая сравнительная таблица облачных ИИ-сервисов 2026: текст, графика, видео, музыка, речь, транскрипция, AI-программирование, дизайн, 3D-генерация, анализ документов и локализация видео. Доступ из РФ, цены, риск бана и способы верификации. От Академии Батранкова." name="description"/>
 <meta content="нейросети 2026, облачные ИИ, ChatGPT, Gemini, Claude, Midjourney, Suno, Runway, доступ из России, сравнение нейросетей, агрегаторы ИИ" name="keywords"/>
 <meta content="Академия Батранкова" name="author"/>
 <meta content="#0f172a" name="theme-color"/>
@@ -15,7 +15,7 @@
 <meta content="ru_RU" property="og:locale"/>
 <meta content="Академия Батранкова" property="og:site_name"/>
 <meta content="Облачные ИИ-продукты 2026 — сравнительная таблица" property="og:title"/>
-<meta content="50+ облачных ИИ-сервисов в одной таблице: доступ из РФ, цены, риск бана и верификация. Текст, графика, видео, музыка, речь, программирование и дизайн." property="og:description"/>
+<meta content="85+ облачных ИИ-сервисов в одной таблице: доступ из РФ, цены, риск бана и верификация. Текст, графика, видео, музыка, речь, программирование и дизайн." property="og:description"/>
 <meta content="https://v0-acba.vercel.app/og.png" property="og:image"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
@@ -23,7 +23,7 @@
 <!-- Twitter / X -->
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="Облачные ИИ-продукты 2026 — сравнительная таблица" name="twitter:title"/>
-<meta content="50+ облачных ИИ-сервисов в одной таблице: доступ из РФ, цены, риск бана и верификация." name="twitter:description"/>
+<meta content="85+ облачных ИИ-сервисов в одной таблице: доступ из РФ, цены, риск бана и верификация." name="twitter:description"/>
 <meta content="https://v0-acba.vercel.app/og.png" name="twitter:image"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
@@ -53,11 +53,13 @@
     @media print {
       @page { size: A4 landscape; margin: 10mm 8mm; }
       .no-print { display:none!important; }
-      body { background:#fff!important; padding:0; }
+      html { scroll-behavior:smooth; scroll-padding-top:60px; }
+    body { background:#fff!important; padding:0; }
       .table-wrapper { box-shadow:none!important; }
       thead { position:static!important; }
     }
     *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; scroll-padding-top:60px; }
     body {
       font-family:'Inter',Helvetica,Arial,sans-serif;
       background:var(--bg-body); color:var(--text-main);
@@ -167,6 +169,10 @@
     tr:not(.cr):hover td { filter:brightness(.97); }
     tr { transition:filter .08s; page-break-inside:avoid; }
 
+
+    /* Zebra stripe for readability */
+    tr:not(.cr):nth-child(even) td { background:rgba(0,0,0,0.015); }
+    [data-theme="dark"] tr:not(.cr):nth-child(even) td { background:rgba(255,255,255,0.015); }
     /* Row difficulty colours */
     tr.re { background-color:var(--row-easy); }
     tr.rm { background-color:var(--row-medium); }
@@ -229,7 +235,8 @@
        Горизонтальный скролл, первая колонка прилипает
     ══════════════════════════════════════════════════════ */
     @media (max-width:1023px) {
-      body { padding:10px; font-size:10pt; }
+      html { scroll-behavior:smooth; scroll-padding-top:60px; }
+    body { padding:10px; font-size:10pt; }
       .header { flex-wrap:wrap; gap:8px; padding:12px 14px; }
       .header-left { flex-wrap:wrap; gap:8px; }
       .header h1 { font-size:14pt; }
@@ -269,16 +276,17 @@
        Каждая строка → карточка, таблица скрыта
     ══════════════════════════════════════════════════════ */
     @media (max-width:767px) {
-      body { padding:8px; }
+      html { scroll-behavior:smooth; scroll-padding-top:60px; }
+    body { padding:8px; }
       .header { flex-direction:column; align-items:flex-start; gap:8px; padding:12px; }
       .header-left { flex-direction:column; align-items:flex-start; gap:6px; }
       .header h1 { font-size:11pt; line-height:1.3; }
-      .header .sub { font-size:7.5pt; }
+      .header .sub { font-size:7.5pt; display:none; }
       .header-right { flex-direction:row; align-items:center; flex-wrap:wrap; gap:8px; margin-left:0; width:100%; }
       .logo-box { font-size:7.5pt; padding:4px 9px; }
 
       /* Controls — scrollable rows */
-      .controls { flex-direction:column; align-items:flex-start; gap:8px; padding:10px 12px; }
+      .controls { position:sticky; top:0; z-index:20; flex-direction:column; align-items:flex-start; gap:8px; padding:10px 12px; }
       .search-box { width:100%; }
       .search-box input { width:100%; font-size:11pt; padding:9px 12px; }
       .fgroup { overflow-x:auto; flex-wrap:nowrap; width:100%; padding-bottom:3px; -webkit-overflow-scrolling:touch; }
@@ -289,6 +297,13 @@
       .preset-btn { font-size:9pt!important; padding:8px 14px!important; }
       .count { font-size:8pt; }
       .legend { display:none; }
+
+      /* Stats bar compact */
+      .stats-bar { gap:4px; margin-bottom:8px; }
+      .stat-item { padding:8px 10px; min-width:0; }
+      .stat-num { font-size:16pt; }
+      .stat-label { font-size:7pt; }
+
       .scroll-top { right:12px; bottom:16px; width:38px; height:38px; font-size:14pt; }
 
       /* Hide table entirely on mobile */
@@ -319,6 +334,9 @@
       .product-card + .cat-card-header { border-radius:8px 8px 0 0; margin-top:14px; }
       .product-card.hidden { display:none; }
 
+      .product-card:last-child { border-radius:0 0 8px 8px; }
+
+
       /* Difficulty left bar */
       .product-card.re { border-left:4px solid #22c55e; }
       .product-card.rm { border-left:4px solid #eab308; }
@@ -336,7 +354,8 @@
       .card-badges { display:flex; flex-wrap:wrap; gap:5px; justify-content:flex-end; }
 
       /* Card body grid */
-      .card-body { display:grid; grid-template-columns:1fr 1fr; gap:6px 10px; }
+      .card-html { scroll-behavior:smooth; scroll-padding-top:60px; }
+    body { display:grid; grid-template-columns:1fr 1fr; gap:6px 10px; }
       .card-field { display:flex; flex-direction:column; gap:2px; }
       .card-field.full { grid-column:1/-1; }
       .card-label {
@@ -425,6 +444,32 @@
     [data-theme="dark"] .preset-btn { background:linear-gradient(135deg,#21262d,#30363d)!important; border-color:#484f58!important; color:#c9d1d9!important; }
     [data-theme="dark"] .preset-btn.on { background:linear-gradient(135deg,#1d4ed8,#3b82f6)!important; }
 
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      display:flex; gap:6px; margin-bottom:11px; flex-wrap:wrap;
+    }
+    .stat-item {
+      flex:1; min-width:120px;
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:8px; padding:10px 14px; text-align:center;
+      box-shadow:var(--shadow);
+    }
+    .stat-item:hover { border-color:#3b82f6; transition:border-color .15s; }
+    .stat-num { display:block; font-size:20pt; font-weight:700; color:#3b82f6; line-height:1.2; }
+    .stat-label { font-size:8.5pt; color:var(--text-muted); text-transform:uppercase; letter-spacing:.3px; font-weight:600; }
+
+    /* ── ANCHOR LINKS ── */
+    .cat-anchor { color:#64748b; text-decoration:none; font-size:8pt; margin-left:8px; opacity:0; transition:opacity .15s; vertical-align:middle; }
+    .cr:hover .cat-anchor { opacity:1; }
+    .cat-anchor:hover { color:#3b82f6; }
+
+    /* ── SORTABLE HEADERS ── */
+    th.sortable { cursor:pointer; user-select:none; position:relative; }
+    th.sortable:hover { color:#93c5fd; }
+    th .sort-arrow { font-size:7pt; margin-left:3px; opacity:0.4; }
+    th.sort-asc .sort-arrow, th.sort-desc .sort-arrow { opacity:1; color:#3b82f6; }
+
     /* ── SEARCH CLEAR BUTTON ── */
     .search-box { position:relative; }
     .search-clear {
@@ -447,6 +492,16 @@
     .scroll-top.show { opacity:1; pointer-events:auto; }
     .scroll-top:hover { transform:scale(1.1); }
 
+
+    /* Active preset pulse */
+    .preset-btn.on::after {
+      content:''; position:absolute; top:-2px; right:-2px;
+      width:8px; height:8px; border-radius:50%; background:#3b82f6;
+      animation:pulse-dot 1.5s ease-in-out infinite;
+    }
+    .preset-btn { position:relative; }
+    @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.3)} }
+
     /* ── COLLAPSIBLE LEGEND ── */
     .legend-details summary { cursor:pointer; font-weight:700; font-size:11pt; color:var(--text-main); padding:4px 0; list-style:none; display:flex; align-items:center; gap:8px; }
     .legend-details summary::before { content:'▸'; display:inline-block; transition:transform .2s; font-size:10pt; }
@@ -467,7 +522,7 @@
 </div>
 </div>
 <div class="header-right">
-<span class="version-pill">V24 · <span id="svcCount">—</span></span>
+<span class="version-pill">V25 · <span id="svcCount">—</span></span>
 <div class="date-tag">Актуально: <span id="updDate">04.07.2026</span></div>
 <div class="hdr-actions no-print">
 <button class="share-btn" id="shareBtn" title="Поделиться ссылкой">
@@ -478,6 +533,14 @@
 </div>
 </div>
 </div>
+
+<div class="stats-bar no-print">
+  <div class="stat-item"><span class="stat-num" id="statFree">—</span><span class="stat-label">без VPN из РФ</span></div>
+  <div class="stat-item"><span class="stat-num" id="statRub">—</span><span class="stat-label">за рубли</span></div>
+  <div class="stat-item"><span class="stat-num" id="statFreePrice">—</span><span class="stat-label">бесплатных</span></div>
+  <div class="stat-item"><span class="stat-num" id="statWorld">—</span><span class="stat-label">мировых лидеров</span></div>
+</div>
+
 <!-- ═══ CONTROLS ══════════════════════════════════════ -->
 <div class="controls no-print">
 <div class="search-box"><input id="srch" placeholder="🔍 Поиск по продукту..." type="text"/><button class="search-clear" id="srchClear" type="button">×</button></div>
@@ -496,6 +559,10 @@
 <button class="fbtn" data-cat="avatar">🎭 Аватары</button>
 <button class="fbtn" data-cat="code">💻 AI-программирование</button>
 <button class="fbtn" data-cat="design">🖌️ Дизайн</button>
+    <button class="fbtn" data-cat="videoloc">🌍 AI-перевод</button>
+    <button class="fbtn" data-cat="docs">📄 Документы</button>
+    <button class="fbtn" data-cat="3d">🧊 3D</button>
+    <button class="fbtn" data-cat="audproc">🎚️ Аудиообработка</button>
 </div>
 <div class="fsep"></div>
 <div class="fgroup">
@@ -534,16 +601,16 @@
 <th style="width:11%">Позиция в классе</th>
 
 <th style="width:9%">Регистрация</th>
-<th style="width:7%">Риск бана</th>
+<th style="width:7%" class="sortable" data-sort="ban">Риск бана <span class="sort-arrow">▼</span></th>
 
-<th style="width:12%">Цена / Оплата</th>
+<th style="width:12%" class="sortable" data-sort="price">Цена / Оплата <span class="sort-arrow">▼</span></th>
 <th style="width:22%">Доступ из РФ</th>
 <th style="width:13%">Верификация</th>
 </tr>
 </thead>
 <tbody id="tbody">
 <!-- ████ ТЕКСТ ████ -->
-<tr class="cr" data-cat="text"><td colspan="8"><div class="cat-title">✍️ Облачные текстовые и поисковые ассистенты</div></td></tr>
+<tr class="cr" id="cat-text" data-cat="text"><td colspan="8"><div class="cat-title">✍️ Облачные текстовые и поисковые ассистенты</div></td></tr>
 <tr class="re" data-cat="text" data-cur="rub" data-diff="easy">
 <td><div class="pcell"><img alt="" class="favicon" loading="lazy" onerror="this.style.display='none'" src="https://www.google.com/s2/favicons?domain=ya.ru&amp;sz=32"/><a class="pname" href="https://ya.ru/ai" rel="noopener" target="_blank">YandexGPT / Алиса</a></div></td>
 <td>Чат / Текст</td><td><span class="pos pos-ru">Топ RU-рынка</span></td>
@@ -690,7 +757,7 @@
 <td>Email + чистая иностр. карта</td>
 </tr>
 <!-- ████ ГРАФИКА ████ -->
-<tr class="cr" data-cat="graphics"><td colspan="8"><div class="cat-title">🎨 Облачные сервисы графики и дизайна</div></td></tr>
+<tr class="cr" id="cat-graphics" data-cat="graphics"><td colspan="8"><div class="cat-title">🎨 Облачные сервисы графики и дизайна</div></td></tr>
 <tr class="re" data-cat="graphics" data-diff="easy">
 <td><div class="pcell"><img alt="" class="favicon" loading="lazy" onerror="this.style.display='none'" src="https://www.google.com/s2/favicons?domain=kandinsky.ai&amp;sz=32"/><a class="pname" href="https://kandinsky.ai/" rel="noopener" target="_blank">Kandinsky</a></div></td>
 <td>Генерация фото</td><td><span class="pos pos-ru">Топ RU-рынка</span></td>
@@ -773,7 +840,7 @@
 <td>Discord / Web аккаунт</td>
 </tr>
 <!-- ████ ВИДЕО ████ -->
-<tr class="cr" data-cat="video"><td colspan="8"><div class="cat-title">🎬 Облачные сервисы генерации видео</div></td></tr>
+<tr class="cr" id="cat-video" data-cat="video"><td colspan="8"><div class="cat-title">🎬 Облачные сервисы генерации видео</div></td></tr>
 <tr class="rm" data-cat="video" data-cur="fc" data-diff="medium">
 <td><div class="pcell"><img alt="" class="favicon" loading="lazy" onerror="this.style.display='none'" src="https://www.google.com/s2/favicons?domain=lumalabs.ai&amp;sz=32"/><a class="pname" href="https://lumalabs.ai/dream-machine" rel="noopener" target="_blank">Luma Dream Machine</a></div></td>
 <td>Генерация видео</td><td><span class="pos pos-top5">Топ-5 класса</span></td>
@@ -855,7 +922,7 @@
 <td>Email / Google</td>
 </tr>
 <!-- ████ МУЗЫКА ████ -->
-<tr class="cr" data-cat="music"><td colspan="8"><div class="cat-title">🎵 Облачные сервисы генерации музыки</div></td></tr>
+<tr class="cr" id="cat-music" data-cat="music"><td colspan="8"><div class="cat-title">🎵 Облачные сервисы генерации музыки</div></td></tr>
 <tr class="rm" data-cat="music" data-cur="fc" data-diff="medium">
 <td><div class="pcell"><img alt="" class="favicon" loading="lazy" onerror="this.style.display='none'" src="https://www.google.com/s2/favicons?domain=suno.com&amp;sz=32"/><a class="pname" href="https://suno.com/" rel="noopener" target="_blank">Suno</a></div></td>
 <td>Генерация музыки</td><td><span class="pos pos-leader">Лидер класса</span></td>
@@ -881,7 +948,7 @@
 <td>Email / Google</td>
 </tr>
 <!-- ████ ПРЕЗЕНТАЦИИ ████ -->
-<tr class="cr" data-cat="slides"><td colspan="8"><div class="cat-title">📊 Облачные генераторы презентаций и документов</div></td></tr>
+<tr class="cr" id="cat-slides" data-cat="slides"><td colspan="8"><div class="cat-title">📊 Облачные генераторы презентаций и документов</div></td></tr>
 <tr class="re" data-cat="slides" data-cur="fc" data-diff="easy">
 <td><div class="pcell"><img alt="" class="favicon" loading="lazy" onerror="this.style.display='none'" src="https://www.google.com/s2/favicons?domain=gamma.app&amp;sz=32"/><a class="pname" href="https://gamma.app/" rel="noopener" target="_blank">Gamma.app</a></div></td>
 <td>ИИ-слайды / Веб-сайты</td><td><span class="pos pos-leader">Лидер класса</span></td>
@@ -907,7 +974,7 @@
 <td>Google / Email</td>
 </tr>
 <!-- ████ ТРАНСКРИПЦИЯ ████ -->
-<tr class="cr" data-cat="transcribe"><td colspan="8"><div class="cat-title">📝 Облачные сервисы транскрипции (аудио/видео → текст)</div></td></tr>
+<tr class="cr" id="cat-transcribe" data-cat="transcribe"><td colspan="8"><div class="cat-title">📝 Облачные сервисы транскрипции (аудио/видео → текст)</div></td></tr>
 <tr class="re" data-cat="transcribe" data-cur="rub" data-diff="easy">
 <td><div class="pcell"><img alt="" class="favicon" loading="lazy" onerror="this.style.display='none'" src="https://www.google.com/s2/favicons?domain=bykvitsa.ru&amp;sz=32"/><a class="pname" href="https://bykvitsa.ru/" rel="noopener" target="_blank">Буквица</a></div></td>
 <td>Транскрибация аудио</td>
@@ -989,7 +1056,7 @@
 <td>Email / Google</td>
 </tr>
 <!-- ████ РЕЧЬ ████ -->
-<tr class="cr" data-cat="audio"><td colspan="8"><div class="cat-title">🗣️ Облачные сервисы синтеза речи и аудио</div></td></tr>
+<tr class="cr" id="cat-audio" data-cat="audio"><td colspan="8"><div class="cat-title">🗣️ Облачные сервисы синтеза речи и аудио</div></td></tr>
 <tr class="re" data-cat="audio" data-cur="rub" data-diff="easy">
 <td><div class="pcell"><img alt="" class="favicon" loading="lazy" onerror="this.style.display='none'" src="https://www.google.com/s2/favicons?domain=cloud.yandex.ru&amp;sz=32"/><a class="pname" href="https://cloud.yandex.ru/services/speechkit" rel="noopener" target="_blank">Yandex SpeechKit</a></div></td>
 <td>Синтез + распознавание речи</td>
@@ -1035,7 +1102,7 @@
 <td>Email / Google</td>
 </tr>
 <!-- ████ АВАТАРЫ ████ -->
-<tr class="cr" data-cat="avatar"><td colspan="8"><div class="cat-title">🎭 AI-аватары и видео с говорящим человеком</div></td></tr>
+<tr class="cr" id="cat-avatar" data-cat="avatar"><td colspan="8"><div class="cat-title">🎭 AI-аватары и видео с говорящим человеком</div></td></tr>
 <tr class="rm" data-cat="avatar" data-cur="fc" data-diff="medium">
 <td><div class="pcell"><img alt="" class="favicon" loading="lazy" onerror="this.style.display='none'" src="https://www.google.com/s2/favicons?domain=www.heygen.com&amp;sz=32"/><a class="pname" href="https://www.heygen.com/" rel="noopener" target="_blank">HeyGen</a></div></td>
 <td>AI-аватар / Видео с человеком</td>
@@ -1064,7 +1131,7 @@
 <td>Email / Google</td>
 </tr>
 <!-- ████ КОДИНГ ████ -->
-<tr class="cr" data-cat="code"><td colspan="8"><div class="cat-title">💻 AI-программирование — облачные ассистенты и IDE</div></td></tr>
+<tr class="cr" id="cat-code" data-cat="code"><td colspan="8"><div class="cat-title">💻 AI-программирование — облачные ассистенты и IDE</div></td></tr>
 <tr class="rh" data-cat="code" data-cur="fc" data-diff="hard">
 <td><div class="pcell"><img alt="" class="favicon" loading="lazy" onerror="this.style.display='none'" src="https://www.google.com/s2/favicons?domain=github.com&amp;sz=32"/><a class="pname" href="https://github.com/features/copilot" rel="noopener" target="_blank">GitHub Copilot</a></div></td>
 <td>AI-ассистент кода / IDE-плагин</td>
@@ -1111,7 +1178,7 @@
 <td>Email / GitHub / Google</td>
 </tr>
 <!-- ████ ДИЗАЙН ████ -->
-<tr class="cr" data-cat="design"><td colspan="8"><div class="cat-title">🖌️ AI-дизайн — редактирование и брендовый контент</div></td></tr>
+<tr class="cr" id="cat-design" data-cat="design"><td colspan="8"><div class="cat-title">🖌️ AI-дизайн — редактирование и брендовый контент</div></td></tr>
 <tr class="rh" data-cat="design" data-cur="fc" data-diff="hard">
 <td><div class="pcell"><img alt="" class="favicon" loading="lazy" onerror="this.style.display='none'" src="https://www.google.com/s2/favicons?domain=firefly.adobe.com&amp;sz=32"/><a class="pname" href="https://firefly.adobe.com/" rel="noopener" target="_blank">Adobe Firefly</a></div></td>
 <td>AI-генерация / Дизайн CC</td>
@@ -1139,8 +1206,141 @@
 <td><div class="al"><span>🌐 VPN + designer.microsoft.com</span></div></td>
 <td>Microsoft аккаунт</td>
 </tr>
-<!-- ████ АГРЕГАТОРЫ ████ -->
-<tr class="cr" data-cat="agg"><td colspan="8"><div class="cat-title">🤝 Российские агрегаторы — все модели за рубли / СБП без VPN</div></td></tr>
+
+  
+  <!-- ████ AI-ПЕРЕВОД ВИДЕО ████ -->
+  <tr class="cr" id="cat-videoloc" data-cat="videoloc"><td colspan="8"><div class="cat-title">🌍 AI-перевод и локализация видео</div></td></tr>
+
+  <tr class="rm" data-cat="videoloc" data-diff="medium" data-cur="fc">
+    <td><div class="pcell"><img class="favicon" src="https://www.google.com/s2/favicons?domain=www.heygen.com&sz=32" alt="" loading="lazy" onerror="this.style.display='none'"><a class="pname" href="https://www.heygen.com/video-translate" target="_blank" rel="noopener">HeyGen Video Translate</a></div></td>
+    <td>AI-дубляж / Lip-sync</td><td><span class="pos pos-leader">Лидер lip-sync</span></td>
+    <td><span class="badge bm">Средне</span></td><td><span class="badge be">Низкий</span></td>
+    <td><span class="pfree">Бесплатно</span> (3 видео/мес, до 3 мин) / Creator от $39/мес <span class="pcur pcur-f">💳</span></td>
+    <td><div class="al"><span>🌐 VPN + heygen.com</span><span>🤖 ТГ-боты (неофициально)</span></div></td>
+    <td>Email / Google</td>
+  </tr>
+
+  <tr class="rh" data-cat="videoloc" data-diff="hard" data-cur="fc">
+    <td><div class="pcell"><img class="favicon" src="https://www.google.com/s2/favicons?domain=www.rask.ai&sz=32" alt="" loading="lazy" onerror="this.style.display='none'"><a class="pname" href="https://www.rask.ai/" target="_blank" rel="noopener">Rask AI</a></div></td>
+    <td>Локализация видео / 130+ языков</td><td><span class="pos pos-leader">Лидер локализации</span></td>
+    <td><span class="badge bh">Сложно</span></td><td><span class="badge be">Низкий</span></td>
+    <td>Пробно (3 видео по 1 мин) / Basic от $50/мес <span class="pcur pcur-f">💳</span></td>
+    <td><div class="al"><span>🌐 VPN + rask.ai</span></div></td>
+    <td>Email + иностр. карта</td>
+  </tr>
+
+  <tr class="re" data-cat="videoloc" data-diff="easy" data-cur="fc">
+    <td><div class="pcell"><img class="favicon" src="https://www.google.com/s2/favicons?domain=elevenlabs.io&sz=32" alt="" loading="lazy" onerror="this.style.display='none'"><a class="pname" href="https://elevenlabs.io/dubbing" target="_blank" rel="noopener">ElevenLabs Dubbing</a></div></td>
+    <td>AI-дубляж / Voice Cloning</td><td><span class="pos pos-top5">Лучший голос</span></td>
+    <td><span class="badge be">Просто</span></td><td><span class="badge be">Низкий</span></td>
+    <td><span class="pfree">Бесплатно</span> (~15 мин) / Starter от $5/мес <span class="pcur pcur-f">💳</span></td>
+    <td><div class="al"><span>🌐 VPN + elevenlabs.io/dubbing</span><span>🔗 Агрегаторы: Syntx.ai</span></div></td>
+    <td>Email</td>
+  </tr>
+
+  <tr class="re" data-cat="videoloc" data-diff="easy" data-cur="fc">
+    <td><div class="pcell"><img class="favicon" src="https://www.google.com/s2/favicons?domain=captions.ai&sz=32" alt="" loading="lazy" onerror="this.style.display='none'"><a class="pname" href="https://captions.ai/" target="_blank" rel="noopener">Captions</a></div></td>
+    <td>AI-субтитры / Перевод / Lip-sync</td><td><span class="pos pos-top5">Топ-5 класса</span></td>
+    <td><span class="badge be">Просто</span></td><td><span class="badge be">Низкий</span></td>
+    <td><span class="pfree">Бесплатно</span> (водяной знак) / Pro от $9.99/мес <span class="pcur pcur-f">💳</span></td>
+    <td><div class="al"><span>✅ Прямой доступ (captions.ai)</span><span>🌐 VPN при геоблоке</span></div></td>
+    <td>Email / Google / Apple</td>
+  </tr>
+
+
+  <!-- ████ АНАЛИЗ ДОКУМЕНТОВ ████ -->
+  <tr class="cr" id="cat-docs" data-cat="docs"><td colspan="8"><div class="cat-title">📄 Анализ документов и файлов (Document QA)</div></td></tr>
+
+  <tr class="re" data-cat="docs" data-diff="easy">
+    <td><div class="pcell"><img class="favicon" src="https://www.google.com/s2/favicons?domain=chatpdf.com&sz=32" alt="" loading="lazy" onerror="this.style.display='none'"><a class="pname" href="https://chatpdf.com/" target="_blank" rel="noopener">ChatPDF</a></div></td>
+    <td>Чат с PDF-документами</td><td><span class="pos pos-leader">Лидер класса</span></td>
+    <td><span class="badge be">Просто</span></td><td><span class="badge be">Низкий</span></td>
+    <td><span class="pfree">Бесплатно</span> (2 PDF/день, 120 стр.) / от $5/мес <span class="pcur pcur-f">💳</span></td>
+    <td><div class="al"><span>✅ Прямой доступ (chatpdf.com)</span></div></td>
+    <td>Email</td>
+  </tr>
+
+  <tr class="re" data-cat="docs" data-diff="easy">
+    <td><div class="pcell"><img class="favicon" src="https://www.google.com/s2/favicons?domain=www.humata.ai&sz=32" alt="" loading="lazy" onerror="this.style.display='none'"><a class="pname" href="https://www.humata.ai/" target="_blank" rel="noopener">Humata</a></div></td>
+    <td>AI-анализ документов</td><td><span class="pos pos-top5">Топ-5 класса</span></td>
+    <td><span class="badge be">Просто</span></td><td><span class="badge be">Низкий</span></td>
+    <td><span class="pfree">Бесплатно</span> (60 стр.) / от $9.99/мес <span class="pcur pcur-f">💳</span></td>
+    <td><div class="al"><span>✅ Прямой доступ (humata.ai)</span></div></td>
+    <td>Email / Google</td>
+  </tr>
+
+  <tr class="re" data-cat="docs" data-diff="easy" data-cur="rub">
+    <td><div class="pcell"><img class="favicon" src="https://www.google.com/s2/favicons?domain=lightpdf.com&sz=32" alt="" loading="lazy" onerror="this.style.display='none'"><a class="pname" href="https://lightpdf.com/chat-with-pdf" target="_blank" rel="noopener">LightPDF AI</a></div></td>
+    <td>Чат с документами / OCR</td><td><span class="pos pos-top10">Топ-10 класса</span></td>
+    <td><span class="badge be">Просто</span></td><td><span class="badge be">Низкий</span></td>
+    <td><span class="pfree">Бесплатно</span> (лимит) / от $9.99/мес <span class="pcur pcur-f">💳</span></td>
+    <td><div class="al"><span>✅ Прямой доступ (lightpdf.com)</span></div></td>
+    <td>Email / Google</td>
+  </tr>
+
+  <!-- ████ 3D-ГЕНЕРАЦИЯ ████ -->
+  <tr class="cr" id="cat-3d" data-cat="3d"><td colspan="8"><div class="cat-title">🧊 Веб-генерация 3D-объектов (Text/Image → 3D)</div></td></tr>
+
+  <tr class="rm" data-cat="3d" data-diff="medium">
+    <td><div class="pcell"><img class="favicon" src="https://www.google.com/s2/favicons?domain=www.meshy.ai&sz=32" alt="" loading="lazy" onerror="this.style.display='none'"><a class="pname" href="https://www.meshy.ai/" target="_blank" rel="noopener">Meshy</a></div></td>
+    <td>Text/Image → 3D-модели</td><td><span class="pos pos-leader">Лидер класса</span></td>
+    <td><span class="badge be">Просто</span></td><td><span class="badge be">Низкий</span></td>
+    <td><span class="pfree">Бесплатно</span> (5 генераций/мес) / от $20/мес <span class="pcur pcur-f">💳</span></td>
+    <td><div class="al"><span>🌐 VPN + meshy.ai</span></div></td>
+    <td>Google / Email</td>
+  </tr>
+
+  <tr class="rm" data-cat="3d" data-diff="medium">
+    <td><div class="pcell"><img class="favicon" src="https://www.google.com/s2/favicons?domain=spline.design&sz=32" alt="" loading="lazy" onerror="this.style.display='none'"><a class="pname" href="https://spline.design/" target="_blank" rel="noopener">Spline AI</a></div></td>
+    <td>3D-дизайн / AI-генерация</td><td><span class="pos pos-top5">Топ 3D-дизайна</span></td>
+    <td><span class="badge be">Просто</span></td><td><span class="badge be">Низкий</span></td>
+    <td><span class="pfree">Бесплатно</span> (базовый) / от $9/мес <span class="pcur pcur-f">💳</span></td>
+    <td><div class="al"><span>✅ Частично прямой (spline.design)</span><span>🌐 VPN при геоблоке</span></div></td>
+    <td>Google / Email</td>
+  </tr>
+
+  <tr class="rm" data-cat="3d" data-diff="medium">
+    <td><div class="pcell"><img class="favicon" src="https://www.google.com/s2/favicons?domain=csm.ai&sz=32" alt="" loading="lazy" onerror="this.style.display='none'"><a class="pname" href="https://csm.ai/" target="_blank" rel="noopener">CSM (Common Sense Machines)</a></div></td>
+    <td>Image → 3D-модели</td><td><span class="pos pos-top10">Топ-10 класса</span></td>
+    <td><span class="badge bm">Средне</span></td><td><span class="badge be">Низкий</span></td>
+    <td><span class="pfree">Бесплатно</span> (пробные генерации) <span class="pcur pcur-f">💳</span></td>
+    <td><div class="al"><span>🌐 VPN + csm.ai</span></div></td>
+    <td>Email / Google</td>
+  </tr>
+
+  <!-- ████ ОБРАБОТКА АУДИО ████ -->
+  <tr class="cr" id="cat-audproc" data-cat="audproc"><td colspan="8"><div class="cat-title">🎚️ AI-обработка и очистка аудио</div></td></tr>
+
+  <tr class="re" data-cat="audproc" data-diff="easy">
+    <td><div class="pcell"><img class="favicon" src="https://www.google.com/s2/favicons?domain=www.lalal.ai&sz=32" alt="" loading="lazy" onerror="this.style.display='none'"><a class="pname" href="https://www.lalal.ai/" target="_blank" rel="noopener">LALAL.AI</a></div></td>
+    <td>Разделение голоса и музыки</td><td><span class="pos pos-leader">Лидер класса</span></td>
+    <td><span class="badge be">Просто</span></td><td><span class="badge be">Низкий</span></td>
+    <td><span class="pfree">Бесплатно</span> (10 мин) / от $15 (пакет минут) <span class="pcur pcur-f">💳</span></td>
+    <td><div class="al"><span>✅ Прямой доступ (lalal.ai)</span></div></td>
+    <td>Email / Google</td>
+  </tr>
+
+  <tr class="rm" data-cat="audproc" data-diff="medium">
+    <td><div class="pcell"><img class="favicon" src="https://www.google.com/s2/favicons?domain=podcast.adobe.com&sz=32" alt="" loading="lazy" onerror="this.style.display='none'"><a class="pname" href="https://podcast.adobe.com/" target="_blank" rel="noopener">Adobe Podcast AI</a></div></td>
+    <td>Очистка речи / Шумоподавление</td><td><span class="pos pos-top5">Топ очистки речи</span></td>
+    <td><span class="badge bm">Средне</span></td><td><span class="badge bm">Средний</span></td>
+    <td><span class="pfree">Бесплатно</span> (бета)</td>
+    <td><div class="al"><span>🌐 VPN + podcast.adobe.com</span></div></td>
+    <td>Adobe ID</td>
+  </tr>
+
+  <tr class="rm" data-cat="audproc" data-diff="medium">
+    <td><div class="pcell"><img class="favicon" src="https://www.google.com/s2/favicons?domain=www.descript.com&sz=32" alt="" loading="lazy" onerror="this.style.display='none'"><a class="pname" href="https://www.descript.com/" target="_blank" rel="noopener">Descript</a></div></td>
+    <td>AI-редактор аудио/видео</td><td><span class="pos pos-top5">Топ-5 класса</span></td>
+    <td><span class="badge bm">Средне</span></td><td><span class="badge be">Низкий</span></td>
+    <td><span class="pfree">Бесплатно</span> (1 час) / от $24/мес <span class="pcur pcur-f">💳</span></td>
+    <td><div class="al"><span>🌐 VPN + descript.com</span></div></td>
+    <td>Email / Google</td>
+  </tr>
+
+
+  <!-- ████ АГРЕГАТОРЫ ████ -->
+<tr class="cr" id="cat-agg" data-cat="agg"><td colspan="8"><div class="cat-title">🤝 Российские агрегаторы — все модели за рубли / СБП без VPN</div></td></tr>
 <tr class="re" data-cat="agg" data-cur="rub" data-diff="easy">
 <td><div class="pcell"><img alt="" class="favicon" loading="lazy" onerror="this.style.display='none'" src="https://www.google.com/s2/favicons?domain=syntx.ai&amp;sz=32"/><a class="pname" href="https://syntx.ai/" rel="noopener" target="_blank">Syntx.ai</a></div></td>
 <td>Агрегатор моделей</td><td><span class="pos pos-ru">Топ RU-агрегатор</span></td>
@@ -1300,25 +1500,61 @@
   const allDataRows = document.querySelectorAll('#tbody tr:not(.cr)');
   document.getElementById('svcCount').textContent = allDataRows.length + ' ' + declService(allDataRows.length);
 
+  // Stats bar
+  (function(){
+    let free=0, rub=0, freePrice=0, world=0;
+    allDataRows.forEach(r => {
+      if(r.dataset.diff==='easy') free++;
+      if(r.dataset.cur==='rub') rub++;
+      if(r.querySelector('.pfree')) freePrice++;
+      if(r.querySelector('.pos-world, .pos-leader, .pos-top5')) world++;
+    });
+    const el = id => document.getElementById(id);
+    el('statFree').textContent = free;
+    el('statRub').textContent = rub;
+    el('statFreePrice').textContent = freePrice;
+    el('statWorld').textContent = world;
+  })();
+
   /* ── SORT BY RANK (within each category) ── */
   (function(){
     const RANK = {
-      'ChatGPT':1,'Claude':2,'Gemini':3,'DeepSeek':4,'Grok':5,'Perplexity':6,
-      'Microsoft Copilot':7,'Qwen':8,'Mistral':9,'Kimi':10,'Z.ai':11,
-      'NotebookLM':12,'DeepL':13,'Poe':14,
+      // ✍️ Текст — по мировому трафику (Similarweb + Cloudflare Radar, май 2026)
+      // ChatGPT 53.9%, Gemini 27.9%, Claude 9.2%, DeepSeek 4.1%, Grok 2.4%
+      'ChatGPT':1,'Gemini':2,'Claude':3,'DeepSeek':4,'Grok':5,
+      'Microsoft Copilot':6,'Perplexity':7,'Qwen':8,'Mistral':9,
+      'Poe':10,'Kimi':11,'Z.ai':12,'NotebookLM':13,'DeepL':14,
       'YandexGPT':15,'GigaChat':16,'Яндекс Нейро':17,'TenChat':18,
-      'Midjourney':1,'FLUX':2,'Leonardo':3,'Ideogram':4,'Google ImageFX':5,
-      'Krea':6,'Recraft':7,'Freepik':8,'Kandinsky':9,'Шедеврум':10,
-      'Sora':1,'Runway':2,'Kling':3,'Veo':4,'Luma':5,'Hailuo':6,
-      'Pika':7,'Seedance':8,'Vidu':9,'Нейроклип':10,
+      // 🎨 Графика — по MAU/трафику (a16z, Similarweb)
+      'Midjourney':1,'Google ImageFX':2,'Leonardo':3,'FLUX':4,'Ideogram':5,
+      'Freepik':6,'Recraft':7,'Krea':8,'Kandinsky':9,'Шедеврум':10,
+      // 🎬 Видео — по MAU/трафику
+      'Kling':1,'Runway':2,'Luma':3,'Hailuo':4,'Pika':5,
+      'Sora':6,'Veo':7,'Seedance':8,'Vidu':9,'Нейроклип':10,
+      // 🎵 Музыка
       'Suno':1,'Udio':2,'Mubert':3,
+      // 📊 Слайды
       'Gamma':1,'Beautiful':2,'Tome':3,
+      // 📝 Транскрипция
       'Otter':1,'Fireflies':2,'TurboScribe':3,'Yescribe':4,
       'Speech2Text':5,'Any2Text':6,'Писец':7,'Буквица':8,
+      // 🗣️ Речь
       'ElevenLabs':1,'Speechify':2,'Murf':3,'Yandex SpeechKit':4,'SteosVoice':5,
+      // 🎭 Аватары
       'HeyGen':1,'Synthesia':2,'D-ID':3,
-      'GitHub Copilot':1,'Lovable':2,'Bolt':3,'v0 by Vercel':4,'Replit':5,
+      // 💻 AI-программирование (браузерные)
+      'Replit':1,'Bolt':2,'Lovable':3,'v0 by Vercel':4,'GitHub Copilot':5,
+      // 🖌️ Дизайн
       'Canva':1,'Adobe Firefly':2,'Microsoft Designer':3,
+      // 🌍 AI-перевод видео
+      'HeyGen Video':1,'Rask':2,'Captions':3,'ElevenLabs Dubbing':4,
+      // 📄 Документы
+      'ChatPDF':1,'Humata':2,'LightPDF':3,
+      // 🧊 3D
+      'Meshy':1,'Spline':2,'CSM':3,
+      // 🎚️ Аудиообработка
+      'LALAL':1,'Adobe Podcast':2,'Descript':3,
+      // 🤝 Агрегаторы
       'Syntx':1,'BotHub':2,'GPTunnel':3,'ruGPT':4,'Alpina':5,'Jivo':6
     };
     function rankOf(row){
@@ -1600,6 +1836,52 @@
     document.getElementById('noRes').style.display = vis===0?'block':'none';
     document.getElementById('noResCards').style.display = cardVis===0?'block':'none';
   }
+
+
+  /* ── COLUMN SORTING ── */
+  (function(){
+    const BADGE_ORDER = {'Нет':0,'Низкий':1,'Средний':2,'Высокий':3,'Очень высокий':4,'Заблокировано':5,'Просто':0,'Средне':1,'Сложно':2,'Очень сложно':3};
+    document.querySelectorAll('th.sortable').forEach(th => {
+      th.addEventListener('click', () => {
+        const col = th.dataset.sort;
+        const isAsc = th.classList.contains('sort-asc');
+        document.querySelectorAll('th.sortable').forEach(t => t.classList.remove('sort-asc','sort-desc'));
+        th.classList.add(isAsc ? 'sort-desc' : 'sort-asc');
+
+        const tbody = document.getElementById('tbody');
+        const nodes = Array.from(tbody.children);
+        const result = [];
+        let k = 0;
+        while(k < nodes.length){
+          const n = nodes[k];
+          if(n.classList.contains('cr')){
+            result.push(n);
+            let m = k+1; const group = [];
+            while(m < nodes.length && !nodes[m].classList.contains('cr')){ group.push(nodes[m]); m++; }
+            group.sort((a,b) => {
+              let va, vb;
+              const tdsA = a.querySelectorAll('td');
+              const tdsB = b.querySelectorAll('td');
+              if(col==='ban'){
+                const ba = (tdsA[4]?.querySelector('.badge')?.textContent||'').trim();
+                const bb = (tdsB[4]?.querySelector('.badge')?.textContent||'').trim();
+                va = BADGE_ORDER[ba] ?? 9;
+                vb = BADGE_ORDER[bb] ?? 9;
+              } else if(col==='price'){
+                va = tdsA[5]?.textContent.includes('Бесплатно') ? 0 : 1;
+                vb = tdsB[5]?.textContent.includes('Бесплатно') ? 0 : 1;
+              }
+              return isAsc ? vb - va : va - vb;
+            });
+            group.forEach(g => result.push(g));
+            k = m;
+          } else { result.push(n); k++; }
+        }
+        result.forEach(node => tbody.appendChild(node));
+        buildCards();
+      });
+    });
+  })();
 </script>
 </body>
 </html>
