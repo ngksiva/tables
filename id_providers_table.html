@@ -3,86 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Каталог ID-сервисов России 2025</title>
+    <title>Полный каталог ID-сервисов России 2025</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    </style>
+    <style>body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }</style>
 </head>
 <body class="bg-slate-50 text-slate-800 p-4 md:p-10">
-
-    <div class="max-w-5xl mx-auto bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+    <div class="max-w-6xl mx-auto bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
         <a href="index.html" class="text-indigo-600 font-semibold hover:underline mb-6 inline-block">← Назад на главную</a>
-        
-        <h1 class="text-3xl font-bold mb-4">Каталог ID-сервисов России (2025)</h1>
-        <p class="text-slate-600 mb-8">Отечественный рынок аутентификации разделился на пять независимых контуров. Интеграция с ними решает разные задачи: от простого входа на сайт до юридически значимого документооборота.</p>
+        <h1 class="text-3xl font-bold mb-4">Полный каталог ID-сервисов России (2025)</h1>
+        <p class="text-slate-600 mb-8">Более 40+ систем аутентификации: от государственных инфраструктурных решений до корпоративных IAM-платформ.</p>
 
-        <div class="space-y-10">
-            <section>
-                <h2 class="text-xl font-bold mb-4 text-indigo-700 border-b border-indigo-100 pb-2">1. Государственные и инфраструктурные</h2>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-sm text-left border-collapse border border-slate-200">
-                        <thead class="bg-slate-100">
-                            <tr>
-                                <th class="p-3 border border-slate-200">Провайдер</th>
-                                <th class="p-3 border border-slate-200">Назначение</th>
-                                <th class="p-3 border border-slate-200">Доступность</th>
-                                <th class="p-3 border border-slate-200">Особенности</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td class="p-3 border border-slate-200 font-bold">ЕСИА (Госуслуги)</td><td class="p-3 border border-slate-200">Юр. действия</td><td class="p-3 border border-slate-200 text-red-600">Закрытый</td><td class="p-3 border border-slate-200">Требует ИС, ГОСТ-крипто.</td></tr>
-                            <tr><td class="p-3 border border-slate-200 font-bold">ЕБС (Биометрия)</td><td class="p-3 border border-slate-200">Личность</td><td class="p-3 border border-slate-200 text-red-600">Жесткий комплаенс</td><td class="p-3 border border-slate-200">Банки и нотариат.</td></tr>
-                            <tr><td class="p-3 border border-slate-200 font-bold">ЕМИАС</td><td class="p-3 border border-slate-200">Мед. данные</td><td class="p-3 border border-slate-200 text-red-600">Изолированный</td><td class="p-3 border border-slate-200">Медучреждения Москвы.</td></tr>
-                            <tr><td class="p-3 border border-slate-200 font-bold">Мир ID (НСПК)</td><td class="p-3 border border-slate-200">Платежи</td><td class="p-3 border border-slate-200 text-green-600">B2B партнерства</td><td class="p-3 border border-slate-200">Карты Мир.</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
+        <!-- 1. Гос и Инфраструктура -->
+        <section class="mb-10">
+            <h2 class="text-xl font-bold mb-4 text-indigo-700 border-b pb-2">1. Государственные и инфраструктурные</h2>
+            <div class="overflow-x-auto"><table class="w-full text-sm border-collapse border border-slate-200">
+                <thead class="bg-slate-100"><tr><th class="p-3 border">Провайдер</th><th class="p-3 border">Назначение</th><th class="p-3 border">Тип</th><th class="p-3 border">Особенности</th></tr></thead>
+                <tbody>
+                    <tr><td class="p-3 border font-bold">ЕСИА (Госуслуги)</td><td class="p-3 border">Юр. действия</td><td class="p-3 border">Гос</td><td class="p-3 border">Центральный хаб доверия.</td></tr>
+                    <tr><td class="p-3 border font-bold">ЕБС (Биометрия)</td><td class="p-3 border">Личность</td><td class="p-3 border">Гос</td><td class="p-3 border">Биометрический профиль.</td></tr>
+                    <tr><td class="p-3 border font-bold">ЕМИАС</td><td class="p-3 border">Мед. данные</td><td class="p-3 border">Гос</td><td class="p-3 border">Мед-идентификация Москвы.</td></tr>
+                    <tr><td class="p-3 border font-bold">Мир ID (НСПК)</td><td class="p-3 border">Платежи</td><td class="p-3 border">Гос</td><td class="p-3 border">Токенизация карт.</td></tr>
+                    <tr><td class="p-3 border font-bold">Ключ Ростелеком</td><td class="p-3 border">Умный дом</td><td class="p-3 border">Инфра</td><td class="p-3 border">Домофоны и доступ.</td></tr>
+                </tbody>
+            </table></div>
+        </section>
 
-            <section>
-                <h2 class="text-xl font-bold mb-4 text-indigo-700 border-b border-indigo-100 pb-2">2. Технологические гиганты и Телеком</h2>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-sm text-left border-collapse border border-slate-200">
-                        <thead class="bg-slate-100">
-                            <tr>
-                                <th class="p-3 border border-slate-200">Провайдер</th>
-                                <th class="p-3 border border-slate-200">Назначение</th>
-                                <th class="p-3 border border-slate-200">Доступность</th>
-                                <th class="p-3 border border-slate-200">Особенности</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td class="p-3 border border-slate-200 font-bold">Яндекс ID</td><td class="p-3 border border-slate-200">SSO</td><td class="p-3 border border-slate-200 text-green-600">Открытый</td><td class="p-3 border border-slate-200">OAuth 2.0, легкий старт.</td></tr>
-                            <tr><td class="p-3 border border-slate-200 font-bold">VK ID</td><td class="p-3 border border-slate-200">Соц. авторизация</td><td class="p-3 border border-slate-200 text-green-600">Открытый</td><td class="p-3 border border-slate-200">Социальный граф.</td></tr>
-                            <tr><td class="p-3 border border-slate-200 font-bold">Мобильный ID</td><td class="p-3 border border-slate-200">По номеру тел</td><td class="p-3 border border-slate-200 text-green-600">Коммерческий API</td><td class="p-3 border border-slate-200">Push-авторизация.</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
+        <!-- 2. Банки -->
+        <section class="mb-10">
+            <h2 class="text-xl font-bold mb-4 text-emerald-700 border-b pb-2">2. Банковские экосистемы</h2>
+            <div class="overflow-x-auto"><table class="w-full text-sm border-collapse border border-slate-200">
+                <thead class="bg-emerald-50"><tr><th class="p-3 border">Провайдер</th><th class="p-3 border">Назначение</th><th class="p-3 border">Доступ</th><th class="p-3 border">Особенности</th></tr></thead>
+                <tbody>
+                    <tr><td class="p-3 border font-bold">Сбер ID</td><td class="p-3 border">SSO/Доступ</td><td class="p-3 border">B2B</td><td class="p-3 border">Самая большая база РФ.</td></tr>
+                    <tr><td class="p-3 border font-bold">T-ID (Т-Банк)</td><td class="p-3 border">Идентификация</td><td class="p-3 border">API</td><td class="p-3 border">Лучший Developer Experience.</td></tr>
+                    <tr><td class="p-3 border font-bold">ВТБ ID</td><td class="p-3 border">Доступ</td><td class="p-3 border">B2B</td><td class="p-3 border">Гос-стандарты, шифрование.</td></tr>
+                    <tr><td class="p-3 border font-bold">Альфа ID</td><td class="p-3 border">Ритейл/Финтех</td><td class="p-3 border">API</td><td class="p-3 border">Партнерство с RuStore.</td></tr>
+                    <tr><td class="p-3 border font-bold">Газпром ID</td><td class="p-3 border">Медиа/Услуги</td><td class="p-3 border">B2B</td><td class="p-3 border">Rutube/Premier экосистема.</td></tr>
+                    <tr><td class="p-3 border font-bold">ПСБ ID</td><td class="p-3 border">Доступ</td><td class="p-3 border">Корп</td><td class="p-3 border">ОПК и гос-услуги.</td></tr>
+                    <tr><td class="p-3 border font-bold">Росбанк ID</td><td class="p-3 border">Клиенты</td><td class="p-3 border">Закрытый</td><td class="p-3 border">Внутригрупповой.</td></tr>
+                </tbody>
+            </table></div>
+        </section>
 
-            <section>
-                <h2 class="text-xl font-bold mb-4 text-indigo-700 border-b border-indigo-100 pb-2">3. Банковские системы</h2>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-sm text-left border-collapse border border-slate-200">
-                        <thead class="bg-slate-100">
-                            <tr>
-                                <th class="p-3 border border-slate-200">Провайдер</th>
-                                <th class="p-3 border border-slate-200">Назначение</th>
-                                <th class="p-3 border border-slate-200">Доступность</th>
-                                <th class="p-3 border border-slate-200">Особенности</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td class="p-3 border border-slate-200 font-bold">T-ID (Т-Банк)</td><td class="p-3 border border-slate-200">Идентификация</td><td class="p-3 border border-slate-200 text-green-600">Открытый (ИП/ООО)</td><td class="p-3 border border-slate-200">Отличная документация.</td></tr>
-                            <tr><td class="p-3 border border-slate-200 font-bold">Сбер ID</td><td class="p-3 border border-slate-200">Доступ</td><td class="p-3 border border-slate-200 text-green-600">Корпоративный API</td><td class="p-3 border border-slate-200">Жесткие требования.</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-        </div>
-        
-        <div class="mt-12 text-slate-500 text-xs italic">Информация актуальна на 2025 год.</div>
+        <!-- 3. Тех и Телеком -->
+        <section class="mb-10">
+            <h2 class="text-xl font-bold mb-4 text-cyan-700 border-b pb-2">3. Технологические компании и Телеком</h2>
+            <div class="overflow-x-auto"><table class="w-full text-sm border-collapse border border-slate-200">
+                <thead class="bg-cyan-50"><tr><th class="p-3 border">Провайдер</th><th class="p-3 border">Назначение</th><th class="p-3 border">Доступ</th><th class="p-3 border">Особенности</th></tr></thead>
+                <tbody>
+                    <tr><td class="p-3 border font-bold">Яндекс ID</td><td class="p-3 border">SSO</td><td class="p-3 border">Открытый</td><td class="p-3 border">OAuth 2.0, простая интеграция.</td></tr>
+                    <tr><td class="p-3 border font-bold">VK ID</td><td class="p-3 border">Соц. сеть</td><td class="p-3 border">Открытый</td><td class="p-3 border">Социальный граф.</td></tr>
+                    <tr><td class="p-3 border font-bold">МТС ID</td><td class="p-3 border">Экосистема</td><td class="p-3 border">API</td><td class="p-3 border">Mobile ID технологии.</td></tr>
+                    <tr><td class="p-3 border font-bold">Мегафон ID</td><td class="p-3 border">Экосистема</td><td class="p-3 border">API</td><td class="p-3 border">Аутентификация по SIM.</td></tr>
+                    <tr><td class="p-3 border font-bold">Билайн ID</td><td class="p-3 border">Экосистема</td><td class="p-3 border">API</td><td class="p-3 border">Услуги связи.</td></tr>
+                    <tr><td class="p-3 border font-bold">Tele2 ID</td><td class="p-3 border">Экосистема</td><td class="p-3 border">API</td><td class="p-3 border">Услуги связи.</td></tr>
+                    <tr><td class="p-3 border font-bold">Ростелеком ID</td><td class="p-3 border">Медиа (Wink)</td><td class="p-3 border">API</td><td class="p-3 border">Контент-платформы.</td></tr>
+                </tbody>
+            </table></div>
+        </section>
+
+        <!-- 4. Ритейл -->
+        <section class="mb-10">
+            <h2 class="text-xl font-bold mb-4 text-amber-700 border-b pb-2">4. Ритейл и Логистика</h2>
+            <div class="overflow-x-auto"><table class="w-full text-sm border-collapse border border-slate-200">
+                <thead class="bg-amber-50"><tr><th class="p-3 border">Провайдер</th><th class="p-3 border">Назначение</th><th class="p-3 border">Доступ</th><th class="p-3 border">Особенности</th></tr></thead>
+                <tbody>
+                    <tr><td class="p-3 border font-bold">CDEK ID</td><td class="p-3 border">Логистика</td><td class="p-3 border">Закрытый</td><td class="p-3 border">Выдача без паспорта.</td></tr>
+                    <tr><td class="p-3 border font-bold">Почта.ID</td><td class="p-3 border">Почта</td><td class="p-3 border">Закрытый</td><td class="p-3 border">Гос-логистика.</td></tr>
+                    <tr><td class="p-3 border font-bold">WB ID</td><td class="p-3 border">Маркетплейс</td><td class="p-3 border">Закрытый</td><td class="p-3 border">Внутри экосистемы.</td></tr>
+                    <tr><td class="p-3 border font-bold">Ozon ID</td><td class="p-3 border">Маркетплейс</td><td class="p-3 border">Закрытый</td><td class="p-3 border">Финансы Ozon.</td></tr>
+                    <tr><td class="p-3 border font-bold">X5 ID</td><td class="p-3 border">Ритейл</td><td class="p-3 border">B2B</td><td class="p-3 border">Пятерочка/Перекресток.</td></tr>
+                    <tr><td class="p-3 border font-bold">Магнит ID</td><td class="p-3 border">Ритейл</td><td class="p-3 border">Закрытый</td><td class="p-3 border">Лояльность сети.</td></tr>
+                    <tr><td class="p-3 border font-bold">РЖД ID</td><td class="p-3 border">Транспорт</td><td class="p-3 border">Закрытый</td><td class="p-3 border">Билеты.</td></tr>
+                    <tr><td class="p-3 border font-bold">Яндекс Маркет ID</td><td class="p-3 border">Ритейл</td><td class="p-3 border">API</td><td class="p-3 border">Входит в Яндекс ID.</td></tr>
+                </tbody>
+            </table></div>
+        </section>
+
+        <!-- 5. B2B Корп -->
+        <section class="mb-10">
+            <h2 class="text-xl font-bold mb-4 text-purple-700 border-b pb-2">5. B2B/Корпоративные (IAM/IdM)</h2>
+            <div class="overflow-x-auto"><table class="w-full text-sm border-collapse border border-slate-200">
+                <thead class="bg-purple-50"><tr><th class="p-3 border">Решение</th><th class="p-3 border">Класс</th><th class="p-3 border">Особенности</th></tr></thead>
+                <tbody>
+                    <tr><td class="p-3 border font-bold">Solar inRights</td><td class="p-3 border">IdM</td><td class="p-3 border">Enterprise-уровень, Ростелеком.</td></tr>
+                    <tr><td class="p-3 border font-bold">Avanpost IDM</td><td class="p-3 border">IdM</td><td class="p-3 border">Лидер рынка, ГОСТ-крипто.</td></tr>
+                    <tr><td class="p-3 border font-bold">1IDM</td><td class="p-3 border">IdM</td><td class="p-3 border">Легкое, быстрая настройка.</td></tr>
+                    <tr><td class="p-3 border font-bold">BI.ZONE PAM</td><td class="p-3 border">PAM</td><td class="p-3 border">Контроль админов.</td></tr>
+                    <tr><td class="p-3 border font-bold">Indeed AM</td><td class="p-3 border">MFA</td><td class="p-3 border">Второй фактор.</td></tr>
+                    <tr><td class="p-3 border font-bold">Blitz ID Provider</td><td class="p-3 border">IAM</td><td class="p-3 border">Стек для Enterprise SSO.</td></tr>
+                    <tr><td class="p-3 border font-bold">Индиго</td><td class="p-3 border">PAM</td><td class="p-3 border">Замена CyberArk.</td></tr>
+                    <tr><td class="p-3 border font-bold">Avanpost FAM</td><td class="p-3 border">FAM</td><td class="p-3 border">Доступ к веб-приложениям.</td></tr>
+                    <tr><td class="p-3 border font-bold">SafeLogon</td><td class="p-3 border">MFA</td><td class="p-3 border">Локальный вход.</td></tr>
+                    <tr><td class="p-3 border font-bold">MultiFactor</td><td class="p-3 border">MFA</td><td class="p-3 border">Удобная 2FA для бизнеса.</td></tr>
+                </tbody>
+            </table></div>
+        </section>
     </div>
 </body>
 </html>
