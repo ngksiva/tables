@@ -3,79 +3,103 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ID-матрица России 2026 — Что ставить вместо Google / Apple</title>
-    
-    <link rel="manifest" href='data:application/json,{"name":"ID-Матрица 2026","short_name":"ID-Матрица","start_url":"/","display":"standalone","background_color":"#f8fafc","theme_color":"#4f46e5"}'>
+    <title>ID-Матрица России 2026 — чем заменить вход через Google и Apple | Академия Батранкова</title>
+
+    <meta name="author" content="Академия Батранкова" />
+    <meta name="description" content="67 российских систем авторизации в одной таблице: чем заменить вход через Google и Apple с 7 июля 2026. Сложность интеграции, протоколы, реестр РФ, стоимость. Разбор закона 199-ФЗ и штрафов до 700 000 ₽. От Академии Батранкова." />
+    <meta name="keywords" content="авторизация без Google, замена Apple ID, 199-ФЗ, вход через Госуслуги, ЕСИА, Сбер ID, Яндекс ID, VK ID, российская авторизация, штраф РКН, ID-система реестр" />
+    <meta name="theme-color" content="#0f172a" />
+    <link rel="canonical" href="https://id.batrankov.ru/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Академия Батранкова" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:title" content="ID-Матрица России 2026 — чем заменить вход через Google и Apple" />
+    <meta property="og:description" content="67 российских систем авторизации: сложность интеграции, протоколы, реестр РФ, цены. Разбор 199-ФЗ и штрафов до 700 000 ₽ за иностранный вход после 7 июля." />
+    <meta property="og:url" content="https://id.batrankov.ru/" />
+    <meta property="og:image" content="https://id.batrankov.ru/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ID-Матрица России 2026 — чем заменить вход через Google и Apple" />
+    <meta name="twitter:description" content="67 российских систем авторизации: сложность интеграции, реестр РФ, цены. Разбор 199-ФЗ и штрафов до 700 000 ₽." />
+    <meta name="twitter:image" content="https://id.batrankov.ru/og.png" />
+
+    <link rel="manifest" href='data:application/json,{"name":"ID-Матрица России 2026","short_name":"ID-Матрица","start_url":"/","display":"standalone","background_color":"#f8fafc","theme_color":"#4f46e5"}'>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-    
+
     <style>
         :root {
-            --bg-page: #f8fafc;
-            --bg-card: #ffffff;
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --border-color: #e2e8f0;
-            --accent: #4f46e5;
-            --badge-bg: #eef2ff;
-            --badge-text: #4338ca;
+            --bg-page: #f8fafc; --bg-card: #ffffff;
+            --text-primary: #0f172a; --text-secondary: #475569;
+            --border-color: #e2e8f0; --accent: #4f46e5;
+            --badge-bg: #eef2ff; --badge-text: #4338ca;
         }
         body.dark {
-            --bg-page: #0f172a;
-            --bg-card: #1e2937;
-            --text-primary: #f1f5f9;
-            --text-secondary: #94a3b8;
-            --border-color: #334155;
-            --accent: #818cf8;
-            --badge-bg: #312e81;
-            --badge-text: #c7d2fe;
+            --bg-page: #0f172a; --bg-card: #1e293b;
+            --text-primary: #f1f5f9; --text-secondary: #94a3b8;
+            --border-color: #334155; --accent: #818cf8;
+            --badge-bg: #312e81; --badge-text: #c7d2fe;
         }
-        body {
-            background-color: var(--bg-page);
-            color: var(--text-primary);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            transition: background 0.3s, color 0.3s;
-        }
+        body { background-color: var(--bg-page); color: var(--text-primary); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; transition: background 0.3s, color 0.3s; }
         .card { background-color: var(--bg-card); border-color: var(--border-color); transition: background 0.3s, border-color 0.3s; }
         table { background-color: var(--bg-card); color: var(--text-primary); }
         th { background-color: #f1f5f9; color: var(--text-primary); }
         body.dark th { background-color: #334155; }
         td { border-color: var(--border-color); }
-        
+
+        /* Integration badges */
         .badge-open { background-color: #d1fae5; color: #065f46; }
         .badge-closed { background-color: #fee2e2; color: #991b1b; }
         body.dark .badge-open { background-color: #065f46; color: #d1fae5; }
         body.dark .badge-closed { background-color: #7f1d1d; color: #fca5a5; }
-        
-        .pop-high { color: #16a34a; font-weight: 600; }
-        .pop-mid { color: #d97706; font-weight: 500; }
-        .pop-niche { color: #64748b; }
-        body.dark .pop-high { color: #4ade80; }
-        body.dark .pop-mid { color: #fbbf24; }
-        body.dark .pop-niche { color: #94a3b8; }
-        
-        .recommend-row { background-color: #fefce8; }
-        body.dark .recommend-row { background-color: #422006; }
-        
-        .filter-btn.active, .filter-scenario.active, .filter-capability.active, .filter-audience.active { 
-            background-color: var(--accent) !important; color: white !important; border-color: var(--accent) !important; 
+
+        /* Difficulty text + badges */
+        .diff-green  { color: #16a34a; font-weight: 600; }
+        .diff-yellow { color: #d97706; font-weight: 600; }
+        .diff-orange { color: #ea580c; font-weight: 600; }
+        .diff-red    { color: #dc2626; font-weight: 600; }
+        body.dark .diff-green  { color: #4ade80; }
+        body.dark .diff-yellow { color: #fbbf24; }
+        body.dark .diff-orange { color: #fb923c; }
+        body.dark .diff-red    { color: #f87171; }
+        .db { padding: 0.15rem 0.55rem; border-radius: 9999px; font-size: 11px; font-weight: 600; white-space: nowrap; }
+        .db-green  { background:#d1fae5; color:#065f46; } .db-yellow { background:#fef3c7; color:#92400e; }
+        .db-orange { background:#ffedd5; color:#9a3412; } .db-red { background:#fee2e2; color:#991b1b; }
+        body.dark .db-green { background:#065f46; color:#d1fae5; } body.dark .db-yellow { background:#78350f; color:#fde68a; }
+        body.dark .db-orange { background:#7c2d12; color:#fed7aa; } body.dark .db-red { background:#7f1d1d; color:#fecaca; }
+
+        /* Row tint by difficulty */
+        .row-green  { background-color: rgba(16,185,129,0.06); }
+        .row-yellow { background-color: rgba(217,119,6,0.06); }
+        .row-orange { background-color: rgba(234,88,12,0.07); }
+        .row-red    { background-color: rgba(220,38,38,0.06); }
+        body.dark .row-green  { background-color: rgba(16,185,129,0.12); }
+        body.dark .row-yellow { background-color: rgba(217,119,6,0.12); }
+        body.dark .row-orange { background-color: rgba(234,88,12,0.13); }
+        body.dark .row-red    { background-color: rgba(220,38,38,0.12); }
+        .row-reco { box-shadow: inset 3px 0 0 0 var(--accent); }
+
+        .filter-btn.active, .filter-scenario.active, .filter-capability.active, .filter-special.active {
+            background-color: var(--accent) !important; color: white !important; border-color: var(--accent) !important;
         }
         .filter-btn { transition: all 0.2s; cursor: pointer; border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-primary); }
         .filter-btn:hover { background: var(--badge-bg); }
-        
+
         .sortable th { cursor: pointer; user-select: none; transition: background-color 0.2s; }
         .sortable th:hover { background-color: #e0e7ff; }
         body.dark .sortable th:hover { background-color: #4b5563; }
         .sortable th::after { content: " ⇅"; opacity: 0.3; font-size: 0.8em; margin-left: 4px; }
         .sortable th.asc::after { content: " ↑"; opacity: 1; color: var(--accent); }
         .sortable th.desc::after { content: " ↓"; opacity: 1; color: var(--accent); }
-        
+
         .accordion-header { cursor: pointer; user-select: none; }
         .accordion-header .arrow { transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .accordion-header.open .arrow { transform: rotate(180deg); }
         .accordion-body { overflow: hidden; transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1); max-height: 0; }
-        .accordion-body.open { max-height: 8000px; }
-        
+        .accordion-body.open { max-height: 12000px; }
+
         .hero-bg { background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); }
         .tool-btn { background: rgba(255,255,255,0.2); color: white; border: none; padding: 0.5rem 1rem; border-radius: 9999px; cursor: pointer; transition: 0.2s; font-size: 0.875rem; }
         .tool-btn:hover { background: rgba(255,255,255,0.3); }
@@ -86,12 +110,7 @@
         .main-row { cursor: pointer; }
 
         .has-tooltip { position: relative; cursor: help; }
-        .has-tooltip:hover::after {
-            content: attr(data-tooltip);
-            position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%);
-            background: #1e293b; color: white; padding: 4px 8px; border-radius: 4px;
-            font-size: 12px; white-space: nowrap; z-index: 10; margin-bottom: 4px;
-        }
+        .has-tooltip:hover::after { content: attr(data-tooltip); position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); background: #1e293b; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; white-space: nowrap; z-index: 10; margin-bottom: 4px; }
 
         #compareBar { position: fixed; bottom: -100px; left: 50%; transform: translateX(-50%); transition: bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 50; }
         #compareBar.show { bottom: 24px; }
@@ -101,6 +120,8 @@
             .table-wrap table { display: none; }
             .table-wrap .card-list { display: flex; flex-direction: column; gap: 0.75rem; }
             .card-item { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 0.75rem; padding: 1rem; }
+            .card-item.row-green { border-left: 4px solid #16a34a; } .card-item.row-yellow { border-left: 4px solid #d97706; }
+            .card-item.row-orange { border-left: 4px solid #ea580c; } .card-item.row-red { border-left: 4px solid #dc2626; }
             .card-item .provider { font-weight: 700; font-size: 1.1rem; }
             .card-item .meta { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.4rem 0; }
             .card-item .badge { font-size: 0.7rem; padding: 0.15rem 0.5rem; border-radius: 9999px; background: var(--badge-bg); color: var(--badge-text); white-space: nowrap; }
@@ -108,68 +129,100 @@
             .card-item .link { color: var(--accent); text-decoration: underline; }
         }
         @media (min-width: 769px) { .table-wrap .card-list { display: none; } }
-        
+
         .highlight-best { background-color: #dcfce7 !important; color: #166534 !important; font-weight: 600; }
         body.dark .highlight-best { background-color: #14532d !important; color: #86efac !important; }
+
+        .brandbar a:hover { color: var(--accent); }
+        .legend-val { display:inline-block; min-width: 8.5rem; font-weight:700; }
     </style>
 </head>
 <body>
+    <!-- ===== BRAND BAR ===== -->
+    <div class="brandbar w-full border-b" style="border-color:var(--border-color)">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between text-sm">
+            <a href="https://www.youtube.com/@BDVSecurity" target="_blank" class="font-bold tracking-wide flex items-center gap-2" style="color:var(--text-primary)">
+                <i class="fa-solid fa-shield-halved" style="color:var(--accent)"></i> АКАДЕМИЯ БАТРАНКОВА
+            </a>
+            <a href="https://t.me/safebdv" target="_blank" class="font-medium" style="color:var(--text-secondary)">
+                <i class="fa-brands fa-telegram"></i> @safebdv
+            </a>
+        </div>
+    </div>
+
     <div class="max-w-7xl mx-auto px-4 py-8">
-        <!-- ========== HERO ========== -->
-        <div class="hero-bg text-white rounded-3xl p-8 md:p-12 mb-10 shadow-xl" id="heroSection">
+        <!-- ===== HERO ===== -->
+        <div class="hero-bg text-white rounded-3xl p-8 md:p-12 mb-6 shadow-xl" id="heroSection">
             <div class="flex justify-between items-start flex-wrap gap-4">
                 <div>
                     <div class="inline-flex items-center gap-2 bg-white/20 px-4 py-1 rounded-full text-sm mb-4">
                         <span class="bg-green-400 w-2 h-2 rounded-full animate-pulse"></span>
-                        Архитектурный срез 2026 года
+                        Архитектурный срез · V3 · Проверено: 06.07.2026
                     </div>
                     <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-2">ID-Матрица России</h1>
-                    <p class="text-2xl md:text-3xl font-semibold text-yellow-200">60 систем управления доступом</p>
-                    <p class="text-lg max-w-3xl mt-4 opacity-90">Замена Google SSO и Apple ID. Без маркетинговой шелухи.</p>
+                    <p class="text-2xl md:text-3xl font-semibold text-yellow-200">Чем заменить вход через Google и Apple</p>
+                    <p class="text-lg max-w-3xl mt-4 opacity-90"><span class="js-total">67</span> российских систем авторизации. Сложность интеграции, протоколы, реестр, цена. Без маркетинговой шелухи.</p>
                 </div>
                 <div class="flex flex-col items-end gap-3">
                     <div class="flex items-center gap-2">
                         <button onclick="exportData('json')" class="tool-btn"><i class="fa-solid fa-code"></i> JSON</button>
                         <button onclick="exportData('csv')" class="tool-btn"><i class="fa-solid fa-file-csv"></i> CSV</button>
                     </div>
-                    <div class="flex items-center gap-3">
-                        <button id="themeBtn" aria-label="Переключить тему" class="bg-white/20 hover:bg-white/30 p-2 rounded-full transition-all w-10 h-10 flex items-center justify-center">
-                            <i class="fa-solid fa-moon text-lg"></i>
-                        </button>
-                    </div>
+                    <button id="themeBtn" aria-label="Переключить тему" class="bg-white/20 hover:bg-white/30 p-2 rounded-full transition-all w-10 h-10 flex items-center justify-center">
+                        <i class="fa-solid fa-moon text-lg"></i>
+                    </button>
                 </div>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10">
                 <div data-scenario="b2c" role="button" tabindex="0" class="recommend-card bg-white/10 hover:bg-white/20 hover:scale-105 active:scale-95 ring-0 hover:ring-2 ring-white/50 p-5 rounded-2xl cursor-pointer transition-all">
-                    <div class="font-semibold flex items-center gap-2"><i class="fa-solid fa-users"></i> B2C Уровень</div>
-                    <div class="text-2xl font-bold mt-1">Яндекс ID + СБП</div>
-                    <div class="text-sm opacity-75 mt-2">База. Охват более 80 млн. Быстрый онбординг.</div>
+                    <div class="font-semibold flex items-center gap-2"><i class="fa-solid fa-users"></i> Массовый портал (B2C)</div>
+                    <div class="text-2xl font-bold mt-1">Яндекс ID · Сбер ID · T-ID</div>
+                    <div class="text-sm opacity-75 mt-2">Готовая кнопка входа, охват десятки млн, подключение за день.</div>
                 </div>
                 <div data-scenario="fintech" role="button" tabindex="0" class="recommend-card bg-white/10 hover:bg-white/20 hover:scale-105 active:scale-95 ring-0 hover:ring-2 ring-white/50 p-5 rounded-2xl cursor-pointer transition-all">
-                    <div class="font-semibold flex items-center gap-2"><i class="fa-solid fa-building-columns"></i> Финтех</div>
-                    <div class="text-2xl font-bold mt-1">T-ID + Сбер ID</div>
-                    <div class="text-sm opacity-75 mt-2">Трастовая финансовая верификация и антифрод.</div>
+                    <div class="font-semibold flex items-center gap-2"><i class="fa-solid fa-building-columns"></i> Финтех и подпись</div>
+                    <div class="text-2xl font-bold mt-1">SafeTech · Сбер ID · ЕБС</div>
+                    <div class="text-sm opacity-75 mt-2">Подпись платежей по ГОСТ, антифрод, биометрическая верификация.</div>
                 </div>
-                <div data-scenario="b2b" role="button" tabindex="0" class="recommend-card bg-white/10 hover:bg-white/20 hover:scale-105 active:scale-95 ring-0 hover:ring-2 ring-white/50 p-5 rounded-2xl cursor-pointer transition-all">
-                    <div class="font-semibold flex items-center gap-2"><i class="fa-solid fa-shield-halved"></i> Enterprise IAM</div>
-                    <div class="text-2xl font-bold mt-1">Solar / Avanpost</div>
-                    <div class="text-sm opacity-75 mt-2">ФСТЭК, ГОСТ и интеграция в жесткий периметр.</div>
+                <div data-scenario="gov" role="button" tabindex="0" class="recommend-card bg-white/10 hover:bg-white/20 hover:scale-105 active:scale-95 ring-0 hover:ring-2 ring-white/50 p-5 rounded-2xl cursor-pointer transition-all">
+                    <div class="font-semibold flex items-center gap-2"><i class="fa-solid fa-landmark"></i> Госзначимость / КИИ</div>
+                    <div class="text-2xl font-bold mt-1">Госуслуги · Avanpost · Solar</div>
+                    <div class="text-sm opacity-75 mt-2">ЕСИА, сертификаты ФСТЭК, ГОСТ-криптография и закрытый контур.</div>
                 </div>
             </div>
         </div>
 
-        <!-- ========== СТАТИСТИКА ========== -->
-        <div id="statsBar" class="text-sm text-slate-600 dark:text-slate-300 mb-3 font-medium flex flex-wrap items-center gap-4"></div>
+        <!-- ===== LEGAL ANCHOR ===== -->
+        <div class="rounded-3xl border-2 mb-8 overflow-hidden" style="border-color:#dc2626">
+            <div class="px-6 py-4 flex items-center gap-3" style="background:#dc2626;color:#fff">
+                <i class="fa-solid fa-triangle-exclamation text-2xl"></i>
+                <div>
+                    <div class="font-bold text-lg leading-tight">С 7 июля 2026 вход через Google, Apple ID и Facebook на российских сайтах вне закона</div>
+                    <div class="text-sm opacity-90">Штраф юрлицам и ИП — до 700 000 ₽, за повторное — до 1,4 млн ₽. За каждый выявленный случай.</div>
+                </div>
+            </div>
+            <div class="card px-6 py-5 grid md:grid-cols-2 gap-x-8 gap-y-3 text-sm">
+                <div>
+                    <p class="mb-2"><strong>Основание.</strong> Запрет иностранной авторизации действует с 1 декабря 2023 (149-ФЗ, ст. 8, п. 10). Ответственность введена Федеральным законом № 199-ФЗ от 26.06.2026 — новая статья 13.55 КоАП, вступает в силу 7 июля 2026.</p>
+                    <p><strong>Контроль.</strong> Роскомнадзор, вплоть до блокировки ресурса. Наказываются владельцы сайтов и приложений, не пользователи.</p>
+                </div>
+                <div>
+                    <p class="mb-2"><strong>Что разрешено.</strong> Госуслуги (ЕСИА), российский номер телефона, Единая биометрическая система или иная система авторизации, принадлежащая российскому лицу и отвечающая требованиям к защите информации.</p>
+                    <p><strong>Важный нюанс.</strong> Иностранная почта как логин — можно. Запрет касается механизма подтверждения личности, а не адреса e-mail (разъяснение РОЦИТ).</p>
+                </div>
+            </div>
+        </div>
 
-        <!-- ========== ФИЛЬТРЫ ========== -->
-        <div class="flex flex-wrap gap-4 mb-6 items-center bg-white dark:bg-slate-800 p-5 rounded-3xl border">
-            <div class="flex-1 flex gap-2 items-center">
-                <input type="text" id="searchInput" aria-label="Поиск сервисов" placeholder="🔍 Поиск по названию или назначению..." 
-                       class="w-full px-5 py-3 rounded-2xl border focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-transparent text-inherit border-slate-200 dark:border-slate-600">
-                <button onclick="resetAllFilters()" aria-label="Сбросить фильтры" class="px-4 py-2 text-sm text-slate-500 hover:text-slate-800 dark:hover:text-white transition-colors whitespace-nowrap">
-                    Сбросить все
-                </button>
+        <!-- ===== STATS ===== -->
+        <div id="statsBar" class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6"></div>
+
+        <!-- ===== FILTERS ===== -->
+        <div class="flex flex-wrap gap-4 mb-4 items-center card p-5 rounded-3xl border">
+            <div class="flex-1 flex gap-2 items-center min-w-[240px]">
+                <input type="text" id="searchInput" aria-label="Поиск сервисов" placeholder="🔍 Поиск по названию, назначению, протоколу..."
+                       class="w-full px-5 py-3 rounded-2xl border focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-transparent text-inherit" style="border-color:var(--border-color)">
+                <button onclick="resetAllFilters()" aria-label="Сбросить фильтры" class="px-4 py-2 text-sm whitespace-nowrap" style="color:var(--text-secondary)">Сбросить всё</button>
             </div>
             <div class="flex flex-wrap gap-2 w-full md:w-auto" id="filterButtons" role="group">
                 <button class="filter-btn active px-4 py-2 rounded-2xl text-sm font-medium" data-filter="all">Все</button>
@@ -181,16 +234,21 @@
                 <button class="filter-btn px-4 py-2 rounded-2xl text-sm font-medium" data-filter="hard">Железо</button>
             </div>
         </div>
-        
-        <div class="flex flex-wrap gap-2 mb-6 text-sm" id="extraFilters">
-            <span class="text-slate-500 font-medium py-1">Сценарий:</span>
+
+        <div class="flex flex-wrap gap-2 mb-6 text-sm items-center" id="extraFilters">
+            <span class="font-medium py-1" style="color:var(--text-secondary)">Быстро:</span>
+            <button class="filter-special px-3 py-1 rounded-full border transition-colors" data-special="oauth">🔓 Простой OAuth</button>
+            <button class="filter-special px-3 py-1 rounded-full border transition-colors" data-special="registry">🇷🇺 В реестре РФ</button>
+            <button class="filter-special px-3 py-1 rounded-full border transition-colors" data-special="reco">⭐ Рекомендованные</button>
+
+            <span class="font-medium ml-3 py-1" style="color:var(--text-secondary)">Сценарий:</span>
             <button class="filter-scenario active px-3 py-1 rounded-full border transition-colors" data-scenario="all">Все</button>
             <button class="filter-scenario px-3 py-1 rounded-full border transition-colors" data-scenario="b2c">B2C</button>
             <button class="filter-scenario px-3 py-1 rounded-full border transition-colors" data-scenario="b2b">B2B</button>
             <button class="filter-scenario px-3 py-1 rounded-full border transition-colors" data-scenario="fintech">Финтех</button>
             <button class="filter-scenario px-3 py-1 rounded-full border transition-colors" data-scenario="gov">Гос</button>
-            
-            <span class="text-slate-500 font-medium ml-4 py-1">Фичи:</span>
+
+            <span class="font-medium ml-3 py-1" style="color:var(--text-secondary)">Фичи:</span>
             <button class="filter-capability active px-3 py-1 rounded-full border transition-colors" data-capability="all">Все</button>
             <button class="filter-capability px-3 py-1 rounded-full border transition-colors" data-capability="mfa">MFA</button>
             <button class="filter-capability px-3 py-1 rounded-full border transition-colors" data-capability="pam">PAM</button>
@@ -198,25 +256,84 @@
             <button class="filter-capability px-3 py-1 rounded-full border transition-colors" data-capability="passwordless">Без пароля</button>
         </div>
 
-        <div id="sortIndicator" class="hidden text-sm mb-4 px-4 py-2 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-lg inline-block border border-indigo-100 dark:border-indigo-800"></div>
+        <div id="sortIndicator" class="hidden text-sm mb-4 px-4 py-2 rounded-lg inline-block border" style="background:var(--badge-bg);color:var(--badge-text);border-color:var(--border-color)"></div>
 
-        <!-- ========== КАТАЛОГ ========== -->
+        <!-- ===== CATALOG ===== -->
         <div id="catalogContainer" class="space-y-6"></div>
+
+        <!-- ===== SECURITY CALLOUT ===== -->
+        <div class="card rounded-3xl border p-6 md:p-8 mt-10">
+            <h3 class="text-lg font-bold mb-3 flex items-center gap-2">🛡️ Совет по кибербезопасности</h3>
+            <p class="text-sm mb-3" style="color:var(--text-secondary)">Закон требует не «российский логин», а российский контроль над самим сервисом авторизации. Поэтому выбор между провайдерами — это выбор по трём осям: юридическое соответствие (в реестре или нет), скорость интеграции и охват. Для массового портала стандартный OAuth 2.0 от Яндекс ID или VK ID закрывается за день; банковские ID (Сбер, T-ID, Альфа) потребуют оферту и модерацию. Для КИИ и госзначимых действий нужен ЕСИА либо тяжёлый IdM класса Avanpost и Solar с сертификатами ФСТЭК.</p>
+            <p class="text-sm" style="color:var(--text-secondary)">Отдельно про пользователей, которые заходили только через Google: при отключении иностранного входа их доступ и данные рискуют потеряться. Продумайте связывание аккаунтов по номеру телефона <em>до</em> переключения, а не после. Telegram-вход рассматривайте как зону риска наравне с Google — авторизатором фактически выступает иностранный мессенджер.</p>
+        </div>
+
+        <!-- ===== LEGEND ===== -->
+        <div class="card rounded-3xl border p-6 md:p-8 mt-6">
+            <h3 class="text-lg font-bold mb-4">📖 Как читать таблицу</h3>
+
+            <div class="mb-5">
+                <p class="font-semibold mb-2" style="color:var(--accent)">Столбец «Сложность интеграции» — сколько сил уйдёт на подключение</p>
+                <ul class="text-sm space-y-1" style="color:var(--text-secondary)">
+                    <li><span class="legend-val diff-green">🟢 Просто</span> Есть документация, всё делается онлайн: регистрируете приложение, получаете ключи, вставляете кнопку. Ни договоров, ни поездок в офис.</li>
+                    <li><span class="legend-val diff-yellow">🟡 Средне</span> Надо напрячься с договором или офертой: заявка менеджеру, подписание по ЭДО, выпуск сертификата, модерация. Протоколы стандартные.</li>
+                    <li><span class="legend-val diff-orange">🟠 Сложно</span> Закрытый контур плюс русская криптография: подпись через КЭП/УКЭП, mTLS, согласования с ИБ провайдера. Интеграционный проект.</li>
+                    <li><span class="legend-val diff-red">🔴 Очень сложно</span> ГОСТ-HTTPS, своя PKI и СКЗИ, биометрия или требования Минцифры/ФСБ. Оценка влияния на СКЗИ — месяцы, при своей разработке до 1,5–3 лет.</li>
+                </ul>
+            </div>
+
+            <div class="mb-5">
+                <p class="font-semibold mb-2" style="color:var(--accent)">Столбец «Интеграция» — тип подключения</p>
+                <ul class="text-sm space-y-1" style="color:var(--text-secondary)">
+                    <li><span class="legend-val">🔓 OAuth</span> Открытый стандарт, публичное API — чужой сайт может подключиться сам.</li>
+                    <li><span class="legend-val">🔒 Internal</span> Закрытый или проприетарный протокол, доступ по договору или в составе продукта.</li>
+                </ul>
+            </div>
+
+            <div class="mb-5">
+                <p class="font-semibold mb-2" style="color:var(--accent)">Столбец «Реестр» — юридический шлюз</p>
+                <ul class="text-sm space-y-1" style="color:var(--text-secondary)">
+                    <li><span class="legend-val">✅ В реестре</span> Решение в реестре российского ПО — доказуемое соответствие требованиям к защите информации.</li>
+                    <li><span class="legend-val">—</span> В реестре нет либо это внешний сервис входа: соответствие держится на российском владельце сервиса.</li>
+                </ul>
+            </div>
+
+            <div>
+                <p class="font-semibold mb-2" style="color:var(--accent)">Иконки фич</p>
+                <p class="text-sm" style="color:var(--text-secondary)">🛡️ MFA / 2FA · 🔑 PAM (привилегированный доступ) · 👁️ Биометрия · ✍️ Электронная подпись · 🪄 Вход без пароля · 📱 Мобильный SDK · 🔔 Push-подтверждение</p>
+            </div>
+
+            <div class="mt-6 pt-5 border-t" style="border-color:var(--border-color)">
+                <p class="font-semibold mb-2" style="color:var(--accent)">Как проверялась сложность (обновление 06.07.2026)</p>
+                <ul class="text-sm space-y-1" style="color:var(--text-secondary)">
+                    <li>Оценки сверены с официальной документацией провайдеров: developers.sber.ru, developer.tbank.ru, id.vk.com, yandex.ru/dev, технологический портал ЕСИА и методические рекомендации Минцифры (обновлены август 2025).</li>
+                    <li>Ключевой вывод: реально «встроить за день без договора» можно лишь <strong><span class="js-green-count">7</span> из <span class="js-total">67</span></strong> систем. Все банковские ID (Сбер, T‑ID, Альфа и прочие) требуют оферты по ЭДО, сертификата и модерации — это 🟡, а не 🟢.</li>
+                    <li>ЕСИА для юридически значимых действий — это 🔴: ГОСТ‑HTTPS, КриптоПро, КЭП и СМЭВ. «ЕСИА Смарт» / esia.pro — <em>коммерческий шлюз стороннего вендора</em>, а не сам ЕСИА; официальная точка интеграции — esia.gosuslugi.ru.</li>
+                    <li>Пресет «Массовый портал (B2C)» показывает только то, что можно поставить кнопкой на чужой сайт. Внутренние логины маркетплейсов и сервисов (Wildberries, Магнит, Самокат, Яндекс&nbsp;Еда) в него не входят — вход через них сторонним сайтам недоступен.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ===== FOOTER ===== -->
+        <div class="text-center mt-10 mb-4 text-sm" style="color:var(--text-secondary)">
+            <p class="mb-2">Разборы законов и ИБ в реальном времени — Telegram-канал <a href="https://t.me/safebdv" target="_blank" class="font-semibold" style="color:var(--accent)">«Топ Кибербезопасности Батранкова»</a>, ~10 000 подписчиков.</p>
+            <p><a href="https://t.me/safebdv" target="_blank" class="font-bold" style="color:var(--accent)">✈️ @safebdv</a> · Денис Батранков · CISSP · 34 года в ИБ</p>
+        </div>
     </div>
 
     <!-- Floating Compare -->
-    <div id="compareBar" class="bg-indigo-600 text-white px-6 py-4 rounded-full shadow-2xl flex items-center gap-4 border border-indigo-400">
+    <div id="compareBar" class="text-white px-6 py-4 rounded-full shadow-2xl flex items-center gap-4 border" style="background:var(--accent);border-color:var(--accent)">
         <span class="font-medium">В сравнении (макс 4): <span id="compareCount" class="font-bold">0</span></span>
-        <button onclick="openCompareModal()" class="bg-white text-indigo-600 px-4 py-1.5 rounded-full text-sm font-bold hover:bg-indigo-50 transition-colors">Анализ</button>
-        <button onclick="clearCompare()" class="text-indigo-200 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+        <button onclick="openCompareModal()" class="bg-white px-4 py-1.5 rounded-full text-sm font-bold hover:opacity-90 transition-opacity" style="color:var(--accent)">Анализ</button>
+        <button onclick="clearCompare()" class="text-white/70 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
     </div>
 
     <!-- Compare Modal -->
     <div id="compareModal" class="fixed inset-0 bg-black/60 z-[100] hidden flex items-center justify-center p-4 backdrop-blur-sm">
-        <div class="bg-white dark:bg-slate-800 w-full max-w-5xl rounded-3xl shadow-2xl flex flex-col max-h-[90vh]">
-            <div class="p-6 border-b border-slate-200 dark:border-slate-700 flex justify-between items-center">
+        <div class="card w-full max-w-5xl rounded-3xl shadow-2xl flex flex-col max-h-[90vh]">
+            <div class="p-6 border-b flex justify-between items-center" style="border-color:var(--border-color)">
                 <h2 class="text-2xl font-bold">Сравнение архитектур</h2>
-                <button onclick="closeCompareModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-white text-2xl"><i class="fa-solid fa-xmark"></i></button>
+                <button onclick="closeCompareModal()" class="text-2xl" style="color:var(--text-secondary)"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="p-6 overflow-auto" id="compareModalContent"></div>
         </div>
@@ -227,92 +344,99 @@
             'use strict';
             if (localStorage.getItem('darkMode') === 'true') document.body.classList.add('dark');
 
+            // difficulty: green | yellow | orange | red
             const rawData = [
-                // 1. ГОС
-                { category: 'gos', provider: '⭐ СБП (Идентификация)', purpose: 'Аутентификация через банки НСПК', integration: 'api', access: 'open', api: 'НСПК Webhook API', standards: 'ГОСТ, СТО БР', cost: 'В рамках эквайринга', mobile: true, reestr: '—', site: 'sbp.nspk.ru', audience: 'large', scenario: ['b2c','fintech','highload'], capabilities: ['mfa', 'passwordless', 'mobile'], popularity: 'high', docs: 'https://sbp.nspk.ru/api/' },
-                { category: 'gos', provider: 'ЕСИА (Госуслуги)', purpose: 'Юридически значимые действия', integration: 'internal', access: 'closed', api: 'OAuth 2.0, SAML', standards: 'ГОСТ, 152-ФЗ', cost: 'Бесплатно', mobile: true, reestr: 'Реестр', site: 'gosuslugi.ru', audience: 'large', scenario: ['gov','fintech','b2b'], capabilities: ['mfa','esign'], popularity: 'high', docs: 'https://digital.gov.ru/ru/documents/' },
-                { category: 'gos', provider: 'ЕБС (Гос. Биометрия)', purpose: 'Личность по лицу и голосу', integration: 'internal', access: 'closed', api: 'Биометрия API', standards: 'ГОСТ, 152-ФЗ', cost: 'По транзакциям', mobile: true, reestr: 'Реестр', site: 'ebs.ru', audience: 'large', scenario: ['gov','fintech'], capabilities: ['biometric', 'mfa'], popularity: 'high', docs: 'https://ebs.ru/docs/' },
-                { category: 'gos', provider: 'Цифровой профиль', purpose: 'Предзаполнение анкет', integration: 'api', access: 'closed', api: 'REST API, СМЭВ', standards: 'ГОСТ, 152-ФЗ', cost: 'Бесплатно', mobile: true, reestr: 'Реестр', site: 'digital.gov.ru', audience: 'large', scenario: ['gov','fintech'], capabilities: ['esign'], popularity: 'high' },
-                { category: 'gos', provider: 'Mos ID (СУДИР)', purpose: 'Городские сервисы Москвы', integration: 'internal', access: 'closed', api: 'OAuth 2.0', standards: 'ГОСТ', cost: 'Бесплатно', mobile: true, reestr: 'Реестр', site: 'mos.ru', audience: 'medium', scenario: ['gov','b2c'], capabilities: ['mfa'], popularity: 'mid' },
-                { category: 'gos', provider: 'Мир ID (НСПК)', purpose: 'Авторизация в платежных шлюзах', integration: 'oauth', access: 'open', api: 'Токенизация, REST', standards: 'ГОСТ, PCI DSS', cost: 'По договору', mobile: true, reestr: 'Реестр', site: 'mironline.ru', audience: 'large', scenario: ['fintech'], capabilities: ['mfa','push'], popularity: 'mid' },
-                { category: 'gos', provider: 'MAX ID', purpose: 'Цифровой ID мессенджера госструктур', integration: 'oauth', access: 'open', api: 'OpenID Connect', standards: 'Внутренний', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'maxmessenger.ru', audience: 'medium', scenario: ['b2c'], capabilities: ['passwordless'], popularity: 'niche' },
-                { category: 'gos', provider: 'Единая система ID в банках', purpose: 'Межбанковский SSO-хаб', integration: 'api', access: 'closed', api: 'API Центробанка', standards: 'СТО БР', cost: 'Бесплатно', mobile: false, reestr: '—', site: 'cbr.ru', audience: 'medium', scenario: ['fintech'], capabilities: ['mfa'], popularity: 'niche' },
+                // ===== ГОСУДАРСТВЕННЫЕ =====
+                { category: 'gos', provider: 'ЕСИА (Госуслуги)', purpose: 'Юридически значимые действия, единый вход', integration: 'internal', access: 'closed', api: 'OAuth 2.0, SAML', standards: 'ГОСТ, 152-ФЗ', cost: 'Бесплатно', mobile: true, reestr: 'Реестр', site: 'gosuslugi.ru', scenario: ['gov','fintech','b2b'], capabilities: ['mfa','esign'], popularity: 'high', difficulty: 'red', docs: 'https://digital.gov.ru/ru/documents/' },
+                { category: 'gos', provider: '⭐ Госуслуги ID (авторизация)', purpose: 'Кнопка «Войти через Госуслуги» на сторонних сайтах', integration: 'oauth', access: 'closed', api: 'OpenID Connect', standards: 'ГОСТ, 152-ФЗ', cost: 'Бесплатно', mobile: true, reestr: 'Реестр', site: 'gosuslugi.ru', scenario: ['gov','b2c','fintech'], capabilities: ['mfa','esign'], popularity: 'high', difficulty: 'orange', docs: 'https://partners.gosuslugi.ru/' },
+                { category: 'gos', provider: 'ЕБС (Гос. биометрия)', purpose: 'Идентификация по лицу и голосу', integration: 'internal', access: 'closed', api: 'Биометрия API', standards: 'ГОСТ, 152-ФЗ', cost: 'По транзакциям', mobile: true, reestr: 'Реестр', site: 'ebs.ru', scenario: ['gov','fintech'], capabilities: ['biometric','mfa'], popularity: 'high', difficulty: 'red', docs: 'https://ebs.ru/docs/' },
+                { category: 'gos', provider: 'СБП (идентификация НСПК)', purpose: 'Аутентификация через банки НСПК', integration: 'api', access: 'open', api: 'НСПК Webhook API', standards: 'ГОСТ, СТО БР', cost: 'В рамках эквайринга', mobile: true, reestr: '—', site: 'sbp.nspk.ru', scenario: ['fintech','highload'], capabilities: ['mfa','passwordless','mobile'], popularity: 'high', difficulty: 'yellow', docs: 'https://sbp.nspk.ru/api/' },
+                { category: 'gos', provider: 'Цифровой профиль', purpose: 'Предзаполнение анкет данными из Госуслуг', integration: 'api', access: 'closed', api: 'REST API, СМЭВ', standards: 'ГОСТ, 152-ФЗ', cost: 'Бесплатно', mobile: true, reestr: 'Реестр', site: 'digital.gov.ru', scenario: ['gov','fintech'], capabilities: ['esign'], popularity: 'high', difficulty: 'orange' },
+                { category: 'gos', provider: 'Сферум / Моя Школа', purpose: 'Образовательный госсектор', integration: 'internal', access: 'closed', api: 'ЕСИА REST', standards: 'ФСТЭК, 152-ФЗ', cost: 'Бесплатно', mobile: true, reestr: 'Реестр', site: 'sferum.ru', scenario: ['gov'], capabilities: ['mfa'], popularity: 'high', difficulty: 'orange' },
+                { category: 'gos', provider: 'Mos ID (СУДИР)', purpose: 'Городские сервисы Москвы', integration: 'internal', access: 'closed', api: 'OAuth 2.0', standards: 'ГОСТ', cost: 'Бесплатно', mobile: true, reestr: 'Реестр', site: 'mos.ru', scenario: ['gov'], capabilities: ['mfa'], popularity: 'mid', difficulty: 'yellow' },
+                { category: 'gos', provider: 'Мир ID (НСПК)', purpose: 'Авторизация в платёжных шлюзах', integration: 'oauth', access: 'open', api: 'Токенизация, REST', standards: 'ГОСТ, PCI DSS', cost: 'По договору', mobile: true, reestr: 'Реестр', site: 'mironline.ru', scenario: ['fintech'], capabilities: ['mfa','push'], popularity: 'mid', difficulty: 'yellow' },
+                { category: 'gos', provider: 'MAX ID', purpose: 'Цифровой ID национального мессенджера', integration: 'oauth', access: 'open', api: 'OpenID Connect', standards: 'Внутренний', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'max.ru', scenario: ['b2c'], capabilities: ['passwordless'], popularity: 'niche', difficulty: 'green' },
+                { category: 'gos', provider: 'Единая система ID в банках', purpose: 'Межбанковский SSO-хаб ЦБ', integration: 'api', access: 'closed', api: 'API Центробанка', standards: 'СТО БР', cost: 'Бесплатно', mobile: false, reestr: '—', site: 'cbr.ru', scenario: ['fintech'], capabilities: ['mfa'], popularity: 'niche', difficulty: 'red' },
 
-                // 2. БАНКИ
-                { category: 'bank', provider: '⭐ T-ID (Т-Банк)', purpose: 'Универсальная идентификация', integration: 'oauth', access: 'open', api: 'OAuth 2.0, OpenID', standards: 'СТО БР', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'tbank.ru', audience: 'large', scenario: ['b2c','fintech','highload'], capabilities: ['mfa','push','passwordless','mobile'], popularity: 'high' },
-                { category: 'bank', provider: '⭐ Сбер ID', purpose: 'Вход в крупнейшую экосистему', integration: 'oauth', access: 'open', api: 'OAuth 2.0, OpenID', standards: 'ГОСТ', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'sberid.ru', audience: 'large', scenario: ['b2c','fintech','b2b'], capabilities: ['mfa','push','biometric'], popularity: 'high' },
-                { category: 'bank', provider: 'Альфа ID', purpose: 'Ритейл и коммерция', integration: 'oauth', access: 'open', api: 'OAuth 2.0', standards: 'СТО БР', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'alfabank.ru', audience: 'medium', scenario: ['b2c','fintech'], capabilities: ['mfa','push'], popularity: 'high' },
-                { category: 'bank', provider: 'ВТБ ID', purpose: 'Корпоративный и частный доступ', integration: 'internal', access: 'closed', api: 'ГОСТ-крипто', standards: 'ГОСТ', cost: 'По запросу', mobile: true, reestr: '—', site: 'vtb.ru', audience: 'large', scenario: ['b2b','fintech'], capabilities: ['mfa'], popularity: 'mid' },
-                { category: 'bank', provider: 'Открытие ID', purpose: 'Вход в экосистему группы', integration: 'internal', access: 'closed', api: 'OAuth 2.0', standards: 'ГОСТ', cost: 'По запросу', mobile: true, reestr: '—', site: 'open.ru', audience: 'medium', scenario: ['b2c','fintech'], capabilities: ['mfa'], popularity: 'mid' },
-                { category: 'bank', provider: 'Газпромбанк ID', purpose: 'Авторизация корпоративных клиентов', integration: 'internal', access: 'closed', api: 'OAuth 2.0', standards: 'ГОСТ', cost: 'По запросу', mobile: true, reestr: '—', site: 'gazprombank.ru', audience: 'medium', scenario: ['b2b','gov'], capabilities: ['mfa'], popularity: 'mid' },
-                { category: 'bank', provider: 'МТС Банк ID', purpose: 'Финтех авторизация', integration: 'oauth', access: 'open', api: 'OAuth 2.0', standards: 'Внутренний ГОСТ', cost: 'По запросу', mobile: true, reestr: '—', site: 'mtsbank.ru', audience: 'medium', scenario: ['b2c','fintech'], capabilities: ['mfa','push'], popularity: 'mid' },
-                { category: 'bank', provider: 'ПСБ ID', purpose: 'Оборонный / Гос сектор', integration: 'internal', access: 'closed', api: 'ГОСТ', standards: 'ГОСТ', cost: 'По запросу', mobile: true, reestr: '—', site: 'psbank.ru', audience: 'medium', scenario: ['b2b','gov'], capabilities: ['mfa'], popularity: 'mid' },
-                { category: 'bank', provider: 'Росбанк ID', purpose: 'SSO для банковских продуктов', integration: 'internal', access: 'closed', api: 'OAuth 2.0', standards: 'СТО БР', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'rosbank.ru', audience: 'medium', scenario: ['b2c','fintech'], capabilities: ['mfa'], popularity: 'niche' },
-                { category: 'bank', provider: 'РСХБ ID', purpose: 'Агро-экосистема', integration: 'internal', access: 'closed', api: 'OAuth 2.0', standards: 'ГОСТ', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'rshb.ru', audience: 'medium', scenario: ['b2c','b2b'], capabilities: ['mfa'], popularity: 'niche' },
-                { category: 'bank', provider: 'Совкомбанк ID', purpose: 'Авторизация в финтех-сервисах', integration: 'internal', access: 'closed', api: 'OAuth 2.0', standards: 'СТО БР', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'sovcombank.ru', audience: 'medium', scenario: ['b2c'], capabilities: ['mfa'], popularity: 'niche' },
-                { category: 'bank', provider: 'МКБ ID', purpose: 'Доступ клиентов Московского КБ', integration: 'internal', access: 'closed', api: 'OAuth 2.0', standards: 'ГОСТ', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'mkb.ru', audience: 'small', scenario: ['b2c','fintech'], capabilities: ['mfa'], popularity: 'niche' },
-                { category: 'bank', provider: 'Дом.РФ ID', purpose: 'Ипотечные сервисы и застройщики', integration: 'api', access: 'closed', api: 'REST API', standards: 'ГОСТ', cost: 'Бесплатно', mobile: false, reestr: '—', site: 'dom.rf', audience: 'small', scenario: ['b2b','gov'], capabilities: ['mfa'], popularity: 'niche' },
+                // ===== БАНКИ =====
+                { category: 'bank', provider: '⭐ Сбер ID', purpose: 'Вход в крупнейшую экосистему', integration: 'oauth', access: 'open', api: 'OAuth 2.0, OpenID', standards: 'ГОСТ', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'sberid.ru', scenario: ['b2c','fintech','b2b'], capabilities: ['mfa','push','biometric'], popularity: 'high', difficulty: 'yellow', docs: 'https://developers.sber.ru/docs/ru/sberid/overview' },
+                { category: 'bank', provider: '⭐ T-ID (Т-Банк)', purpose: 'Универсальная идентификация', integration: 'oauth', access: 'open', api: 'OAuth 2.0, OpenID', standards: 'СТО БР', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'tbank.ru', scenario: ['b2c','fintech','highload'], capabilities: ['mfa','push','passwordless','mobile'], popularity: 'high', difficulty: 'yellow' },
+                { category: 'bank', provider: '⭐ SafeTech PayControl', purpose: 'Криптографическая подпись транзакций', integration: 'internal', access: 'closed', api: 'Mobile SDK, REST', standards: 'ГОСТ, ФСБ', cost: 'По транзакциям', mobile: true, reestr: 'Реестр', site: 'safe-tech.ru', scenario: ['fintech','b2b'], capabilities: ['mobile','esign','mfa'], popularity: 'high', difficulty: 'red' },
+                { category: 'bank', provider: 'Альфа ID', purpose: 'Ритейл и коммерция', integration: 'oauth', access: 'open', api: 'OAuth 2.0', standards: 'СТО БР', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'alfabank.ru', scenario: ['b2c','fintech'], capabilities: ['mfa','push'], popularity: 'high', difficulty: 'yellow' },
+                { category: 'bank', provider: 'МТС Банк ID', purpose: 'Финтех-авторизация', integration: 'oauth', access: 'open', api: 'OAuth 2.0', standards: 'Внутренний ГОСТ', cost: 'По запросу', mobile: true, reestr: '—', site: 'mtsbank.ru', scenario: ['b2c','fintech'], capabilities: ['mfa','push'], popularity: 'mid', difficulty: 'yellow' },
+                { category: 'bank', provider: 'ВТБ ID', purpose: 'Корпоративный и частный доступ', integration: 'internal', access: 'closed', api: 'ГОСТ-крипто', standards: 'ГОСТ', cost: 'По запросу', mobile: true, reestr: '—', site: 'vtb.ru', scenario: ['b2b','fintech'], capabilities: ['mfa'], popularity: 'mid', difficulty: 'orange' },
+                { category: 'bank', provider: 'Открытие ID', purpose: 'Вход в экосистему группы', integration: 'internal', access: 'closed', api: 'OAuth 2.0', standards: 'ГОСТ', cost: 'По запросу', mobile: true, reestr: '—', site: 'open.ru', scenario: ['b2c','fintech'], capabilities: ['mfa'], popularity: 'mid', difficulty: 'yellow' },
+                { category: 'bank', provider: 'Газпромбанк ID', purpose: 'Авторизация корпоративных клиентов', integration: 'internal', access: 'closed', api: 'OAuth 2.0', standards: 'ГОСТ', cost: 'По запросу', mobile: true, reestr: '—', site: 'gazprombank.ru', scenario: ['b2b','gov'], capabilities: ['mfa'], popularity: 'mid', difficulty: 'yellow' },
+                { category: 'bank', provider: 'ПСБ ID', purpose: 'Оборонный / госсектор', integration: 'internal', access: 'closed', api: 'ГОСТ', standards: 'ГОСТ', cost: 'По запросу', mobile: true, reestr: '—', site: 'psbank.ru', scenario: ['b2b','gov'], capabilities: ['mfa'], popularity: 'mid', difficulty: 'orange' },
+                { category: 'bank', provider: 'Росбанк ID', purpose: 'SSO для банковских продуктов', integration: 'internal', access: 'closed', api: 'OAuth 2.0', standards: 'СТО БР', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'rosbank.ru', scenario: ['b2c','fintech'], capabilities: ['mfa'], popularity: 'niche', difficulty: 'yellow' },
+                { category: 'bank', provider: 'РСХБ ID', purpose: 'Агро-экосистема', integration: 'internal', access: 'closed', api: 'OAuth 2.0', standards: 'ГОСТ', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'rshb.ru', scenario: ['b2c','b2b'], capabilities: ['mfa'], popularity: 'niche', difficulty: 'yellow' },
+                { category: 'bank', provider: 'Совкомбанк ID', purpose: 'Авторизация в финтех-сервисах', integration: 'internal', access: 'closed', api: 'OAuth 2.0', standards: 'СТО БР', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'sovcombank.ru', scenario: ['b2c'], capabilities: ['mfa'], popularity: 'niche', difficulty: 'yellow' },
+                { category: 'bank', provider: 'МКБ ID', purpose: 'Доступ клиентов Московского КБ', integration: 'internal', access: 'closed', api: 'OAuth 2.0', standards: 'ГОСТ', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'mkb.ru', scenario: ['b2c','fintech'], capabilities: ['mfa'], popularity: 'niche', difficulty: 'yellow' },
+                { category: 'bank', provider: 'Дом.РФ ID', purpose: 'Ипотечные сервисы и застройщики', integration: 'api', access: 'closed', api: 'REST API', standards: 'ГОСТ', cost: 'Бесплатно', mobile: false, reestr: '—', site: 'domrf.ru', scenario: ['b2b','gov'], capabilities: ['mfa'], popularity: 'niche', difficulty: 'yellow' },
 
-                // 3. ТЕХ / ТЕЛЕКОМ
-                { category: 'tech', provider: '⭐ Яндекс ID', purpose: 'Сквозной SSO-гигант', integration: 'oauth', access: 'open', api: 'OAuth 2.0, OpenID', standards: 'RFC 6749', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'yandex.ru', audience: 'large', scenario: ['b2c','highload'], capabilities: ['mfa','push','passwordless'], popularity: 'high' },
-                { category: 'tech', provider: '⭐ VK ID', purpose: 'Социальный профиль', integration: 'oauth', access: 'open', api: 'OAuth 2.0', standards: 'RFC 6749', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'vk.com', audience: 'large', scenario: ['b2c','highload'], capabilities: ['mfa','push'], popularity: 'high' },
-                { category: 'tech', provider: 'Mobile ID (МТС)', purpose: 'Вход по номеру/SIM (Mobile Connect)', integration: 'internal', access: 'closed', api: 'Mobile ID API', standards: 'ГОСТ, GSMA', cost: 'За транзакцию', mobile: true, reestr: '—', site: 'mts.ru', audience: 'large', scenario: ['b2c'], capabilities: ['mobile','passwordless','mfa'], popularity: 'high' },
-                { category: 'tech', provider: 'Авито ID', purpose: 'Классифайд', integration: 'oauth', access: 'open', api: 'OAuth 2.0', standards: 'OAuth 2.0', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'avito.ru', audience: 'large', scenario: ['b2c','highload'], capabilities: ['mfa'], popularity: 'high' },
-                { category: 'tech', provider: 'Ozon ID', purpose: 'Маркетплейс-SSO', integration: 'oauth', access: 'open', api: 'OAuth 2.0', standards: 'OAuth 2.0', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'ozon.ru', audience: 'large', scenario: ['b2c','highload'], capabilities: ['mfa','push'], popularity: 'high' },
-                { category: 'tech', provider: 'Wildberries ID', purpose: 'E-commerce авторизация', integration: 'internal', access: 'closed', api: 'Собственный API', standards: 'Внутренний', cost: 'Закрытый', mobile: true, reestr: '—', site: 'wildberries.ru', audience: 'large', scenario: ['b2c'], capabilities: ['mfa','push'], popularity: 'high' },
-                { category: 'tech', provider: 'hh.ru ID', purpose: 'HR-сектор и авторизация соискателей', integration: 'oauth', access: 'open', api: 'OAuth 2.0', standards: 'OAuth 2.0', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'hh.ru', audience: 'medium', scenario: ['b2c','b2b'], capabilities: ['mfa'], popularity: 'mid' },
-                { category: 'tech', provider: 'Яндекс Маркет ID', purpose: 'Локализованный E-com логин', integration: 'internal', access: 'closed', api: 'Yandex API', standards: 'Внутренний', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'market.yandex.ru', audience: 'large', scenario: ['b2c'], capabilities: ['mfa'], popularity: 'mid' },
-                { category: 'tech', provider: 'Mobile ID (Мегафон)', purpose: 'Беспарольный вход', integration: 'internal', access: 'closed', api: 'Mobile ID API', standards: 'GSMA', cost: 'По тарифу', mobile: true, reestr: '—', site: 'megafon.ru', audience: 'medium', scenario: ['b2c'], capabilities: ['mobile','passwordless','mfa'], popularity: 'mid' },
-                { category: 'tech', provider: 'Билайн ID', purpose: 'Авторизация в экосистеме', integration: 'internal', access: 'closed', api: 'Mobile ID', standards: 'Внутренний', cost: 'По договору', mobile: true, reestr: '—', site: 'beeline.ru', audience: 'medium', scenario: ['b2c'], capabilities: ['mobile','passwordless'], popularity: 'mid' },
-                { category: 'tech', provider: 'RuStore ID', purpose: 'Авторизация в магазине приложений', integration: 'oauth', access: 'open', api: 'OAuth 2.0', standards: 'OAuth 2.0', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'rustore.ru', audience: 'medium', scenario: ['b2c'], capabilities: ['mfa'], popularity: 'mid' },
+                // ===== ТЕХНОЛОГИЧЕСКИЕ =====
+                { category: 'tech', provider: '⭐ Яндекс ID', purpose: 'Сквозной SSO-гигант, охват 80+ млн', integration: 'oauth', access: 'open', api: 'OAuth 2.0, OpenID', standards: 'RFC 6749', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'yandex.ru', scenario: ['b2c','highload'], capabilities: ['mfa','push','passwordless'], popularity: 'high', difficulty: 'green', docs: 'https://yandex.ru/dev/id/doc/' },
+                { category: 'tech', provider: '⭐ VK ID', purpose: 'Социальный профиль, массовый охват', integration: 'oauth', access: 'open', api: 'OAuth 2.0', standards: 'RFC 6749', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'vk.com', scenario: ['b2c','highload'], capabilities: ['mfa','push'], popularity: 'high', difficulty: 'green', docs: 'https://id.vk.com/about/business/go' },
+                { category: 'tech', provider: '⭐ Ростелеком ID (Ключ)', purpose: 'Массовый доступ к инфраструктуре', integration: 'oauth', access: 'open', api: 'OAuth 2.0, OpenID', standards: 'ГОСТ', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'rt.ru', scenario: ['b2c','gov'], capabilities: ['mfa','biometric'], popularity: 'high', difficulty: 'yellow' },
+                { category: 'tech', provider: 'Mobile ID (МТС)', purpose: 'Вход по номеру / SIM (Mobile Connect)', integration: 'internal', access: 'closed', api: 'Mobile ID API', standards: 'ГОСТ, GSMA', cost: 'За транзакцию', mobile: true, reestr: '—', site: 'mts.ru', scenario: ['b2c'], capabilities: ['mobile','passwordless','mfa'], popularity: 'high', difficulty: 'yellow' },
+                { category: 'tech', provider: 'Авито ID', purpose: 'Классифайд, авторизация покупателей', integration: 'oauth', access: 'open', api: 'OAuth 2.0', standards: 'OAuth 2.0', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'avito.ru', scenario: ['b2c','highload'], capabilities: ['mfa'], popularity: 'high', difficulty: 'green' },
+                { category: 'tech', provider: 'Ozon ID', purpose: 'Маркетплейс-SSO', integration: 'oauth', access: 'open', api: 'OAuth 2.0', standards: 'OAuth 2.0', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'ozon.ru', scenario: ['b2c','highload'], capabilities: ['mfa','push'], popularity: 'high', difficulty: 'green' },
+                { category: 'tech', provider: 'Wildberries ID', purpose: 'E-commerce авторизация', integration: 'internal', access: 'closed', api: 'Собственный API', standards: 'Внутренний', cost: 'Закрытый', mobile: true, reestr: '—', site: 'wildberries.ru', scenario: [], capabilities: ['mfa','push'], popularity: 'high', difficulty: 'orange' },
+                { category: 'tech', provider: 'hh.ru ID', purpose: 'HR-сектор, авторизация соискателей', integration: 'oauth', access: 'open', api: 'OAuth 2.0', standards: 'OAuth 2.0', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'hh.ru', scenario: ['b2c','b2b'], capabilities: ['mfa'], popularity: 'mid', difficulty: 'green' },
+                { category: 'tech', provider: 'RuStore ID', purpose: 'Авторизация в магазине приложений', integration: 'oauth', access: 'open', api: 'OAuth 2.0', standards: 'OAuth 2.0', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'rustore.ru', scenario: ['b2c'], capabilities: ['mfa'], popularity: 'mid', difficulty: 'green' },
+                { category: 'tech', provider: 'Яндекс Маркет ID', purpose: 'Локализованный e-com логин', integration: 'internal', access: 'closed', api: 'Yandex API', standards: 'Внутренний', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'market.yandex.ru', scenario: [], capabilities: ['mfa'], popularity: 'mid', difficulty: 'yellow' },
+                { category: 'tech', provider: 'Mobile ID (Мегафон)', purpose: 'Беспарольный вход по SIM', integration: 'internal', access: 'closed', api: 'Mobile ID API', standards: 'GSMA', cost: 'По тарифу', mobile: true, reestr: '—', site: 'megafon.ru', scenario: ['b2c'], capabilities: ['mobile','passwordless','mfa'], popularity: 'mid', difficulty: 'yellow' },
+                { category: 'tech', provider: 'Билайн ID', purpose: 'Авторизация в экосистеме', integration: 'internal', access: 'closed', api: 'Mobile ID', standards: 'Внутренний', cost: 'По договору', mobile: true, reestr: '—', site: 'beeline.ru', scenario: ['b2c'], capabilities: ['mobile','passwordless'], popularity: 'mid', difficulty: 'yellow' },
 
-                // 4. РИТЕЙЛ / ЛОГИСТИКА
-                { category: 'retail', provider: 'X5 ID', purpose: 'Массовый ритейл (Пятерочка, Перекресток)', integration: 'api', access: 'closed', api: 'OAuth 2.0', standards: 'ГОСТ', cost: 'По запросу', mobile: true, reestr: '—', site: 'x5.ru', audience: 'large', scenario: ['b2c','b2b'], capabilities: ['mfa'], popularity: 'high' },
-                { category: 'retail', provider: 'Магнит ID', purpose: 'Программа лояльности и авторизация', integration: 'internal', access: 'closed', api: 'Закрытый REST', standards: 'Внутренний', cost: 'Внутренний', mobile: true, reestr: '—', site: 'magnit.ru', audience: 'large', scenario: ['b2c'], capabilities: ['mfa'], popularity: 'high' },
-                { category: 'retail', provider: 'Почта.ID', purpose: 'Логистика', integration: 'api', access: 'closed', api: '—', standards: 'ГОСТ', cost: 'Внутренний', mobile: true, reestr: '—', site: 'pochta.ru', audience: 'large', scenario: ['b2b','gov','b2c'], capabilities: [], popularity: 'mid' },
-                { category: 'retail', provider: 'CDEK ID', purpose: 'B2B логистика', integration: 'api', access: 'closed', api: '—', standards: '—', cost: 'Внутренний', mobile: true, reestr: '—', site: 'cdek.ru', audience: 'medium', scenario: ['b2b','b2c'], capabilities: [], popularity: 'mid' },
-                { category: 'retail', provider: 'РЖД ID', purpose: 'Единый логин пассажиров', integration: 'internal', access: 'closed', api: 'OAuth 2.0', standards: 'ГОСТ', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'rzd.ru', audience: 'large', scenario: ['b2c','gov'], capabilities: ['mfa'], popularity: 'mid' },
-                { category: 'retail', provider: 'Самокат ID', purpose: 'Q-commerce авторизация', integration: 'internal', access: 'closed', api: 'Закрытый API', standards: '—', cost: 'Внутренний', mobile: true, reestr: '—', site: 'samokat.ru', audience: 'medium', scenario: ['b2c'], capabilities: ['passwordless'], popularity: 'mid' },
-                { category: 'retail', provider: 'Яндекс Еда / Лавка', purpose: 'Foodtech логин', integration: 'internal', access: 'closed', api: 'Yandex API', standards: '—', cost: 'Внутренний', mobile: true, reestr: '—', site: 'eda.yandex.ru', audience: 'large', scenario: ['b2c'], capabilities: ['push'], popularity: 'mid' },
+                // ===== РИТЕЙЛ =====
+                { category: 'retail', provider: 'X5 ID', purpose: 'Массовый ритейл (Пятёрочка, Перекрёсток)', integration: 'api', access: 'closed', api: 'OAuth 2.0', standards: 'ГОСТ', cost: 'По запросу', mobile: true, reestr: '—', site: 'x5.ru', scenario: ['b2c','b2b'], capabilities: ['mfa'], popularity: 'high', difficulty: 'yellow' },
+                { category: 'retail', provider: 'Магнит ID', purpose: 'Программа лояльности и авторизация', integration: 'internal', access: 'closed', api: 'Закрытый REST', standards: 'Внутренний', cost: 'Внутренний', mobile: true, reestr: '—', site: 'magnit.ru', scenario: [], capabilities: ['mfa'], popularity: 'high', difficulty: 'orange' },
+                { category: 'retail', provider: 'РЖД ID', purpose: 'Единый логин пассажиров', integration: 'internal', access: 'closed', api: 'OAuth 2.0', standards: 'ГОСТ', cost: 'Бесплатно', mobile: true, reestr: '—', site: 'rzd.ru', scenario: ['gov'], capabilities: ['mfa'], popularity: 'mid', difficulty: 'yellow' },
+                { category: 'retail', provider: 'Почта.ID', purpose: 'Логистика Почты России', integration: 'api', access: 'closed', api: 'REST', standards: 'ГОСТ', cost: 'Внутренний', mobile: true, reestr: '—', site: 'pochta.ru', scenario: ['b2b','gov'], capabilities: [], popularity: 'mid', difficulty: 'orange' },
+                { category: 'retail', provider: 'CDEK ID', purpose: 'B2B-логистика', integration: 'api', access: 'closed', api: 'REST', standards: '—', cost: 'Внутренний', mobile: true, reestr: '—', site: 'cdek.ru', scenario: ['b2b'], capabilities: [], popularity: 'mid', difficulty: 'yellow' },
+                { category: 'retail', provider: 'Самокат ID', purpose: 'Q-commerce авторизация', integration: 'internal', access: 'closed', api: 'Закрытый API', standards: '—', cost: 'Внутренний', mobile: true, reestr: '—', site: 'samokat.ru', scenario: [], capabilities: ['passwordless'], popularity: 'mid', difficulty: 'orange' },
+                { category: 'retail', provider: 'Яндекс Еда / Лавка', purpose: 'Foodtech логин', integration: 'internal', access: 'closed', api: 'Yandex API', standards: '—', cost: 'Внутренний', mobile: true, reestr: '—', site: 'eda.yandex.ru', scenario: [], capabilities: ['push'], popularity: 'mid', difficulty: 'yellow' },
 
-                // 5. B2B / IAM
-                { category: 'b2b', provider: 'Avanpost IDM / FAM', purpose: 'Флагманский IAM для корпораций', integration: 'internal', access: 'closed', api: 'REST, SOAP, LDAP, OIDC', standards: 'ГОСТ, ФСТЭК', cost: 'Enterprise', mobile: true, reestr: 'Реестр', site: 'avanpost.ru', audience: 'medium', scenario: ['b2b','gov'], capabilities: ['mfa','pam','mobile'], popularity: 'high' },
-                { category: 'b2b', provider: 'Solar inRights', purpose: 'Тяжелый IdM для КИИ', integration: 'internal', access: 'closed', api: 'REST, SCIM', standards: 'ГОСТ, ФСТЭК', cost: 'Enterprise', mobile: false, reestr: 'Реестр', site: 'solar.ru', audience: 'medium', scenario: ['b2b','gov'], capabilities: ['mfa','pam'], popularity: 'high' },
-                { category: 'b2b', provider: '1IDM', purpose: 'Масштабируемый IdM', integration: 'internal', access: 'closed', api: 'REST', standards: 'ГОСТ, ФСТЭК', cost: 'Enterprise', mobile: false, reestr: 'Реестр', site: '1idm.ru', audience: 'medium', scenario: ['b2b','gov'], capabilities: ['mfa','pam'], popularity: 'high' },
-                { category: 'b2b', provider: 'MultiFactor', purpose: 'Облачная и On-Premise MFA', integration: 'api', access: 'open', api: 'RADIUS, SAML, REST', standards: 'Реестр РФ', cost: 'По подписке', mobile: true, reestr: 'Реестр', site: 'multifactor.ru', audience: 'medium', scenario: ['b2b'], capabilities: ['mfa','push','passwordless'], popularity: 'high' },
-                { category: 'b2b', provider: 'Platform V IDM (СберТех)', purpose: 'IAM-решение внутри Platform V', integration: 'internal', access: 'closed', api: 'SAML, OIDC', standards: 'ГОСТ, ФСТЭК', cost: 'Enterprise', mobile: false, reestr: 'Реестр', site: 'sbertech.ru', audience: 'medium', scenario: ['b2b','gov','fintech'], capabilities: ['mfa','pam'], popularity: 'high' },
-                { category: 'b2b', provider: 'Blitz ID Provider', purpose: 'Высоконагруженный IAM для порталов', integration: 'internal', access: 'closed', api: 'OAuth 2.0, SAML, OIDC', standards: 'ФСТЭК', cost: 'Лицензия', mobile: false, reestr: 'Реестр', site: 'blitz.ru', audience: 'medium', scenario: ['b2b','highload'], capabilities: ['mfa','passwordless'], popularity: 'mid' },
-                { category: 'b2b', provider: 'Ankey IDM', purpose: 'Управление доступом (Газинформсервис)', integration: 'internal', access: 'closed', api: 'LDAP, SQL', standards: 'ГОСТ, ФСТЭК', cost: 'Enterprise', mobile: false, reestr: 'Реестр', site: 'gazinformservice.ru', audience: 'medium', scenario: ['b2b','gov'], capabilities: ['mfa','pam'], popularity: 'mid' },
-                { category: 'b2b', provider: 'RooX UIDM', purpose: 'CIAM для B2C/B2B порталов', integration: 'internal', access: 'closed', api: 'OAuth 2.0, OIDC', standards: 'Реестр РФ', cost: 'Лицензия', mobile: true, reestr: 'Реестр', site: 'roox.ru', audience: 'medium', scenario: ['b2b','highload'], capabilities: ['mfa'], popularity: 'mid' },
-                { category: 'b2b', provider: 'BI.ZONE PAM', purpose: 'Контроль привилегированных сессий', integration: 'internal', access: 'closed', api: 'SSH, RDP, REST', standards: 'ГОСТ', cost: 'Enterprise', mobile: false, reestr: 'Реестр', site: 'bi.zone', audience: 'medium', scenario: ['b2b'], capabilities: ['pam','mfa'], popularity: 'mid' },
-                { category: 'b2b', provider: 'Индиго PAM', purpose: 'Российский аналог CyberArk', integration: 'internal', access: 'closed', api: 'REST', standards: 'Реестр РФ', cost: 'По запросу', mobile: false, reestr: 'Реестр', site: 'indigosoft.ru', audience: 'medium', scenario: ['b2b'], capabilities: ['pam'], popularity: 'mid' },
-                { category: 'b2b', provider: 'Red Security MFA', purpose: 'Защита корпоративных входов', integration: 'internal', access: 'closed', api: 'RADIUS', standards: 'Реестр РФ', cost: 'Лицензия', mobile: true, reestr: 'Реестр', site: 'redsecurity.ru', audience: 'medium', scenario: ['b2b'], capabilities: ['mfa','push'], popularity: 'mid' },
-                { category: 'b2b', provider: 'Secret Net Studio', purpose: 'Авторизация на рабочих станциях', integration: 'internal', access: 'closed', api: 'Windows API', standards: 'ГОСТ, ФСТЭК', cost: 'По АРМ', mobile: false, reestr: 'Реестр', site: 'securitycode.ru', audience: 'medium', scenario: ['b2b','gov'], capabilities: ['mfa'], popularity: 'high' },
-                { category: 'b2b', provider: 'Dallas Lock', purpose: 'СЗИ от НСД', integration: 'internal', access: 'closed', api: 'Свой API', standards: 'ФСТЭК, ФСБ', cost: 'По АРМ', mobile: false, reestr: 'Реестр', site: 'dallaslock.ru', audience: 'medium', scenario: ['gov','b2b'], capabilities: ['mfa'], popularity: 'high' },
-                { category: 'b2b', provider: 'TrustAccess', purpose: 'Межсетевое экранирование и аутентификация', integration: 'internal', access: 'closed', api: '—', standards: 'ФСТЭК', cost: 'По запросу', mobile: false, reestr: 'Реестр', site: 'securitycode.ru', audience: 'medium', scenario: ['b2b','gov'], capabilities: ['mfa'], popularity: 'mid' },
-                { category: 'b2b', provider: 'UserGate (Модуль)', purpose: 'Авторизация сессий NGFW', integration: 'internal', access: 'closed', api: 'Свой CLI, RADIUS', standards: 'ФСТЭК', cost: 'В составе ПАК', mobile: false, reestr: 'Реестр', site: 'usergate.ru', audience: 'medium', scenario: ['b2b','gov'], capabilities: ['mfa'], popularity: 'high' },
-                { category: 'b2b', provider: 'Ideco', purpose: 'Авторизация на шлюзе', integration: 'internal', access: 'closed', api: 'REST', standards: 'ФСТЭК', cost: 'Лицензия', mobile: false, reestr: 'Реестр', site: 'ideco.ru', audience: 'medium', scenario: ['b2b'], capabilities: ['mfa'], popularity: 'mid' },
-                { category: 'b2b', provider: 'NS.IDM', purpose: 'IdM-система', integration: 'internal', access: 'closed', api: 'REST API', standards: 'ФСТЭК', cost: 'Enterprise', mobile: false, reestr: 'Реестр', site: 'n-sys.ru', audience: 'medium', scenario: ['b2b'], capabilities: ['pam'], popularity: 'niche' },
-                { category: 'b2b', provider: 'MFASOFT', purpose: 'Многофакторная аутентификация', integration: 'internal', access: 'closed', api: 'RADIUS', standards: 'Реестр РФ', cost: 'Пользователи', mobile: true, reestr: 'Реестр', site: 'mfasoft.ru', audience: 'small', scenario: ['b2b'], capabilities: ['mfa'], popularity: 'niche' },
-                { category: 'b2b', provider: 'Makves', purpose: 'DCAP и анализ прав', integration: 'internal', access: 'closed', api: 'REST API', standards: 'Реестр РФ', cost: 'Лицензия', mobile: false, reestr: 'Реестр', site: 'makves.ru', audience: 'medium', scenario: ['b2b'], capabilities: ['pam'], popularity: 'mid' },
-                { category: 'b2b', provider: 'ОТР (Платформа)', purpose: 'Тяжелый IDM для ГИС', integration: 'internal', access: 'closed', api: 'SOAP', standards: 'ГОСТ', cost: 'Госконтракт', mobile: false, reestr: 'Реестр', site: 'otr.ru', audience: 'medium', scenario: ['gov'], capabilities: ['mfa','pam'], popularity: 'niche' },
-                { category: 'b2b', provider: 'Сфера ID', purpose: 'Платформа холдинга Т1', integration: 'internal', access: 'closed', api: 'OIDC', standards: 'ГОСТ, ФСТЭК', cost: 'Enterprise', mobile: false, reestr: 'Реестр', site: 'sfera.ru', audience: 'small', scenario: ['b2b'], capabilities: ['mfa', 'pam'], popularity: 'niche' },
+                // ===== ENTERPRISE IAM (B2B) =====
+                { category: 'b2b', provider: '⭐ Avanpost IDM / FAM', purpose: 'Флагманский IAM для корпораций', integration: 'internal', access: 'closed', api: 'REST, SOAP, LDAP, OIDC', standards: 'ГОСТ, ФСТЭК', cost: 'Enterprise', mobile: true, reestr: 'Реестр', site: 'avanpost.ru', scenario: ['b2b','gov'], capabilities: ['mfa','pam','mobile'], popularity: 'high', difficulty: 'red' },
+                { category: 'b2b', provider: '⭐ Solar inRights', purpose: 'Тяжёлый IdM для КИИ', integration: 'internal', access: 'closed', api: 'REST, SCIM', standards: 'ГОСТ, ФСТЭК', cost: 'Enterprise', mobile: false, reestr: 'Реестр', site: 'rt-solar.ru', scenario: ['b2b','gov'], capabilities: ['mfa','pam'], popularity: 'high', difficulty: 'red' },
+                { category: 'b2b', provider: '⭐ Indeed AM / PAM', purpose: 'SSO и ESSO для унаследованных систем', integration: 'internal', access: 'closed', api: 'SAML, RDP, ESSO', standards: 'ГОСТ, ФСТЭК', cost: 'Enterprise', mobile: false, reestr: 'Реестр', site: 'indeed-id.ru', scenario: ['b2b','gov'], capabilities: ['mfa','pam','passwordless'], popularity: 'high', difficulty: 'red' },
+                { category: 'b2b', provider: '⭐ MultiFactor', purpose: 'Облачная и On-Premise MFA', integration: 'api', access: 'open', api: 'RADIUS, SAML, REST', standards: 'Реестр РФ', cost: 'По подписке', mobile: true, reestr: 'Реестр', site: 'multifactor.ru', scenario: ['b2b'], capabilities: ['mfa','push','passwordless'], popularity: 'high', difficulty: 'yellow' },
+                { category: 'b2b', provider: 'Blitz Identity Provider', purpose: 'Высоконагруженный IAM для порталов', integration: 'internal', access: 'closed', api: 'OAuth 2.0, SAML, OIDC', standards: 'ФСТЭК', cost: 'Лицензия', mobile: false, reestr: 'Реестр', site: 'blitz-identity.ru', scenario: ['b2b','highload'], capabilities: ['mfa','passwordless'], popularity: 'mid', difficulty: 'orange' },
+                { category: 'b2b', provider: 'RooX UIDM', purpose: 'CIAM для B2C/B2B порталов', integration: 'internal', access: 'closed', api: 'OAuth 2.0, OIDC', standards: 'Реестр РФ', cost: 'Лицензия', mobile: true, reestr: 'Реестр', site: 'roox.ru', scenario: ['b2b','highload'], capabilities: ['mfa'], popularity: 'mid', difficulty: 'orange' },
+                { category: 'b2b', provider: '1IDM', purpose: 'Масштабируемый IdM', integration: 'internal', access: 'closed', api: 'REST', standards: 'ГОСТ, ФСТЭК', cost: 'Enterprise', mobile: false, reestr: 'Реестр', site: '1idm.ru', scenario: ['b2b','gov'], capabilities: ['mfa','pam'], popularity: 'high', difficulty: 'red' },
+                { category: 'b2b', provider: 'Platform V IDM (СберТех)', purpose: 'IAM внутри Platform V', integration: 'internal', access: 'closed', api: 'SAML, OIDC', standards: 'ГОСТ, ФСТЭК', cost: 'Enterprise', mobile: false, reestr: 'Реестр', site: 'sbertech.ru', scenario: ['b2b','gov'], capabilities: ['mfa','pam'], popularity: 'high', difficulty: 'red' },
+                { category: 'b2b', provider: 'Ankey IDM (Газинформсервис)', purpose: 'Управление доступом', integration: 'internal', access: 'closed', api: 'LDAP, SQL', standards: 'ГОСТ, ФСТЭК', cost: 'Enterprise', mobile: false, reestr: 'Реестр', site: 'gaz-is.ru', scenario: ['b2b','gov'], capabilities: ['mfa','pam'], popularity: 'mid', difficulty: 'red' },
+                { category: 'b2b', provider: 'SafeInspect (НТБ)', purpose: 'Жёсткий PAM для аудита RDP/SSH', integration: 'internal', access: 'closed', api: 'Proxy', standards: 'ФСТЭК, ФСБ', cost: 'Enterprise', mobile: false, reestr: 'Реестр', site: 'newtb.ru', scenario: ['b2b','gov'], capabilities: ['pam','mfa'], popularity: 'mid', difficulty: 'red' },
+                { category: 'b2b', provider: 'BI.ZONE PAM', purpose: 'Контроль привилегированных сессий', integration: 'internal', access: 'closed', api: 'SSH, RDP, REST', standards: 'ГОСТ', cost: 'Enterprise', mobile: false, reestr: 'Реестр', site: 'bi.zone', scenario: ['b2b'], capabilities: ['pam','mfa'], popularity: 'mid', difficulty: 'red' },
+                { category: 'b2b', provider: 'Индиго PAM', purpose: 'Российский аналог CyberArk', integration: 'internal', access: 'closed', api: 'REST', standards: 'Реестр РФ', cost: 'По запросу', mobile: false, reestr: 'Реестр', site: 'indigosoft.ru', scenario: ['b2b'], capabilities: ['pam'], popularity: 'mid', difficulty: 'red' },
+                { category: 'b2b', provider: 'Red Security MFA', purpose: 'Защита корпоративных входов', integration: 'internal', access: 'closed', api: 'RADIUS', standards: 'Реестр РФ', cost: 'Лицензия', mobile: true, reestr: 'Реестр', site: 'redsecurity.ru', scenario: ['b2b'], capabilities: ['mfa','push'], popularity: 'mid', difficulty: 'orange' },
+                { category: 'b2b', provider: 'Secret Net Studio', purpose: 'Авторизация на рабочих станциях', integration: 'internal', access: 'closed', api: 'Windows API', standards: 'ГОСТ, ФСТЭК', cost: 'По АРМ', mobile: false, reestr: 'Реестр', site: 'securitycode.ru', scenario: ['b2b','gov'], capabilities: ['mfa'], popularity: 'high', difficulty: 'red' },
+                { category: 'b2b', provider: 'Dallas Lock', purpose: 'СЗИ от НСД', integration: 'internal', access: 'closed', api: 'Свой API', standards: 'ФСТЭК, ФСБ', cost: 'По АРМ', mobile: false, reestr: 'Реестр', site: 'dallaslock.ru', scenario: ['gov','b2b'], capabilities: ['mfa'], popularity: 'high', difficulty: 'red' },
+                { category: 'b2b', provider: 'UserGate (модуль авторизации)', purpose: 'Авторизация сессий NGFW', integration: 'internal', access: 'closed', api: 'CLI, RADIUS', standards: 'ФСТЭК', cost: 'В составе ПАК', mobile: false, reestr: 'Реестр', site: 'usergate.com', scenario: ['b2b','gov'], capabilities: ['mfa'], popularity: 'high', difficulty: 'orange' },
+                { category: 'b2b', provider: 'Ideco', purpose: 'Авторизация на шлюзе', integration: 'internal', access: 'closed', api: 'REST', standards: 'ФСТЭК', cost: 'Лицензия', mobile: false, reestr: 'Реестр', site: 'ideco.ru', scenario: ['b2b'], capabilities: ['mfa'], popularity: 'mid', difficulty: 'orange' },
+                { category: 'b2b', provider: 'MFASOFT', purpose: 'Многофакторная аутентификация', integration: 'internal', access: 'closed', api: 'RADIUS', standards: 'Реестр РФ', cost: 'Пользователи', mobile: true, reestr: 'Реестр', site: 'mfasoft.ru', scenario: ['b2b'], capabilities: ['mfa'], popularity: 'niche', difficulty: 'orange' },
+                { category: 'b2b', provider: 'ОТР (Платформа)', purpose: 'Тяжёлый IDM для ГИС', integration: 'internal', access: 'closed', api: 'SOAP', standards: 'ГОСТ', cost: 'Госконтракт', mobile: false, reestr: 'Реестр', site: 'otr.ru', scenario: ['gov'], capabilities: ['mfa','pam'], popularity: 'niche', difficulty: 'red' },
+                { category: 'b2b', provider: 'Сфера ID (Т1)', purpose: 'Платформа холдинга Т1', integration: 'internal', access: 'closed', api: 'OIDC', standards: 'ГОСТ, ФСТЭК', cost: 'Enterprise', mobile: false, reestr: 'Реестр', site: 'sfera.inno.tech', scenario: ['b2b'], capabilities: ['mfa','pam'], popularity: 'niche', difficulty: 'orange' },
 
-                // 6. АППАРАТНЫЕ
-                { category: 'hard', provider: 'Рутокен (Актив)', purpose: 'Аппаратный крипто-ключ (USB/NFC)', integration: 'oauth', access: 'open', api: 'PKCS#11', standards: 'ГОСТ 34.10, ФСБ', cost: 'От 1500 ₽', mobile: true, reestr: 'Реестр', site: 'rutoken.ru', audience: 'medium', scenario: ['b2b','gov'], capabilities: ['mfa','esign'], popularity: 'high' },
-                { category: 'hard', provider: 'JaCarta (Аладдин)', purpose: 'Смарт-карты строгой аутентификации', integration: 'internal', access: 'closed', api: 'PKCS#11, CSP', standards: 'ГОСТ, ФСТЭК', cost: 'По прайсу', mobile: false, reestr: 'Реестр', site: 'aladdin-rd.ru', audience: 'medium', scenario: ['b2b','gov'], capabilities: ['mfa','esign'], popularity: 'high' },
-                { category: 'hard', provider: 'eToken', purpose: 'Классические аппаратные ключи', integration: 'internal', access: 'closed', api: 'PKCS#11', standards: 'RSA', cost: 'Поддержка', mobile: false, reestr: '—', site: 'aladdin-rd.ru', audience: 'medium', scenario: ['b2b'], capabilities: ['mfa'], popularity: 'mid' },
-                { category: 'hard', provider: 'КриптоПро CSP', purpose: 'Аутентификация по сертификатам', integration: 'internal', access: 'closed', api: 'CryptoAPI', standards: 'ГОСТ, ФСБ', cost: 'Лицензия', mobile: false, reestr: 'Реестр', site: 'cryptopro.ru', audience: 'medium', scenario: ['b2b','gov'], capabilities: ['esign','mfa'], popularity: 'high' }
+                // ===== АППАРАТНЫЕ =====
+                { category: 'hard', provider: 'Рутокен (Актив)', purpose: 'Аппаратный крипто-ключ (USB/NFC)', integration: 'internal', access: 'closed', api: 'PKCS#11', standards: 'ГОСТ 34.10, ФСБ', cost: 'От 1500 ₽', mobile: true, reestr: 'Реестр', site: 'rutoken.ru', scenario: ['b2b','gov'], capabilities: ['mfa','esign'], popularity: 'high', difficulty: 'red' },
+                { category: 'hard', provider: 'JaCarta (Аладдин)', purpose: 'Смарт-карты строгой аутентификации', integration: 'internal', access: 'closed', api: 'PKCS#11, CSP', standards: 'ГОСТ, ФСТЭК', cost: 'По прайсу', mobile: false, reestr: 'Реестр', site: 'aladdin-rd.ru', scenario: ['b2b','gov'], capabilities: ['mfa','esign'], popularity: 'high', difficulty: 'red' },
+                { category: 'hard', provider: 'КриптоПро CSP', purpose: 'Аутентификация по сертификатам', integration: 'internal', access: 'closed', api: 'CryptoAPI', standards: 'ГОСТ, ФСБ', cost: 'Лицензия', mobile: false, reestr: 'Реестр', site: 'cryptopro.ru', scenario: ['b2b','gov'], capabilities: ['esign','mfa'], popularity: 'high', difficulty: 'red' },
+                { category: 'hard', provider: 'eToken (Аладдин)', purpose: 'Классические аппаратные ключи', integration: 'internal', access: 'closed', api: 'PKCS#11', standards: 'RSA', cost: 'Поддержка', mobile: false, reestr: '—', site: 'aladdin-rd.ru', scenario: ['b2b'], capabilities: ['mfa'], popularity: 'mid', difficulty: 'red' }
             ];
 
             const ICONS = { mfa: {i: '🛡️', t: 'MFA / 2FA'}, pam: {i: '🔑', t: 'PAM'}, biometric: {i: '👁️', t: 'Биометрия'}, esign: {i: '✍️', t: 'Эл. подпись'}, passwordless: {i: '🪄', t: 'Без пароля'}, mobile: {i: '📱', t: 'Мобайл'}, push: {i: '🔔', t: 'Push'} };
-            const AUD_LABELS = { small: '<10 млн', medium: '10-50 млн', large: '>50 млн' };
-            const POP_CLASSES = { high: 'pop-high', mid: 'pop-mid', niche: 'pop-niche' };
             const POP_LABELS = { high: 'Высокая', mid: 'Средняя', niche: 'Нишевая' };
             const SCENARIOS_MAP = { b2c: 'B2C', b2b: 'Корпорации (B2B)', fintech: 'Финтех', gov: 'Госсектор', highload: 'High-load' };
+            const DIFF = {
+                green:  { label: '🟢 Просто',        cls: 'db-green',  txt: 'diff-green',  row: 'row-green',  rank: 1, hint: 'Есть документация, всё делается онлайн: регистрируете приложение, получаете ключи, вставляете кнопку. Ни договоров, ни поездок. День работы разработчика.' },
+                yellow: { label: '🟡 Средне',        cls: 'db-yellow', txt: 'diff-yellow', row: 'row-yellow', rank: 2, hint: 'Надо напрячься с договором или офертой: заявка менеджеру, подписание по ЭДО, выпуск сертификата, модерация. Протоколы стандартные. От нескольких дней до пары недель.' },
+                orange: { label: '🟠 Сложно',        cls: 'db-orange', txt: 'diff-orange', row: 'row-orange', rank: 3, hint: 'Закрытый контур и русская криптография: подпись через КЭП/УКЭП, mTLS, IP-фильтрация, согласования с ИБ провайдера. Полноценный интеграционный проект.' },
+                red:    { label: '🔴 Очень сложно',  cls: 'db-red',    txt: 'diff-red',    row: 'row-red',    rank: 4, hint: 'ГОСТ-HTTPS, своя PKI и СКЗИ (КриптоПро), биометрия или требования Минцифры/ФСБ. Оценка влияния на СКЗИ — месяцы, при своей разработке до 1,5–3 лет.' }
+            };
 
             function normalizeData(raw) {
-                const audMap = { small: 1, medium: 2, large: 3 };
                 const popMap = { niche: 1, mid: 2, high: 3 };
                 return raw.map(item => ({
                     ...item,
@@ -321,11 +445,12 @@
                     accessType: item.access === 'open' ? 'open' : 'closed',
                     scenario: Array.isArray(item.scenario) ? item.scenario : [],
                     capabilities: Array.isArray(item.capabilities) ? item.capabilities : [],
-                    audienceNum: audMap[item.audience] || 0,
                     popularityNum: popMap[item.popularity] || 0,
-                    audienceLabel: AUD_LABELS[item.audience] || '—',
                     mobileSupport: item.mobile === true,
                     costLabel: item.cost || '—',
+                    difficulty: DIFF[item.difficulty] ? item.difficulty : 'orange',
+                    diffRank: (DIFF[item.difficulty] || DIFF.orange).rank,
+                    inRegistry: item.reestr === 'Реестр',
                     siteUrl: item.site.startsWith('http') ? item.site : 'https://' + item.site,
                     isRecommended: item.provider.includes('⭐')
                 }));
@@ -333,18 +458,31 @@
 
             let services = normalizeData(rawData);
             const MAX_COMPARE = 4;
-            const state = { category: 'all', scenario: 'all', capability: 'all', search: '', sort: { column: null, direction: null }, compare: new Set() };
+            const state = { category: 'all', scenario: 'all', capability: 'all', special: null, search: '', sort: { column: null, direction: null }, compare: new Set() };
 
-            function debounce(func, wait) {
-                let timeout;
-                return function(...args) { clearTimeout(timeout); timeout = setTimeout(() => func.apply(this, args), wait); };
-            }
+            function debounce(func, wait) { let t; return function(...a) { clearTimeout(t); t = setTimeout(() => func.apply(this, a), wait); }; }
+            function favicon(domain) { return `https://icons.duckduckgo.com/ip3/${domain}.ico`; }
 
             function updateStats(filteredCount) {
-                document.getElementById('statsBar').innerHTML = `<i class="fa-solid fa-server text-indigo-500"></i> Систем в базе: <strong>${filteredCount}</strong>`;
+                const total = services.length;
+                const green = services.filter(s => s.difficulty === 'green').length;
+                const reg = services.filter(s => s.inRegistry).length;
+                const reco = services.filter(s => s.isRecommended).length;
+                const cards = [
+                    { n: filteredCount + (filteredCount !== total ? ' / ' + total : ''), l: 'Систем в базе', i: 'fa-server' },
+                    { n: green, l: '🟢 Простая интеграция', i: 'fa-bolt' },
+                    { n: reg, l: '🇷🇺 В реестре РФ', i: 'fa-certificate' },
+                    { n: reco, l: '⭐ Рекомендованных', i: 'fa-star' }
+                ];
+                document.getElementById('statsBar').innerHTML = cards.map(c =>
+                    `<div class="card border rounded-2xl px-4 py-3 flex items-center gap-3">
+                        <i class="fa-solid ${c.i} text-lg" style="color:var(--accent)"></i>
+                        <div><div class="text-xl font-bold leading-none">${c.n}</div><div class="text-xs mt-1" style="color:var(--text-secondary)">${c.l}</div></div>
+                     </div>`).join('');
+
                 const sortInd = document.getElementById('sortIndicator');
                 if (state.sort.column) {
-                    const colNames = { provider: 'Провайдер', purpose: 'Назначение', audience: 'Аудитория', popularity: 'Популярность', cost: 'Стоимость', integration: 'Интеграция', access: 'Доступ' };
+                    const colNames = { provider: 'Провайдер', purpose: 'Назначение', difficulty: 'Сложность', cost: 'Стоимость', integration: 'Интеграция', reestr: 'Реестр' };
                     sortInd.textContent = `Сортировка: ${colNames[state.sort.column] || state.sort.column} (${state.sort.direction === 'asc' ? 'по возрастанию' : 'по убыванию'})`;
                     sortInd.classList.remove('hidden');
                 } else sortInd.classList.add('hidden');
@@ -355,9 +493,12 @@
                     if (state.category !== 'all' && item.category !== state.category) return false;
                     if (state.scenario !== 'all' && !item.scenario.includes(state.scenario)) return false;
                     if (state.capability !== 'all' && !item.capabilities.includes(state.capability)) return false;
+                    if (state.special === 'oauth' && item.integrationType !== 'oauth') return false;
+                    if (state.special === 'registry' && !item.inRegistry) return false;
+                    if (state.special === 'reco' && !item.isRecommended) return false;
                     if (state.search) {
                         const s = state.search.toLowerCase();
-                        if (![item.provider, item.purpose, ...item.scenario, ...item.capabilities, item.api].some(f => f.toLowerCase().includes(s))) return false;
+                        if (![item.provider, item.purpose, ...item.scenario, ...item.capabilities, item.api, item.standards].some(f => (f || '').toLowerCase().includes(s))) return false;
                     }
                     return true;
                 });
@@ -365,14 +506,12 @@
 
             function sortServices(list) {
                 if (!state.sort.column) return list;
-                const col = state.sort.column;
-                const dir = state.sort.direction === 'asc' ? 1 : -1;
+                const col = state.sort.column, dir = state.sort.direction === 'asc' ? 1 : -1;
                 return [...list].sort((a, b) => {
                     let aVal = a[col], bVal = b[col];
-                    if (col === 'audience') { aVal = a.audienceNum; bVal = b.audienceNum; }
-                    if (col === 'popularity') { aVal = a.popularityNum; bVal = b.popularityNum; }
+                    if (col === 'difficulty') { aVal = a.diffRank; bVal = b.diffRank; }
                     if (col === 'integration') { aVal = a.integrationType; bVal = b.integrationType; }
-                    if (col === 'access') { aVal = a.accessType; bVal = b.accessType; }
+                    if (col === 'reestr') { aVal = a.inRegistry ? 1 : 0; bVal = b.inRegistry ? 1 : 0; }
                     if (col === 'cost') { aVal = a.costLabel.length; bVal = b.costLabel.length; }
                     if (typeof aVal === 'string') { aVal = aVal.toLowerCase(); bVal = bVal.toLowerCase(); }
                     if (aVal < bVal) return -1 * dir;
@@ -389,13 +528,14 @@
             }
 
             function renderTableRow(item) {
+                const d = DIFF[item.difficulty];
                 const tr = document.createElement('tr');
-                tr.className = `main-row border-b hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors ${item.isRecommended ? 'recommend-row' : ''}`;
-                
+                tr.className = `main-row border-b hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors ${d.row} ${item.isRecommended ? 'row-reco' : ''}`;
+
                 const tdCheck = createElement('td', 'p-3 w-10 text-center');
                 const cb = document.createElement('input');
                 cb.type = 'checkbox';
-                cb.className = 'w-4 h-4 cursor-pointer rounded border-slate-300 text-indigo-600 focus:ring-indigo-600';
+                cb.className = 'w-4 h-4 cursor-pointer rounded';
                 cb.checked = state.compare.has(item.provider);
                 cb.onclick = (e) => e.stopPropagation();
                 cb.onchange = (e) => {
@@ -403,86 +543,86 @@
                     e.target.checked ? state.compare.add(item.provider) : state.compare.delete(item.provider);
                     updateCompareUI();
                 };
-                tdCheck.appendChild(cb);
-                tr.appendChild(tdCheck);
+                tdCheck.appendChild(cb); tr.appendChild(tdCheck);
 
-                tr.appendChild(createElement('td', 'p-3 font-bold', item.provider));
+                const cleanDomain = item.site.replace(/^https?:\/\//, '').split('/')[0];
+                const tdName = createElement('td', 'p-3 font-bold');
+                tdName.innerHTML = `<img src="${favicon(cleanDomain)}" alt="" class="w-4 h-4 rounded-sm inline-block mr-2 align-middle" loading="lazy" onerror="this.style.display='none'"> ${item.provider}`;
+                tr.appendChild(tdName);
+
                 tr.appendChild(createElement('td', 'p-3 text-xs', item.purpose));
 
                 const tdInt = createElement('td', 'p-3');
-                const spanInt = createElement('span', `px-2 py-1 rounded text-[11px] ${item.integrationType === 'oauth' ? 'badge-open' : 'badge-closed'}`);
+                const spanInt = createElement('span', `db ${item.integrationType === 'oauth' ? 'badge-open' : 'badge-closed'}`);
                 spanInt.textContent = item.integrationType === 'oauth' ? '🔓 OAuth' : '🔒 Internal';
-                tdInt.appendChild(spanInt);
-                tr.appendChild(tdInt);
+                tdInt.appendChild(spanInt); tr.appendChild(tdInt);
 
-                tr.appendChild(createElement('td', 'p-3 text-xs whitespace-nowrap', item.audienceLabel));
+                const tdDiff = createElement('td', 'p-3');
+                const spanDiff = createElement('span', `db ${d.cls}`);
+                spanDiff.textContent = d.label;
+                tdDiff.appendChild(spanDiff); tr.appendChild(tdDiff);
 
-                const tdPop = createElement('td', `p-3 text-xs ${POP_CLASSES[item.popularity]}`);
-                tdPop.textContent = POP_LABELS[item.popularity];
-                tr.appendChild(tdPop);
+                const tdReg = createElement('td', 'p-3 text-center text-sm');
+                tdReg.innerHTML = item.inRegistry ? '<span class="has-tooltip" data-tooltip="В реестре российского ПО">✅</span>' : '<span style="color:var(--text-secondary)">—</span>';
+                tr.appendChild(tdReg);
 
-                const tdCaps = createElement('td', 'p-3 text-sm flex flex-wrap gap-1');
+                const tdCaps = createElement('td', 'p-3 text-sm');
+                const capWrap = createElement('div', 'flex flex-wrap gap-1');
                 item.capabilities.forEach(c => {
-                    if (ICONS[c]) {
-                        const sp = createElement('span', 'has-tooltip', ICONS[c].i);
-                        sp.setAttribute('data-tooltip', ICONS[c].t);
-                        tdCaps.appendChild(sp);
-                    }
+                    if (ICONS[c]) { const sp = createElement('span', 'has-tooltip', ICONS[c].i); sp.setAttribute('data-tooltip', ICONS[c].t); capWrap.appendChild(sp); }
                 });
-                tr.appendChild(tdCaps);
+                tdCaps.appendChild(capWrap); tr.appendChild(tdCaps);
 
                 tr.appendChild(createElement('td', 'p-3 text-xs', item.costLabel));
 
                 const tdSite = createElement('td', 'p-3');
-                const aSite = createElement('a', 'text-indigo-600 dark:text-indigo-400 hover:underline text-[11px] font-mono');
+                const aSite = createElement('a', 'hover:underline text-[11px] font-mono');
+                aSite.style.color = 'var(--accent)';
                 aSite.href = item.siteUrl; aSite.target = '_blank'; aSite.onclick = e => e.stopPropagation();
-                aSite.textContent = item.site.replace(/^https?:\/\//, '');
-                tdSite.appendChild(aSite);
-                tr.appendChild(tdSite);
+                aSite.textContent = cleanDomain;
+                tdSite.appendChild(aSite); tr.appendChild(tdSite);
 
-                // Расширенный блок
                 const trExpand = document.createElement('tr');
                 trExpand.className = 'expandable-content';
                 const tdExpand = createElement('td', 'p-5 text-sm border-b');
                 tdExpand.colSpan = 9;
-                
                 const recText = item.scenario.map(s => SCENARIOS_MAP[s]).join(', ');
-                
                 tdExpand.innerHTML = `
-                    <div class="flex flex-wrap gap-6 text-slate-700 dark:text-slate-300">
-                        <div class="flex-1 min-w-[200px]">
-                            <h4 class="font-bold mb-2 text-indigo-600 dark:text-indigo-400">Архитектура</h4>
+                    <div class="flex flex-wrap gap-6" style="color:var(--text-secondary)">
+                        <div class="flex-1 min-w-[220px]">
+                            <h4 class="font-bold mb-2" style="color:var(--accent)">Архитектура</h4>
                             <p class="font-mono text-xs mb-1">Протоколы: ${item.api}</p>
                             <p class="text-xs mb-1">Стандарты: <strong>${item.standards}</strong></p>
-                            <p class="text-xs">Реестр: ${item.reestr}</p>
+                            <p class="text-xs mb-1">Реестр ПО: ${item.inRegistry ? '✅ да' : '—'}</p>
+                            <p class="text-xs">Охват: <strong>${POP_LABELS[item.popularity]}</strong></p>
                         </div>
-                        <div class="flex-1 min-w-[200px]">
-                            <h4 class="font-bold mb-2">Назначение</h4>
-                            <p class="text-xs font-medium mb-1 bg-white/50 dark:bg-slate-800 p-2 rounded border border-slate-200 dark:border-slate-700">
-                                💡 Рекомендуется для: ${recText}
-                            </p>
-                            <p class="text-xs mt-2">Доступ: ${item.accessType === 'open' ? 'Публичное API' : 'Закрытый контур'}</p>
+                        <div class="flex-1 min-w-[220px]">
+                            <h4 class="font-bold mb-2 ${d.txt}">${d.label} · подключение</h4>
+                            <p class="text-xs mb-2">${d.hint}</p>
+                            <p class="text-xs">Рекомендуется для: <strong>${recText}</strong></p>
                         </div>
-                        <div class="flex-1 min-w-[200px]">
-                            <h4 class="font-bold mb-2">Тех. детали</h4>
+                        <div class="flex-1 min-w-[220px]">
+                            <h4 class="font-bold mb-2">Детали</h4>
                             <p class="text-xs mb-1">${item.mobileSupport ? '✅ Нативная мобильная поддержка' : '⚠️ Без мобильных SDK'}</p>
-                            ${item.docs ? `<a href="${item.docs}" target="_blank" class="text-xs text-indigo-500 font-medium hover:underline inline-block mt-2">📖 Документация</a>` : ''}
+                            <p class="text-xs mb-1">Доступ: ${item.accessType === 'open' ? 'публичное API' : 'закрытый контур'}</p>
+                            ${item.docs ? `<a href="${item.docs}" target="_blank" class="text-xs font-medium hover:underline inline-block mt-1" style="color:var(--accent)">📖 Документация для разработчика</a>` : ''}
                         </div>
-                    </div>
-                `;
+                    </div>`;
                 trExpand.appendChild(tdExpand);
                 tr.onclick = () => trExpand.classList.toggle('expanded-row');
-
                 return [tr, trExpand];
             }
 
             function renderCardItem(item) {
-                const card = createElement('div', 'card-item');
+                const d = DIFF[item.difficulty];
+                const card = createElement('div', `card-item ${d.row} ${item.isRecommended ? 'row-reco' : ''}`);
                 const topDiv = createElement('div', 'flex justify-between items-start');
-                topDiv.appendChild(createElement('div', 'provider', item.provider));
-                
+                const cleanDomain = item.site.replace(/^https?:\/\//, '').split('/')[0];
+                const providerDiv = createElement('div', 'provider flex items-center gap-2');
+                providerDiv.innerHTML = `<img src="${favicon(cleanDomain)}" alt="" class="w-5 h-5 rounded-sm" loading="lazy" onerror="this.style.display='none'"> <span>${item.provider}</span>`;
+                topDiv.appendChild(providerDiv);
                 const cb = document.createElement('input'); cb.type = 'checkbox';
-                cb.checked = state.compare.has(item.provider); cb.className = 'w-5 h-5 rounded text-indigo-600';
+                cb.checked = state.compare.has(item.provider); cb.className = 'w-5 h-5 rounded';
                 cb.onchange = e => {
                     if (e.target.checked && state.compare.size >= MAX_COMPARE) { alert(`Максимум ${MAX_COMPARE}`); e.target.checked = false; return; }
                     e.target.checked ? state.compare.add(item.provider) : state.compare.delete(item.provider);
@@ -491,26 +631,25 @@
                 topDiv.appendChild(cb); card.appendChild(topDiv);
 
                 const metaDiv = createElement('div', 'meta');
-                metaDiv.appendChild(createElement('span', 'badge', item.integrationType === 'oauth' ? '🔓 OAuth' : '🔒 Internal'));
-                metaDiv.appendChild(createElement('span', `badge ${POP_CLASSES[item.popularity]} bg-transparent border border-current`, POP_LABELS[item.popularity]));
+                const b1 = createElement('span', `db ${d.cls}`, d.label); metaDiv.appendChild(b1);
+                const b2 = createElement('span', `db ${item.integrationType === 'oauth' ? 'badge-open' : 'badge-closed'}`, item.integrationType === 'oauth' ? '🔓 OAuth' : '🔒 Internal'); metaDiv.appendChild(b2);
+                if (item.inRegistry) metaDiv.appendChild(createElement('span', 'badge', '🇷🇺 Реестр'));
                 card.appendChild(metaDiv);
 
-                card.appendChild(createElement('div', 'desc font-medium text-indigo-600 dark:text-indigo-400 text-xs mt-1', item.scenario.map(s => SCENARIOS_MAP[s]).join(', ')));
+                card.appendChild(createElement('div', 'desc font-medium text-xs mt-1', item.scenario.map(s => SCENARIOS_MAP[s]).join(', ')));
                 card.appendChild(createElement('div', 'desc', item.purpose));
-                
-                const link = createElement('a', 'link text-xs mt-2 block'); link.href = item.siteUrl; link.target = '_blank'; link.textContent = item.site;
+                const proto = createElement('div', 'desc text-xs font-mono'); proto.textContent = item.api; card.appendChild(proto);
+                const link = createElement('a', 'link text-xs mt-2 block'); link.href = item.siteUrl; link.target = '_blank'; link.textContent = cleanDomain;
                 card.appendChild(link);
                 return card;
             }
 
-            function renderTableGroup(items, title, isAccordion = false, iconClass = 'fa-layer-group') {
+            function renderTableGroup(items, title, isAccordion, iconClass) {
                 const section = createElement('section', 'catalog-section card rounded-3xl border p-6');
                 const header = document.createElement('div');
                 header.className = `flex items-center justify-between ${isAccordion ? 'accordion-header open' : ''}`;
                 if (isAccordion) { header.setAttribute('role', 'button'); header.setAttribute('aria-expanded', 'true'); }
-                
-                header.innerHTML = `<h2 class="text-xl font-bold flex items-center gap-3"><i class="fa-solid ${iconClass} text-indigo-500"></i>${title} <span class="text-sm font-normal text-slate-500">(${items.length})</span></h2>${isAccordion ? '<i class="fa-solid fa-chevron-down arrow text-xl"></i>' : ''}`;
-                
+                header.innerHTML = `<h2 class="text-xl font-bold flex items-center gap-3"><i class="fa-solid ${iconClass}" style="color:var(--accent)"></i>${title} <span class="text-sm font-normal" style="color:var(--text-secondary)">(${items.length})</span></h2>${isAccordion ? '<i class="fa-solid fa-chevron-down arrow text-xl"></i>' : ''}`;
                 if (isAccordion) header.addEventListener('click', function() {
                     const body = this.nextElementSibling;
                     const isOpen = body.classList.toggle('open');
@@ -521,20 +660,18 @@
 
                 const body = createElement('div', `mt-4 overflow-x-auto ${isAccordion ? 'accordion-body open' : ''}`);
                 const tableWrap = createElement('div', 'table-wrap');
-                const table = createElement('table', 'w-full sortable min-w-[1000px] text-sm border-collapse');
-
+                const table = createElement('table', 'w-full sortable min-w-[1100px] text-sm border-collapse');
                 const thead = document.createElement('thead');
                 const headers = [
                     { key: null, label: '✓', noSort: true },
                     { key: 'provider', label: 'Провайдер' }, { key: 'purpose', label: 'Назначение' },
-                    { key: 'integration', label: 'Интеграция' }, { key: 'audience', label: 'Аудитория' },
-                    { key: 'popularity', label: 'Популярность' }, { key: 'capabilities', label: 'Фичи', noSort: true },
+                    { key: 'integration', label: 'Интеграция' }, { key: 'difficulty', label: 'Сложность' },
+                    { key: 'reestr', label: 'Реестр' }, { key: 'capabilities', label: 'Фичи', noSort: true },
                     { key: 'cost', label: 'Стоимость' }, { key: 'site', label: 'Сайт', noSort: true }
                 ];
-                
                 const trHead = document.createElement('tr');
                 headers.forEach(h => {
-                    const th = createElement('th', `p-3 text-left ${!h.noSort ? 'sortable text-slate-600 dark:text-slate-300' : ''}`, h.label);
+                    const th = createElement('th', `p-3 text-left ${!h.noSort ? 'sortable' : ''}`, h.label);
                     if (!h.noSort) {
                         if (state.sort.column === h.key) th.classList.add(state.sort.direction);
                         th.addEventListener('click', () => {
@@ -547,39 +684,44 @@
                 thead.appendChild(trHead); table.appendChild(thead);
 
                 const tbody = document.createElement('tbody');
-                items.forEach(item => { const rows = renderTableRow(item); tbody.appendChild(rows[0]); tbody.appendChild(rows[1]); });
-                table.appendChild(tbody); tableWrap.appendChild(table);
+                const fragment = document.createDocumentFragment();
+                items.forEach(item => { const rows = renderTableRow(item); fragment.appendChild(rows[0]); fragment.appendChild(rows[1]); });
+                tbody.appendChild(fragment); table.appendChild(tbody); tableWrap.appendChild(table);
 
                 const cardList = createElement('div', 'card-list');
-                items.forEach(item => cardList.appendChild(renderCardItem(item)));
-                tableWrap.appendChild(cardList);
+                const cardFragment = document.createDocumentFragment();
+                items.forEach(item => cardFragment.appendChild(renderCardItem(item)));
+                cardList.appendChild(cardFragment); tableWrap.appendChild(cardList);
                 body.appendChild(tableWrap); section.appendChild(body);
                 return section;
             }
 
             function renderCatalog() {
-                const container = document.getElementById('catalogContainer'); container.innerHTML = '';
+                const container = document.getElementById('catalogContainer');
+                container.innerHTML = '';
                 let filtered = filterServices(services);
                 updateStats(filtered.length);
 
                 if (filtered.length === 0) {
-                    container.innerHTML = '<div class="text-center py-12 text-slate-500">Системы не найдены. Архитектура требует иных решений.</div>';
+                    container.innerHTML = '<div class="card rounded-3xl border p-12 text-center" style="color:var(--text-secondary)">Ничего не найдено. Смягчите фильтры или измените запрос.</div>';
                     updateFilterUI(); return;
                 }
 
+                const fragment = document.createDocumentFragment();
                 if (state.sort.column) {
-                    container.appendChild(renderTableGroup(sortServices(filtered), 'Глобальный поиск', false, 'fa-sort-amount-down'));
+                    fragment.appendChild(renderTableGroup(sortServices(filtered), 'Результат сортировки', false, 'fa-sort-amount-down'));
                 } else {
                     const cats = [
                         { id: 'gos', title: 'Государственные', icon: 'fa-building-columns' }, { id: 'bank', title: 'Банки', icon: 'fa-landmark' },
-                        { id: 'tech', title: 'Технологические', icon: 'fa-microchip' }, { id: 'retail', title: 'Ритейл', icon: 'fa-truck' },
+                        { id: 'tech', title: 'Технологические', icon: 'fa-microchip' }, { id: 'retail', title: 'Ритейл и логистика', icon: 'fa-truck' },
                         { id: 'b2b', title: 'Enterprise IAM', icon: 'fa-shield-halved' }, { id: 'hard', title: 'Аппаратные', icon: 'fa-hard-drive' }
                     ];
                     cats.forEach(cat => {
                         const catItems = filtered.filter(s => s.category === cat.id);
-                        if (catItems.length > 0) container.appendChild(renderTableGroup(catItems, cat.title, true, cat.icon));
+                        if (catItems.length > 0) fragment.appendChild(renderTableGroup(catItems, cat.title, true, cat.icon));
                     });
                 }
+                container.appendChild(fragment);
                 updateFilterUI();
             }
 
@@ -587,10 +729,11 @@
                 document.querySelectorAll('#filterButtons .filter-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.filter === state.category));
                 document.querySelectorAll('.filter-scenario').forEach(btn => btn.classList.toggle('active', btn.dataset.scenario === state.scenario));
                 document.querySelectorAll('.filter-capability').forEach(btn => btn.classList.toggle('active', btn.dataset.capability === state.capability));
+                document.querySelectorAll('.filter-special').forEach(btn => btn.classList.toggle('active', btn.dataset.special === state.special));
             }
 
             window.resetAllFilters = function() {
-                state.category = 'all'; state.scenario = 'all'; state.capability = 'all'; state.search = ''; state.sort = { column: null, direction: null };
+                state.category = 'all'; state.scenario = 'all'; state.capability = 'all'; state.special = null; state.search = ''; state.sort = { column: null, direction: null };
                 document.getElementById('searchInput').value = ''; renderCatalog();
             };
 
@@ -599,31 +742,27 @@
                 document.getElementById('compareCount').textContent = state.compare.size;
                 state.compare.size > 0 ? bar.classList.add('show') : bar.classList.remove('show');
             }
-
             window.clearCompare = function() { state.compare.clear(); renderCatalog(); updateCompareUI(); };
 
             window.openCompareModal = function() {
                 if (state.compare.size === 0) return;
-                const modal = document.getElementById('compareModal'); const content = document.getElementById('compareModalContent');
+                const modal = document.getElementById('compareModal'), content = document.getElementById('compareModalContent');
                 const itemsToCompare = services.filter(s => state.compare.has(s.provider));
-                
-                let html = '<table class="w-full text-sm text-left border-collapse min-w-[800px]"><thead class="bg-slate-50 dark:bg-slate-700"><tr><th class="p-4 border">Метрика</th>';
+                let html = '<table class="w-full text-sm text-left border-collapse min-w-[800px]"><thead><tr><th class="p-4 border">Метрика</th>';
                 itemsToCompare.forEach(item => html += `<th class="p-4 border text-lg">${item.provider}</th>`);
                 html += '</tr></thead><tbody>';
-
                 const rows = [
-                    { label: 'Рекомендуется для', key: 'scenario', fmt: v => v.map(s => SCENARIOS_MAP[s]).join(', ') },
-                    { label: 'Популярность', key: 'popularity', fmt: v => POP_LABELS[v] },
-                    { label: 'Аудитория', key: 'audienceLabel' },
-                    { label: 'Интеграция', key: 'integrationType', fmt: v => v==='oauth'?'🔓 OAuth':'🔒 Internal', best: 'oauth' },
-                    { label: 'Доступ', key: 'accessType', fmt: v => v==='open'?'🌐 API':'Закрытый', best: 'open' },
+                    { label: 'Сложность интеграции', key: 'difficulty', fmt: v => DIFF[v].label, best: 'green' },
+                    { label: 'Тип интеграции', key: 'integrationType', fmt: v => v === 'oauth' ? '🔓 OAuth' : '🔒 Internal', best: 'oauth' },
+                    { label: 'В реестре РФ', key: 'inRegistry', fmt: v => v ? '✅ да' : '—', best: true },
                     { label: 'Протоколы', key: 'api' },
                     { label: 'Стандарты', key: 'standards' },
-                    { label: 'Цена', key: 'costLabel', bestMatch: 'Бесплатно' }
+                    { label: 'Охват', key: 'popularity', fmt: v => POP_LABELS[v] },
+                    { label: 'Сценарий', key: 'scenario', fmt: v => v.map(s => SCENARIOS_MAP[s]).join(', ') },
+                    { label: 'Стоимость', key: 'costLabel', bestMatch: 'Бесплатно' }
                 ];
-
                 rows.forEach(r => {
-                    html += `<tr><td class="p-4 border font-bold bg-slate-50 dark:bg-slate-800/50 w-48">${r.label}</td>`;
+                    html += `<tr><td class="p-4 border font-bold w-48">${r.label}</td>`;
                     itemsToCompare.forEach(item => {
                         let rawVal = item[r.key], val = r.fmt ? r.fmt(rawVal) : rawVal, isBest = false;
                         if (r.best !== undefined && rawVal === r.best) isBest = true;
@@ -632,10 +771,8 @@
                     });
                     html += `</tr>`;
                 });
-                
                 html += '</tbody></table>'; content.innerHTML = html; modal.classList.remove('hidden');
             };
-
             window.closeCompareModal = function() { document.getElementById('compareModal').classList.add('hidden'); };
 
             const handleSearch = debounce(function(val) { state.search = val.trim(); renderCatalog(); }, 250);
@@ -646,29 +783,37 @@
             });
 
             document.getElementById('extraFilters').addEventListener('click', e => {
-                const s = e.target.closest('.filter-scenario'), c = e.target.closest('.filter-capability');
-                if (s) state.scenario = s.dataset.scenario; if (c) state.capability = c.dataset.capability;
-                if(s || c) renderCatalog();
+                const s = e.target.closest('.filter-scenario'), c = e.target.closest('.filter-capability'), sp = e.target.closest('.filter-special');
+                if (s) state.scenario = s.dataset.scenario;
+                if (c) state.capability = c.dataset.capability;
+                if (sp) state.special = (state.special === sp.dataset.special) ? null : sp.dataset.special;
+                if (s || c || sp) renderCatalog();
             });
 
             document.getElementById('heroSection').addEventListener('click', e => {
                 const card = e.target.closest('.recommend-card');
-                if (card) { resetAllFilters(); state.scenario = card.dataset.scenario; renderCatalog(); }
+                if (card) { resetAllFilters(); state.scenario = card.dataset.scenario; renderCatalog(); window.scrollTo({ top: document.getElementById('statsBar').offsetTop - 20, behavior: 'smooth' }); }
             });
 
             document.getElementById('themeBtn').addEventListener('click', function() {
                 localStorage.setItem('darkMode', document.body.classList.toggle('dark'));
                 const i = this.querySelector('i'); i.classList.toggle('fa-moon'); i.classList.toggle('fa-sun');
             });
-            if(document.body.classList.contains('dark')) { const i = document.querySelector('#themeBtn i'); i.classList.remove('fa-moon'); i.classList.add('fa-sun'); }
+            if (document.body.classList.contains('dark')) { const i = document.querySelector('#themeBtn i'); i.classList.remove('fa-moon'); i.classList.add('fa-sun'); }
 
             window.exportData = function(fmt) {
-                let out = fmt === 'json' ? JSON.stringify(rawData, null, 2) : Object.keys(rawData[0]).join(',') + '\n' + rawData.map(i => Object.values(i).map(v => `"${String(v).replace(/"/g, '""')}"`).join(',')).join('\n');
-                const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([out], { type: fmt === 'json' ? 'application/json' : 'text/csv;charset=utf-8;' }));
-                a.download = `id-matrix-60-systems.${fmt}`; a.click();
+                const out = fmt === 'json'
+                    ? JSON.stringify(rawData, null, 2)
+                    : Object.keys(rawData[0]).join(',') + '\n' + rawData.map(i => Object.values(i).map(v => `"${String(v).replace(/"/g, '""')}"`).join(',')).join('\n');
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(new Blob([out], { type: fmt === 'json' ? 'application/json' : 'text/csv;charset=utf-8;' }));
+                a.download = `id-matrix-rf.${fmt}`; a.click();
             };
 
+            document.querySelectorAll('.js-total').forEach(el => el.textContent = services.length);
+            document.querySelectorAll('.js-green-count').forEach(el => el.textContent = services.filter(s => s.difficulty === 'green').length);
             renderCatalog();
+            updateCompareUI();
         })();
     </script>
 </body>
