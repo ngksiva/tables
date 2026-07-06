@@ -461,7 +461,20 @@
             const state = { category: 'all', scenario: 'all', capability: 'all', special: null, search: '', sort: { column: null, direction: null }, compare: new Set() };
 
             function debounce(func, wait) { let t; return function(...a) { clearTimeout(t); t = setTimeout(() => func.apply(this, a), wait); }; }
-            function favicon(domain) { return `https://icons.duckduckgo.com/ip3/${domain}.ico`; }
+            const FAVICON_OVERRIDE = {
+                'sberid.ru':       'sber.ru',
+                'sbp.nspk.ru':     'nspk.ru',
+                'ebs.ru':          'ebs.ru',
+                'digital.gov.ru':  'gosuslugi.ru',
+                'sbertech.ru':     'sber.ru',
+                'eda.yandex.ru':   'yandex.ru',
+                'market.yandex.ru':'market.yandex.ru',
+                'sfera.inno.tech': 'inno.tech',
+            };
+            function favicon(domain) {
+                const d = FAVICON_OVERRIDE[domain] || domain;
+                return 'https://www.google.com/s2/favicons?domain=' + d + '&sz=32';
+            }
 
             function updateStats(filteredCount) {
                 const total = services.length;
@@ -547,7 +560,7 @@
 
                 const cleanDomain = item.site.replace(/^https?:\/\//, '').split('/')[0];
                 const tdName = createElement('td', 'p-3 font-bold');
-                tdName.innerHTML = `<img src="${favicon(cleanDomain)}" alt="" class="w-4 h-4 rounded-sm inline-block mr-2 align-middle" loading="lazy" onerror="this.style.display='none'"> ${item.provider}`;
+                tdName.innerHTML = `<img src="${favicon(cleanDomain)}" alt="" class="w-5 h-5 rounded inline-block mr-2 align-middle object-contain bg-white/10 p-px" loading="lazy" onerror="this.style.display='none'"> ${item.provider}`;
                 tr.appendChild(tdName);
 
                 tr.appendChild(createElement('td', 'p-3 text-xs', item.purpose));
@@ -619,7 +632,7 @@
                 const topDiv = createElement('div', 'flex justify-between items-start');
                 const cleanDomain = item.site.replace(/^https?:\/\//, '').split('/')[0];
                 const providerDiv = createElement('div', 'provider flex items-center gap-2');
-                providerDiv.innerHTML = `<img src="${favicon(cleanDomain)}" alt="" class="w-5 h-5 rounded-sm" loading="lazy" onerror="this.style.display='none'"> <span>${item.provider}</span>`;
+                providerDiv.innerHTML = `<img src="${favicon(cleanDomain)}" alt="" class="w-7 h-7 rounded object-contain bg-white/10 p-px flex-shrink-0" loading="lazy" onerror="this.style.display='none'"> <span>${item.provider}</span>`;
                 topDiv.appendChild(providerDiv);
                 const cb = document.createElement('input'); cb.type = 'checkbox';
                 cb.checked = state.compare.has(item.provider); cb.className = 'w-5 h-5 rounded';
