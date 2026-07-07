@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Оплата не прошла — Академия Батранкова</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Оплата не прошла, но место на эфир «Чем заменить вход через Google и Apple» сохранено. Попробуйте оплатить снова.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sans: 'Golos Text', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --ink:     #0a1020;
+  --paper:   #101a30;
+  --paper2:  #16233f;
+  --line:    #24345a;
+  --line2:   #1a2a4c;
+  --grid:    rgba(84,130,214,.07);
+  --text:    #e9eef9;
+  --text2:   #9fadcb;
+  --text3:   #66759a;
+
+  --signal:      #ffb454;
+  --signal-ink:  #1a1000;
+  --ok:          #57cba4;
+  --link:        #7fb4ff;
+}
+[data-theme="light"] {
+  --ink:     #eef0f4;
+  --paper:   #ffffff;
+  --paper2:  #f4f6fb;
+  --line:    #cfd6e4;
+  --line2:   #dde2ee;
+  --grid:    rgba(30,64,140,.06);
+  --text:    #131a2b;
+  --text2:   #4c5a78;
+  --text3:   #8391ad;
+
+  --signal:      #c96a00;
+  --signal-ink:  #ffffff;
+  --ok:          #0c7a55;
+  --link:        #1a56b0;
+}
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+  font-family: var(--sans);
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px),
+    var(--ink);
+  background-size: 28px 28px, 28px 28px, auto;
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background-color .25s, color .25s;
+}
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; border-radius: 4px; }
+.mono { font-family: var(--mono); }
+.wrap { max-width: 660px; margin: 0 auto; padding: 0 1.5rem; width: 100%; }
+
+/* ===== TOP BAR ===== */
+.topbar { border-bottom: 1px solid var(--line); }
+.topbar-in { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.7rem 0; }
+.brand { font-family: var(--mono); font-size:.78rem; font-weight:700; letter-spacing:.14em; color: var(--text); text-transform: uppercase; display:flex; align-items:center; gap:.5rem; }
+.brand:hover { text-decoration:none; color: var(--signal); }
+.brand-mark { width:10px; height:10px; background: var(--signal); display:inline-block; }
+.pill { font-family: var(--mono); font-size:.72rem; border:1px solid var(--line); border-radius:999px; padding:.3rem .8rem; color: var(--text2); background: var(--paper); cursor:pointer; transition: border-color .15s, color .15s; }
+.pill:hover { border-color: var(--signal); color: var(--text); text-decoration:none; }
+
+/* ===== MAIN CARD ===== */
+main { flex:1; display:flex; align-items:center; padding: 3rem 0; }
+.ticket { width:100%; border:1px solid var(--line); background: var(--paper); position:relative; overflow:hidden; }
+.ticket::before {
+  content:""; position:absolute; top:-8px; left:0; right:0; height:16px;
+  background-image: radial-gradient(circle at 8px 8px, var(--ink) 6px, transparent 6px);
+  background-size: 22px 16px; background-repeat: repeat-x;
+}
+.ticket-body { padding: 3rem 2.4rem 2.4rem; }
+
+/* печать-замок — место удержано, не потеряно */
+.stamp-wrap { display:flex; justify-content:center; margin-bottom: 1.6rem; }
+.stamp { width: 96px; height: 96px; }
+.stamp rect, .stamp path, .stamp circle { fill:none; stroke: var(--signal); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.stamp .shackle { stroke-dasharray: 70; stroke-dashoffset: 70; animation: draw .55s ease-out .1s forwards; }
+.stamp .body { stroke-dasharray: 140; stroke-dashoffset: 140; animation: draw .5s ease-out .45s forwards; }
+.stamp .dot { fill: var(--signal); stroke:none; opacity:0; animation: pop .3s ease-out .95s forwards; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes pop { to { opacity:1; } }
+
+.eyebrow { font-family:var(--mono); font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color: var(--signal); text-align:center; margin-bottom:.7rem; }
+h1 { font-weight: 900; font-size: clamp(1.55rem, 4.6vw, 2.15rem); line-height:1.15; letter-spacing:-.02em; text-align:center; }
+.lede { text-align:center; color: var(--text2); margin-top:.9rem; font-size:1.02rem; }
+.lede b { color: var(--text); font-weight:600; }
+
+/* держим-место баннер */
+.hold {
+  display:flex; align-items:center; gap:.7rem; justify-content:center;
+  margin-top:1.5rem; padding:.8rem 1.1rem;
+  border:1px solid color-mix(in srgb, var(--signal) 45%, var(--line));
+  background: color-mix(in srgb, var(--signal) 8%, transparent);
+  font-size:.86rem; color: var(--text2); text-align:center;
+}
+.hold b { color: var(--text); font-weight:700; }
+
+/* причины */
+.sec-lbl { font-family:var(--mono); font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; color:var(--text3); margin: 2rem 0 .9rem; }
+.reasons { display:flex; flex-direction:column; gap:.7rem; }
+.reason { display:flex; gap:.9rem; padding: .9rem 1rem; border:1px solid var(--line2); background: var(--paper2); }
+.reason-ic { font-size:1.15rem; flex-shrink:0; line-height:1.3; }
+.reason-h { font-weight:700; font-size:.9rem; margin-bottom:.2rem; }
+.reason-p { font-size:.85rem; color: var(--text2); }
+
+/* retry блок */
+.retry { margin-top:1.8rem; padding: 1.3rem 1.3rem 1.4rem; border:1px solid var(--line); background: var(--paper2); }
+.retry p { font-size:.88rem; color: var(--text2); margin-bottom:1rem; }
+.retry-url { font-family:var(--mono); font-size:.72rem; color:var(--text3); word-break:break-all; margin-top:.8rem; }
+.cta {
+  display:inline-flex; align-items:center; gap:.5rem; width:100%; justify-content:center;
+  font-family:var(--mono); font-size:.92rem; font-weight:700;
+  background: var(--signal); color: var(--signal-ink);
+  padding:.85rem 1.3rem; transition: filter .15s;
+}
+.cta:hover { filter: brightness(1.08); text-decoration:none; }
+.cta .arw { transition: transform .15s; }
+.cta:hover .arw { transform: translateX(3px); }
+
+/* личная помощь */
+.help { margin-top:1.6rem; display:flex; gap:1rem; align-items:flex-start; padding-top:1.6rem; border-top:1px dashed var(--line); }
+.help-ic { font-size:1.3rem; flex-shrink:0; }
+.help h3 { font-size:.95rem; font-weight:700; margin-bottom:.3rem; }
+.help p { font-size:.86rem; color:var(--text2); margin-bottom:.7rem; }
+.tg-link { display:inline-flex; align-items:center; gap:.4rem; font-family:var(--mono); font-size:.84rem; font-weight:600; border:1px solid var(--line); padding:.5rem .9rem; color:var(--text); }
+.tg-link:hover { border-color: var(--signal); text-decoration:none; color: var(--signal); }
+
+footer { border-top:1px solid var(--line); padding:1.1rem 0 1.6rem; font-family:var(--mono); font-size:.72rem; color:var(--text3); }
+footer .wrap { display:flex; justify-content:space-between; flex-wrap:wrap; gap:.5rem; }
+footer a { color: var(--text2); }
+
+@media (max-width:520px) {
+  .ticket-body { padding: 2.4rem 1.4rem 1.8rem; }
+  .hold { flex-direction:column; text-align:center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior:auto; }
+  .stamp .shackle, .stamp .body { animation:none; stroke-dashoffset:0; }
+  .stamp .dot { animation:none; opacity:1; }
+  .cta:hover .arw { transform:none; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="https://batrankov.ru" target="_blank" rel="noopener"><span class="brand-mark"></span>Академия Батранкова</a>
+    <button class="pill" onclick="toggleTheme()">◐ Тема</button>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+    <div class="ticket">
+      <div class="ticket-body">
+
+        <div class="stamp-wrap">
+          <svg class="stamp" viewBox="0 0 100 100" role="img" aria-label="Место удержано">
+            <path class="shackle" d="M36 46 V34 a14 14 0 0 1 28 0 v12"/>
+            <rect class="body" x="28" y="46" width="44" height="34" rx="4"/>
+            <circle class="dot" cx="50" cy="62" r="4"/>
+          </svg>
+        </div>
+
+        <div class="eyebrow">Оплата не прошла</div>
+        <h1>Ваше место сохранено</h1>
+        <p class="lede">Вебинар <b>«Чем заменить вход через Google и Apple»</b> пройдёт 11 июля в 11:00. Билет за 500&nbsp;₽ никуда не делся — он просто ждёт вас.</p>
+
+        <div class="hold">🔒 Место зарезервировано. <b>Мы не отдадим его до конца дня.</b></div>
+
+        <div class="sec-lbl">Что могло пойти не так</div>
+        <div class="reasons">
+          <div class="reason">
+            <div class="reason-ic">🚦</div>
+            <div>
+              <div class="reason-h">Лимит на интернет-покупки</div>
+              <div class="reason-p">Превышен лимит на покупки в интернете по вашей карте — такое случается при первой онлайн-оплате или при достижении дневного порога.</div>
+            </div>
+          </div>
+          <div class="reason">
+            <div class="reason-ic">💳</div>
+            <div>
+              <div class="reason-h">Недостаточно средств</div>
+              <div class="reason-p">На счёте может не хватать баланса. Проверьте остаток в мобильном банке — иногда списание проходит с задержкой.</div>
+            </div>
+          </div>
+          <div class="reason">
+            <div class="reason-ic">📲</div>
+            <div>
+              <div class="reason-h">Ошибка SMS-кода</div>
+              <div class="reason-p">Введён неверный или устаревший код подтверждения от банка. Попробуйте запросить новый код и ввести его быстро.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="retry">
+          <p>Большинство проблем с оплатой решаются с первой же повторной попытки. Нажмите кнопку ниже, чтобы оплатить другой картой — это займёт меньше минуты.</p>
+          <a class="cta" href="http://id-provider.kassa.bizon365.ru/buy/vebinar-chem-zamenit-vkhod-cherez-google-i-apple">Попробовать снова <span class="arw">→</span></a>
+          <div class="retry-url">id-provider.kassa.bizon365.ru/buy/vebinar-chem-zamenit-vkhod-cherez-google-i-apple</div>
+        </div>
+
+        <div class="help">
+          <div class="help-ic">💬</div>
+          <div>
+            <h3>Нужна помощь лично?</h3>
+            <p>Техника иногда даёт сбой. Если оплата упорно не проходит — напишите мне лично в Telegram. Я оперативно помогу забрать билет и не оставлю вас без вебинара.</p>
+            <a class="tg-link" href="https://t.me/safebdv" target="_blank" rel="noopener">✈ Написать в Telegram</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Denis Batrankov, CISSP · <a href="https://batrankov.ru" target="_blank" rel="noopener">batrankov.ru</a></span>
+    <span><a href="https://t.me/safebdv" target="_blank" rel="noopener">@safebdv</a></span>
+  </div>
+</footer>
+
+<script>
+function toggleTheme() {
+  const h = document.documentElement;
+  h.dataset.theme = h.dataset.theme === 'dark' ? 'light' : 'dark';
+  try { localStorage.setItem('bdv-theme', h.dataset.theme); } catch(e) {}
+}
+try {
+  const s = localStorage.getItem('bdv-theme');
+  if (s) document.documentElement.dataset.theme = s;
+} catch(e) {}
+</script>
+</body>
+</html>
