@@ -1,486 +1,381 @@
 <!DOCTYPE html>
-<html lang="ru" data-theme="dark">
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Таблицы Батранкова — справочники по кибербезопасности для CISO</title>
-<meta name="description" content="Справочные таблицы по кибербезопасности: ID-Матрица России и закон 199-ФЗ, инструменты оценки защищённости, зрелость ИБ. Denis Batrankov, CISSP. Инженерная честность вместо маркетинга.">
-<meta name="author" content="Denis Batrankov, CISSP">
-<link rel="canonical" href="https://tables.batrankov.ru/">
-<meta property="og:title" content="Таблицы Батранкова — справочники по кибербезопасности">
-<meta property="og:description" content="ID-Матрица России, оценка защищённости, зрелость ИБ. Справочники для CISO без маркетинга.">
+<title>Вход через Google и Apple запрещён — Вебинар 11 июля</title>
+<meta name="description" content="С 7 июля 2026 года вход через Google, Apple ID и Facebook на российских сайтах — нарушение закона. Штраф до 700 000 ₽. Вебинар: чем заменить и как мигрировать пользователей.">
+<meta property="og:title" content="На вашем сайте есть «Войти через Google»? Штраф — до 700 000 ₽">
+<meta property="og:description" content="53% российских сайтов всё ещё используют иностранную авторизацию. Статья 13.55 КоАП уже работает. Вебинар 11 июля — разбираем 68 систем замены.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://tables.batrankov.ru/">
-<meta property="og:site_name" content="Академия Батранкова">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
 :root {
+  --bg-deep: #080c14;
+  --bg-surface: #0d1219;
+  --bg-card: #111820;
+  --border-dim: rgba(255,255,255,0.06);
+  --border-line: rgba(255,255,255,0.1);
+  --text-bright: #f0f2f5;
+  --text-main: #c8cdd5;
+  --text-muted: #6b7280;
+  --red-glow: #e24b4a;
+  --red-dim: rgba(226,75,74,0.12);
+  --red-border: rgba(226,75,74,0.25);
+  --red-text: #f09595;
+  --green-bright: #5dca5a;
+  --green-dim: rgba(93,202,90,0.10);
+  --green-border: rgba(93,202,90,0.20);
+  --green-text: #97c459;
+  --amber-dim: rgba(239,159,39,0.10);
+  --amber-border: rgba(239,159,39,0.20);
+  --amber-text: #ef9f27;
+  --mono: 'JetBrains Mono', monospace;
   --sans: 'Golos Text', system-ui, sans-serif;
-  --mono: 'JetBrains Mono', ui-monospace, monospace;
-
-  --ink:     #0a1020;
-  --paper:   #101a30;
-  --paper2:  #16233f;
-  --line:    #24345a;
-  --line2:   #1a2a4c;
-  --grid:    rgba(84,130,214,.07);
-  --text:    #e9eef9;
-  --text2:   #9fadcb;
-  --text3:   #66759a;
-
-  --signal:      #ffb454;
-  --signal-ink:  #1a1000;
-  --ok:          #57cba4;
-  --alert:       #ff6b6b;
-  --link:        #7fb4ff;
-}
-[data-theme="light"] {
-  --ink:     #eef0f4;
-  --paper:   #ffffff;
-  --paper2:  #f4f6fb;
-  --line:    #cfd6e4;
-  --line2:   #dde2ee;
-  --grid:    rgba(30,64,140,.06);
-  --text:    #131a2b;
-  --text2:   #4c5a78;
-  --text3:   #8391ad;
-
-  --signal:      #c96a00;
-  --signal-ink:  #ffffff;
-  --ok:          #0c7a55;
-  --alert:       #c22f2f;
-  --link:        #1a56b0;
 }
 
-*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
-html { scroll-behavior:smooth; }
 body {
   font-family: var(--sans);
-  background:
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px),
-    var(--ink);
-  background-size: 28px 28px, 28px 28px, auto;
-  color: var(--text);
-  line-height: 1.6;
+  background: var(--bg-deep);
+  color: var(--text-main);
   min-height: 100vh;
-  transition: background-color .25s, color .25s;
+  -webkit-font-smoothing: antialiased;
 }
-a { color: var(--link); text-decoration: none; }
-a:hover { text-decoration: underline; }
-a:focus-visible, button:focus-visible, input:focus-visible {
-  outline: 2px solid var(--signal); outline-offset: 2px; border-radius: 4px;
+
+/* ── grid background ── */
+.grid-bg {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border-dim) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-dim) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
 }
-.mono { font-family: var(--mono); }
-.wrap { max-width: 1180px; margin: 0 auto; padding: 0 1.5rem; }
 
-/* ===== TOP BAR ===== */
-.topbar { border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--ink) 80%, transparent); backdrop-filter: blur(6px); position: sticky; top: 0; z-index: 20; }
-.topbar-in { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.7rem 0; }
-.brand { font-family: var(--mono); font-size:.8rem; font-weight:700; letter-spacing:.14em; color: var(--text); text-transform: uppercase; display:flex; align-items:center; gap:.5rem; }
-.brand:hover { text-decoration:none; color: var(--signal); }
-.brand-mark { width:10px; height:10px; background: var(--signal); display:inline-block; }
-.top-actions { display:flex; align-items:center; gap:.5rem; flex-wrap:wrap; }
-.pill { font-family: var(--mono); font-size:.72rem; border:1px solid var(--line); border-radius:999px; padding:.3rem .8rem; color: var(--text2); background: var(--paper); display:inline-flex; align-items:center; gap:.35rem; cursor:pointer; transition: border-color .15s, color .15s; white-space:nowrap; }
-.pill:hover { border-color: var(--signal); color: var(--text); text-decoration:none; }
-
-/* ===== HERO ===== */
-.hero { padding: 3.2rem 0 2.2rem; }
-.hero-eyebrow { font-family:var(--mono); font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; color: var(--signal); margin-bottom: 1rem; }
-.hero h1 { font-weight: 900; font-size: clamp(2rem, 5.2vw, 3.4rem); line-height: 1.04; letter-spacing: -.02em; max-width: 15ch; }
-.hero h1 em { font-style: normal; color: var(--signal); }
-.hero-sub { margin-top: 1.1rem; font-size: 1.02rem; color: var(--text2); max-width: 58ch; }
-.hero-sub strong { color: var(--text); font-weight: 600; }
-
-/* ===== TOC — оглавление как таблица ===== */
-.toc { margin-top: 2rem; border: 1px solid var(--line); background: var(--paper); }
-.toc-head { display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:.6rem 1rem; border-bottom:1px solid var(--line); font-family:var(--mono); font-size:.7rem; letter-spacing:.18em; text-transform:uppercase; color:var(--text3); }
-.toc-row { display:grid; grid-template-columns: 4.5rem 1fr auto auto; gap: 1rem; align-items:baseline; padding:.65rem 1rem; border-bottom:1px solid var(--line2); color: var(--text); transition: background .15s; }
-.toc-row:last-child { border-bottom:none; }
-.toc-row:hover { background: var(--paper2); text-decoration:none; }
-.toc-num { font-family:var(--mono); font-size:.78rem; color:var(--text3); }
-.toc-title { font-weight:600; font-size:.93rem; }
-.toc-meta { font-family:var(--mono); font-size:.72rem; color:var(--text3); white-space:nowrap; }
-.toc-status { font-family:var(--mono); font-size:.68rem; padding:.12rem .5rem; border:1px solid; white-space:nowrap; }
-.st-live { color: var(--ok); border-color: color-mix(in srgb, var(--ok) 45%, transparent); }
-.st-hot  { color: var(--signal); border-color: color-mix(in srgb, var(--signal) 55%, transparent); }
-.st-soon { color: var(--text3); border-color: var(--line); }
-
-/* ===== CONTROLS ===== */
-.controls { display:flex; flex-wrap:wrap; align-items:center; gap:.6rem; margin: 2.4rem 0 0; }
-.search { display:flex; align-items:center; gap:.55rem; background:var(--paper); border:1px solid var(--line); padding:.55rem .9rem; flex: 1 1 260px; max-width: 420px; }
-.search:focus-within { border-color: var(--signal); }
-.search input { background:none; border:none; outline:none; font-family:var(--sans); font-size:.9rem; color:var(--text); width:100%; }
-.search input::placeholder { color:var(--text3); }
-.tabs { display:flex; flex-wrap:wrap; gap:.4rem; }
-.tab { font-family:var(--mono); font-size:.74rem; background:none; border:1px solid var(--line); color:var(--text2); padding:.4rem .85rem; cursor:pointer; transition: all .15s; }
-.tab:hover { border-color:var(--signal); color:var(--text); }
-.tab.active { background: var(--signal); border-color: var(--signal); color: var(--signal-ink); font-weight: 700; }
-
-/* ===== SECTIONS ===== */
-.sec { display:flex; align-items:center; gap:.8rem; margin: 2.2rem 0 1rem; }
-.sec h2 { font-family:var(--mono); font-size:.78rem; letter-spacing:.2em; text-transform:uppercase; color:var(--text2); font-weight:700; }
-.sec-line { flex:1; height:1px; background: var(--line); }
-.sec-n { font-family:var(--mono); font-size:.72rem; color:var(--text3); border:1px solid var(--line); padding:.1rem .55rem; }
-
-/* ===== CARDS ===== */
-.cards { display:grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1rem; }
-.card {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  padding: 1.2rem 1.2rem 1.05rem;
-  display:flex; flex-direction:column; gap:.65rem;
-  position:relative;
-  transition: border-color .18s, transform .18s;
+.grid-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(226,75,74,0.06) 0%, transparent 70%);
 }
-.card:hover { border-color: var(--signal); transform: translateY(-2px); }
-.card-top { display:flex; justify-content:space-between; align-items:flex-start; gap:.6rem; }
-.card-num { font-family:var(--mono); font-size:.72rem; color:var(--text3); letter-spacing:.08em; }
-.stamps { display:flex; gap:.35rem; flex-wrap:wrap; }
-.stamp { font-family:var(--mono); font-size:.64rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:.16rem .5rem; border:1px solid; }
-.stamp-hot  { color:var(--signal); border-color: color-mix(in srgb, var(--signal) 60%, transparent); background: color-mix(in srgb, var(--signal) 10%, transparent); }
-.stamp-new  { color:var(--ok); border-color: color-mix(in srgb, var(--ok) 50%, transparent); }
-.stamp-soon { color:var(--text3); border-color:var(--line); }
-.card h3 { font-size: 1.05rem; font-weight: 800; line-height: 1.25; letter-spacing: -.01em; }
-.card h3 a { color: var(--text); }
-.card h3 a:hover { color: var(--signal); text-decoration: none; }
-.card p { font-size:.85rem; color: var(--text2); flex:1; }
-.tags { display:flex; flex-wrap:wrap; gap:.3rem; }
-.tag { font-family:var(--mono); font-size:.66rem; color:var(--text3); border:1px solid var(--line2); padding:.08rem .45rem; }
-.card-meta { font-family:var(--mono); font-size:.7rem; color:var(--text3); display:flex; flex-wrap:wrap; gap:.3rem .9rem; border-top:1px dashed var(--line2); padding-top:.65rem; }
-.card-foot { display:flex; align-items:center; justify-content:space-between; gap:.6rem; margin-top:.15rem; }
-.open {
-  display:inline-flex; align-items:center; gap:.4rem;
-  font-family:var(--mono); font-size:.78rem; font-weight:700;
-  background: var(--signal); color: var(--signal-ink);
-  padding:.5rem 1rem; transition: filter .15s;
+
+/* ── hero container ── */
+.hero {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 6vh 1.5rem 4vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
-.open:hover { filter: brightness(1.08); text-decoration:none; }
-.gh { font-family:var(--mono); font-size:.72rem; color:var(--text3); border:1px solid var(--line); padding:.42rem .7rem; transition: all .15s; }
-.gh:hover { border-color:var(--text2); color:var(--text); text-decoration:none; }
 
-/* Featured card — на всю ширину */
-.card.featured { grid-column: 1 / -1; }
-@media (min-width: 760px) {
-  .card.featured { display:grid; grid-template-columns: 1.4fr 1fr; gap: 1.2rem 2rem; padding: 1.5rem 1.6rem 1.3rem; border-color: color-mix(in srgb, var(--signal) 45%, var(--line)); }
-  .card.featured .f-left { display:flex; flex-direction:column; gap:.7rem; }
-  .card.featured .f-right { border-left: 1px dashed var(--line); padding-left: 2rem; display:flex; flex-direction:column; justify-content:center; gap:.6rem; }
-  .card.featured:hover { transform:none; }
+/* ── alert badge ── */
+.alert-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--red-text);
+  background: var(--red-dim);
+  border: 1px solid var(--red-border);
+  border-radius: 6px;
+  padding: 6px 14px;
+  margin-bottom: 2rem;
+  animation: pulse-border 3s ease-in-out infinite;
 }
-.card.featured h3 { font-size: clamp(1.25rem, 2.4vw, 1.7rem); }
-.f-fact { display:flex; align-items:baseline; gap:.7rem; }
-.f-fact b { font-family:var(--mono); font-size:1.35rem; color:var(--signal); font-weight:700; min-width: 3.2ch; text-align:right; }
-.f-fact span { font-size:.82rem; color:var(--text2); }
 
-.card.soon { opacity:.6; }
-.card.soon:hover { border-color: var(--line); transform:none; }
-.open.disabled { background: var(--paper2); color: var(--text3); pointer-events:none; }
-
-/* ===== ABOUT ===== */
-.about { margin-top: 2.6rem; border:1px solid var(--line); background:var(--paper); padding:1.4rem 1.5rem; display:flex; gap:1.4rem; align-items:flex-start; flex-wrap:wrap; }
-.about-ava { font-size:2.6rem; line-height:1; }
-.about h3 { font-size:1rem; font-weight:800; margin-bottom:.3rem; }
-.about p { font-size:.85rem; color:var(--text2); max-width: 70ch; }
-.about-links { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.7rem; }
-
-/* ===== FOOTER ===== */
-footer { margin-top:2.8rem; border-top:1px solid var(--line); padding:1.1rem 0 2rem; font-family:var(--mono); font-size:.72rem; color:var(--text3); display:flex; justify-content:space-between; flex-wrap:wrap; gap:.5rem; }
-footer a { color: var(--text2); }
-
-.hidden { display:none !important; }
-
-@media (max-width: 640px) {
-  .toc-row { grid-template-columns: 3rem 1fr; }
-  .toc-meta { display:none; }
-  .toc-status { justify-self:start; grid-column: 2; }
-  .hero { padding-top: 2.2rem; }
+.alert-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--red-glow);
+  box-shadow: 0 0 8px var(--red-glow);
+  animation: blink 2s ease-in-out infinite;
 }
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes pulse-border {
+  0%, 100% { border-color: var(--red-border); }
+  50% { border-color: rgba(226,75,74,0.45); }
+}
+
+/* ── headline ── */
+.headline {
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-bright);
+  margin-bottom: 0.35em;
+}
+
+.headline .fine {
+  font-family: var(--mono);
+  color: var(--red-glow);
+  white-space: nowrap;
+}
+
+/* ── subtitle ── */
+.subtitle {
+  font-size: clamp(16px, 2.2vw, 19px);
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 620px;
+  margin-bottom: 2.5rem;
+}
+
+.subtitle strong {
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+/* ── stat bar ── */
+.stat-bar {
+  display: flex;
+  gap: 1px;
+  width: 100%;
+  margin-bottom: 2.5rem;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border-line);
+}
+
+.stat-item {
+  flex: 1;
+  padding: 1rem 1.25rem;
+  background: var(--bg-card);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-item:not(:last-child) {
+  border-right: 1px solid var(--border-dim);
+}
+
+.stat-label {
+  font-size: 11px;
+  font-family: var(--mono);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.stat-value {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: var(--mono);
+}
+
+.stat-value.red { color: var(--red-text); }
+.stat-value.amber { color: var(--amber-text); }
+.stat-value.green { color: var(--green-text); }
+
+/* ── meta row ── */
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.meta-icon {
+  width: 16px;
+  height: 16px;
+  opacity: 0.5;
+}
+
+/* ── CTA button ── */
+.cta-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--red-glow);
+  border: none;
+  border-radius: 8px;
+  padding: 14px 32px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 0 20px rgba(226,75,74,0.25);
+}
+
+.cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 30px rgba(226,75,74,0.4);
+}
+
+.cta:active {
+  transform: translateY(0);
+}
+
+.cta-arrow {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.15s;
+}
+
+.cta:hover .cta-arrow {
+  transform: translateX(3px);
+}
+
+.cta-hint {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-family: var(--mono);
+}
+
+/* ── trust line ── */
+.trust-line {
+  font-size: 13px;
+  color: var(--text-muted);
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-dim);
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.trust-line a {
+  color: var(--text-main);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-line);
+  transition: border-color 0.2s;
+}
+
+.trust-line a:hover {
+  border-color: var(--text-main);
+}
+
+/* ── responsive ── */
+@media (max-width: 600px) {
+  .hero { padding: 4vh 1.25rem 3vh; }
+
+  .stat-bar {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .stat-item:not(:last-child) {
+    border-right: none;
+    border-bottom: 1px solid var(--border-dim);
+  }
+
+  .meta-row { gap: 1rem; }
+}
+
+/* ── reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior:auto; }
-  .card, .card:hover { transition:none; transform:none; }
+  .alert-badge, .alert-badge::before {
+    animation: none;
+  }
+  .cta { transition: none; }
+  .cta:hover { transform: none; }
 }
 </style>
 </head>
 <body>
 
-<!-- ===== TOP BAR ===== -->
-<div class="topbar">
-  <div class="wrap topbar-in">
-    <a class="brand" href="https://www.youtube.com/@BDVSecurity" target="_blank" rel="noopener"><span class="brand-mark"></span>Академия Батранкова</a>
-    <div class="top-actions">
-      <a class="pill" href="https://t.me/safebdv" target="_blank" rel="noopener">✈ @safebdv</a>
-      <a class="pill" href="https://www.youtube.com/@BDVSecurity" target="_blank" rel="noopener">▶ YouTube</a>
-      <button class="pill" onclick="toggleTheme()" id="theme-btn">◐ Тема</button>
+<div class="grid-bg" aria-hidden="true"></div>
+
+<section class="hero">
+
+  <div class="alert-badge" role="status">
+    Закон вступил в силу 7 июля 2026
+  </div>
+
+  <h1 class="headline">
+    На вашем сайте есть «Войти&nbsp;через&nbsp;Google»?<br>
+    Штраф — <span class="fine">до 700&nbsp;000&nbsp;₽</span>
+  </h1>
+
+  <p class="subtitle">
+    <strong>53% российских сайтов</strong> всё ещё используют иностранную авторизацию. Статья&nbsp;13.55 КоАП уже работает. За&nbsp;90&nbsp;минут разберём, чем заменить и&nbsp;как мигрировать пользователей без&nbsp;потерь.
+  </p>
+
+  <div class="stat-bar" role="list" aria-label="Ключевые цифры">
+    <div class="stat-item" role="listitem">
+      <span class="stat-label">Штраф юрлицу</span>
+      <span class="stat-value red">700 000 ₽</span>
+    </div>
+    <div class="stat-item" role="listitem">
+      <span class="stat-label">Повторное</span>
+      <span class="stat-value amber">1 400 000 ₽</span>
+    </div>
+    <div class="stat-item" role="listitem">
+      <span class="stat-label">Систем замены</span>
+      <span class="stat-value green">68</span>
     </div>
   </div>
-</div>
 
-<div class="wrap">
-
-<!-- ===== HERO ===== -->
-<header class="hero">
-  <div class="hero-eyebrow">tables.batrankov.ru · инженерный реестр</div>
-  <h1>Таблицы, которые заменяют <em>месяц ресёрча</em></h1>
-  <p class="hero-sub">Справочники по кибербезопасности для <strong>CISO и руководства</strong>. Каждая таблица сверена с первоисточниками и документацией вендоров — без маркетинга и без вендорских интересов. Собирает <strong>Denis Batrankov, CISSP</strong>, 34 года в отрасли.</p>
-
-  <!-- Оглавление как таблица — это же сайт про таблицы -->
-  <nav class="toc" aria-label="Оглавление">
-    <div class="toc-head"><span>Оглавление реестра</span><span id="toc-date">ревизия 06.07.2026</span></div>
-    <a class="toc-row" href="id_providers_table.html">
-      <span class="toc-num">№ 001</span>
-      <span class="toc-title">ID-Матрица России: 67 систем авторизации</span>
-      <span class="toc-meta">V3 · 06.07.2026</span>
-      <span class="toc-status st-hot">закон с 7 июля</span>
-    </a>
-    <a class="toc-row" href="id_landscape_russia_2025.html">
-      <span class="toc-num">№ 002</span>
-      <span class="toc-title">Экосистема ID: интерактивная карта рынка</span>
-      <span class="toc-meta">2025</span>
-      <span class="toc-status st-live">опубликовано</span>
-    </a>
-    <a class="toc-row" href="cyber_testing_tools.html">
-      <span class="toc-num">№ 003</span>
-      <span class="toc-title">Инструменты оценки защищённости</span>
-      <span class="toc-meta">V4 · 24.06.2025</span>
-      <span class="toc-status st-live">опубликовано</span>
-    </a>
-    <a class="toc-row" href="cyber_maturity_guide.html">
-      <span class="toc-num">№ 004</span>
-      <span class="toc-title">Как выбрать инструмент: уровни зрелости ИБ</span>
-      <span class="toc-meta">V3 · 24.06.2025</span>
-      <span class="toc-status st-live">опубликовано</span>
-    </a>
-    <span class="toc-row" style="cursor:default">
-      <span class="toc-num">№ 005+</span>
-      <span class="toc-title" style="color:var(--text3)">HRM · MITRE ATT&amp;CK · DORA/TIBER-EU · NGFW/SIEM/EDR</span>
-      <span class="toc-meta">в работе</span>
-      <span class="toc-status st-soon">готовится</span>
+  <div class="meta-row">
+    <span class="meta-item">
+      <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      11 июля, 11:00 мск
     </span>
-  </nav>
-</header>
-
-<!-- ===== CONTROLS ===== -->
-<div class="controls">
-  <div class="search">
-    <span aria-hidden="true">⌕</span>
-    <input type="text" id="search-input" placeholder="Найти справочник…" oninput="filterCards()" aria-label="Поиск по справочникам">
+    <span class="meta-item">
+      <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 22h10M12 18v4"/></svg>
+      Онлайн
+    </span>
+    <span class="meta-item">
+      <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 18.5a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13Z"/><path d="m15.5 12-5 3V9l5 3Z"/></svg>
+      Запись навсегда
+    </span>
   </div>
-  <div class="tabs" role="group" aria-label="Фильтр по темам">
-    <button class="tab active" onclick="setFilter('all', this)">Все</button>
-    <button class="tab" onclick="setFilter('identity', this)">Идентификация</button>
-    <button class="tab" onclick="setFilter('assessment', this)">Оценка защищённости</button>
-    <button class="tab" onclick="setFilter('regulation', this)">Регулирование</button>
-    <button class="tab" onclick="setFilter('tools', this)">Инструменты</button>
+
+  <div class="cta-wrap">
+    <a class="cta" href="http://id-provider.kassa.bizon365.ru/buy/vebinar-chem-zamenit-vkhod-cherez-google-i-apple">
+      Занять место за 500 ₽
+      <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <span class="cta-hint">≈ 0.07% от штрафа</span>
   </div>
-</div>
 
-<!-- ===== PUBLISHED ===== -->
-<div class="sec">
-  <h2>Опубликовано</h2>
-  <div class="sec-line"></div>
-  <div class="sec-n" id="pub-count">4</div>
-</div>
-
-<div class="cards" id="cards-container">
-
-  <!-- № 001 — FEATURED: ID-Матрица -->
-  <article class="card featured" data-tags="identity regulation tools" data-title="id-матрица россии авторизация 199-фз есиа сбер id яндекс vk замена google apple">
-    <div class="f-left">
-      <div class="card-top">
-        <span class="card-num">ТАБЛИЦА № 001</span>
-        <div class="stamps">
-          <span class="stamp stamp-hot">Закон с 7 июля 2026</span>
-          <span class="stamp stamp-new">Обновлено 06.07.2026</span>
-        </div>
-      </div>
-      <h3><a href="id_providers_table.html">ID-Матрица России: чем заменить вход через Google и Apple</a></h3>
-      <p>67 российских систем авторизации с проверенной сложностью интеграции. Оценки сверены с документацией Сбера, Т-Банка, VK, Яндекса и порталом ЕСИА. Разбор 199-ФЗ: статья 13.55 КоАП, штрафы до 700 000 ₽ за иностранный вход, контроль РКН.</p>
-      <div class="tags">
-        <span class="tag">199-ФЗ</span><span class="tag">ЕСИА</span><span class="tag">Сбер ID</span><span class="tag">Яндекс ID</span><span class="tag">OAuth</span><span class="tag">Реестр РФ</span>
-      </div>
-      <div class="card-meta">
-        <span>V3 · 06.07.2026</span>
-        <span>CISO / владельцы сайтов / разработка</span>
-      </div>
-      <div class="card-foot">
-        <a class="open" href="id_providers_table.html">Открыть матрицу →</a>
-        <a class="gh" href="https://github.com/ngksiva/tables" target="_blank" rel="noopener">GitHub</a>
-      </div>
-    </div>
-    <div class="f-right" aria-label="Ключевые цифры">
-      <div class="f-fact"><b>67</b><span>систем авторизации в матрице</span></div>
-      <div class="f-fact"><b>7</b><span>реально подключаются за день без договора</span></div>
-      <div class="f-fact"><b>700К</b><span>₽ — штраф за иностранный вход, повторно до 1,4 млн</span></div>
-      <div class="f-fact"><b>4</b><span>уровня сложности: от кнопки OAuth до ГОСТ-криптографии</span></div>
-    </div>
-  </article>
-
-  <!-- № 002 -->
-  <article class="card" data-tags="identity tools" data-title="экосистема id интерактивная карта рынок идентификации аналитика">
-    <div class="card-top">
-      <span class="card-num">ТАБЛИЦА № 002</span>
-      <div class="stamps"><span class="stamp stamp-new">Опубликовано</span></div>
-    </div>
-    <h3><a href="id_landscape_russia_2025.html">Экосистема ID: интерактивная карта рынка</a></h3>
-    <p>Аналитика рынка идентификации: диаграммы распределения провайдеров, лидеры по интеграциям и B2B-матрица связей. Дополнение к ID-Матрице для тех, кто хочет видеть картину целиком.</p>
-    <div class="tags"><span class="tag">Identity</span><span class="tag">Аналитика</span><span class="tag">Визуализация</span></div>
-    <div class="card-meta"><span>2025</span><span>CISO / аналитики</span></div>
-    <div class="card-foot">
-      <a class="open" href="id_landscape_russia_2025.html">Открыть →</a>
-      <a class="gh" href="https://github.com/ngksiva/tables" target="_blank" rel="noopener">GitHub</a>
-    </div>
-  </article>
-
-  <!-- № 003 -->
-  <article class="card" data-tags="assessment tools" data-title="инструменты оценки защищённости аудит пентест bas bug bounty кибериспытания tlpt">
-    <div class="card-top">
-      <span class="card-num">ТАБЛИЦА № 003</span>
-      <div class="stamps"><span class="stamp stamp-new">Опубликовано</span></div>
-    </div>
-    <h3><a href="cyber_testing_tools.html">Инструменты оценки защищённости</a></h3>
-    <p>Аудит, пентест, BAS, Bug Bounty, кибериспытания, TLPT — чем отличаются, кому подходят, сколько стоят и что каждый инструмент даёт CISO и руководству.</p>
-    <div class="tags"><span class="tag">Аудит</span><span class="tag">Пентест</span><span class="tag">Bug Bounty</span><span class="tag">Кибериспытания</span><span class="tag">TLPT</span></div>
-    <div class="card-meta"><span>V4 · 24.06.2025</span><span>CISO / руководство</span></div>
-    <div class="card-foot">
-      <a class="open" href="cyber_testing_tools.html">Открыть →</a>
-      <a class="gh" href="https://github.com/ngksiva/tables" target="_blank" rel="noopener">GitHub</a>
-    </div>
-  </article>
-
-  <!-- № 004 -->
-  <article class="card" data-tags="assessment regulation" data-title="как выбрать инструмент оценки уровни зрелости cmmi faq dora">
-    <div class="card-top">
-      <span class="card-num">ТАБЛИЦА № 004</span>
-      <div class="stamps"><span class="stamp stamp-new">Опубликовано</span></div>
-    </div>
-    <h3><a href="cyber_maturity_guide.html">Как выбрать инструмент: уровни зрелости ИБ</a></h3>
-    <p>Найдите свой уровень зрелости и узнайте, что подходит именно вам. FAQ с ответами на реальные вопросы: бюджеты, площадки, критерии перехода между уровнями.</p>
-    <div class="tags"><span class="tag">Зрелость ИБ</span><span class="tag">CMMI</span><span class="tag">FAQ</span><span class="tag">DORA</span></div>
-    <div class="card-meta"><span>V3 · 24.06.2025</span><span>CISO / руководство</span></div>
-    <div class="card-foot">
-      <a class="open" href="cyber_maturity_guide.html">Открыть →</a>
-      <a class="gh" href="https://github.com/ngksiva/tables" target="_blank" rel="noopener">GitHub</a>
-    </div>
-  </article>
-
-</div>
-
-<!-- ===== COMING SOON ===== -->
-<div class="sec">
-  <h2>Готовится</h2>
-  <div class="sec-line"></div>
-  <div class="sec-n">4</div>
-</div>
-
-<div class="cards">
-
-  <article class="card soon" data-tags="tools" data-title="human risk management hrm платформы knowbe4 sosafe hoxhunt">
-    <div class="card-top">
-      <span class="card-num">ТАБЛИЦА № 005</span>
-      <div class="stamps"><span class="stamp stamp-soon">Готовится</span></div>
-    </div>
-    <h3>Human Risk Management: платформы и подходы</h3>
-    <p>Сравнение HRM-платформ: KnowBe4, SoSafe, Hoxhunt, usecure. Чем HRM отличается от SAT и почему Forrester закрыл категорию Security Awareness Training.</p>
-    <div class="tags"><span class="tag">HRM</span><span class="tag">Поведенческая наука</span><span class="tag">Фишинг</span></div>
-    <div class="card-meta"><span>CISO / HR</span></div>
-    <div class="card-foot"><span class="open disabled">Скоро →</span></div>
-  </article>
-
-  <article class="card soon" data-tags="tools" data-title="mitre attck покрытие детекты soc">
-    <div class="card-top">
-      <span class="card-num">ТАБЛИЦА № 006</span>
-      <div class="stamps"><span class="stamp stamp-soon">Готовится</span></div>
-    </div>
-    <h3>MITRE ATT&amp;CK: как измерить покрытие</h3>
-    <p>Два измерения защиты — детекты и архитектурные контролы. Как правильно считать покрытие техник и почему процент без взвешивания бесполезен.</p>
-    <div class="tags"><span class="tag">MITRE ATT&amp;CK</span><span class="tag">SOC</span><span class="tag">Threat Intelligence</span></div>
-    <div class="card-meta"><span>CISO / SOC</span></div>
-    <div class="card-foot"><span class="open disabled">Скоро →</span></div>
-  </article>
-
-  <article class="card soon" data-tags="regulation" data-title="dora tiber-eu tlpt регулирование финансы">
-    <div class="card-top">
-      <span class="card-num">ТАБЛИЦА № 007</span>
-      <div class="stamps"><span class="stamp stamp-soon">Готовится</span></div>
-    </div>
-    <h3>DORA и TIBER-EU: регуляторный минимум</h3>
-    <p>Что требует DORA от финансовых организаций, как устроен TLPT по TIBER-EU, чем это отличается от российских кибериспытаний и что ждёт рынок РФ.</p>
-    <div class="tags"><span class="tag">DORA</span><span class="tag">TIBER-EU</span><span class="tag">Финансы</span></div>
-    <div class="card-meta"><span>CISO / комплаенс</span></div>
-    <div class="card-foot"><span class="open disabled">Скоро →</span></div>
-  </article>
-
-  <article class="card soon" data-tags="tools assessment" data-title="ngfw siem edr soar сравнение средства защиты стек">
-    <div class="card-top">
-      <span class="card-num">ТАБЛИЦА № 008</span>
-      <div class="stamps"><span class="stamp stamp-soon">Готовится</span></div>
-    </div>
-    <h3>Средства защиты: NGFW, SIEM, EDR, SOAR</h3>
-    <p>Что делает каждый класс решений, когда его внедрять, как они связаны между собой и какой стек подходит каждому уровню зрелости.</p>
-    <div class="tags"><span class="tag">NGFW</span><span class="tag">SIEM</span><span class="tag">EDR</span><span class="tag">SOAR</span></div>
-    <div class="card-meta"><span>CISO / IT-директор</span></div>
-    <div class="card-foot"><span class="open disabled">Скоро →</span></div>
-  </article>
-
-</div>
-
-<!-- ===== ABOUT ===== -->
-<div class="about">
-  <div class="about-ava">👨‍💼</div>
-  <div>
-    <h3>Denis Batrankov, CISSP</h3>
-    <p>34 года в кибербезопасности: Palo Alto Networks, IBM, HP, Positive Technologies. Независимый эксперт и основатель Академии Батранкова. Эти справочники существуют, потому что вендорские сравнения пишут отделы маркетинга — а решения по ним принимают CISO.</p>
-    <div class="about-links">
-      <a class="pill" href="https://t.me/safebdv" target="_blank" rel="noopener">✈ Telegram @safebdv</a>
-      <a class="pill" href="https://www.youtube.com/@BDVSecurity" target="_blank" rel="noopener">▶ YouTube</a>
-      <a class="pill" href="https://batrankov.ru" target="_blank" rel="noopener">🌐 batrankov.ru</a>
-      <a class="pill" href="https://github.com/ngksiva/tables" target="_blank" rel="noopener">⚙ GitHub</a>
-      <a class="pill" href="https://edu.batrankov.ru" target="_blank" rel="noopener">🎓 Обучение</a>
-    </div>
+  <div class="trust-line">
+    <span>Спикер:</span>
+    <a href="https://t.me/safebdv">Денис Батранков</a>
+    <span>· CISSP · 34 года в кибербезопасности ·</span>
+    <a href="https://batrankov.ru/id-oferta">Публичная оферта</a>
   </div>
-</div>
 
-<footer>
-  <span>Denis Batrankov, CISSP · <a href="https://batrankov.ru" target="_blank" rel="noopener">batrankov.ru</a> · <a href="https://t.me/safebdv" target="_blank" rel="noopener">@safebdv</a></span>
-  <span>Академия Батранкова · 2026 · <a href="https://tables.batrankov.ru">tables.batrankov.ru</a></span>
-</footer>
+</section>
 
-</div><!-- /wrap -->
-
-<script>
-function toggleTheme() {
-  const html = document.documentElement;
-  html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
-  try { localStorage.setItem('bdv-theme', html.dataset.theme); } catch(e) {}
-}
-try {
-  const saved = localStorage.getItem('bdv-theme');
-  if (saved) document.documentElement.dataset.theme = saved;
-} catch(e) {}
-
-let activeFilter = 'all';
-function setFilter(filter, btn) {
-  activeFilter = filter;
-  document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  filterCards();
-}
-function filterCards() {
-  const q = document.getElementById('search-input').value.toLowerCase().trim();
-  let visible = 0;
-  document.querySelectorAll('.card').forEach(card => {
-    const tags = card.dataset.tags || '';
-    const title = card.dataset.title || '';
-    const text = card.innerText.toLowerCase();
-    const okFilter = activeFilter === 'all' || tags.includes(activeFilter);
-    const okSearch = !q || title.includes(q) || text.includes(q);
-    if (okFilter && okSearch) { card.classList.remove('hidden'); if (!card.classList.contains('soon')) visible++; }
-    else card.classList.add('hidden');
-  });
-  document.getElementById('pub-count').textContent = visible;
-}
-</script>
 </body>
 </html>
