@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Вход через Google и Apple запрещён — Вебинар 11 июля</title>
-<meta name="description" content="С 7 июля 2026 года вход через Google, Apple ID и Facebook на российских сайтах — нарушение закона. Штраф до 700 000 ₽. Вебинар: чем заменить и как мигрировать пользователей.">
-<meta property="og:title" content="На вашем сайте есть «Войти через Google»? Штраф — до 700 000 ₽">
-<meta property="og:description" content="53% российских сайтов всё ещё используют иностранную авторизацию. Статья 13.55 КоАП уже работает. Вебинар 11 июля — разбираем 68 систем замены.">
+<title>Миграция пользователей без потерь — вебинар о смене IDP в 2026 году</title>
+<meta name="description" content="Государство запретило вход через Google и Apple ID. Штраф до 700 000 ₽. Вебинар: как сменить провайдера авторизации и не потерять ни одного платящего клиента.">
+<meta property="og:title" content="Миграция пользователей без потерь: как сменить IDP и не потерять выручку">
+<meta property="og:description" content="Штраф — не самое дорогое. Дорого — потерять платящих клиентов при переходе на Яндекс ID, VK ID или Сбер ID. Полный план миграции за 90 минут.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,69 +15,174 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --bg-deep: #080c14;
-  --bg-surface: #0d1219;
-  --bg-card: #111820;
-  --border-dim: rgba(255,255,255,0.06);
-  --border-line: rgba(255,255,255,0.1);
+  --bg-deep: #060a12;
+  --bg-card: #0c1220;
+  --bg-card-hover: #101828;
+  --border-dim: rgba(255,255,255,0.05);
+  --border-line: rgba(255,255,255,0.09);
   --text-bright: #f0f2f5;
   --text-main: #c8cdd5;
   --text-muted: #6b7280;
-  --red-glow: #e24b4a;
-  --red-dim: rgba(226,75,74,0.12);
-  --red-border: rgba(226,75,74,0.25);
-  --red-text: #f09595;
-  --green-bright: #5dca5a;
-  --green-dim: rgba(93,202,90,0.10);
-  --green-border: rgba(93,202,90,0.20);
-  --green-text: #97c459;
-  --amber-dim: rgba(239,159,39,0.10);
-  --amber-border: rgba(239,159,39,0.20);
-  --amber-text: #ef9f27;
+  --red: #e24b4a;
+  --red-light: #f09595;
+  --cyan: #38bdf8;
+  --violet: #a78bfa;
+  --amber: #f59e0b;
+  --green: #4ade80;
   --mono: 'JetBrains Mono', monospace;
   --sans: 'Golos Text', system-ui, sans-serif;
 }
+
+html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--sans);
   background: var(--bg-deep);
   color: var(--text-main);
   min-height: 100vh;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
-/* ── grid background ── */
+/* ═══ aurora background ═══ */
+.aurora {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.aurora-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.3;
+  will-change: transform;
+}
+
+.aurora-orb.orb-1 {
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(226,75,74,0.5) 0%, transparent 70%);
+  top: -15%; left: -10%;
+  animation: drift-1 14s ease-in-out infinite;
+}
+
+.aurora-orb.orb-2 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(167,139,250,0.4) 0%, transparent 70%);
+  top: 10%; right: -15%;
+  animation: drift-2 18s ease-in-out infinite;
+}
+
+.aurora-orb.orb-3 {
+  width: 450px; height: 450px;
+  background: radial-gradient(circle, rgba(56,189,248,0.3) 0%, transparent 70%);
+  bottom: -10%; left: 20%;
+  animation: drift-3 16s ease-in-out infinite;
+}
+
+@keyframes drift-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(80px, 40px) scale(1.1); }
+  66% { transform: translate(-30px, 60px) scale(0.95); }
+}
+
+@keyframes drift-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-60px, 50px) scale(0.9); }
+  66% { transform: translate(40px, -30px) scale(1.08); }
+}
+
+@keyframes drift-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(50px, -40px) scale(1.05); }
+  66% { transform: translate(-40px, 20px) scale(0.92); }
+}
+
 .grid-bg {
   position: fixed;
   inset: 0;
   background-image:
-    linear-gradient(var(--border-dim) 1px, transparent 1px),
-    linear-gradient(90deg, var(--border-dim) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
-  z-index: 0;
-}
-
-.grid-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(226,75,74,0.06) 0%, transparent 70%);
-}
-
-/* ── hero container ── */
-.hero {
-  position: relative;
   z-index: 1;
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 6vh 1.5rem 4vh;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
 }
 
-/* ── alert badge ── */
+/* ═══ layout ═══ */
+.page { position: relative; z-index: 2; }
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section { padding: 4.5rem 0; }
+
+/* ═══ scroll reveal ═══ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ═══ top nav ═══ */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: rgba(6,10,18,0.75);
+  border-bottom: 1px solid var(--border-dim);
+}
+
+.nav-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0.8rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text-muted);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+}
+
+.nav-brand strong { color: var(--text-main); font-weight: 500; }
+
+.nav-cta {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--red);
+  border-radius: 7px;
+  padding: 8px 18px;
+  text-decoration: none;
+  transition: box-shadow 0.2s, transform 0.15s;
+}
+
+.nav-cta:hover {
+  box-shadow: 0 0 18px rgba(226,75,74,0.4);
+  transform: translateY(-1px);
+}
+
+/* ═══ hero ═══ */
+.hero { padding: 6.5vh 0 4rem; }
+
 .alert-badge {
   display: inline-flex;
   align-items: center;
@@ -87,107 +192,160 @@ body {
   font-weight: 500;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--red-text);
-  background: var(--red-dim);
-  border: 1px solid var(--red-border);
+  color: var(--red-light);
+  background: rgba(226,75,74,0.08);
+  border: 1px solid rgba(226,75,74,0.2);
   border-radius: 6px;
   padding: 6px 14px;
   margin-bottom: 2rem;
-  animation: pulse-border 3s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
 }
 
 .alert-badge::before {
   content: '';
-  width: 6px;
-  height: 6px;
+  width: 6px; height: 6px;
   border-radius: 50%;
-  background: var(--red-glow);
-  box-shadow: 0 0 8px var(--red-glow);
+  background: var(--red);
+  box-shadow: 0 0 10px var(--red);
   animation: blink 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.alert-badge::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(226,75,74,0.1), transparent);
+  animation: badge-sweep 4s ease-in-out infinite;
 }
 
 @keyframes blink {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+  50% { opacity: 0.2; }
 }
 
-@keyframes pulse-border {
-  0%, 100% { border-color: var(--red-border); }
-  50% { border-color: rgba(226,75,74,0.45); }
+@keyframes badge-sweep {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
 }
 
-/* ── headline ── */
-.headline {
-  font-size: clamp(28px, 5vw, 42px);
+h1 {
+  font-size: clamp(28px, 5vw, 46px);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.16;
   color: var(--text-bright);
-  margin-bottom: 0.35em;
+  margin-bottom: 0.5em;
+  max-width: 780px;
 }
 
-.headline .fine {
+.gradient-red {
   font-family: var(--mono);
-  color: var(--red-glow);
-  white-space: nowrap;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--red) 0%, #ff6b6b 40%, var(--amber) 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradient-shift 5s ease-in-out infinite;
 }
 
-/* ── subtitle ── */
-.subtitle {
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.hero-sub {
   font-size: clamp(16px, 2.2vw, 19px);
   line-height: 1.7;
   color: var(--text-muted);
-  max-width: 620px;
+  max-width: 640px;
   margin-bottom: 2.5rem;
 }
 
-.subtitle strong {
-  color: var(--text-main);
-  font-weight: 500;
-}
+.hero-sub strong { color: var(--text-main); font-weight: 500; }
 
-/* ── stat bar ── */
-.stat-bar {
-  display: flex;
-  gap: 1px;
+/* ═══ gradient stat bar ═══ */
+.stat-bar-wrap {
   width: 100%;
   margin-bottom: 2.5rem;
-  border-radius: 8px;
+  border-radius: 10px;
+  padding: 1px;
+  background: linear-gradient(135deg,
+    rgba(226,75,74,0.4),
+    rgba(167,139,250,0.3),
+    rgba(56,189,248,0.3),
+    rgba(74,222,128,0.3)
+  );
+  background-size: 300% 300%;
+  animation: border-flow 8s ease-in-out infinite;
+}
+
+@keyframes border-flow {
+  0%, 100% { background-position: 0% 50%; }
+  25% { background-position: 100% 0%; }
+  50% { background-position: 100% 100%; }
+  75% { background-position: 0% 100%; }
+}
+
+.stat-bar {
+  display: flex;
+  border-radius: 9px;
   overflow: hidden;
-  border: 1px solid var(--border-line);
+  background: var(--bg-deep);
 }
 
 .stat-item {
   flex: 1;
-  padding: 1rem 1.25rem;
+  padding: 1.1rem 1.25rem;
   background: var(--bg-card);
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
+  position: relative;
 }
 
-.stat-item:not(:last-child) {
-  border-right: 1px solid var(--border-dim);
+.stat-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0; top: 20%; bottom: 20%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.08), transparent);
 }
 
 .stat-label {
   font-size: 11px;
   font-family: var(--mono);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text-muted);
 }
 
 .stat-value {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 600;
   font-family: var(--mono);
 }
 
-.stat-value.red { color: var(--red-text); }
-.stat-value.amber { color: var(--amber-text); }
-.stat-value.green { color: var(--green-text); }
+.sv-red {
+  background: linear-gradient(135deg, var(--red) 30%, #ff8a80);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-/* ── meta row ── */
+.sv-amber {
+  background: linear-gradient(135deg, var(--amber) 30%, #fcd34d);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sv-green {
+  background: linear-gradient(135deg, var(--green) 30%, #86efac);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .meta-row {
   display: flex;
   flex-wrap: wrap;
@@ -197,63 +355,63 @@ body {
   color: var(--text-muted);
 }
 
-.meta-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+.meta-item { display: flex; align-items: center; gap: 8px; }
+.meta-icon { width: 16px; height: 16px; opacity: 0.45; flex-shrink: 0; }
 
-.meta-icon {
-  width: 16px;
-  height: 16px;
-  opacity: 0.5;
-}
-
-/* ── CTA button ── */
+/* ═══ CTA button ═══ */
 .cta-wrap {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 1.25rem;
-  margin-bottom: 2rem;
 }
 
 .cta {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-family: var(--sans);
   font-size: 16px;
   font-weight: 600;
   color: #fff;
-  background: var(--red-glow);
-  border: none;
-  border-radius: 8px;
-  padding: 14px 32px;
-  cursor: pointer;
+  border-radius: 10px;
+  padding: 15px 34px;
   text-decoration: none;
-  transition: transform 0.15s, box-shadow 0.2s;
-  box-shadow: 0 0 20px rgba(226,75,74,0.25);
+  background: linear-gradient(135deg, var(--red) 0%, #c0392b 50%, var(--red) 100%);
+  background-size: 200% 200%;
+  animation: cta-gradient 4s ease-in-out infinite;
+  transition: transform 0.2s, box-shadow 0.3s;
+  overflow: hidden;
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  padding: 1.5px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.3), transparent 40%, rgba(255,255,255,0.15));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+@keyframes cta-gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 .cta:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 0 30px rgba(226,75,74,0.4);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 4px 25px rgba(226,75,74,0.4), 0 0 60px rgba(226,75,74,0.15);
 }
 
-.cta:active {
-  transform: translateY(0);
-}
+.cta:active { transform: translateY(0) scale(0.99); }
 
-.cta-arrow {
-  width: 18px;
-  height: 18px;
-  transition: transform 0.15s;
-}
-
-.cta:hover .cta-arrow {
-  transform: translateX(3px);
-}
+.cta-arrow { width: 18px; height: 18px; transition: transform 0.2s; }
+.cta:hover .cta-arrow { transform: translateX(4px); }
 
 .cta-hint {
   font-size: 13px;
@@ -261,121 +419,795 @@ body {
   font-family: var(--mono);
 }
 
-/* ── trust line ── */
-.trust-line {
-  font-size: 13px;
-  color: var(--text-muted);
-  padding-top: 1rem;
-  border-top: 1px solid var(--border-dim);
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
+/* ═══ section headers ═══ */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 1rem;
 }
 
-.trust-line a {
+.eyebrow.warn { color: var(--red-light); }
+.eyebrow.ok { color: var(--green); }
+.eyebrow.gold { color: var(--amber); }
+
+h2 {
+  font-size: clamp(24px, 3.6vw, 34px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-bright);
+  margin-bottom: 1rem;
+  max-width: 680px;
+}
+
+.section-lead {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 640px;
+  margin-bottom: 2.5rem;
+}
+
+.section-lead strong { color: var(--text-main); font-weight: 500; }
+
+/* ═══ problem cards ═══ */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.p-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-dim);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.p-card:hover {
+  border-color: var(--border-line);
+  background: var(--bg-card-hover);
+}
+
+.p-card-icon {
+  width: 38px; height: 38px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.p-card-icon svg { width: 19px; height: 19px; }
+
+.icn-red { background: rgba(226,75,74,0.12); color: var(--red-light); }
+.icn-amber { background: rgba(245,158,11,0.12); color: var(--amber); }
+.icn-violet { background: rgba(167,139,250,0.12); color: var(--violet); }
+.icn-cyan { background: rgba(56,189,248,0.12); color: var(--cyan); }
+
+.p-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-bright);
+  margin-bottom: 0.5rem;
+}
+
+.p-card p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+.p-card p strong { color: var(--text-main); font-weight: 500; }
+
+/* ═══ program ═══ */
+.program-list { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.prog-item {
+  display: flex;
+  gap: 1.4rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-dim);
+  border-radius: 12px;
+  padding: 1.4rem 1.5rem;
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.prog-item:hover {
+  border-color: var(--border-line);
+  background: var(--bg-card-hover);
+}
+
+.prog-num {
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--cyan);
+  opacity: 0.85;
+  flex-shrink: 0;
+  padding-top: 2px;
+  min-width: 28px;
+}
+
+.prog-body h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-bright);
+  margin-bottom: 0.45rem;
+}
+
+.prog-body p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+.prog-body p strong { color: var(--text-main); font-weight: 500; }
+
+/* ═══ proof ═══ */
+.case-card {
+  background: linear-gradient(135deg, rgba(74,222,128,0.06), rgba(56,189,248,0.05));
+  border: 1px solid rgba(74,222,128,0.18);
+  border-radius: 14px;
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.case-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 0.8rem;
+}
+
+.case-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-bright);
+  margin-bottom: 0.7rem;
+}
+
+.case-card p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 620px;
+}
+
+.case-card p strong { color: var(--text-main); font-weight: 500; }
+
+.idp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.idp-cell {
+  background: var(--bg-card);
+  border: 1px solid var(--border-dim);
+  border-radius: 11px;
+  padding: 1.2rem 1rem;
+  text-align: center;
+}
+
+.idp-num {
+  font-family: var(--mono);
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--text-bright);
+  margin-bottom: 4px;
+}
+
+.idp-name {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+/* speaker */
+.speaker {
+  display: flex;
+  gap: 1.6rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-dim);
+  border-radius: 14px;
+  padding: 1.8rem;
+  align-items: flex-start;
+}
+
+.speaker-avatar {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--red), var(--violet));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.speaker h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-bright);
+  margin-bottom: 0.35rem;
+}
+
+.speaker .role {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--cyan);
+  margin-bottom: 0.7rem;
+}
+
+.speaker p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+/* ═══ offer ═══ */
+.offer-wrap {
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(135deg,
+    rgba(226,75,74,0.5),
+    rgba(167,139,250,0.35),
+    rgba(56,189,248,0.35),
+    rgba(226,75,74,0.5)
+  );
+  background-size: 300% 300%;
+  animation: border-flow 8s ease-in-out infinite;
+}
+
+.offer {
+  background: var(--bg-card);
+  border-radius: 15px;
+  padding: 2.6rem 2.4rem;
+}
+
+.offer h2 { margin-bottom: 0.6rem; }
+
+.offer-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin: 1.6rem 0 0.4rem;
+  flex-wrap: wrap;
+}
+
+.offer-price {
+  font-family: var(--mono);
+  font-size: 44px;
+  font-weight: 600;
+  color: var(--text-bright);
+}
+
+.offer-anchor {
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.offer-anchor s { color: var(--red-light); text-decoration-color: rgba(226,75,74,0.6); }
+
+.includes {
+  list-style: none;
+  margin: 1.6rem 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.7rem 1.5rem;
+}
+
+.includes li {
+  display: flex;
+  gap: 10px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--text-main);
+}
+
+.includes svg {
+  width: 17px; height: 17px;
+  color: var(--green);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ═══ FAQ ═══ */
+.faq-list { display: flex; flex-direction: column; gap: 0.6rem; }
+
+details {
+  background: var(--bg-card);
+  border: 1px solid var(--border-dim);
+  border-radius: 11px;
+  overflow: hidden;
+}
+
+details[open] { border-color: var(--border-line); }
+
+summary {
+  cursor: pointer;
+  padding: 1.1rem 1.4rem;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-bright);
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  user-select: none;
+}
+
+summary::-webkit-details-marker { display: none; }
+
+summary::after {
+  content: '+';
+  font-family: var(--mono);
+  font-size: 18px;
+  color: var(--text-muted);
+  transition: transform 0.25s;
+  flex-shrink: 0;
+}
+
+details[open] summary::after { transform: rotate(45deg); }
+
+details p {
+  padding: 0 1.4rem 1.2rem;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+/* ═══ footer ═══ */
+footer {
+  border-top: 1px solid var(--border-dim);
+  padding: 2.2rem 0 3rem;
+  font-size: 12.5px;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+footer a {
   color: var(--text-main);
   text-decoration: none;
-  border-bottom: 1px solid var(--border-line);
-  transition: border-color 0.2s;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
 }
 
-.trust-line a:hover {
-  border-color: var(--text-main);
-}
+footer a:hover { color: var(--text-bright); }
 
-/* ── responsive ── */
-@media (max-width: 600px) {
-  .hero { padding: 4vh 1.25rem 3vh; }
-
-  .stat-bar {
-    flex-direction: column;
-    gap: 0;
+/* ═══ responsive ═══ */
+@media (max-width: 720px) {
+  section { padding: 3.2rem 0; }
+  .stat-bar { flex-direction: column; }
+  .stat-item:not(:last-child)::after {
+    right: 20%; left: 20%; top: auto; bottom: 0;
+    width: auto; height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.08), transparent);
   }
-
-  .stat-item:not(:last-child) {
-    border-right: none;
-    border-bottom: 1px solid var(--border-dim);
-  }
-
-  .meta-row { gap: 1rem; }
+  .card-grid { grid-template-columns: 1fr; }
+  .idp-grid { grid-template-columns: repeat(2, 1fr); }
+  .includes { grid-template-columns: 1fr; }
+  .speaker { flex-direction: column; }
+  .offer { padding: 2rem 1.5rem; }
+  .prog-item { padding: 1.2rem; gap: 1rem; }
 }
 
-/* ── reduced motion ── */
+/* ═══ reduced motion ═══ */
 @media (prefers-reduced-motion: reduce) {
-  .alert-badge, .alert-badge::before {
-    animation: none;
-  }
-  .cta { transition: none; }
+  html { scroll-behavior: auto; }
+  .aurora-orb, .alert-badge::before, .alert-badge::after,
+  .gradient-red, .stat-bar-wrap, .offer-wrap, .cta { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
   .cta:hover { transform: none; }
 }
 </style>
 </head>
 <body>
 
+<div class="aurora" aria-hidden="true">
+  <div class="aurora-orb orb-1"></div>
+  <div class="aurora-orb orb-2"></div>
+  <div class="aurora-orb orb-3"></div>
+</div>
 <div class="grid-bg" aria-hidden="true"></div>
 
-<section class="hero">
+<div class="page">
 
-  <div class="alert-badge" role="status">
-    Закон вступил в силу 7 июля 2026
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="#"><strong>Академия Батранкова</strong> / миграция IDP</a>
+    <a class="nav-cta" href="#offer">Занять место — 500 ₽</a>
   </div>
+</nav>
 
-  <h1 class="headline">
-    На вашем сайте есть «Войти&nbsp;через&nbsp;Google»?<br>
-    Штраф — <span class="fine">до 700&nbsp;000&nbsp;₽</span>
-  </h1>
+<!-- ═══════════ HERO ═══════════ -->
+<header class="hero">
+  <div class="container">
 
-  <p class="subtitle">
-    <strong>53% российских сайтов</strong> всё ещё используют иностранную авторизацию. Статья&nbsp;13.55 КоАП уже работает. За&nbsp;90&nbsp;минут разберём, чем заменить и&nbsp;как мигрировать пользователей без&nbsp;потерь.
-  </p>
+    <div class="alert-badge" role="status">Закон вступил в силу 7 июля 2026</div>
 
-  <div class="stat-bar" role="list" aria-label="Ключевые цифры">
-    <div class="stat-item" role="listitem">
-      <span class="stat-label">Штраф юрлицу</span>
-      <span class="stat-value red">700 000 ₽</span>
+    <h2><span class="gradient-red">Вебинар:</span>Как сменить провайдера авторизации и не потерять ни одного платящего клиента.</h2>
+    <h1>Государство запретило вход через Google и Apple ID. Штраф до 700 000 ₽.<br>
+    Терять клиентов — <span class="gradient-red">не заставляло</span></h1>
+
+    <p class="hero-sub">
+      Штраф по статье 13.55 КоАП — неприятно. По-настоящему дорого другое:
+      <strong>платящие пользователи, у которых рвётся доступ к подписке</strong>
+      при переходе на Яндекс&nbsp;ID, VK&nbsp;ID или Сбер&nbsp;ID.
+      За 90 минут вы получите полный план миграции — от анатомии JWT до чек-листа Дня&nbsp;X.
+    </p>
+
+    <div class="stat-bar-wrap">
+      <div class="stat-bar" role="list" aria-label="Ключевые цифры">
+        <div class="stat-item" role="listitem">
+          <span class="stat-label">Штраф юрлицу</span>
+          <span class="stat-value sv-red">700 000 ₽</span>
+        </div>
+        <div class="stat-item" role="listitem">
+          <span class="stat-label">Повторное нарушение</span>
+          <span class="stat-value sv-amber">1 400 000 ₽</span>
+        </div>
+        <div class="stat-item" role="listitem">
+          <span class="stat-label">Цель миграции</span>
+          <span class="stat-value sv-green">0 потерь</span>
+        </div>
+      </div>
     </div>
-    <div class="stat-item" role="listitem">
-      <span class="stat-label">Повторное</span>
-      <span class="stat-value amber">1 400 000 ₽</span>
+
+    <div class="meta-row">
+      <span class="meta-item">
+        <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        11 июля, 11:00 мск
+      </span>
+      <span class="meta-item">
+        <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 22h10M12 18v4"/></svg>
+        Онлайн, 90 минут
+      </span>
+      <span class="meta-item">
+        <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 18.5a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13Z"/><path d="m15.5 12-5 3V9l5 3Z"/></svg>
+        Запись остаётся навсегда
+      </span>
     </div>
-    <div class="stat-item" role="listitem">
-      <span class="stat-label">Систем замены</span>
-      <span class="stat-value green">68</span>
+
+    <div class="cta-wrap">
+      <a class="cta" href="http://id-provider.kassa.bizon365.ru/buy/vebinar-chem-zamenit-vkhod-cherez-google-i-apple">
+        Занять место за 500 ₽
+        <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <span class="cta-hint">≈ 0.07% от штрафа</span>
+    </div>
+
+  </div>
+</header>
+
+<!-- ═══════════ PROBLEM ═══════════ -->
+<section id="problem">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow warn">// Проблема</p>
+      <h2>Штраф — не самое дорогое в этой истории</h2>
+      <p class="section-lead">
+        Роскомнадзор спрашивает с <strong>владельца сайта</strong>, а не с пользователя.
+        Но опытные команды боятся не проверки. Они боятся понедельника после миграции,
+        когда база пользователей превращается в кладбище дублей.
+      </p>
+    </div>
+
+    <div class="card-grid">
+      <div class="p-card reveal">
+        <div class="p-card-icon icn-red">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+        </div>
+        <h3>Статья 13.55 КоАП уже работает</h3>
+        <p>До 700 000 ₽ за кнопку «Войти через Google». Повторное нарушение — <strong>1,4 млн ₽</strong>. Скрытая зона риска: Telegram Login РКН тоже относит к иностранным механизмам.</p>
+      </div>
+
+      <div class="p-card reveal">
+        <div class="p-card-icon icn-amber">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3>Платящие клиенты не могут зайти</h3>
+        <p>Пользователь с подпиской теряет вход — и не пишет в поддержку. Он просто перестаёт платить. <strong>История платежей рвётся</strong>, LTV обнуляется.</p>
+      </div>
+
+      <div class="p-card reveal">
+        <div class="p-card-icon icn-violet">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.3a2 2 0 0 0 2-1.7l1.4-9a2 2 0 0 0-2-2.3H14ZM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+        </div>
+        <h3>Лавина запросов в поддержку</h3>
+        <p>Нескоординированный переход парализует колл-центр за день. Каждый потерянный вход — тикет. Каждый тикет — <strong>ручной разбор</strong> без регламента.</p>
+      </div>
+
+      <div class="p-card reveal">
+        <div class="p-card-icon icn-cyan">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>
+        </div>
+        <h3>SCIM ломает биллинг и вы не в курсе</h3>
+        <p>Race condition в автоматизации провижининга способен <strong>удалить всех сотрудников за 5 минут</strong> — и разорвать связь учёток с финансовыми системами.</p>
+      </div>
     </div>
   </div>
-
-  <div class="meta-row">
-    <span class="meta-item">
-      <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-      11 июля, 11:00 мск
-    </span>
-    <span class="meta-item">
-      <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 22h10M12 18v4"/></svg>
-      Онлайн
-    </span>
-    <span class="meta-item">
-      <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 18.5a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13Z"/><path d="m15.5 12-5 3V9l5 3Z"/></svg>
-      Запись навсегда
-    </span>
-  </div>
-
-  <div class="cta-wrap">
-    <a class="cta" href="http://id-provider.kassa.bizon365.ru/buy/vebinar-chem-zamenit-vkhod-cherez-google-i-apple">
-      Занять место за 500 ₽
-      <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </a>
-    <span class="cta-hint">≈ 0.07% от штрафа</span>
-  </div>
-
-  <div class="trust-line">
-    <span>Спикер:</span>
-    <a href="https://t.me/safebdv">Денис Батранков</a>
-    <span>· CISSP · 34 года в кибербезопасности ·</span>
-    <a href="https://batrankov.ru/id-oferta">Публичная оферта</a>
-  </div>
-
 </section>
+
+<!-- ═══════════ PROGRAM ═══════════ -->
+<section id="program">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow">// Решение — программа вебинара</p>
+      <h2>Полный маршрут миграции: право, архитектура, запуск</h2>
+      <p class="section-lead">
+        Не обзор «какие бывают кнопки», а <strong>рабочий план, который вы унесёте в Jira</strong>.
+        Восемь блоков — от юридического триггера до критериев отката в День X.
+      </p>
+    </div>
+
+    <div class="program-list">
+      <div class="prog-item reveal">
+        <span class="prog-num">01</span>
+        <div class="prog-body">
+          <h3>Юридический триггер</h3>
+          <p>Статья 13.55 КоАП: кто отвечает и сколько. Telegram Login как скрытая зона риска. Кейс Литрес — как лидер рынка за 3 месяца бесшовно отключил Apple и Google ID.</p>
+        </div>
+      </div>
+
+      <div class="prog-item reveal">
+        <span class="prog-num">02</span>
+        <div class="prog-body">
+          <h3>Бизнес-риски в деньгах</h3>
+          <p>Потеря платящих клиентов, разрыв истории платежей, лавина запросов в поддержку, поломка биллинга через ошибки SCIM-автоматизации.</p>
+        </div>
+      </div>
+
+      <div class="prog-item reveal">
+        <span class="prog-num">03</span>
+        <div class="prog-body">
+          <h3>Техническая кухня без дублей</h3>
+          <p>Золотое правило <strong>«Link first, merge later»</strong>. Анатомия JWT: почему поле sub важнее email и телефона. Identity Broker как архитектурный изолятор при смене провайдера.</p>
+        </div>
+      </div>
+
+      <div class="prog-item reveal">
+        <span class="prog-num">04</span>
+        <div class="prog-body">
+          <h3>PKCE и OIDC — защита от перехвата</h3>
+          <p>OAuth 2.0 против OpenID Connect: почему OIDC — стандарт для веба. Как крадут авторизационный код у публичных клиентов и как PKCE делает перехват бесполезным. Все 4 шага — от Code Verifier до криптопроверки.</p>
+        </div>
+      </div>
+
+      <div class="prog-item reveal">
+        <span class="prog-num">05</span>
+        <div class="prog-body">
+          <h3>Российский рынок IDP</h3>
+          <p>Яндекс ID и VK ID: просто, но есть нюанс с лимитами телефонов. T-ID и Сбер ID: высокое доверие, модерация 2–4 недели. ЕСИА: КриптоПро, СМЭВ и 1,5 года разработки — или коммерческие шлюзы. Indeed IDP и Blitz для корпоративного контура.</p>
+        </div>
+      </div>
+
+      <div class="prog-item reveal">
+        <span class="prog-num">06</span>
+        <div class="prog-body">
+          <h3>Инженерный ад: дедупликация и Apple Relay</h3>
+          <p>Один пользователь — разные почты у провайдеров. Скрытые адреса @privaterelay нельзя брать как Primary Key. Формула Confidence Score: телефон 35%, email 30%, устройство 20% — и поправка для Apple Relay.</p>
+        </div>
+      </div>
+
+      <div class="prog-item reveal">
+        <span class="prog-num">07</span>
+        <div class="prog-body">
+          <h3>Стратегия миграции по сегментам</h3>
+          <p>Платящие, спящие, Apple Relay, B2B — разные сообщения и сроки. Волновое включение 1% → 5% → 100%. Семейные аккаунты: один email — разные люди, <strong>автослияние запрещено</strong>.</p>
+        </div>
+      </div>
+
+      <div class="prog-item reveal">
+        <span class="prog-num">08</span>
+        <div class="prog-body">
+          <h3>Операционный запуск и План Б</h3>
+          <p>Роли команд: IT, маркетинг, саппорт. Dry-Run на полной копии базы за 24 часа. Чек-лист Дня X: заморозить SCIM → включить Feature Flag → мониторинг каждые 15 минут. Критерии отката: хоть один False Merge — стоп-сигнал.</p>
+        </div>
+      </div>
+
+      <div class="prog-item reveal">
+        <span class="prog-num">09</span>
+        <div class="prog-body">
+          <h3>На пальцах: что мигрирует само, а что руками</h3>
+          <p>Разберём главное заблуждение: логин перенести автоматически <strong>нельзя</strong>, пользователь сам жмёт «Войти через Яндекс». Автоматизируется не вход, а узнавание «это тот же человек» по email. Где брать этот email: покажем, какие артефакты остаются в вашей базе после Google (не токены, а sub, email, имя, аватар) и как проверить, что они там есть. И карта форумных движков — phpBB, XenForo, vBulletin, MyBB, Discourse, NodeBB, uCoz — где миграция пройдёт легко, а где вы заложник платформы.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PROOF ═══════════ -->
+<section id="proof">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow ok">// Доказательства</p>
+      <h2>Это уже сделали — и сделали без потерь</h2>
+    </div>
+
+    <div class="case-card reveal">
+      <p class="case-tag">Кейс рынка</p>
+      <h3>Литрес: 3 месяца на бесшовное отключение Apple и Google ID</h3>
+      <p>Лидер книжного рынка провёл миграцию так, что читатели её <strong>не заметили</strong>: сегментация базы, волновое включение, заранее прогретая коммуникация. На вебинаре разберём, какие решения сделали этот переход невидимым — и какие из них скопировать в ваш план.</p>
+    </div>
+
+    <div class="reveal">
+      <p class="section-lead" style="margin-bottom:1.2rem">Аудитория российских провайдеров, между которыми вы будете выбирать:</p>
+    </div>
+
+    <div class="idp-grid">
+      <div class="idp-cell reveal">
+        <div class="idp-num">80 млн</div>
+        <div class="idp-name">Яндекс ID</div>
+      </div>
+      <div class="idp-cell reveal">
+        <div class="idp-num">90 млн</div>
+        <div class="idp-name">VK ID</div>
+      </div>
+      <div class="idp-cell reveal">
+        <div class="idp-num">100 млн+</div>
+        <div class="idp-name">Сбер ID</div>
+      </div>
+      <div class="idp-cell reveal">
+        <div class="idp-num">67</div>
+        <div class="idp-name">систем в матрице сравнения</div>
+      </div>
+    </div>
+
+    <div class="speaker reveal">
+      <div class="speaker-avatar" aria-hidden="true">ДБ</div>
+      <div>
+        <h3>Денис Батранков</h3>
+        <p class="role">CISSP · 34 года в IT и кибербезопасности</p>
+        <p>Работал в Palo Alto Networks, IBM, HP и Positive Technologies. Автор Telegram-канала «Топ Кибербезопасности Батранкова» — 10 000 подписчиков из ИБ-сообщества. Ведёт корпоративные тренинги и модерирует отраслевые конференции, включая Next Generation Security 2026.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ OFFER ═══════════ -->
+<section id="offer">
+  <div class="container">
+    <div class="offer-wrap reveal">
+      <div class="offer">
+        <p class="eyebrow gold">// Участие</p>
+        <h2>Один вечер вместо месяцев проб и ошибок</h2>
+        <p class="section-lead" style="margin-bottom:0">
+          Цена намеренно символическая: это вебинар-практикум, а не курс.
+          Вы платите за концентрат — чужие грабли уже собраны и подписаны.
+        </p>
+
+        <div class="offer-price-row">
+          <span class="offer-price">500 ₽</span>
+          <span class="offer-anchor">против <s>700 000 ₽</s> штрафа — 0.07%</span>
+        </div>
+
+        <ul class="includes">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>
+            90 минут в прямом эфире + ответы на ваши вопросы
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>
+            Запись без ограничения по времени
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>
+            Матрица сравнения 67 российских ID-систем
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>
+            Чек-лист Дня X и критерии отката
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>
+            Формула Confidence Score для безопасного слияния аккаунтов
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>
+            Оплата от юрлица — закрывающие документы через ЭДО
+          </li>
+        </ul>
+
+        <div class="cta-wrap">
+          <a class="cta" href="http://id-provider.kassa.bizon365.ru/buy/vebinar-chem-zamenit-vkhod-cherez-google-i-apple">
+            Занять место за 500 ₽
+            <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <span class="cta-hint">11 июля, 11:00 мск · запись включена</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<section id="faq">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow">// Вопросы</p>
+      <h2>Что спрашивают перед оплатой</h2>
+    </div>
+
+    <div class="faq-list">
+      <details class="reveal">
+        <summary>Я не разработчик. Мне будет понятно?</summary>
+        <p>Да. Блоки 1, 2 и 7 — про право, деньги и стратегию, они написаны для владельцев продуктов и руководителей. Технические блоки объясняются с нуля: что такое JWT и PKCE, вы узнаете без предварительной подготовки. Разработчику при этом будет что унести — формулы, чек-листы и архитектурные паттерны даются в рабочем виде.</p>
+      </details>
+
+      <details class="reveal">
+        <summary>Не успеваю в прямой эфир. Смысл есть?</summary>
+        <p>Есть. Запись остаётся у вас без ограничения по времени, вместе с матрицей систем и чек-листами. Вопрос можно прислать заранее — он будет разобран в эфире и попадёт в запись.</p>
+      </details>
+
+      <details class="reveal">
+        <summary>У нас мобильное приложение, а не сайт. Это про нас?</summary>
+        <p>Про вас в первую очередь. Блок про PKCE посвящён именно публичным клиентам — мобильным и SPA-приложениям, где авторизационный код можно перехватить. Ловушка Apple Relay с адресами @privaterelay — тоже чисто мобильная история.</p>
+      </details>
+
+      <details class="reveal">
+        <summary>Можно оплатить от юрлица?</summary>
+        <p>Да. Оплата принимается картой и вы получаете чек из онлайн-кассы. Вы можете использовать чек после покупки для компенсации расходов.</p>
+      </details>
+
+      <details class="reveal">
+        <summary>Я нажму одну кнопку — и все пользователи переедут на Яндекс сами?</summary>
+        <p>Нет, и это главное заблуждение. Сам вход перенести автоматически невозможно: Яндекс ничего не знает про вашу базу, и войти за пользователя вы не можете. Человек сам нажимает «Войти через Яндекс» и авторизуется — это добровольный шаг с его стороны. Автоматизируется другое: код при входе сверяет email из Яндекса с email в вашей базе и подставляет человека в его старый аккаунт со всей историей. То есть переход — ручной со стороны пользователя, а узнавание «это тот же человек» — автоматическое. На вебинаре разбираем это по шагам, включая тех, у кого email в Google и Яндексе разные.</p>
+      </details>
+
+      <details class="reveal">
+        <summary>Какие данные о пользователе у меня вообще остаются от Google?</summary>
+        <p>Не только токены — токены как раз временные и для миграции бесполезны. Остаётся то, что ваш форум сохранил в базу при первом входе человека: email, уникальный google_sub, имя, ссылка на аватар, иногда дата регистрации. Это и есть ваш мост на Яндекс. Ключевой из этих артефактов — email: именно по нему код автоматически узнаёт вернувшегося пользователя. На вебинаре покажем, где в базе это лежит и как за 5 минут проверить, что email заполнен — до того, как отключать Google.</p>
+      </details>
+
+      <details class="reveal">
+        <summary>У меня форум на phpBB / XenForo / uCoz. С миграцией будет всё хорошо?</summary>
+        <p>Зависит от типа движка, и на вебинаре есть карта по трём группам. С phpBB, XenForo, vBulletin, MyBB, SMF и IPB всё предсказуемо: email на месте, вход через Яндекс ставится плагином так же, как когда-то ставился Google. С Discourse и NodeBB данные в порядке, но плагин под Яндекс ID, скорее всего, придётся дописывать — нужен профильный разработчик. А вот облачные конструкторы вроде uCoz, Rusff и Forum2x2 — самый рискованный случай: у вас нет прямого доступа к базе, и всё зависит от того, добавит ли сама платформа поддержку Яндекса. Если нет — придётся переезжать целиком.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="container">
+    <p>ИП Батранков Денис Владимирович · ИНН 504802256135 · ОГРНИП 316504800050228</p>
+    <p><a href="https://batrankov.ru/id-oferta">Публичная оферта</a> · <a href="https://t.me/safebdv">Telegram: Топ Кибербезопасности Батранкова</a></p>
+  </div>
+</footer>
+
+</div>
+
+<script>
+(function() {
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.reveal');
+  if (reduced || !('IntersectionObserver' in window)) {
+    els.forEach(function(el) { el.classList.add('visible'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(function(el) { io.observe(el); });
+})();
+</script>
 
 </body>
 </html>
