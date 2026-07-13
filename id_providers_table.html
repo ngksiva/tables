@@ -2,318 +2,392 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Что поставить вместо «Войти через Google» — 22 системы входа с плюсами и минусами | Академия Батранкова</title>
 
 <meta name="author" content="Денис Батранков, Академия Батранкова" />
-<meta name="description" content="Выбираете, какую кнопку входа поставить на сайт вместо Google и Apple? 22 системы: Яндекс ID, VK ID, Сбер ID, T-ID, Альфа ID, ВТБ ID, МТС ID, MAX ID, Госуслуги, passkey. Цена, сложность подключения, плюсы и минусы каждой. Плюс разбор входа по телефону: SMS, Flash Call, голосовой звонок и провайдеры с ценами." />
+<meta name="description" content="Выбираете, какую кнопку входа поставить на сайт вместо Google и Apple? 22 системы: Яндекс ID, VK ID, Сбер ID, T-ID, Альфа ID, ВТБ ID, МТС ID, MAX ID, Госуслуги, passkey. Цена, что придётся сделать, плюсы и минусы каждой. Плюс вход по телефону: SMS, Flash Call, голосовой звонок и провайдеры с ценами." />
 <meta name="keywords" content="войти через Яндекс ID, VK ID, Сбер ID, T-ID, Альфа ID, ВТБ ID, МТС ID, MAX ID, ЕСИА, passkey, WebAuthn, SMS авторизация, Flash Call, замена Google Login, Apple ID, 199-ФЗ" />
-<meta name="theme-color" content="#0f172a" />
+<meta name="theme-color" content="#4f46e5" />
+<meta name="color-scheme" content="light dark" />
 <link rel="canonical" href="https://id.batrankov.ru/" />
 
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Академия Батранкова" />
 <meta property="og:locale" content="ru_RU" />
 <meta property="og:title" content="Что поставить вместо «Войти через Google» — 22 системы входа" />
-<meta property="og:description" content="Цена, сложность подключения, плюсы и минусы каждой системы. Плюс вход по телефону: SMS, Flash Call, голосовой звонок и провайдеры с ценами." />
+<meta property="og:description" content="Цена, что придётся сделать, плюсы и минусы каждой системы. Плюс вход по телефону: SMS, Flash Call, голосовой звонок и провайдеры с ценами." />
 <meta property="og:url" content="https://id.batrankov.ru/" />
 <meta property="og:image" content="https://id.batrankov.ru/og.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Что поставить вместо «Войти через Google» — 22 системы входа" />
-<meta name="twitter:description" content="Цена, сложность подключения, плюсы и минусы. Плюс вход по телефону: SMS, Flash Call и провайдеры с ценами." />
+<meta name="twitter:description" content="Цена, что придётся сделать, плюсы и минусы. Плюс вход по телефону: SMS и звонки, провайдеры с ценами." />
 <meta name="twitter:image" content="https://id.batrankov.ru/og.png" />
 
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Что поставить вместо «Войти через Google» — 22 системы входа","inLanguage":"ru","dateModified":"2026-07-11","author":{"@type":"Person","name":"Денис Батранков","jobTitle":"Консультант по информационной безопасности, CISSP","url":"https://batrankov.ru","sameAs":["https://t.me/safebdv"]}}
+</script>
 
 <style>
-  :root{--bg-page:#f8fafc;--bg-card:#fff;--text-primary:#0f172a;--text-secondary:#475569;--border-color:#e2e8f0;--accent:#4f46e5;--badge-bg:#eef2ff;--badge-text:#4338ca;--th-bg:#f1f5f9}
-  body.dark{--bg-page:#0f172a;--bg-card:#1e293b;--text-primary:#f1f5f9;--text-secondary:#94a3b8;--border-color:#334155;--accent:#818cf8;--badge-bg:#312e81;--badge-text:#c7d2fe;--th-bg:#334155}
-  *{scroll-behavior:smooth}
-  body{background:var(--bg-page);color:var(--text-primary);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;transition:background .3s,color .3s;-webkit-font-smoothing:antialiased}
-  .card{background:var(--bg-card);border-color:var(--border-color);transition:background .3s,border-color .3s}
-  section[id]{scroll-margin-top:1.5rem}
-  table{background:var(--bg-card);color:var(--text-primary)}
-  th{background:var(--th-bg);color:var(--text-primary);position:sticky;top:0;z-index:2}
-  td{border-color:var(--border-color)}
+/* ===== база: ни одного внешнего запроса, системные шрифты ===== */
+:root{
+  --bg:#f8fafc;--card:#fff;--tx:#0f172a;--tx2:#475569;--bd:#e2e8f0;
+  --ac:#4f46e5;--ac2:#7c3aed;--th:#f1f5f9;--chipbg:#eef2ff;
+  --tap:48px;
+}
+.dark{
+  --bg:#0f172a;--card:#1e293b;--tx:#f1f5f9;--tx2:#94a3b8;--bd:#334155;
+  --ac:#818cf8;--th:#334155;--chipbg:#312e81;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--bg);color:var(--tx);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+img{max-width:100%}
+a{color:var(--ac)}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+section[id]{scroll-margin-top:12px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 16px}
 
-  .db{padding:.15rem .55rem;border-radius:9999px;font-size:11px;font-weight:600;white-space:nowrap;display:inline-block;line-height:1.5}
-  .db-green{background:#d1fae5;color:#065f46}.db-yellow{background:#fef3c7;color:#92400e}
-  .db-orange{background:#ffedd5;color:#9a3412}.db-red{background:#fee2e2;color:#991b1b}
-  .db-blue{background:#dbeafe;color:#1e40af}
-  .db-mute{background:#e2e8f0;color:#475569;cursor:help}
-  body.dark .db-green{background:#065f46;color:#d1fae5} body.dark .db-yellow{background:#78350f;color:#fde68a}
-  body.dark .db-orange{background:#7c2d12;color:#fed7aa} body.dark .db-red{background:#7f1d1d;color:#fecaca}
-  body.dark .db-blue{background:#1e3a8a;color:#bfdbfe}
-  body.dark .db-mute{background:#334155;color:#cbd5e1}
+/* ===== шапка ===== */
+.topbar{border-bottom:1px solid var(--bd);background:var(--card)}
+.topbar-in{max-width:1200px;margin:0 auto;padding:0 16px;display:flex;align-items:center;justify-content:space-between;min-height:56px;font-size:14px}
+.topbar-in a{text-decoration:none;font-weight:700;color:var(--tx);display:flex;align-items:center;min-height:var(--tap);padding:0 4px}
+.topbar-in a.tg{color:var(--tx2);font-weight:500}
 
-  .row-green{background:rgba(16,185,129,.06)}.row-yellow{background:rgba(217,119,6,.06)}
-  .row-blue{background:rgba(37,99,235,.06)}
-  .row-orange{background:rgba(234,88,12,.07)}.row-red{background:rgba(220,38,38,.06)}
-  body.dark .row-green{background:rgba(16,185,129,.12)} body.dark .row-yellow{background:rgba(217,119,6,.12)}
-  body.dark .row-orange{background:rgba(234,88,12,.13)} body.dark .row-red{background:rgba(220,38,38,.12)}
-  body.dark .row-blue{background:rgba(37,99,235,.14)}
+/* ===== hero ===== */
+.hero{background:linear-gradient(135deg,#4f46e5,#7c3aed 55%,#9333ea);color:#fff;border-radius:24px;padding:32px 24px;margin:20px 0 16px;box-shadow:0 10px 30px rgba(79,70,229,.25)}
+.hero-top{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.live{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.2);padding:6px 16px;border-radius:99px;font-size:14px;margin-bottom:14px}
+.live b{width:8px;height:8px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.4}}
+h1{font-size:clamp(1.8rem,5.5vw,3rem);line-height:1.15;letter-spacing:-.02em;margin-bottom:14px}
+.lead{font-size:clamp(1rem,2.5vw,1.15rem);opacity:.92;max-width:760px}
+.hero-btns{display:flex;flex-direction:column;gap:10px;align-items:flex-end}
+.gbtn{background:rgba(255,255,255,.2);color:#fff;border-radius:99px;padding:0 18px;min-height:44px;display:inline-flex;align-items:center;gap:8px;font-size:14px;transition:background .2s}
+.gbtn:hover{background:rgba(255,255,255,.32)}
 
-  .filter-btn,.filter-special{transition:.2s;cursor:pointer;border:1px solid var(--border-color);background:var(--bg-card);color:var(--text-primary)}
-  .filter-btn:hover,.filter-special:hover{background:var(--badge-bg);border-color:var(--accent)}
-  .filter-btn.active,.filter-special.active{background:var(--accent)!important;color:#fff!important;border-color:var(--accent)!important}
-  button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+/* ===== автор ===== */
+.author{background:var(--card);border:1px solid var(--bd);border-left:4px solid var(--ac);border-radius:20px;padding:24px 22px;margin-bottom:16px;content-visibility:auto;contain-intrinsic-size:auto 420px}
+.author p{margin-bottom:12px;color:var(--tx2);font-size:15px}
+.author p:last-child{margin-bottom:0}
+.author .sig{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.author .ava{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--ac),#9333ea);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;flex-shrink:0}
+.author .who b{display:block;color:var(--tx);font-size:16px}
+.author .who span{font-size:13px;color:var(--tx2)}
 
-  .accordion-header{cursor:pointer;user-select:none}
-  .accordion-header .arrow{transition:transform .3s}
-  .accordion-header.open .arrow{transform:rotate(180deg)}
-  .accordion-body{overflow:hidden;transition:max-height .45s ease;max-height:0}
-  .accordion-body.open{max-height:30000px}
+/* ===== навигация-чипы ===== */
+.navrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.navchip{border:1px solid var(--bd);background:var(--card);color:var(--tx2);border-radius:99px;padding:0 16px;min-height:44px;display:inline-flex;align-items:center;font-size:14px;text-decoration:none;transition:.2s}
+.navchip:hover{color:var(--ac);border-color:var(--ac)}
 
-  .hero-bg{background:linear-gradient(135deg,#4f46e5 0%,#7c3aed 55%,#9333ea 100%)}
-  .doc-link{color:var(--accent);font-weight:600;white-space:nowrap}
-  .doc-link:hover{text-decoration:underline}
-  .warn{color:#d97706} body.dark .warn{color:#fbbf24}
+/* ===== плашки-разделы ===== */
+.box{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:24px 22px;margin-bottom:16px}
+.box h3{font-size:1.15rem;margin-bottom:12px}
+.box p{font-size:14px;color:var(--tx2);margin-bottom:12px}
+.box p:last-child{margin-bottom:0}
+.b-red{border:2px solid #dc2626;padding:0;overflow:hidden}
+.b-red .head{background:#dc2626;color:#fff;padding:16px 22px;display:flex;gap:12px;align-items:flex-start}
+.b-red .head .t{font-weight:700;font-size:17px;line-height:1.3}
+.b-red .head .s{font-size:13px;opacity:.92;margin-top:4px}
+.b-red .body{padding:18px 22px;display:grid;gap:12px 32px}
+@media(min-width:760px){.b-red .body{grid-template-columns:1fr 1fr}}
+.b-red .body p{font-size:14px;margin-bottom:10px}
+.b-accent{border:2px solid var(--ac)}
+.b-amber{border:2px solid #d97706}
+.warnbox{background:rgba(220,38,38,.07);border:1px solid rgba(220,38,38,.35);border-radius:14px;padding:16px 18px;font-size:14px}
+.warnbox p{margin-bottom:10px;color:var(--tx2)}
+.warnbox p:last-child{margin-bottom:0}
+.warnbox .wt{color:#dc2626;font-weight:700;margin-bottom:8px}
 
-  .expandable{display:none;background:rgba(241,245,249,.6)} body.dark .expandable{background:rgba(51,65,85,.4)}
-  .expanded-row{display:table-row}
-  .main-row{cursor:pointer;transition:filter .15s}
-  .main-row:hover{filter:brightness(.96)}
-  .main-row td:first-child::before{content:"▸";color:var(--accent);font-weight:700;display:inline-block;width:14px;transition:transform .2s}
-  .main-row.open td:first-child::before{transform:rotate(90deg)}
+/* ===== статистика ===== */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px}
+@media(min-width:760px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:14px 16px}
+.stat b{font-size:1.3rem;display:block}
+.stat span{font-size:12px;color:var(--tx2)}
 
-  .pro li,.con li{margin-bottom:.35rem;padding-left:1.35rem;position:relative;line-height:1.5}
-  .pro li::before{content:"+";position:absolute;left:0;color:#16a34a;font-weight:800}
-  .con li::before{content:"–";position:absolute;left:0;color:#dc2626;font-weight:800}
-  body.dark .pro li::before{color:#4ade80} body.dark .con li::before{color:#f87171}
+/* ===== фильтры ===== */
+.fbox{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:16px;margin-bottom:10px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.srch{flex:1;display:flex;gap:8px;min-width:240px}
+#searchInput{flex:1;min-height:var(--tap);padding:0 18px;border:1px solid var(--bd);border-radius:14px;background:transparent;color:inherit;font-size:16px}
+#searchInput:focus{outline:2px solid var(--ac);outline-offset:1px;border-color:var(--ac)}
+.reset{color:var(--tx2);min-height:var(--tap);padding:0 12px;font-size:14px;white-space:nowrap}
+.gbtns,.chiprow{display:flex;flex-wrap:wrap;gap:8px}
+.chiprow{margin-bottom:18px;align-items:center}
+.chiprow .lbl{font-size:14px;color:var(--tx2);font-weight:500}
+.fb{border:1px solid var(--bd);background:var(--card);border-radius:14px;padding:0 16px;min-height:var(--tap);display:inline-flex;align-items:center;font-size:14px;font-weight:500;transition:.2s}
+.fs{border:1px solid var(--bd);background:var(--card);border-radius:99px;padding:0 14px;min-height:44px;display:inline-flex;align-items:center;font-size:13px;transition:.2s}
+.fb:hover,.fs:hover{background:var(--chipbg);border-color:var(--ac)}
+.fb.active,.fs.active{background:var(--ac)!important;color:#fff!important;border-color:var(--ac)!important}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
 
-  .navchip{border:1px solid var(--border-color);background:var(--bg-card);color:var(--text-secondary);padding:.35rem .8rem;border-radius:9999px;font-size:.8rem;transition:.2s}
-  .navchip:hover{color:var(--accent);border-color:var(--accent)}
+/* ===== группы и таблицы ===== */
+.grp{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:20px;margin-bottom:16px;content-visibility:auto;contain-intrinsic-size:auto 600px}
+.acc-h{display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer;user-select:none;min-height:var(--tap)}
+.acc-h h2{font-size:clamp(.95rem,2.6vw,1.15rem);display:flex;align-items:center;gap:10px}
+.acc-h h2 small{font-weight:400;color:var(--tx2);font-size:.85em}
+.acc-h .ar{transition:transform .3s;font-size:14px;color:var(--tx2)}
+.acc-h.open .ar{transform:rotate(180deg)}
+.acc-b{overflow:hidden;max-height:0;transition:max-height .45s ease}
+.acc-b.open{max-height:30000px}
+.tblwrap{overflow-x:auto;border:1px solid var(--bd);border-radius:14px;margin-top:14px}
+table{width:100%;min-width:880px;border-collapse:collapse;font-size:14px;background:var(--card)}
+th{background:var(--th);text-align:left;padding:12px;position:sticky;top:0;z-index:2;font-size:13px}
+td{padding:12px;border-bottom:1px solid var(--bd);vertical-align:top}
+.main-row{cursor:pointer;transition:filter .15s}
+.main-row:hover{filter:brightness(.96)}
+.main-row td:first-child::before{content:"▸";color:var(--ac);font-weight:700;display:inline-block;width:14px;transition:transform .2s}
+.main-row.open td:first-child::before{transform:rotate(90deg)}
+.expandable{display:none;background:rgba(241,245,249,.6)}
+.dark .expandable{background:rgba(51,65,85,.4)}
+.expanded-row{display:table-row}
+.tinytxt{font-size:12px}
+.money{font-size:12px;font-weight:600}
+.warn{color:#d97706}.dark .warn{color:#fbbf24}
+.doc-link{font-weight:600;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center;min-height:32px}
+.doc-link:hover{text-decoration:underline}
+.fav{width:16px;height:16px;border-radius:3px;vertical-align:-3px;margin:0 5px 0 2px}
 
-  .card-item{background:var(--bg-card);border:1px solid var(--border-color);border-radius:.75rem;padding:1rem;cursor:pointer}
-  .card-item.row-green{border-left:4px solid #16a34a}.card-item.row-yellow{border-left:4px solid #d97706}
-  .card-item.row-orange{border-left:4px solid #ea580c}.card-item.row-red{border-left:4px solid #dc2626}
-  .card-item.row-blue{border-left:4px solid #2563eb}
-  .card-detail{display:none;margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--border-color)}
-  .card-item.open .card-detail{display:block}
-  @media(max-width:768px){
-    .table-wrap{display:none}
-    .card-list{display:flex;flex-direction:column;gap:.75rem}
-    h1{font-size:1.9rem!important;line-height:1.2}
-  }
-  @media(min-width:769px){.card-list{display:none}}
-  .legend-val{display:inline-block;min-width:9rem;font-weight:700}
+/* ===== бейджи и цвета строк ===== */
+.db{padding:3px 9px;border-radius:99px;font-size:11px;font-weight:600;white-space:nowrap;display:inline-block;line-height:1.5}
+.db-green{background:#d1fae5;color:#065f46}.db-yellow{background:#fef3c7;color:#92400e}
+.db-orange{background:#ffedd5;color:#9a3412}.db-red{background:#fee2e2;color:#991b1b}
+.db-blue{background:#dbeafe;color:#1e40af}.db-mute{background:#e2e8f0;color:#475569;cursor:help}
+.dark .db-green{background:#065f46;color:#d1fae5}.dark .db-yellow{background:#78350f;color:#fde68a}
+.dark .db-orange{background:#7c2d12;color:#fed7aa}.dark .db-red{background:#7f1d1d;color:#fecaca}
+.dark .db-blue{background:#1e3a8a;color:#bfdbfe}.dark .db-mute{background:#334155;color:#cbd5e1}
+.row-green{background:rgba(16,185,129,.06)}.row-yellow{background:rgba(217,119,6,.06)}
+.row-orange{background:rgba(234,88,12,.07)}.row-red{background:rgba(220,38,38,.06)}
+.row-blue{background:rgba(37,99,235,.06)}
+.dark .row-green{background:rgba(16,185,129,.12)}.dark .row-yellow{background:rgba(217,119,6,.12)}
+.dark .row-orange{background:rgba(234,88,12,.13)}.dark .row-red{background:rgba(220,38,38,.12)}
+.dark .row-blue{background:rgba(37,99,235,.14)}
+
+/* ===== плюсы/минусы ===== */
+.pm{display:grid;gap:20px;margin-bottom:14px}
+@media(min-width:760px){.pm{grid-template-columns:1fr 1fr}}
+.pm h4{font-size:13px;margin-bottom:8px}
+.pm ul{list-style:none;font-size:14px;color:var(--tx2)}
+.pm li{margin-bottom:6px;padding-left:22px;position:relative;line-height:1.5}
+.pro li::before{content:"+";position:absolute;left:0;color:#16a34a;font-weight:800}
+.con li::before{content:"–";position:absolute;left:0;color:#dc2626;font-weight:800}
+.dark .pro li::before{color:#4ade80}.dark .con li::before{color:#f87171}
+.meta{font-size:12px;color:var(--tx2);border-top:1px solid var(--bd);padding-top:10px}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.92em}
+
+/* ===== мобильные карточки ===== */
+.cards{display:none}
+@media(max-width:768px){
+  .tblwrap{display:none}
+  .cards{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+  .ci{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px;cursor:pointer}
+  .ci.row-green{border-left:4px solid #16a34a}.ci.row-yellow{border-left:4px solid #d97706}
+  .ci.row-orange{border-left:4px solid #ea580c}.ci.row-red{border-left:4px solid #dc2626}
+  .ci.row-blue{border-left:4px solid #2563eb}
+  .ci .nm{font-weight:700;margin-bottom:4px;font-size:15px}
+  .ci .gv{font-size:13px;color:var(--tx2);margin-bottom:8px}
+  .ci .bl{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:6px}
+  .ci .hint{font-size:13px;color:var(--ac);margin-top:8px}
+  .cd{display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--bd)}
+  .ci.open .cd{display:block}
+  .ci.open .hint{display:none}
+  .hero{padding:26px 20px;border-radius:20px}
+  .hero-btns{flex-direction:row;width:100%;justify-content:flex-start}
+  .box,.grp{padding:18px 16px}
+  .b-red .head,.b-red .body{padding-left:16px;padding-right:16px}
+}
+
+/* ===== провайдеры телефонии ===== */
+.provs{display:grid;gap:10px;margin-bottom:18px}
+@media(min-width:760px){.provs{grid-template-columns:1fr 1fr}}
+.prov{border:1px solid var(--bd);border-radius:14px;padding:16px}
+.prov .pn{font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.prov .pd{font-size:12px;color:var(--tx2);margin-bottom:8px}
+.prov .pp{font-size:12px;font-weight:600;margin-bottom:8px}
+
+/* ===== легенда, футер ===== */
+.legend-val{display:inline-block;min-width:9.5rem;font-weight:700}
+.legend ul{list-style:none;font-size:14px;color:var(--tx2)}
+.legend li{margin-bottom:6px}
+.foot{text-align:center;margin:36px 0 20px;font-size:14px;color:var(--tx2)}
+.foot a{font-weight:700;text-decoration:none}
+.foot p{margin-bottom:8px}
 </style>
 </head>
 <body>
 
-<div class="w-full border-b" style="border-color:var(--border-color)">
-  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between text-sm">
-    <a href="https://batrankov.ru" target="_blank" class="font-bold tracking-wide flex items-center gap-2" style="color:var(--text-primary)">
-      <i class="fa-solid fa-shield-halved" style="color:var(--accent)"></i> АКАДЕМИЯ БАТРАНКОВА
-    </a>
-    <a href="https://t.me/safebdv" target="_blank" class="font-medium" style="color:var(--text-secondary)">
-      <i class="fa-brands fa-telegram"></i> @safebdv
-    </a>
+<div class="topbar">
+  <div class="topbar-in">
+    <a href="https://batrankov.ru" target="_blank" rel="noopener">🛡️ АКАДЕМИЯ БАТРАНКОВА</a>
+    <a class="tg" href="https://t.me/safebdv" target="_blank" rel="noopener">✈️ @safebdv</a>
   </div>
 </div>
 
-<div class="max-w-7xl mx-auto px-4 py-8">
+<div class="wrap">
 
   <!-- HERO -->
-  <div class="hero-bg text-white rounded-3xl p-8 md:p-12 mb-6 shadow-xl">
-    <div class="flex justify-between items-start flex-wrap gap-6">
-      <div class="flex-1 min-w-[280px]">
-        <div class="inline-flex items-center gap-2 bg-white/20 px-4 py-1 rounded-full text-sm mb-4">
-          <span class="bg-green-400 w-2 h-2 rounded-full animate-pulse"></span>
-          Обновлено 11 июля 2026
-        </div>
-        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4 leading-tight">Что поставить вместо<br>«Войти через Google»</h1>
-        <p class="text-lg max-w-3xl opacity-90">
-          22 системы входа для вашего сайта. Сколько стоит, насколько сложно подключить, что выиграете и чем заплатите. Нажмите на строку — раскроются плюсы и минусы.
-        </p>
+  <div class="hero">
+    <div class="hero-top">
+      <div style="flex:1;min-width:260px">
+        <div class="live"><b></b>Обновлено 11 июля 2026</div>
+        <h1>Что поставить вместо<br>«Войти через Google»</h1>
+        <p class="lead">22 системы входа для вашего сайта. Сколько стоит, что придётся сделать, что выиграете и чем заплатите. Нажмите на строку — раскроются плюсы и минусы.</p>
       </div>
-      <div class="flex flex-col items-end gap-3">
-        <button onclick="exportData()" class="bg-white/20 hover:bg-white/30 px-4 py-2 rounded-full text-sm transition-all whitespace-nowrap">
-          <i class="fa-solid fa-file-csv"></i> Скачать CSV
-        </button>
-        <button id="themeBtn" aria-label="Тема" class="bg-white/20 hover:bg-white/30 p-2 rounded-full transition-all w-10 h-10 flex items-center justify-center">
-          <i class="fa-solid fa-moon text-lg"></i>
-        </button>
+      <div class="hero-btns">
+        <button class="gbtn" onclick="exportData()">📥 Скачать CSV</button>
+        <button class="gbtn" id="themeBtn" aria-label="Переключить тему">🌙 Тема</button>
       </div>
     </div>
   </div>
 
-  <!-- QUICK NAV -->
-  <nav class="flex flex-wrap gap-2 mb-6">
+  <!-- ОТ АВТОРА -->
+  <section id="avtor" class="author">
+    <div class="sig">
+      <div class="ava">ДБ</div>
+      <div class="who">
+        <b>Денис Батранков</b>
+        <span>CISSP · 34 года в информационной безопасности · IBM, HP, Palo Alto Networks, Positive Technologies</span>
+      </div>
+    </div>
+    <p>Тридцать четыре года я объясняю бизнесу одну и ту же вещь: безопасность держится не на страхе, а на понимании того, как устроена технология. Восемь лет в Palo Alto Networks я разбирал чужие сети. Теперь разбираю чужие формы входа.</p>
+    <p>7 июля заработали штрафы за вход через Google и Apple, и мне стали писать одни и те же вопросы. Чем заменить. Сколько стоит. Успеем ли. Что делать со старыми аккаунтами. Я открыл вендорские сайты и понял, почему спрашивают меня: половина решений прячет цену за словом «запросите демо», вторая половина написана языком, который понимает только пресейл-инженер.</p>
+    <p>Тогда я сделал эту страницу. Каждую ссылку на документацию открывал руками. Каждую цену проверял на сайте вендора, а не в пересказах. Где цены нет, там честно стоит «по запросу». Если вендор поменял условия и вы заметили раньше меня — напишите в <a href="https://t.me/safebdv" target="_blank" rel="noopener">@safebdv</a>, поправлю в тот же день.</p>
+    <p>Страница бесплатная и останется бесплатной. Зарабатываю я не на ней: провожу вебинары и разбираю конкретные сайты — как перевести пользователей на новый вход, не потеряв их аккаунты. Остались вопросы про ваш сайт? Напишите. Отвечаю сам.</p>
+  </section>
+
+  <!-- НАВИГАЦИЯ -->
+  <nav class="navrow">
     <a href="#zakon" class="navchip">⚖️ Закон и штрафы</a>
     <a href="#tablica" class="navchip">📋 22 системы</a>
-    <a href="#telefon" class="navchip">📱 Вход по телефону: SMS и звонки</a>
-    <a href="#skolko" class="navchip">🤔 Сколько кнопок ставить</a>
+    <a href="#telefon" class="navchip">📱 SMS и звонки</a>
+    <a href="#skolko" class="navchip">🤔 Сколько кнопок</a>
     <a href="#akkaunty" class="navchip">⚠️ Старые аккаунты</a>
   </nav>
 
-  <!-- LEGAL -->
-  <section id="zakon" class="rounded-3xl border-2 mb-8 overflow-hidden" style="border-color:#dc2626">
-    <div class="px-6 py-4 flex items-start gap-3" style="background:#dc2626;color:#fff">
-      <i class="fa-solid fa-triangle-exclamation text-2xl mt-1"></i>
+  <!-- ЗАКОН -->
+  <section id="zakon" class="box b-red">
+    <div class="head">
+      <span style="font-size:24px">⚠️</span>
       <div>
-        <div class="font-bold text-lg leading-tight">Кнопка входа через Google, Apple ID и другие иностранные аккаунты запрещена законом</div>
-        <div class="text-sm opacity-90 mt-1">Штрафы уже действуют — с 7 июля 2026. Юридические лица: 500–700 тыс. ₽</div>
+        <div class="t">Кнопка входа через Google, Apple ID и другие иностранные аккаунты запрещена законом</div>
+        <div class="s">Штрафы уже действуют — с 7 июля 2026. Юридические лица: 500–700 тыс. ₽</div>
       </div>
     </div>
-    <div class="card px-6 py-5 grid md:grid-cols-2 gap-x-8 gap-y-3 text-sm">
+    <div class="body">
       <div>
-        <p class="mb-2"><strong>Запрет.</strong> Часть 10 статьи 8 закона 149-ФЗ «Об информации». Действует с 1 декабря 2023 года.</p>
+        <p><strong>Запрет.</strong> Часть 10 статьи 8 закона 149-ФЗ «Об информации». Действует с 1 декабря 2023 года.</p>
         <p><strong>Штрафы.</strong> Статья 13.55 КоАП, введена законом № 199-ФЗ от 26.06.2026 и действует с 7 июля 2026. Граждане — 10–20 тыс. ₽, должностные лица — 30–50 тыс. ₽, юридические лица — 500–700 тыс. ₽.</p>
       </div>
       <div>
-        <p class="mb-2"><strong>Что разрешено — четыре способа.</strong> Номер телефона российского оператора. Госуслуги (ЕСИА). Единая биометрическая система. Либо любая другая система входа, которая отвечает требованиям к защите информации и принадлежит гражданину РФ без второго гражданства или российскому юрлицу.</p>
+        <p><strong>Что разрешено — четыре способа.</strong> Номер телефона российского оператора. Госуслуги (ЕСИА). Единая биометрическая система. Либо любая другая система входа, которая отвечает требованиям к защите информации и принадлежит гражданину РФ без второго гражданства или российскому юрлицу.</p>
         <p><strong>Четвёртый пункт снимает панику.</strong> Закон не загоняет всех в VK ID. Ваша собственная система входа — пароль, passkey — тоже подходит.</p>
       </div>
     </div>
   </section>
 
-  <!-- STATS -->
-  <div id="statsBar" class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6"></div>
+  <!-- СТАТИСТИКА -->
+  <div id="statsBar" class="stats"></div>
 
-  <!-- FILTERS -->
+  <!-- ФИЛЬТРЫ И КАТАЛОГ -->
   <section id="tablica">
-  <div class="flex flex-wrap gap-4 mb-4 items-center card p-5 rounded-3xl border">
-    <div class="flex-1 flex gap-2 items-center min-w-[240px]">
-      <input type="text" id="searchInput" aria-label="Поиск" placeholder="🔍 Поиск: название, протокол, цена…"
-             class="w-full px-5 py-3 rounded-2xl border focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-transparent text-inherit" style="border-color:var(--border-color)">
-      <button onclick="resetAll()" class="px-4 py-2 text-sm whitespace-nowrap" style="color:var(--text-secondary)">Сбросить</button>
+    <div class="fbox">
+      <div class="srch">
+        <input type="text" id="searchInput" aria-label="Поиск" placeholder="🔍 Название, протокол, цена…">
+        <button class="reset" onclick="resetAll()">Сбросить</button>
+      </div>
+      <div class="gbtns" id="filterButtons">
+        <button class="fb active" data-filter="all">Все</button>
+        <button class="fb" data-filter="button">Кнопки «Войти через…»</button>
+        <button class="fb" data-filter="own">Свой вход</button>
+        <button class="fb" data-filter="idp">Корпоративные IdP</button>
+      </div>
     </div>
-    <div class="flex flex-wrap gap-2" id="filterButtons">
-      <button class="filter-btn active px-4 py-2 rounded-2xl text-sm font-medium" data-filter="all">Все</button>
-      <button class="filter-btn px-4 py-2 rounded-2xl text-sm font-medium" data-filter="button">Кнопки «Войти через…»</button>
-      <button class="filter-btn px-4 py-2 rounded-2xl text-sm font-medium" data-filter="own">Свой вход</button>
-      <button class="filter-btn px-4 py-2 rounded-2xl text-sm font-medium" data-filter="idp">Корпоративные IdP</button>
+    <div class="chiprow" id="extraFilters">
+      <span class="lbl">Быстро:</span>
+      <button class="fs" data-special="free">💚 Бесплатно</button>
+      <button class="fs" data-special="nocontract">📄 Без договора</button>
+      <button class="fs" data-special="noserver">☁️ Без своего сервера</button>
+      <button class="fs" data-special="mass">👥 Массовая аудитория</button>
+      <button class="fs" data-special="passkey">🔑 Умеет passkey</button>
+      <button class="fs" data-special="registry">🇷🇺 В реестре РФ</button>
     </div>
-  </div>
-
-  <div class="flex flex-wrap gap-2 mb-6 text-sm items-center" id="extraFilters">
-    <span class="font-medium py-1" style="color:var(--text-secondary)">Быстро:</span>
-    <button class="filter-special px-3 py-1 rounded-full" data-special="free">💚 Бесплатно</button>
-    <button class="filter-special px-3 py-1 rounded-full" data-special="nocontract">📄 Без договора</button>
-    <button class="filter-special px-3 py-1 rounded-full" data-special="noserver">☁️ Без своего сервера</button>
-    <button class="filter-special px-3 py-1 rounded-full" data-special="mass">👥 Массовая аудитория</button>
-    <button class="filter-special px-3 py-1 rounded-full" data-special="passkey">🔑 Умеет passkey</button>
-    <button class="filter-special px-3 py-1 rounded-full" data-special="registry">🇷🇺 В реестре РФ</button>
-  </div>
-
-  <div id="catalog" class="space-y-6"></div>
+    <div id="catalog"></div>
   </section>
 
-  <!-- PHONE -->
-  <section id="telefon" class="card rounded-3xl border-2 p-6 md:p-8 mt-10" style="border-color:var(--accent)">
-    <h3 class="text-xl font-bold mb-3 flex items-center gap-2">📱 Вход по телефону: через кого его делать</h3>
-    <p class="text-sm mb-5" style="color:var(--text-secondary)">
-      Номер телефона — первый из четырёх разрешённых законом способов и самый быстрый путь закрыть требование. Но сам по себе он не работает: нужен провайдер, который доставит код. Способов доставки четыре, и они сильно отличаются по цене и по тому, дойдёт ли код вообще.
-    </p>
+  <!-- ТЕЛЕФОН -->
+  <section id="telefon" class="box b-accent">
+    <h3>📱 Вход по телефону: через кого его делать</h3>
+    <p>Номер телефона — первый из четырёх разрешённых законом способов и самый быстрый путь закрыть требование. Но сам по себе он не работает: нужен провайдер, который доставит код. Способов доставки четыре, и они сильно отличаются по цене и по тому, дойдёт ли код вообще.</p>
 
-    <div class="overflow-x-auto mb-6">
-      <table class="w-full min-w-[760px] text-sm border-collapse">
-        <thead><tr>
-          <th class="p-3 text-left">Способ</th><th class="p-3 text-left">Как работает</th>
-          <th class="p-3 text-left">Цена за штуку</th><th class="p-3 text-left">Главная засада</th>
-        </tr></thead>
+    <div class="tblwrap" style="display:block">
+      <table style="min-width:720px">
+        <thead><tr><th>Способ</th><th>Как работает</th><th>Цена за штуку</th><th>Главная засада</th></tr></thead>
         <tbody>
-          <tr class="border-b row-yellow">
-            <td class="p-3 font-bold">SMS с кодом</td>
-            <td class="p-3 text-xs">Классика: сообщение с четырьмя-шестью цифрами.</td>
-            <td class="p-3 text-xs font-semibold">≈ 1,5–4 ₽</td>
-            <td class="p-3 text-xs">Дорого при массовом трафике. Операторы допускают задержку доставки. Номера для приёма SMS свободно арендуются — фейковые регистрации проходят.</td>
-          </tr>
-          <tr class="border-b row-orange">
-            <td class="p-3 font-bold">Flash Call</td>
-            <td class="p-3 text-xs">Звонок-сброс. Кодом служат последние цифры номера входящего звонка: приложение считывает их само, на сайте пользователь вводит руками. Разговора нет — поэтому дёшево.</td>
-            <td class="p-3 text-xs font-semibold">≈ 0,3–0,7 ₽</td>
-            <td class="p-3 text-xs"><strong>Умирающий метод.</strong> Определители номера и антиспам-фильтры (в том числе у Яндекса и Т-Банка) режут роботизированные звонки. Растёт недозвон: метро, лифт, цоколь. Рынок уходит.</td>
-          </tr>
-          <tr class="border-b row-green">
-            <td class="p-3 font-bold">Голосовой звонок</td>
-            <td class="p-3 text-xs">Робот звонит и диктует код вслух. Пользователь слушает и вводит.</td>
-            <td class="p-3 text-xs font-semibold">≈ 1,5–2 ₽</td>
-            <td class="p-3 text-xs">Дороже Flash Call, но проходит там, где звонок-сброс уже блокируют. Сейчас это рабочая замена.</td>
-          </tr>
-          <tr class="border-b row-green">
-            <td class="p-3 font-bold">Call Me (обратный звонок)</td>
-            <td class="p-3 text-xs">Наоборот: пользователь сам звонит на показанный номер, система узнаёт его по определившемуся номеру и впускает.</td>
-            <td class="p-3 text-xs font-semibold">Дёшево</td>
-            <td class="p-3 text-xs">Непривычно пользователю, нужен аккуратный интерфейс. Зато никакие антиспам-фильтры не мешают: звонит сам человек.</td>
-          </tr>
+          <tr class="row-yellow"><td><strong>SMS с кодом</strong></td><td class="tinytxt">Классика: сообщение с четырьмя-шестью цифрами.</td><td class="tinytxt"><strong>≈ 1,5–4 ₽</strong></td><td class="tinytxt">Дорого при массовом трафике. Операторы допускают задержку доставки. Номера для приёма SMS свободно арендуются — фейковые регистрации проходят.</td></tr>
+          <tr class="row-orange"><td><strong>Flash Call</strong></td><td class="tinytxt">Звонок-сброс. Кодом служат последние цифры номера входящего звонка: приложение считывает их само, на сайте пользователь вводит руками. Разговора нет — поэтому дёшево.</td><td class="tinytxt"><strong>≈ 0,3–0,7 ₽</strong></td><td class="tinytxt"><strong>Умирающий метод.</strong> Определители номера и антиспам-фильтры (в том числе у Яндекса и Т-Банка) режут роботизированные звонки. Растёт недозвон: метро, лифт, цоколь.</td></tr>
+          <tr class="row-green"><td><strong>Голосовой звонок</strong></td><td class="tinytxt">Робот звонит и диктует код вслух. Пользователь слушает и вводит.</td><td class="tinytxt"><strong>≈ 1,5–2 ₽</strong></td><td class="tinytxt">Дороже Flash Call, но проходит там, где звонок-сброс уже блокируют. Сейчас это рабочая замена.</td></tr>
+          <tr class="row-green"><td><strong>Call Me</strong></td><td class="tinytxt">Наоборот: пользователь сам звонит на показанный номер, система узнаёт его по определившемуся номеру и впускает.</td><td class="tinytxt"><strong>Дёшево</strong></td><td class="tinytxt">Непривычно пользователю, нужен аккуратный интерфейс. Зато антиспам-фильтры не мешают: звонит сам человек.</td></tr>
         </tbody>
       </table>
     </div>
 
-    <h4 class="font-bold mb-3">Провайдеры с открытыми тарифами</h4>
-    <div id="phoneProviders" class="grid md:grid-cols-2 gap-3 mb-6"></div>
+    <h3 style="margin-top:18px">Провайдеры с открытыми тарифами</h3>
+    <div id="phoneProviders" class="provs"></div>
 
-    <div class="rounded-2xl p-5 text-sm" style="background:rgba(220,38,38,.08);border:1px solid rgba(220,38,38,.35)">
-      <p class="font-bold mb-2" style="color:#dc2626">⚠️ Две вещи, о которых забывают</p>
-      <p class="mb-2" style="color:var(--text-secondary)"><strong>Не берите иностранного SMS-провайдера.</strong> Twilio, Vonage и подобные — это передача номеров ваших пользователей за границу. Вы закрыли вопрос по 149-ФЗ и тут же открыли новый по 152-ФЗ, про трансграничную передачу персональных данных. Российские провайдеры дешевле и спокойнее.</p>
-      <p style="color:var(--text-secondary)"><strong>Заложите время на регистрацию имени отправителя.</strong> Чтобы SMS приходили от «MYSHOP», а не с безликого номера, имя надо зарегистрировать у каждого оператора. Это заявление и ожидание. За день не делается — начинайте заранее.</p>
+    <div class="warnbox">
+      <p class="wt">⚠️ Три вещи, о которых забывают</p>
+      <p><strong>MAX — это тоже вход по номеру телефона, только удобнее.</strong> Пользователь MAX зарегистрирован по российскому номеру. Для вас это аналог SMS-входа, но без платы за каждое сообщение и без проблем с доставкой. Если аудитория пересекается — рассмотрите MAX ID вместо SMS-шлюза или рядом с ним.</p>
+      <p><strong>Telegram — нет.</strong> Telegram Login Widget выглядит как вход по номеру телефона, но авторизатором выступает иностранный мессенджер. Это ровно то, что запрещает закон. Если у вас на сайте осталась кнопка «Войти через Telegram» — уберите.</p>
+      <p><strong>Не берите иностранного SMS-провайдера.</strong> Twilio, Vonage и подобные — это передача номеров ваших пользователей за границу. Вы закрыли вопрос по 149-ФЗ и тут же открыли новый по 152-ФЗ, про трансграничную передачу персональных данных. Российские провайдеры дешевле и спокойнее.</p>
+      <p><strong>Заложите время на регистрацию имени отправителя.</strong> Чтобы SMS приходили от «MYSHOP», а не с безликого номера, имя надо зарегистрировать у каждого оператора. Это заявление и ожидание. За день не делается — начинайте заранее.</p>
     </div>
   </section>
 
-  <!-- HOW MANY -->
-  <section id="skolko" class="card rounded-3xl border-2 p-6 md:p-8 mt-6" style="border-color:var(--accent)">
-    <h3 class="text-xl font-bold mb-3 flex items-center gap-2">🤔 Сколько кнопок ставить?</h3>
-    <p class="text-sm mb-3" style="color:var(--text-secondary)">
-      Можно одну. Можно восемь — крупные порталы именно так и делают, и это не избыточность, а конверсия: человек жмёт привычную кнопку и не уходит с формы регистрации.
-    </p>
-    <p class="text-sm mb-3" style="color:var(--text-secondary)">
-      Одна-единственная кнопка — плохая идея. Провайдер может изменить условия API, закрыть консоль, поднять требования или просто упасть. Если это ваш единственный вход, сайт для пользователя перестал существовать. Вы уже проходили это с Google. Не повторяйте с VK.
-    </p>
-    <p class="text-sm mb-3" style="color:var(--text-secondary)">
-      <strong>Разумный минимум для обычного сайта:</strong> одна-две массовые кнопки (Яндекс ID, VK ID) плюс собственный локальный вход с паролем или passkey. Телефон держите запасным каналом, а не корнем аккаунта.
-    </p>
-    <p class="text-sm" style="color:var(--text-secondary)">
-      <strong>Госуслуги подключайте только там, где нужна юридически значимая личность:</strong> финансы, медицина, образование, подтверждение статуса. Для интернет-магазина, форума или SaaS это тяжёлый инструмент, и часть пользователей просто не захочет светить госаккаунт на коммерческом сайте.
-    </p>
+  <!-- СКОЛЬКО КНОПОК -->
+  <section id="skolko" class="box b-accent">
+    <h3>🤔 Сколько кнопок ставить?</h3>
+    <p>Можно одну. Можно восемь — крупные порталы именно так и делают, и это не избыточность, а конверсия: человек жмёт привычную кнопку и не уходит с формы регистрации.</p>
+    <p>Одна-единственная кнопка — плохая идея. Провайдер может изменить условия API, закрыть консоль, поднять требования или просто упасть. Если это ваш единственный вход, сайт для пользователя перестал существовать. Вы уже проходили это с Google. Не повторяйте с VK.</p>
+    <p><strong>Разумный минимум для обычного сайта:</strong> одна-две массовые кнопки (Яндекс ID, VK ID) плюс собственный локальный вход с паролем или passkey. Телефон держите запасным каналом, а не корнем аккаунта.</p>
+    <p><strong>Госуслуги подключайте только там, где нужна юридически значимая личность:</strong> финансы, медицина, образование, подтверждение статуса. Для интернет-магазина, форума или SaaS это тяжёлый инструмент, и часть пользователей просто не захочет светить госаккаунт на коммерческом сайте.</p>
   </section>
 
-  <!-- OLD ACCOUNTS -->
-  <section id="akkaunty" class="card rounded-3xl border-2 p-6 md:p-8 mt-6" style="border-color:#d97706">
-    <h3 class="text-xl font-bold mb-3 flex items-center gap-2">⚠️ Самое опасное — не новая кнопка, а старые аккаунты</h3>
-    <p class="text-sm mb-3" style="color:var(--text-secondary)">
-      Новый пользователь как-нибудь зарегистрируется. Проблема в тех, кто годами заходил к вам только через Google. У них заказы, подписки, баланс, история обращений. Вы убираете кнопку — и человек просто не может войти. Поддержка получает поток писем «где мои деньги и мои заказы».
-    </p>
-    <p class="text-sm" style="color:var(--text-secondary)">
-      Задача звучит не как «поставить новую кнопку», а как «привязать к существующему аккаунту новый способ входа, не потеряв user_id». Найдите тех, у кого иностранный провайдер — единственный вход, и дайте им сценарий перехода <em>до</em> того, как отключите кнопку. Разбор этой части — на вебинаре.
-    </p>
+  <!-- СТАРЫЕ АККАУНТЫ -->
+  <section id="akkaunty" class="box b-amber">
+    <h3>⚠️ Самое опасное — не новая кнопка, а старые аккаунты</h3>
+    <p>Новый пользователь как-нибудь зарегистрируется. Проблема в тех, кто годами заходил к вам только через Google. У них заказы, подписки, баланс, история обращений. Вы убираете кнопку — и человек просто не может войти. Поддержка получает поток писем «где мои деньги и мои заказы».</p>
+    <p>Задача звучит не как «поставить новую кнопку», а как «привязать к существующему аккаунту новый способ входа, не потеряв user_id». Найдите тех, у кого иностранный провайдер — единственный вход, и дайте им сценарий перехода <em>до</em> того, как отключите кнопку. Эту часть я разбирал на вебинаре 10 июля: за записью пишите в <a href="https://t.me/safebdv" target="_blank" rel="noopener">@safebdv</a>.</p>
   </section>
 
-  <!-- LEGEND -->
-  <div class="card rounded-3xl border p-6 md:p-8 mt-6">
-    <h3 class="text-lg font-bold mb-4">📖 Обозначения</h3>
-    <div class="mb-5">
-      <p class="font-semibold mb-2" style="color:var(--accent)">Что придётся сделать</p>
-      <ul class="text-sm space-y-1" style="color:var(--text-secondary)">
-        <li><span class="legend-val" style="color:#16a34a">🟢 Сам, без договора</span> Регистрируете приложение в консоли провайдера, берёте ключи, ставите кнопку. Ни бумаг, ни серверов.</li>
-        <li><span class="legend-val" style="color:#2563eb">🔵 Свой код</span> Посредника нет вообще, договор заключать не с кем. Но серверную логику пишете вы: регистрация ключа, проверка подписи, восстановление доступа.</li>
-        <li><span class="legend-val" style="color:#d97706">🟡 Нужен договор</span> Технически обычный OAuth, но сначала юридическое оформление: договор, анкета или письмо. Своих серверов не требуется.</li>
-        <li><span class="legend-val" style="color:#ea580c">🟠 Регламент и заявки</span> Госпроцедура: заявка, технологический портал, требования к защите информации, тестовый контур. Дольше обычного договора.</li>
-        <li><span class="legend-val" style="color:#dc2626">🔴 Свой сервер</span> Разворачиваете и администрируете отдельную систему у себя. Железо, обновления, дежурство. Почти всегда плюс договор и лицензия.</li>
-      </ul>
-      <p class="text-sm mt-3" style="color:var(--text-secondary)"><strong>Значки рядом с уровнем:</strong> 📄 нужен договор, анкета или заявка · 🖥️ нужен свой сервер · ☁️ есть облако, свой сервер не нужен</p>
-      <p class="text-xs mt-3 italic" style="color:var(--text-secondary)">Это оценка объёма работ, а не обещание сроков: реальные зависят от вашего стека и команды. — Д. Батранков</p>
-    </div>
-    <div>
-      <p class="font-semibold mb-2" style="color:var(--accent)">Значки</p>
-      <p class="text-sm" style="color:var(--text-secondary)">👥 массовая аудитория, десятки миллионов · 🔑 умеет passkey / WebAuthn · 🇷🇺 в реестре российского ПО · 💚 бесплатно · 💰 цена опубликована · ⚠️ цену вендор не публикует, узнавать по запросу</p>
-    </div>
-  </div>
+  <!-- ЛЕГЕНДА -->
+  <section class="box legend">
+    <h3>📖 Обозначения</h3>
+    <p style="font-weight:600;color:var(--ac);margin-bottom:8px">Что придётся сделать</p>
+    <ul>
+      <li><span class="legend-val" style="color:#16a34a">🟢 Сам, без договора</span> Регистрируете приложение в консоли провайдера, берёте ключи, ставите кнопку. Ни бумаг, ни серверов.</li>
+      <li><span class="legend-val" style="color:#2563eb">🔵 Свой код</span> Посредника нет вообще, договор заключать не с кем. Но серверную логику пишете вы: регистрация ключа, проверка подписи, восстановление доступа.</li>
+      <li><span class="legend-val" style="color:#d97706">🟡 Нужен договор</span> Технически обычный OAuth, но сначала юридическое оформление: договор, анкета или письмо. Своих серверов не требуется.</li>
+      <li><span class="legend-val" style="color:#ea580c">🟠 Регламент и заявки</span> Госпроцедура: заявка, технологический портал, требования к защите информации, тестовый контур. Дольше обычного договора.</li>
+      <li><span class="legend-val" style="color:#dc2626">🔴 Свой сервер</span> Разворачиваете и администрируете отдельную систему у себя. Железо, обновления, дежурство. Почти всегда плюс договор и лицензия.</li>
+    </ul>
+    <p style="margin-top:12px"><strong>Значки рядом с уровнем:</strong> 📄 нужен договор, анкета или заявка · 🖥️ нужен свой сервер · ☁️ есть облако, свой сервер не нужен</p>
+    <p style="margin-top:10px"><strong>Значки у названия:</strong> 👥 массовая аудитория, десятки миллионов · 🔑 умеет passkey / WebAuthn · 🇷🇺 в реестре российского ПО · 💚 бесплатно · 💰 цена опубликована · ⚠️ цену вендор не публикует</p>
+    <p style="margin-top:10px;font-style:italic;font-size:12px">Это оценка объёма работ, а не обещание сроков: реальные зависят от вашего стека и команды. — Д. Батранков</p>
+  </section>
 
-  <div class="text-center mt-10 mb-4 text-sm" style="color:var(--text-secondary)">
-    <p class="mb-2">Разборы законов и ИБ — Telegram-канал <a href="https://t.me/safebdv" target="_blank" class="font-semibold" style="color:var(--accent)">«Топ Кибербезопасности Батранкова»</a></p>
-    <p><a href="https://t.me/safebdv" target="_blank" class="font-bold" style="color:var(--accent)">✈️ @safebdv</a> · Денис Батранков · CISSP · 34 года в ИБ</p>
+  <div class="foot">
+    <p>Разборы законов и ИБ — Telegram-канал <a href="https://t.me/safebdv" target="_blank" rel="noopener">«Топ Кибербезопасности Батранкова»</a></p>
+    <p><a href="https://t.me/safebdv" target="_blank" rel="noopener">✈️ @safebdv</a> · Денис Батранков · CISSP · 34 года в ИБ</p>
   </div>
 </div>
 
 <script>
 (function(){
 'use strict';
-if(localStorage.getItem('darkMode')==='true') document.body.classList.add('dark');
+if(localStorage.getItem('darkMode')==='true') document.documentElement.classList.add('dark');
 
 const DATA = [
 /* ============ КНОПКИ «ВОЙТИ ЧЕРЕЗ…» ============ */
@@ -372,17 +446,17 @@ const DATA = [
  cons:['Продукт молодой, экосистема достраивается — часть функций в бете','Подключение только юрлицам и ИП, резидентам РФ, через верификацию организации на Госуслугах','Вокруг мессенджера идут споры о приватности — часть вашей аудитории откажется','Тариф на витрине не заявлен']},
 
 {group:'button', name:'Госуслуги (ЕСИА)', gives:'Юридически значимая личность',
- price:'Бесплатно', priceType:'free', diff:'reglament', contract:true, server:false, proto:'OpenID Connect / SAML', passkey:false, registry:true,
+ price:'Вход бесплатный, данные из Цифрового профиля — платные', priceType:'public', diff:'reglament', contract:true, server:false, proto:'OpenID Connect / SAML', passkey:false, registry:true,
  docs:'https://digital.gov.ru/documents/reglament-informaczionnogo-vzaimodejstviya-esia', site:'gosuslugi.ru',
- pros:['Прямо назван в законе — вопрос легитимности снят полностью','Личность подтверждена государством. Для финансов, медицины, образования и всего, где нужна юридически значимая идентификация, это единственный правильный вариант','Бесплатно','Данные подтягиваются автоматически — анкеты заполнять не надо'],
- cons:['Это не обычный OAuth-провайдер «для всех желающих». Регламент информационного взаимодействия, заявки, технологический портал, требования к защите информации и отдельный человек, который всё это ведёт','Для интернет-магазина, форума или небольшого SaaS — из пушки по воробьям','Часть пользователей принципиально не станет светить госаккаунт на коммерческом сайте','Многие покупают готовый модуль у подрядчика, потому что поддерживать самому дорого']},
+ pros:['Прямо назван в законе — вопрос легитимности снят полностью','Личность подтверждена государством. Для финансов, медицины, образования и всего, где нужна юридически значимая идентификация, это единственный правильный вариант','Сама кнопка «Войти через Госуслуги» бесплатна: аутентификация пользователя не тарифицируется','Данные подтягиваются автоматически — анкеты заполнять не надо'],
+ cons:['С ноября 2025 года запросы к Цифровому профилю (ФИО, СНИЛС, ИНН и другие данные из госреестров) стали платными для коммерческих организаций: 10 ₽ за первичный запрос, 4,93 ₽ за повторный (Постановление №1687). Сама кнопка входа бесплатна — платите только если тянете данные','Это не обычный OAuth-провайдер «для всех желающих». Регламент информационного взаимодействия, заявки, технологический портал, требования к защите информации и отдельный человек, который всё это ведёт','Для интернет-магазина, форума или небольшого SaaS — из пушки по воробьям','Часть пользователей принципиально не станет светить госаккаунт на коммерческом сайте','Многие покупают готовый модуль у подрядчика, потому что поддерживать самому дорого']},
 
 /* ============ СВОЙ ВХОД ============ */
 {group:'own', name:'⭐ Passkey / WebAuthn', gives:'Вход вообще без посредника',
  price:'Бесплатно', priceType:'free', diff:'code', contract:false, server:false, proto:'W3C WebAuthn / FIDO2', passkey:true, registry:false,
  docs:'https://www.w3.org/TR/webauthn-3/', site:'w3.org',
  pros:['Посредника нет вообще. Никто со стороны не видит, когда и куда заходят ваши пользователи','Открытый стандарт W3C — лицензировать нечего, платить некому','Вход по Face ID, Touch ID или отпечатку. Пользователю удобнее пароля, и забывать нечего','Криптографически устойчив к фишингу: ключ привязан к вашему домену, на поддельном сайте просто не сработает','Закон это допускает: собственная система входа владельца сайта — один из четырёх разрешённых способов'],
- cons:['Восстановление доступа, второй фактор, логи и ответственность за утечки теперь целиком ваши. Это та самая работа, от которой когда-то уходили к Google','Ключи часто синхронизируются через iCloud Keychain или менеджер паролей Google. Сама проверка входа остаётся у вас, но нюанс стоит проговорить с юристом — устоявшейся практики пока нет','Готовой кнопки нет. WebAuthn — это код на вашей стороне: регистрация ключа, проверка подписи, хранение credential ID. Библиотеки есть под все языки, но интегрировать надо руками','Не вся аудитория готова: нужен понятный запасной способ входа','Пользователь может потерять единственное устройство — продумайте сценарий восстановления заранее']},
+ cons:['Восстановление доступа, второй фактор, логи и ответственность за утечки теперь целиком ваши. Это та самая работа, от которой когда-то уходили к Google','Готовой кнопки нет. WebAuthn — это код на вашей стороне: регистрация ключа, проверка подписи, хранение credential ID. Библиотеки есть под все языки, но интегрировать надо руками','Ключи часто синхронизируются через iCloud Keychain или менеджер паролей Google. Сама проверка входа остаётся у вас, но нюанс стоит проговорить с юристом — устоявшейся практики пока нет','Не вся аудитория готова: нужен понятный запасной способ входа','Пользователь может потерять единственное устройство — продумайте сценарий восстановления заранее']},
 
 {group:'own', name:'Вход по номеру телефона', gives:'Быстрее всего закрывает требование закона', mass:true,
  price:'Плата за каждое SMS или звонок', priceType:'public', diff:'contract', contract:true, server:false, proto:'SMS / Flash Call / голосовой звонок', passkey:false, registry:false,
@@ -471,9 +545,9 @@ const DIFF = {
   onprem:   {label:'🔴 Свой сервер',        cls:'db-red',    row:'row-red'}
 };
 const GROUPS = [
-  {id:'button', title:'Кнопки «Войти через…» — чужая кнопка на вашем сайте', icon:'fa-right-to-bracket'},
-  {id:'own', title:'Свой вход — без внешнего провайдера', icon:'fa-key'},
-  {id:'idp', title:'Корпоративные IdP — своя серверная система входа', icon:'fa-building-shield'}
+  {id:'button', icon:'🔑', title:'Кнопки «Войти через…» — чужая кнопка на вашем сайте'},
+  {id:'own', icon:'🏠', title:'Свой вход — без внешнего провайдера'},
+  {id:'idp', icon:'🏢', title:'Корпоративные IdP — своя серверная система входа'}
 ];
 const TIP = {mass:'Массовая аудитория, десятки миллионов', passkey:'Умеет passkey / WebAuthn', registry:'В реестре российского ПО'};
 
@@ -502,50 +576,37 @@ function filtered(){
 function stats(n){
   const t=DATA.length;
   const c=[
-    {n:n+(n!==t?' / '+t:''), l:'Систем в списке', i:'fa-list-check'},
-    {n:DATA.filter(x=>x.priceType==='free').length, l:'💚 Бесплатных', i:'fa-hand-holding-dollar'},
-    {n:DATA.filter(x=>!x.contract).length, l:'📄 Без договора', i:'fa-file-signature'},
-    {n:DATA.filter(x=>x.mass).length, l:'👥 С массовой аудиторией', i:'fa-users'}
+    [n+(n!==t?' / '+t:''),'Систем в списке'],
+    [DATA.filter(x=>x.priceType==='free').length,'💚 Бесплатных'],
+    [DATA.filter(x=>!x.contract).length,'📄 Без договора'],
+    [DATA.filter(x=>x.mass).length,'👥 С массовой аудиторией']
   ];
   document.getElementById('statsBar').innerHTML = c.map(x=>
-    `<div class="card border rounded-2xl px-4 py-3 flex items-center gap-3">
-       <i class="fa-solid ${x.i} text-lg" style="color:var(--accent)"></i>
-       <div><div class="text-xl font-bold leading-none">${x.n}</div>
-       <div class="text-xs mt-1" style="color:var(--text-secondary)">${x.l}</div></div>
-     </div>`).join('');
-}
-
-function needs(x){
-  let s='';
-  if(x.contract) s+='<span class="db db-mute ml-1" title="Нужен договор, анкета или заявка">📄</span>';
-  if(x.server)   s+='<span class="db db-mute ml-1" title="Нужен свой сервер: развернуть и администрировать">🖥️</span>';
-  else if(x.cloud) s+='<span class="db db-mute ml-1" title="Есть облако — свой сервер не нужен">☁️</span>';
-  return s;
+    `<div class="stat"><b>${x[0]}</b><span>${x[1]}</span></div>`).join('');
 }
 
 function chips(x){
   let s='';
-  if(x.mass) s+=`<span class="db db-mute ml-1" title="${TIP.mass}">👥</span>`;
-  if(x.passkey) s+=`<span class="db db-mute ml-1" title="${TIP.passkey}">🔑</span>`;
-  if(x.registry) s+=`<span class="db db-mute ml-1" title="${TIP.registry}">🇷🇺</span>`;
+  if(x.mass) s+=`<span class="db db-mute" title="${TIP.mass}">👥</span> `;
+  if(x.passkey) s+=`<span class="db db-mute" title="${TIP.passkey}">🔑</span> `;
+  if(x.registry) s+=`<span class="db db-mute" title="${TIP.registry}">🇷🇺</span> `;
+  return s?' '+s:'';
+}
+function needs(x){
+  let s='';
+  if(x.contract) s+=' <span class="db db-mute" title="Нужен договор, анкета или заявка">📄</span>';
+  if(x.server)   s+=' <span class="db db-mute" title="Нужен свой сервер: развернуть и администрировать">🖥️</span>';
+  else if(x.cloud) s+=' <span class="db db-mute" title="Есть облако — свой сервер не нужен">☁️</span>';
   return s;
 }
 
 function detail(x){
-  return `<div class="grid md:grid-cols-2 gap-6 mb-4">
-    <div>
-      <h4 class="font-bold mb-2 text-sm" style="color:#16a34a">Плюсы</h4>
-      <ul class="pro text-sm" style="color:var(--text-secondary)">${x.pros.map(p=>`<li>${esc(p)}</li>`).join('')}</ul>
-    </div>
-    <div>
-      <h4 class="font-bold mb-2 text-sm" style="color:#dc2626">Минусы</h4>
-      <ul class="con text-sm" style="color:var(--text-secondary)">${x.cons.map(c=>`<li>${esc(c)}</li>`).join('')}</ul>
-    </div>
+  return `<div class="pm">
+    <div><h4 style="color:#16a34a">Плюсы</h4><ul class="pro">${x.pros.map(p=>`<li>${esc(p)}</li>`).join('')}</ul></div>
+    <div><h4 style="color:#dc2626">Минусы</h4><ul class="con">${x.cons.map(c=>`<li>${esc(c)}</li>`).join('')}</ul></div>
   </div>
-  <div class="text-xs pt-3 border-t" style="color:var(--text-secondary);border-color:var(--border-color)">
-    Протокол: <span class="font-mono">${esc(x.proto)}</span>${x.registry?' · в реестре российского ПО':''}${x.passkey?' · умеет passkey':''} ·
-    <a href="${x.docs}" target="_blank" rel="noopener" class="doc-link">📖 Документация для разработчика →</a>
-  </div>`;
+  <div class="meta">Протокол: <span class="mono">${esc(x.proto)}</span>${x.registry?' · в реестре российского ПО':''}${x.passkey?' · умеет passkey':''} ·
+    <a href="${x.docs}" target="_blank" rel="noopener" class="doc-link">📖 Документация для разработчика →</a></div>`;
 }
 
 function render(){
@@ -553,98 +614,89 @@ function render(){
   stats(list.length);
   const box=document.getElementById('catalog');
   if(!list.length){
-    box.innerHTML='<div class="card rounded-3xl border p-12 text-center" style="color:var(--text-secondary)">Под эти условия ничего не подходит. Снимите пару фильтров.</div>';
+    box.innerHTML='<div class="box" style="text-align:center;color:var(--tx2)">Под эти условия ничего не подходит. Снимите пару фильтров.</div>';
     sync(); return;
   }
   box.innerHTML = GROUPS.map(g=>{
     const items=list.filter(x=>x.group===g.id);
     if(!items.length) return '';
-    return `<div class="card rounded-3xl border p-5 md:p-6">
-      <div class="flex items-center justify-between gap-3 accordion-header open">
-        <h2 class="text-base md:text-lg font-bold flex items-center gap-3">
-          <i class="fa-solid ${g.icon}" style="color:var(--accent)"></i>${g.title}
-          <span class="text-sm font-normal" style="color:var(--text-secondary)">(${items.length})</span>
-        </h2>
-        <i class="fa-solid fa-chevron-down arrow text-lg"></i>
+    return `<div class="grp">
+      <div class="acc-h open" role="button" tabindex="0">
+        <h2>${g.icon} ${g.title} <small>(${items.length})</small></h2>
+        <span class="ar">▼</span>
       </div>
-      <div class="mt-4 accordion-body open">
-        <div class="table-wrap overflow-x-auto rounded-xl border" style="border-color:var(--border-color)">
-          <table class="w-full min-w-[880px] text-sm border-collapse">
-            <thead><tr>
-              <th class="p-3 text-left">Система</th><th class="p-3 text-left">Что даёт</th>
-              <th class="p-3 text-left">Цена</th><th class="p-3 text-left">Подключение</th><th class="p-3 text-left">Доки</th>
-            </tr></thead>
+      <div class="acc-b open">
+        <div class="tblwrap">
+          <table>
+            <thead><tr><th>Система</th><th>Что даёт</th><th>Цена</th><th>Что делать</th><th>Доки</th></tr></thead>
             <tbody>${items.map(x=>{
               const d=DIFF[x.diff];
-              return `<tr class="main-row border-b ${d.row}">
-                <td class="p-3 font-bold"><img src="${favicon(x.site)}" alt="" class="w-4 h-4 rounded-sm inline-block mx-1 align-middle" loading="lazy" onerror="this.style.display='none'">${esc(x.name)}${chips(x)}</td>
-                <td class="p-3 text-xs">${esc(x.gives)}</td>
-                <td class="p-3 text-xs font-semibold${x.priceType==='request'?' warn':''}">${pIcon(x.priceType)} ${esc(x.price)}</td>
-                <td class="p-3"><span class="db ${d.cls}">${d.label}</span>${needs(x)}</td>
-                <td class="p-3"><a href="${x.docs}" target="_blank" rel="noopener" class="doc-link text-xs" onclick="event.stopPropagation()">📖 Открыть</a></td>
+              return `<tr class="main-row ${d.row}">
+                <td style="font-weight:700"><img class="fav" src="${favicon(x.site)}" alt="" width="16" height="16" loading="lazy" decoding="async" onerror="this.style.display='none'">${esc(x.name)}${chips(x)}</td>
+                <td class="tinytxt">${esc(x.gives)}</td>
+                <td class="money${x.priceType==='request'?' warn':''}">${pIcon(x.priceType)} ${esc(x.price)}</td>
+                <td><span class="db ${d.cls}">${d.label}</span>${needs(x)}</td>
+                <td><a href="${x.docs}" target="_blank" rel="noopener" class="doc-link tinytxt" onclick="event.stopPropagation()">📖 Открыть</a></td>
               </tr>
-              <tr class="expandable"><td class="p-5 border-b" colspan="5">${detail(x)}</td></tr>`;
+              <tr class="expandable"><td colspan="5" style="padding:18px">${detail(x)}</td></tr>`;
             }).join('')}</tbody>
           </table>
         </div>
-        <div class="card-list">${items.map(x=>{
+        <div class="cards">${items.map(x=>{
           const d=DIFF[x.diff];
-          return `<div class="card-item ${d.row}">
-            <div class="font-bold mb-1">${esc(x.name)}${chips(x)}</div>
-            <div class="text-xs mb-2" style="color:var(--text-secondary)">${esc(x.gives)}</div>
-            <div class="flex flex-wrap items-center gap-2 mb-1">
-              <span class="db ${d.cls}">${d.label}</span>${needs(x)}
-              <span class="text-xs font-semibold${x.priceType==='request'?' warn':''}">${pIcon(x.priceType)} ${esc(x.price)}</span>
-            </div>
-            <div class="text-xs mt-2" style="color:var(--accent)">Нажмите, чтобы увидеть плюсы и минусы ▾</div>
-            <div class="card-detail">${detail(x)}</div>
+          return `<div class="ci ${d.row}">
+            <div class="nm">${esc(x.name)}${chips(x)}</div>
+            <div class="gv">${esc(x.gives)}</div>
+            <div class="bl"><span class="db ${d.cls}">${d.label}</span>${needs(x)}</div>
+            <div class="bl money${x.priceType==='request'?' warn':''}">${pIcon(x.priceType)} ${esc(x.price)}</div>
+            <div class="hint">Нажмите — плюсы и минусы ▾</div>
+            <div class="cd">${detail(x)}</div>
           </div>`;
         }).join('')}</div>
       </div>
     </div>`;
   }).join('');
 
-  box.querySelectorAll('.accordion-header').forEach(h=>h.addEventListener('click',function(){
-    this.nextElementSibling.classList.toggle('open'); this.classList.toggle('open');
-  }));
+  box.querySelectorAll('.acc-h').forEach(h=>{
+    const t=()=>{h.nextElementSibling.classList.toggle('open');h.classList.toggle('open')};
+    h.addEventListener('click',t);
+    h.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();t()}});
+  });
   box.querySelectorAll('.main-row').forEach(r=>r.addEventListener('click',()=>{
     r.classList.toggle('open'); r.nextElementSibling.classList.toggle('expanded-row');
   }));
-  box.querySelectorAll('.card-item').forEach(c=>c.addEventListener('click',()=>c.classList.toggle('open')));
+  box.querySelectorAll('.ci').forEach(c=>c.addEventListener('click',()=>c.classList.toggle('open')));
   sync();
 }
 
 function sync(){
-  document.querySelectorAll('#filterButtons .filter-btn').forEach(b=>b.classList.toggle('active', b.dataset.filter===state.group));
-  document.querySelectorAll('.filter-special').forEach(b=>b.classList.toggle('active', b.dataset.special===state.special));
+  document.querySelectorAll('#filterButtons .fb').forEach(b=>b.classList.toggle('active', b.dataset.filter===state.group));
+  document.querySelectorAll('.fs').forEach(b=>b.classList.toggle('active', b.dataset.special===state.special));
 }
 
 window.resetAll=function(){ state.group='all'; state.special=null; state.search=''; document.getElementById('searchInput').value=''; render(); };
 
 document.getElementById('filterButtons').addEventListener('click',e=>{
-  const b=e.target.closest('.filter-btn'); if(b){ state.group=b.dataset.filter; render(); }
+  const b=e.target.closest('.fb'); if(b){ state.group=b.dataset.filter; render(); }
 });
 document.getElementById('extraFilters').addEventListener('click',e=>{
-  const b=e.target.closest('.filter-special'); if(b){ state.special = state.special===b.dataset.special ? null : b.dataset.special; render(); }
+  const b=e.target.closest('.fs'); if(b){ state.special = state.special===b.dataset.special ? null : b.dataset.special; render(); }
 });
 let t; document.getElementById('searchInput').addEventListener('input',function(){
   clearTimeout(t); const v=this.value; t=setTimeout(()=>{ state.search=v.trim(); render(); },250);
 });
 document.getElementById('themeBtn').addEventListener('click',function(){
-  localStorage.setItem('darkMode', document.body.classList.toggle('dark'));
-  const i=this.querySelector('i'); i.classList.toggle('fa-moon'); i.classList.toggle('fa-sun');
+  localStorage.setItem('darkMode', document.documentElement.classList.toggle('dark'));
 });
-if(document.body.classList.contains('dark')){ const i=document.querySelector('#themeBtn i'); i.classList.remove('fa-moon'); i.classList.add('fa-sun'); }
 
-document.getElementById('phoneProviders').innerHTML = PHONE.map(p=>
-  `<div class="rounded-2xl border p-4" style="border-color:var(--border-color)">
-     <div class="font-bold mb-1 flex items-center gap-2">
-       <img src="${favicon(new URL(p.u).hostname.replace(/^www\./,''))}" alt="" class="w-4 h-4 rounded-sm" loading="lazy" onerror="this.style.display='none'">${esc(p.n)}
-     </div>
-     <div class="text-xs mb-2" style="color:var(--text-secondary)">${esc(p.d)}</div>
-     <div class="text-xs font-semibold mb-2">💰 ${esc(p.p)}</div>
-     <a href="${p.u}" target="_blank" rel="noopener" class="doc-link text-xs">Тарифы →</a>
-   </div>`).join('');
+document.getElementById('phoneProviders').innerHTML = PHONE.map(p=>{
+  let host=''; try{host=new URL(p.u).hostname.replace(/^www\./,'')}catch(e){}
+  return `<div class="prov">
+     <div class="pn"><img class="fav" src="${favicon(host)}" alt="" width="16" height="16" loading="lazy" decoding="async" onerror="this.style.display='none'">${esc(p.n)}</div>
+     <div class="pd">${esc(p.d)}</div>
+     <div class="pp">💰 ${esc(p.p)}</div>
+     <a href="${p.u}" target="_blank" rel="noopener" class="doc-link tinytxt">Тарифы →</a>
+   </div>`}).join('');
 
 window.exportData=function(){
   const k=['name','group','gives','price','diff','proto','passkey','registry','docs'];
