@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Матрица краулеров — 32 ИИ-бота и поисковых робота | Академия Батранкова</title>
+<title>Матрица краулеров — 35 ИИ-ботов и поисковых роботов | Академия Батранкова</title>
 <meta name="author" content="Денис Батранков, Академия Батранкова" />
-<meta name="description" content="Сводная таблица 32 веб-краулеров: ИИ-сборщики датасетов (AI Crawlers), ИИ-ассистенты и поисковые роботы. Рекомендации по блокировке в WAF Cloudflare и Nginx." />
+<meta name="description" content="Сводная таблица 35 веб-краулеров: ИИ-сборщики датасетов (AI Crawlers), ИИ-ассистенты и поисковые роботы. Рекомендации по блокировке в WAF Cloudflare и Nginx." />
 <meta name="keywords" content="ClaudeBot, GPTBot, Bytespider, PerplexityBot, Applebot, Googlebot, YandexBot, блокировка ботов, AI Crawler, Cloudflare WAF, Nginx, Fail2ban, Денис Батранков" />
 <meta name="theme-color" content="#4f46e5" />
 <meta name="color-scheme" content="light dark" />
@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Академия Батранкова" />
 <meta property="og:locale" content="ru_RU" />
 <meta property="og:title" content="Матрица веб-краулеров: кого пускать и кого блокировать" />
-<meta property="og:description" content="32 юзер-агента: ИИ-сборщики датасетов, AI-ассистенты и поисковики. Вердикт по каждому и готовые правила для Cloudflare WAF и Nginx в один клик." />
+<meta property="og:description" content="35 юзер-агентов: ИИ-сборщики датасетов, AI-ассистенты и поисковики. Вердикт по каждому и готовые правила для Cloudflare WAF и Nginx в один клик." />
 <meta property="og:url" content="https://tables.batrankov.ru/crawler-matrix.html" />
 <meta property="og:image" content="https://tables.batrankov.ru/og-crawler-matrix.png" />
 <meta property="og:image:width" content="1200" />
@@ -21,7 +21,7 @@
 <meta property="og:image:alt" content="Матрица веб-краулеров — таблица вердиктов: блокировать, лимитировать, разрешить" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Матрица веб-краулеров: кого пускать и кого блокировать" />
-<meta name="twitter:description" content="32 юзер-агента с вердиктами и генератором правил для Cloudflare WAF и Nginx." />
+<meta name="twitter:description" content="35 юзер-агентов с вердиктами и генератором правил для Cloudflare WAF и Nginx." />
 <meta name="twitter:image" content="https://tables.batrankov.ru/og-crawler-matrix.png" />
 <style>
 :root {
@@ -143,6 +143,11 @@ tr[data-badge="amber"] td:first-child { border-left-color: var(--amber-tx); }
 .cr-name::after { content: '📋'; font-size: 12px; opacity: 0; transition: opacity 0.2s; }
 .cr-name:hover::after { opacity: 0.7; }
 .cr-owner { font-size: 12.5px; color: var(--tx2); font-weight: 500; }
+.ua-row { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+.ua-chip { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 11.5px; background: var(--bg); border: 1px solid var(--bd); border-radius: 6px; padding: 2px 7px; color: var(--tx2); cursor: pointer; transition: all 0.15s; }
+.ua-chip:hover { color: var(--ac); border-color: var(--ac); }
+.ua-chip.noua { cursor: default; font-style: italic; }
+.ua-chip.noua:hover { color: var(--tx2); border-color: var(--bd); }
 .cr-cat { display: inline-block; font-size: 12px; font-weight: 600; background: var(--th); border: 1px solid var(--bd); padding: 2px 8px; border-radius: 8px; color: var(--tx2); }
 .cr-desc { color: var(--tx2); font-size: 13.5px; line-height: 1.4; }
 .cr-rec { font-weight: 600; font-size: 13.5px; color: var(--tx); }
@@ -187,7 +192,7 @@ tr[data-badge="amber"] td:first-child { border-left-color: var(--amber-tx); }
 
 <div class="wrap">
   <div class="hero">
-    <div class="live"><b></b>Обновлено в июле 2026 · 32 юзер-агента</div>
+    <div class="live"><b></b>Обновлено в июле 2026 · 35 юзер-агентов</div>
     <h1>Матрица веб-краулеров: кого пускать и кого блокировать</h1>
     <p class="lead">Сводный реестр ИИ-пауков, ассистентов реального времени и поисковых систем. Кликните по названию бота, чтобы скопировать его User-Agent, или воспользуйтесь генератором правил для WAF.</p>
   </div>
@@ -209,11 +214,11 @@ tr[data-badge="amber"] td:first-child { border-left-color: var(--amber-tx); }
 
   <div class="srch-bar">
     <div class="srch-input-wrap">
-      <input type="text" id="searchInput" aria-label="Поиск по таблице" placeholder="🔍 Поиск по 32 краулерам (клавиша [/] для быстрого фокуса)...">
+      <input type="text" id="searchInput" aria-label="Поиск по таблице" placeholder="🔍 Поиск по 35 краулерам (клавиша [/] для быстрого фокуса)...">
       <button id="searchClear" aria-label="Очистить поиск">✕</button>
     </div>
     <div class="filter-tags">
-      <button class="ftag active" data-filter="all">Все (32)</button>
+      <button class="ftag active" data-filter="all">Все (35)</button>
       <button class="ftag" data-filter="Блокировать">🔴 Блокировать (14)</button>
       <button class="ftag" data-filter="Лимитировать">🟠 Лимитировать (8)</button>
       <button class="ftag" data-filter="Разрешить">🟢 Разрешить (5)</button>
@@ -262,10 +267,10 @@ tr[data-badge="amber"] td:first-child { border-left-color: var(--amber-tx); }
     themeBtn.textContent = isDark ? '☀️' : '🌙';
   });
 
-  // Data Source (32 Crawlers)
+  // Data Source (35 Crawlers)
   const DATA = [
-    { group: 'crawler', name: 'ClaudeBot', owner: 'Anthropic', cat: 'AI Crawler', desc: 'Скачивает весь контент сайта целиком для обучения будущих поколений языковых моделей Claude.', verdict: 'Блокировать', badge: 'red', rec: 'Закрывать в WAF (категория AI Crawler).' },
-    { group: 'crawler', name: 'GPTBot', owner: 'OpenAI', cat: 'AI Crawler', desc: 'Выкачивает тексты, статьи и базы знаний для обучения будущих версий моделей GPT.', verdict: 'Блокировать', badge: 'red', rec: 'Закрывать в WAF (категория AI Crawler).' },
+    { group: 'crawler', name: 'ClaudeBot', owner: 'Anthropic', cat: 'AI Crawler', desc: 'Скачивает весь контент сайта целиком для обучения будущих поколений языковых моделей Claude.', verdict: 'Блокировать', badge: 'red', rec: 'Блокировать, если контент — ваш продукт: в модель он уйдёт без ссылки и имени. Пускать осознанно, если ставка — чтобы Claude знал вас и ваши тексты.' },
+    { group: 'crawler', name: 'GPTBot', owner: 'OpenAI', cat: 'AI Crawler', desc: 'Выкачивает тексты, статьи и базы знаний для обучения будущих версий моделей GPT.', verdict: 'Блокировать', badge: 'red', rec: 'Блокировать, если контент — ваш продукт. Пускать осознанно, если ставка — узнаваемость в ответах ChatGPT.' },
     { group: 'crawler', name: 'Google-Extended', owner: 'Google', cat: 'AI Crawler', desc: 'Токен управления сбором данных под обучение Gemini. Собственного User-Agent не имеет — использует инфраструктуру Googlebot. На SEO не влияет.', verdict: 'Блокировать', badge: 'red', noUA: true, rec: 'Отключается ТОЛЬКО через robots.txt (User-agent: Google-Extended, Disallow: /). Блокировка в WAF бесполезна.' },
     { group: 'crawler', name: 'Bytespider / TikTok Spider', owner: 'ByteDance', cat: 'AI Crawler', desc: 'Агрессивно парсит данные для китайских ИИ-алгоритмов и рекомендательной ленты TikTok. Игнорирует robots.txt и Crawl-delay.', verdict: 'Блокировать', badge: 'red', rec: 'Блокировать по ASN (ByteDance) или сигнатуре.' },
     { group: 'crawler', name: 'CCBot', owner: 'Common Crawl', cat: 'AI Crawler', desc: 'Собирает открытый веб в гигантский публичный датасет, который затем бесплатно используют все ИИ-компании мира.', verdict: 'Блокировать', badge: 'red', rec: 'Блокировать в WAF или через правила сервера Nginx.' },
@@ -280,24 +285,27 @@ tr[data-badge="amber"] td:first-child { border-left-color: var(--amber-tx); }
     { group: 'crawler', name: 'PetalBot', owner: 'Huawei', cat: 'AI Crawler / Search', desc: 'Парсит контент для поисковых систем, мобильных сервисов и ИИ-движков компании Huawei.', verdict: 'Блокировать', badge: 'red', rec: 'Блокировать, если не ориентируетесь на смартфоны без Google-сервисов.' },
     { group: 'crawler', name: 'Omgilibot', owner: 'Webhose / SimilarWeb', cat: 'AI Crawler', ua: 'omgili', desc: 'Массовый скрапер дискуссий, новостей и форумов, данные из которого потом покупают ИИ-компании.', verdict: 'Блокировать', badge: 'red', rec: 'Один из старейших агрессивных парсеров — блокировать обязательно.' },
 
-    { group: 'assistant', name: 'PerplexityBot / Perplexity-User', owner: 'Perplexity AI', cat: 'AI Search / Assistant', desc: 'PerplexityBot индексирует сайт для поиска Perplexity, Perplexity-User приходит по живому запросу пользователя. Пользователи часто кликают на источники.', verdict: 'Лимитировать', badge: 'amber', rec: 'Не банить! Rate limit 60 req/min — растущий канал переходов (GEO). Учтите: Cloudflare ловила Perplexity на stealth-краулинге в обход robots.txt, лимит по UA видит только официальный трафик.' },
-    { group: 'assistant', name: 'OAI-SearchBot / ChatGPT-User', owner: 'OpenAI', cat: 'AI Search / Assistant', desc: 'OAI-SearchBot индексирует сайт для поиска ChatGPT. ChatGPT-User — маркер живого запроса пользователя, а не бот обучения.', verdict: 'Лимитировать', badge: 'amber', rec: 'Не банить! Rate limit 60 req/min, иначе выпадете из ответов ChatGPT и потеряете читателей.' },
+    { group: 'assistant', name: 'PerplexityBot / Perplexity-User', owner: 'Perplexity AI', cat: 'AI Search / Assistant', ua: 'PerplexityBot|Perplexity-User', desc: 'PerplexityBot индексирует сайт для поиска Perplexity, Perplexity-User приходит по живому запросу пользователя. Пользователи часто кликают на источники.', verdict: 'Лимитировать', badge: 'amber', rec: 'Не банить! Rate limit 60 req/min — растущий канал переходов (GEO). Учтите: Cloudflare ловила Perplexity на stealth-краулинге в обход robots.txt, лимит по UA видит только официальный трафик.' },
+    { group: 'assistant', name: 'OAI-SearchBot / ChatGPT-User', owner: 'OpenAI', cat: 'AI Search / Assistant', ua: 'OAI-SearchBot|ChatGPT-User', desc: 'OAI-SearchBot индексирует сайт для поиска ChatGPT. ChatGPT-User — маркер живого запроса пользователя, а не бот обучения.', verdict: 'Лимитировать', badge: 'amber', rec: 'Не банить! Rate limit 60 req/min, иначе выпадете из ответов ChatGPT и потеряете читателей.' },
     { group: 'assistant', name: 'Claude-User', owner: 'Anthropic', cat: 'AI Assistant', desc: 'Приходит по команде живого пользователя в чате Claude — прочитать страницу по ссылке или найти свежий ответ.', verdict: 'Лимитировать', badge: 'amber', rec: 'Не банить: за запросом стоит реальный человек. Rate limit 60 req/min.' },
     { group: 'assistant', name: 'Claude-SearchBot', owner: 'Anthropic', cat: 'AI Search', desc: 'Индексирует сайт для поиска внутри ассистента Claude — аналог поискового индекса, но для ИИ-ответов.', verdict: 'Лимитировать', badge: 'amber', rec: 'Лимитировать, если хотите попадать в ответы Claude со ссылкой на источник.' },
     { group: 'assistant', name: 'MistralAI-User', owner: 'Mistral', cat: 'AI Assistant', desc: 'Прямой поиск от имени чат-бота Le Chat (Mistral) по живому запросу пользователя в реальном времени.', verdict: 'Лимитировать', badge: 'amber', rec: 'Лимитировать по частоте, банить только при аномальной нагрузке.' },
     { group: 'assistant', name: 'Manus Bot', owner: 'Manus AI', cat: 'AI Assistant', desc: 'Автономный ИИ-агент, который выполняет практические задачи пользователя, парся страницы вашего сайта.', verdict: 'Лимитировать', badge: 'amber', rec: 'Rate limit + JS-челлендж. Банить, если игнорирует лимиты.' },
     { group: 'assistant', name: 'DuckAssistBot', owner: 'DuckDuckGo', cat: 'AI Assistant', desc: 'Ассистент DuckDuckGo: парсит сайты для генерации ответов в поиске со ссылкой на источник.', verdict: 'Лимитировать', badge: 'amber', rec: 'Не банить, лимитировать по частоте — приводит аудиторию DuckDuckGo.' },
-    { group: 'assistant', name: 'Meta-ExternalFetcher', owner: 'Meta', cat: 'AI Assistant', desc: 'Переходит по ссылкам, которые пользователи отправили в чаты WhatsApp/Instagram и Meta AI.', verdict: 'Лимитировать', badge: 'amber', rec: 'Полная блокировка сломает превью ваших ссылок в WhatsApp. Только rate limit.' },
-    { group: 'assistant', name: 'Applebot / Applebot-Extended', owner: 'Apple', cat: 'AI Search', desc: 'Applebot индексирует сайты для Siri и Spotlight. Applebot-Extended — токен в robots.txt, запрещающий использовать данные для обучения Apple Intelligence.', verdict: 'Проверять', badge: 'amber', rec: 'Applebot оставлять ради трафика Apple. Обучение отключать строкой Applebot-Extended в robots.txt.' },
+    { group: 'assistant', name: 'Meta-ExternalFetcher', owner: 'Meta', cat: 'AI Assistant', ua: 'meta-externalfetcher', desc: 'Переходит по ссылкам, которые пользователи отправили в чаты WhatsApp/Instagram и Meta AI.', verdict: 'Лимитировать', badge: 'amber', rec: 'Полная блокировка сломает превью ваших ссылок в WhatsApp. Только rate limit.' },
+    { group: 'assistant', name: 'Applebot / Applebot-Extended', owner: 'Apple', cat: 'AI Search', ua: 'Applebot', desc: 'Applebot индексирует сайты для Siri и Spotlight. Applebot-Extended — токен в robots.txt, запрещающий использовать данные для обучения Apple Intelligence.', verdict: 'Проверять', badge: 'amber', rec: 'Applebot оставлять ради трафика Apple. Обучение отключать строкой Applebot-Extended в robots.txt.' },
 
     { group: 'search', name: 'Googlebot', owner: 'Google', cat: 'Search Engine Crawler', desc: 'Индексирует страницы для классического поиска Google. Основной источник органического трафика.', verdict: 'Разрешить', badge: 'green', rec: 'Оставлять обязательно ради поискового трафика (SEO). Проверять rDNS!' },
     { group: 'search', name: 'YandexBot', owner: 'Yandex', cat: 'Search Engine Crawler', desc: 'Главный индексатор Яндекса. Критически важен для получения поискового трафика в рунете.', verdict: 'Разрешить', badge: 'green', rec: 'Оставлять обязательно для RU-аудитории. Проверять подлинность IP.' },
-    { group: 'search', name: 'BingBot', owner: 'Microsoft', cat: 'Search Engine Crawler', desc: 'Индексирует страницы для поисковой системы Bing и партнёров (Yahoo, DuckDuckGo). Индекс Bing используют и многие ИИ-поисковики.', verdict: 'Разрешить', badge: 'green', rec: 'Оставлять для сохранения SEO-позиций и видимости в ИИ-поиске.' },
-    { group: 'search', name: 'archive.org_bot', owner: 'Internet Archive', cat: 'Archiver', desc: 'Сохраняет исторические копии веб-страниц в публичную библиотеку Веб-архива (Wayback Machine).', verdict: 'Разрешить', badge: 'green', rec: 'Оставлять для цифровой истории, если нет паранойи.' },
-    { group: 'search', name: 'Arquivo Web Crawler', owner: 'Arquivo', cat: 'Archiver', desc: 'Португальский веб-архив, сохраняющий историю сайтов аналогично Wayback Machine.', verdict: 'Разрешить', badge: 'green', rec: 'Безобидный архиватор, можно оставить.' },
+    { group: 'search', name: 'BingBot', owner: 'Microsoft', cat: 'Search Engine Crawler', ua: 'bingbot', desc: 'Индексирует страницы для поисковой системы Bing и партнёров (Yahoo, DuckDuckGo). Индекс Bing используют и многие ИИ-поисковики.', verdict: 'Разрешить', badge: 'green', rec: 'Оставлять для сохранения SEO-позиций и видимости в ИИ-поиске.' },
+    { group: 'search', name: 'archive.org_bot', owner: 'Internet Archive', cat: 'Archiver', desc: 'Сохраняет копии страниц в Wayback Machine. Снимки архива принимаются судами как доказательство того, что информация была опубликована.', verdict: 'Блокировать', badge: 'red', rec: 'Блокировать, если управляете юридическими рисками: нет снимка — нечего предъявить. UA-блок останавливает только новые обходы: старые снимки удаляются отдельным запросом в Internet Archive, а ручной Save Page Now ходит другими фетчерами.' },
+    { group: 'search', name: 'Arquivo Web Crawler', owner: 'Arquivo', cat: 'Archiver', ua: 'arquivo-web-crawler', desc: 'Португальский веб-архив, сохраняющий историю сайтов аналогично Wayback Machine.', verdict: 'Разрешить', badge: 'green', rec: 'Безобидный архиватор, можно оставить.' },
     { group: 'search', name: 'Baiduspider', owner: 'Baidu', cat: 'Search Engine Crawler', ua: 'Baiduspider', desc: 'Крупнейший китайский поисковый робот. Часто создает фоновую нагрузку, не принося полезной аудитории.', verdict: 'Проверять', badge: 'amber', rec: 'Блокировать, если ваш бизнес не рассчитан на аудиторию из Китая.' },
     { group: 'search', name: 'Terracotta Bot', owner: 'Ceramic', cat: 'Search Engine Crawler', desc: 'Поисковый робот для децентрализованных сетей данных (Ceramic Network).', verdict: 'Проверять', badge: 'amber', rec: 'Редкий бот, блокировать при высокой нагрузке.' },
-    { group: 'search', name: 'AhrefsBot / SemrushBot', owner: 'SEO Tools', cat: 'SEO Crawler', ua: 'AhrefsBot|SemrushBot', desc: 'Боты популярных SEO-сервисов. Выкачивают гигантские объемы данных для анализа ссылочного профиля.', verdict: 'Проверять', badge: 'amber', rec: 'Если вы не SEO-специалист, анализирующий свой сайт — блокируйте, они сильно грузят сервер.' }
+    { group: 'search', name: 'AhrefsBot', owner: 'Ahrefs', cat: 'SEO Crawler', ua: 'AhrefsBot', desc: 'Один из самых активных краулеров мира: строит индекс обратных ссылок Ahrefs. Людей не приводит, зато кормит отчёты ваших конкурентов.', verdict: 'Проверять', badge: 'amber', rec: 'Пользуетесь Ahrefs для своих аудитов — оставляйте. Нет — закрывайте в robots.txt, он его соблюдает.' },
+    { group: 'search', name: 'SemrushBot', owner: 'Semrush', cat: 'SEO Crawler', ua: 'SemrushBot', desc: 'Собирает ссылки, позиции и данные аудита для SEO-платформы Semrush. По активности сравним с AhrefsBot.', verdict: 'Проверять', badge: 'amber', rec: 'Та же логика: свой инструмент — оставляйте, чужой — блокируйте через robots.txt.' },
+    { group: 'search', name: 'MJ12bot', owner: 'Majestic', cat: 'SEO Crawler', ua: 'MJ12bot', desc: 'Распределённый краулер ссылочного индекса Majestic. Ходит с тысяч IP обычных пользователей, из-за чего выглядит как атака.', verdict: 'Проверять', badge: 'amber', rec: 'Robots.txt соблюдает, но медленно. Не пользуетесь Majestic — блокируйте по User-Agent, по IP бесполезно.' },
+    { group: 'search', name: 'DotBot', owner: 'Moz', cat: 'SEO Crawler', ua: 'DotBot', desc: 'Краулер ссылочного индекса Moz (Domain Authority). Умеренно активен, robots.txt уважает.', verdict: 'Проверять', badge: 'amber', rec: 'Не работаете с Moz — закрывайте в robots.txt заодно с остальной SEO-четвёркой.' }
   ];
 
   const groups = [
@@ -338,7 +346,8 @@ tr[data-badge="amber"] td:first-child { border-left-color: var(--amber-tx); }
           const matchCat = item.cat.toLowerCase().includes(q);
           const matchDesc = item.desc.toLowerCase().includes(q);
           const matchRec = item.rec.toLowerCase().includes(q);
-          return matchName || matchOwner || matchCat || matchDesc || matchRec;
+          const matchUA = (item.ua || '').toLowerCase().includes(q);
+          return matchName || matchOwner || matchCat || matchDesc || matchRec || matchUA;
         }
         return true;
       });
@@ -360,11 +369,15 @@ tr[data-badge="amber"] td:first-child { border-left-color: var(--amber-tx); }
       filtered.forEach(item => {
         let displayBadge = item.badge === 'red' ? '🔴 ' + item.verdict : (item.badge === 'green' ? '🟢 ' + item.verdict : (item.verdict === 'Лимитировать' ? '🟠 ' + item.verdict : '🟡 ' + item.verdict));
         let rawAgent = item.name.split(' / ')[0];
+        let uaChips = item.noUA
+          ? '<div class="ua-row"><span class="ua-chip noua">нет собственного UA — токен robots.txt</span></div>'
+          : '<div class="ua-row">' + (item.ua || rawAgent).split('|').map(t => `<span class="ua-chip" onclick="copyToClipboard('${t}')" title="Скопировать для grep и WAF">${t}</span>`).join('') + '</div>';
         rowsHtml += `
           <tr data-badge="${item.badge}">
             <td style="width:25%;">
               <div class="cr-name" onclick="copyToClipboard('${rawAgent}')" title="Нажмите для копирования юзер-агента">${item.name}</div>
               <div class="cr-owner">${item.owner}</div>
+              ${uaChips}
             </td>
             <td style="width:14%;"><span class="cr-cat">${item.cat}</span></td>
             <td style="width:31%;" class="cr-desc">${item.desc}</td>
@@ -401,6 +414,7 @@ tr[data-badge="amber"] td:first-child { border-left-color: var(--amber-tx); }
               <div>
                 <div class="cr-name" onclick="copyToClipboard('${item.name.split(' / ')[0]}')" title="Скопировать юзер-агент">${item.name}</div>
                 <div class="cr-owner">${item.owner} · <span style="color:var(--ac);font-weight:600;">${item.cat}</span></div>
+                ${item.noUA ? '<div class="ua-row"><span class="ua-chip noua">нет собственного UA — токен robots.txt</span></div>' : '<div class="ua-row">' + (item.ua || item.name.split(' / ')[0]).split('|').map(t => `<span class="ua-chip" onclick="copyToClipboard(\'${t}\')">${t}</span>`).join('') + '</div>'}
               </div>
               <span class="badge ${item.badge}">${badgeIcon} ${item.verdict}</span>
             </div>
@@ -489,11 +503,12 @@ tr[data-badge="amber"] td:first-child { border-left-color: var(--amber-tx); }
 
   // Export CSV
   window.exportCSV = function() {
-    let csv = 'Краулер (User-Agent);Владелец;Категория Cloudflare;Что делает на сайте;Вердикт;Рекомендация по блокировке\n';
+    let csv = 'Краулер;Строка User-Agent для матчинга;Владелец;Категория Cloudflare;Что делает на сайте;Вердикт;Рекомендация по блокировке\n';
     DATA.forEach(row => {
       const cleanDesc = row.desc.replace(/;/g, ',').replace(/\n/g, ' ');
       const cleanRec = row.rec.replace(/;/g, ',').replace(/\n/g, ' ');
-      csv += `"${row.name}";"${row.owner}";"${row.cat}";"${cleanDesc}";"${row.verdict}";"${cleanRec}"\n`;
+      const uaCol = row.noUA ? "нет (токен robots.txt)" : (row.ua || row.name.split(" / ")[0]).split("|").join(" | ");
+      csv += `"${row.name}";"${uaCol}";"${row.owner}";"${row.cat}";"${cleanDesc}";"${row.verdict}";"${cleanRec}"\n`;
     });
     const blob = new Blob(["\uFEFF" + csv], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
