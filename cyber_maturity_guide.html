@@ -6,6 +6,15 @@
 <title>Как выбрать инструмент оценки защищённости — Академия Батранкова</title>
 <meta name="description" content="Таблица выбора инструмента оценки защищённости по уровню зрелости ИБ. Для CISO и руководства.">
 <meta name="author" content="Denis Batrankov, CISSP">
+<link rel="canonical" href="https://tables.batrankov.ru/cyber_maturity_guide.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Академия Батранкова">
+<meta property="og:title" content="Как выбрать инструмент оценки защищённости: 6 уровней зрелости ИБ">
+<meta property="og:description" content="От аудита до TLPT: какой инструмент подходит вашему уровню, сколько стоит и как перейти на следующую ступень. V4 · 2026.">
+<meta property="og:url" content="https://tables.batrankov.ru/cyber_maturity_guide.html">
+<meta property="og:image" content="https://tables.batrankov.ru/og-maturity.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <style>
 :root {
   --font: 'Segoe UI', system-ui, Arial, sans-serif;
@@ -114,6 +123,16 @@ tr.dr td.cb { background: var(--cb-bg); color: var(--cb-fg); font-weight: 600; }
 .stop { color: var(--no-fg); }
 .go   { color: var(--yes-fg); }
 
+/* ROADMAP */
+.roadmap { margin: 0 1.5rem; display: flex; flex-direction: column; gap: .7rem; }
+.t-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; border-left: 4px solid var(--blue); }
+.t-card h3 { font-size: .95rem; margin-bottom: .6rem; color: var(--text); display:flex; align-items:center; gap:.5rem; flex-wrap:wrap; }
+.t-card h3 .t-time { margin-left:auto; font-size:.72rem; font-weight:600; color: var(--text3); background: var(--bg3); border-radius:4px; padding:.15rem .55rem; }
+.t-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:.9rem; font-size:.82rem; color: var(--text2); }
+.t-grid b { display:block; font-size:.68rem; letter-spacing:.06em; text-transform:uppercase; color: var(--text3); margin-bottom:.25rem; }
+.t-grid .t-err b { color: var(--no-fg); }
+@media (max-width: 760px){ .t-grid { grid-template-columns: 1fr; } }
+
 /* FAQ */
 .faq { margin: 0 1.5rem; display: flex; flex-direction: column; gap: .6rem; }
 .faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
@@ -171,8 +190,8 @@ tr.dr td.cb { background: var(--cb-bg); color: var(--cb-fg); font-weight: 600; }
   </div>
   <h1>Как выбрать инструмент оценки защищённости</h1>
   <div class="header-meta-row">
-    <span class="meta-badge">V3</span>
-    <span>Актуально: 24.06.2025</span>
+    <span class="meta-badge">V4</span>
+    <span>Актуально: 12.07.2026</span>
     <span style="color:#64748b">Denis Batrankov, CISSP</span>
   </div>
 </header>
@@ -287,7 +306,7 @@ tr.dr td.cb { background: var(--cb-bg); color: var(--cb-fg); font-weight: 600; }
     </tr>
 
     <tr class="dr">
-      <td class="td-lbl">Ориентир по бюджету<span class="td-sub">Российский рынок 2025</span></td>
+      <td class="td-lbl">Ориентир по бюджету<span class="td-sub">Российский рынок, данные 2025–2026</span></td>
       <td class="c1">от 100 тыс. ₽</td>
       <td class="c2">от 300 тыс. ₽</td>
       <td class="c3">от 1 млн ₽/год</td>
@@ -342,6 +361,58 @@ tr.dr td.cb { background: var(--cb-bg); color: var(--cb-fg); font-weight: 600; }
 
 <div class="footnote">
   * Standoff: часть компаний тестирует на стенде-дублере, часть — на живой инфраструктуре. Методику в РФ стандартизирует <a href="https://cyberfy.ru/" target="_blank">АО «Кибериспытание» (Cyberfy)</a>. Площадки: <a href="https://bugbounty.standoff365.com" target="_blank">Standoff 365</a>, <a href="https://bi.zone/products/bug-bounty/" target="_blank">BI.ZONE Bug Bounty</a>. Данные по выплатам: Standoff Bug Bounty 2025.
+</div>
+
+
+<!-- ROADMAP -->
+<div class="section-title mt1">Дорожная карта: как переходить между уровнями</div>
+<div class="roadmap">
+
+  <div class="t-card" style="border-left-color:#94a3b8">
+    <h3>1 → 2 · От аудита к пентесту <span class="t-time">обычно 6–12 месяцев</span></h3>
+    <div class="t-grid">
+      <div><b>Сигнал к переходу</b>Два аудита подряд: прошлые дыры закрыты, инвентаризация живёт и обновляется, а не лежит в Excel с прошлого года.</div>
+      <div><b>Что построить до</b>NGFW и базовая сегментация, MFA на критичных системах, патч-цикл по расписанию, назначенный владелец процесса.</div>
+      <div class="t-err"><b>Главная ошибка</b>Заказать пентест «посмотреть что будет». Он найдёт то, что аудит уже написал, — только втрое дороже.</div>
+    </div>
+  </div>
+
+  <div class="t-card" style="border-left-color:#94a3b8">
+    <h3>2 → 3 · От пентеста к BAS <span class="t-time">обычно 12–18 месяцев</span></h3>
+    <div class="t-grid">
+      <div><b>Сигнал к переходу</b>Два пентеста подряд без критических находок. Инфраструктура меняется быстрее, чем успевает годовой цикл пентестов.</div>
+      <div><b>Что построить до</b>SOC или договор MDR с внятным SLA, сбор логов с критичных систем, написанный и хотя бы раз отрепетированный план реагирования.</div>
+      <div class="t-err"><b>Главная ошибка</b>Купить BAS без SOC. Инструмент честно покажет пропущенные атаки — и это не увидит никто.</div>
+    </div>
+  </div>
+
+  <div class="t-card" style="border-left-color:#fbbf24">
+    <h3>3 → 4 · От BAS к Bug Bounty <span class="t-time">обычно 6–12 месяцев</span></h3>
+    <div class="t-grid">
+      <div><b>Сигнал к переходу</b>Покрытие детектов выше 70% по топ-20 техник MITRE ATT&amp;CK, пентесты перестали удивлять команду.</div>
+      <div><b>Что построить до</b>Процесс triage находок с SLA на исправление, владельцы у каждой системы, бюджет на выплаты и человек, который отвечает исследователям.</div>
+      <div class="t-err"><b>Главная ошибка</b>Открыть программу сразу на всю инфраструктуру. Начинайте с узкого scope — одного продукта или домена, иначе утонете в дублях.</div>
+    </div>
+  </div>
+
+  <div class="t-card" style="border-left-color:#fb923c">
+    <h3>4 → 5 · От Bug Bounty к кибериспытаниям <span class="t-time">обычно 12–24 месяца</span></h3>
+    <div class="t-grid">
+      <div><b>Сигнал к переходу</b>Программа работает больше года, исследователи редко находят что-то выше Medium, внутренний Red Team уже есть или создаётся.</div>
+      <div><b>Что построить до</b>Список недопустимых событий, сформулированный вместе с бизнесом, White Team для координации, бюджет на устранение найденного.</div>
+      <div class="t-err"><b>Главная ошибка</b>Формулировать НС языком ИТ — «получение domain admin». НС звучит языком денег: «остановка отгрузки на сутки», «вывод средств со счетов».</div>
+    </div>
+  </div>
+
+  <div class="t-card" style="border-left-color:#60a5fa">
+    <h3>5 → 5+ · От кибериспытаний к TLPT <span class="t-time">≈ 12 месяцев подготовки</span></h3>
+    <div class="t-grid">
+      <div><b>Сигнал к переходу</b>Регуляторное требование (DORA для структур в ЕС) или добровольный ориентир на будущие требования ЦБ РФ для системно значимых организаций.</div>
+      <div><b>Что построить до</b>Профиль актуальной APT-группировки через Threat Intelligence, программу Purple Teaming, договорённость с руководством о работе на живом продакшне.</div>
+      <div class="t-err"><b>Главная ошибка</b>Провести TLPT ради отчёта и пропустить фазу Purple Teaming. Без совместного разбора атаки это самый дорогой PDF в истории компании.</div>
+    </div>
+  </div>
+
 </div>
 
 <!-- SELF-DIAGNOSIS -->
@@ -494,13 +565,17 @@ tr.dr td.cb { background: var(--cb-bg); color: var(--cb-fg); font-weight: 600; }
   <strong>Главное правило:</strong> инструмент должен соответствовать уровню зрелости, а не бюджету или желанию красиво отчитаться. Запустить кибериспытания без выстроенной базы — значит дорого купить подтверждение того, что вас можно взломать. Это покажет и бесплатный сканер.
 </div>
 
+<div class="callout cl-blue mt1" style="border-left-color:#4ade80">
+  <strong>Готовлю вебинар по этой таблице:</strong> как компании реально переходят между уровнями — с разбором бюджета, сроков и типовых ошибок на каждой ступени. Анонс выйдет в канале <a href="https://t.me/safebdv" target="_blank" rel="noopener">«Топ Кибербезопасности»</a>. Вопрос по вашему уровню зрелости можно задать напрямую: <a href="https://t.me/ngksiva" target="_blank" rel="noopener">@ngksiva</a>.
+</div>
+
 <div class="callout cl-teal mt1 pb">
   <strong>Кибериспытания и Bug Bounty — не одно и то же.</strong> Bug Bounty ищет точечные баги в отдельных активах и платит за каждую находку. Кибериспытания проверяют можно ли пройти весь путь от периметра до недопустимого события и платят только за доказанный путь к катастрофе. Это разные вопросы к защите — и разные уровни готовности к ответу.
 </div>
 
 <footer class="site-footer">
   <span>Denis Batrankov, CISSP &nbsp;·&nbsp; <a href="https://batrankov.ru" target="_blank">batrankov.ru</a> &nbsp;·&nbsp; <a href="https://t.me/safebdv" target="_blank">@safebdv</a> &nbsp;·&nbsp; <a href="https://www.youtube.com/@BDVSecurity" target="_blank">YouTube</a></span>
-  <span>Академия Батранкова · V3 · 2025</span>
+  <span>Академия Батранкова · V4 · 2026</span>
 </footer>
 
 <script>
